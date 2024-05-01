@@ -362,10 +362,11 @@ h4 {
 }
 
 h5 {
-    font-size: 1.64063rem;
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: 700;
-    line-height: 1.98rem;
+    line-height: 2.2rem;
+    letter-spacing: 0.04em;
 }
 
 h6 {
@@ -615,4 +616,11 @@ header {
     .header-logo {
         width: 130px;
     }
+}
+
+.main-hero {
+    background-image: url("/assets/img/main-hero.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }

@@ -11,6 +11,7 @@ import { PlansComponent } from './components/plans/plans.component';
 import { WhoWeAreComponent } from './components/who-we-are/who-we-are.component';
 import { RatingSystemComponent } from './components/rating-system/rating-system.component';
 import { KnowMoreComponent } from './components/know-more/know-more.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { KnowMoreComponent } from './components/know-more/know-more.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

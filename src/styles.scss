@@ -135,6 +135,7 @@ body {font-family: "Raleway", sans-serif; overflow-y: hidden;}
 $primary-oposite-1: #070707;
 $primary-oposite-2: #0F1216;
 
+$gray-2: #D0D0D0;
 $gray-4: #818181;
 
 $danger: #EE5252;
@@ -152,6 +153,8 @@ $primary-text: #080C1F;
 $secundary-text: #6E7691;
 $white-text: #FFFFFF;
 $link-text: #2689D0;
+
+$input-bg: #F8F8F8;
 
 $brand-primary: #1C4532;
 $brand-secondary: #276749;
@@ -175,6 +178,10 @@ body, html, .bg-1 {
 
 .brand-bg {
     background-color: $brand-primary;
+}
+
+.brand-white-bg {
+    background-color: $brand-white;
 }
 
 .brand-medium-bg {
@@ -585,6 +592,14 @@ input {
 }
 
 // Buttons
+button {
+    transition: .3s;
+}
+
+button:disabled {
+    opacity: .7;
+}
+
 .brand-btn {
     font-size: 1rem;
     line-height: 1.5rem;
@@ -651,6 +666,54 @@ input {
     &:hover {
         background-color: $white-text;
         color: $primary-text;
+    }
+}
+
+// Form
+input, textarea {
+    background-color: $input-bg;
+    border: 1px solid $gray-2;
+    padding: 1rem;
+
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1rem;
+    letter-spacing: 0.03em;
+    color: $primary-text;
+    border-radius: 5px;
+
+    &::placeholder {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1rem;
+        letter-spacing: 0.03em;
+        color: $primary-text;
+    }
+}
+
+textarea {
+    min-height: 151px;
+    line-height: 1.5rem;
+
+    &::placeholder {
+        line-height: 1.5rem;
+    }
+}
+
+.input-container {
+    position: relative;
+    padding: 0;
+    width: 100%;
+
+    .input-icon {
+        position: absolute;
+        top: 50%;
+        right: 1rem;
+        transform: translateY(-50%);
+    }
+
+    input {
+        padding-right: 3.5rem;
     }
 }
 
@@ -751,3 +814,4 @@ header {
     border-radius: 10px;
     width: 90%;
 }
+

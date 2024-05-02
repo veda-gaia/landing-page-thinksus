@@ -154,9 +154,11 @@ $white-text: #FFFFFF;
 $link-text: #2689D0;
 
 $brand-primary: #1C4532;
+$brand-secondary: #276749;
 $brand-medium: #3d745a;
 $brand-dark: #123524;
 $brand-primary-hover: #285741;
+$brand-white: #EFF0E7;
 $brand-auxiliar: #CC94F6;
 
 $linear-colorful: var(--Linear-Linear, linear-gradient(217deg, #CC94F6 16.01%, #0F6 97.05%));
@@ -268,6 +270,10 @@ body, html, .bg-1 {
     letter-spacing: 0.03em;
 }
 
+.l-spacing-minus-1 {
+    letter-spacing: -0.03em;
+}
+
 .primary-text {
     color: $primary-text;
 }
@@ -346,7 +352,7 @@ h3 {
     font-size: 2.56375rem;
     font-style: normal;
     font-weight: 700;
-    line-height: 3.99rem;
+    line-height: 3.2rem;
     letter-spacing: -0.01281rem;
 }
 
@@ -396,17 +402,16 @@ h6 {
 .body-1 {
     font-size: 1.05rem;
     font-style: normal;
-    font-weight: 400;
-    line-height: 1.5rem;
-    letter-spacing: 0.01763rem;
+    font-weight: 500;
+    line-height: 1.6rem;
 }
 
 .body-2 {
-    font-size: 0.875rem;
+    font-size: 1.3125rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 1.2425rem;
-    letter-spacing: 0.01469rem;
+    line-height: 1.95rem;
+    letter-spacing: 0;
 }
 
 caption {
@@ -415,6 +420,98 @@ caption {
     font-weight: 500;
     line-height: 0.975rem;
     letter-spacing: 0.02019rem;
+}
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 3.2rem;
+        letter-spacing: -0.06006rem;
+    }
+    
+    h2 {
+        font-size: 3.20438rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 4.9875rem;
+    }
+    
+    h3 {
+        font-size: 2.2rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 2.8rem;
+        letter-spacing: -0.01281rem;
+    }
+    
+    .banner-h3 {
+        line-height: 3.3125rem;
+    }
+    
+    h4 {
+        font-size: 1.4rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 2.1rem;
+    }
+    
+    h5 {
+        font-size: 1.15rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 1.5rem;
+        letter-spacing: 0.05em;
+    }
+    
+    h6 {
+        font-size: 1.3125rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 0.00988rem;
+    }
+    
+    .subtitle-1 {
+        font-size: 1.05rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 1.5rem;
+        letter-spacing: 0.00525rem;
+    }
+    
+    .subtitle-2 {
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 1.2425rem;
+        letter-spacing: 0.00438rem;
+    }
+    
+    .body-1 {
+        font-size: 1.05rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.5rem;
+        letter-spacing: 0.01763rem;
+    }
+    
+    .body-2 {
+        font-size: 1.2rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.8rem;
+        letter-spacing: 0;
+    }
+    
+    caption {
+        font-size: 0.67188rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 0.975rem;
+        letter-spacing: 0.02019rem;
+    }
 }
 
 nav ul li a {
@@ -494,6 +591,23 @@ input {
     letter-spacing: 0.07em;
     font-weight: 700;
     background-color: $brand-primary;
+    color: $white-text;
+    border: none;
+    border-radius: .4rem;
+    padding: .75rem 1.5rem;
+    transition: .3s;
+
+    &:hover {
+        background-color: $brand-primary-hover;
+    }
+}
+
+.secondary-brand-btn {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    letter-spacing: 0.07em;
+    font-weight: 700;
+    background-color: $brand-secondary;
     color: $white-text;
     border: none;
     border-radius: .4rem;
@@ -619,8 +733,21 @@ header {
 }
 
 .main-hero {
-    background-image: url("/assets/img/main-hero.jpg");
+    background-image: url("/assets/img/main-hero-compressed.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.carousel-section-bg {
+    background-image: url("/assets/img/carousel-section-bg.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container-card-carousel {
+    background-color: $brand-white;
+    border-radius: 10px;
+    width: 90%;
 }

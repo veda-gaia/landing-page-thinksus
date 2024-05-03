@@ -162,6 +162,7 @@ $brand-medium: #3d745a;
 $brand-dark: #123524;
 $brand-primary-hover: #285741;
 $brand-white: #EFF0E7;
+$brand-400: #9AE6B4;
 $brand-auxiliar: #CC94F6;
 
 $linear-colorful: var(--Linear-Linear, linear-gradient(217deg, #CC94F6 16.01%, #0F6 97.05%));
@@ -392,6 +393,34 @@ h6 {
     font-weight: 700;
     line-height: normal;
     letter-spacing: 0.00988rem;
+}
+
+.title-small {
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+}
+
+.table-small-title {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+    display: block;
+    color: #131313;
+}
+
+.table-small-subtitle {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    
+    display: block;
+    color: #565656;
 }
 
 .subtitle-1 {
@@ -673,6 +702,19 @@ button:disabled {
     }
 }
 
+.brand-outline-btn {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    letter-spacing: 0.07em;
+    font-weight: 700;
+    background-color: transparent;
+    color: $brand-primary;
+    border: 1px solid $brand-primary;
+    border-radius: .4rem;
+    padding: .7rem 1.5rem;
+    transition: .3s;
+}
+
 // Form
 input, textarea {
     background-color: $input-bg;
@@ -881,3 +923,48 @@ header {
     width: 90%;
 }
 
+// Table
+.table-container {
+    border: 1px solid $brand-400;
+    border-radius: 8px;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+.table-column {
+    padding: 0;
+    margin: 0;
+
+    min-width: 318px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-right: 1px solid #E1E6DD;
+
+    div {
+        min-height: 93px;
+        max-height: 93px;
+        height: 93px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0 1.5rem;
+
+        &:nth-child(odd) {
+            background-color: #EDEDED;
+        }
+    }
+}
+
+.first-column {
+    border-right: 1px solid $gray-4;
+}
+
+@media screen and (max-width: 1400px) {
+    .table-container {
+        overflow-x: scroll;
+    }
+}

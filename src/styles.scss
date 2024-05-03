@@ -454,6 +454,14 @@ h6 {
     letter-spacing: 0;
 }
 
+.body-3 {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0;
+}
+
 caption {
     font-size: 0.67188rem;
     font-style: normal;
@@ -967,4 +975,25 @@ header {
     .table-container {
         overflow-x: scroll;
     }
+}
+
+// Quem somos
+.we-are-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    max-width: 1200px;
+
+    .second {
+        transform: translateY(40px);
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .we-are-container {
+        .second {
+            transform: translateY(0);
+        }
+    } 
 }

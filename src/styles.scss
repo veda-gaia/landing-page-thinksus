@@ -261,6 +261,10 @@ body, html, .bg-1 {
     font-size: 2rem;
 }
 
+.l-height-31 {
+    line-height: 31px;
+}
+
 .l-height-1-5 {
     line-height: 1.5rem;
 }
@@ -800,6 +804,68 @@ header {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.sub-hero-1 {
+    background-image: url("/assets/img/sub-hero-1-compressed.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .content {
+        padding-top: 8rem;
+    }
+}
+
+.sub-hero-2 {
+    background-image: url("/assets/img/sub-hero-2-compressed.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.sub-hero-3 {
+    background-image: url("/assets/img/carousel-section-bg.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.blockchain-technology-bg {
+    background-image: url("/assets/img/blockchain-technology.jpg");
+    background-position: top left;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .first-part-text {
+        max-width: 705px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .blockchain-technology-bg {
+        background-image: none;
+        background-color: #FFFFFF;
+        border-radius: 20px 20px 0 0;
+
+        .first-part-text {
+            max-width: 100%;
+        }
+    }
+}
+
+.avaliation-system-container {
+    background-image: url("/assets/img/avaliation-system-compressed.jpg");
+    background-position: bottom right;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 992px) {
+    .avaliation-system-container {
+        background-image: none;
+        background-color: $brand-primary;
+    }
 }
 
 .carousel-section-bg {

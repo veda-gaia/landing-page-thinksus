@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-know-more',
   templateUrl: './know-more.component.html',
   styleUrls: ['./know-more.component.scss']
 })
-export class KnowMoreComponent {
-
+export class KnowMoreComponent implements OnInit {
+  ngOnInit() {
+    this.scrollToTop()
+  }
+  
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }

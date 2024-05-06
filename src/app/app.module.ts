@@ -8,10 +8,11 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { EsgComponent } from './components/esg/esg.component';
 import { PlansComponent } from './components/plans/plans.component';
-import { WhoWeAreComponent } from './components/who-we-are/who-we-are.component';
 import { RatingSystemComponent } from './components/rating-system/rating-system.component';
 import { KnowMoreComponent } from './components/know-more/know-more.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FreeTestComponent } from './components/free-test/free-test.component';
+import { NgxMaskDirective, NgxMaskPipe, provideEnvironmentNgxMask } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -21,16 +22,20 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     EsgComponent,
     PlansComponent,
-    WhoWeAreComponent,
     RatingSystemComponent,
-    KnowMoreComponent
+    KnowMoreComponent,
+    FreeTestComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxMaskDirective,
+    NgxMaskPipe,
   ],
-  providers: [],
+  providers: [
+    provideEnvironmentNgxMask(),
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

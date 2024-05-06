@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WhoWeAreComponent } from './who-we-are.component';
+import { FreeTestComponent } from './free-test.component';
 
-describe('WhoWeAreComponent', () => {
-  let component: WhoWeAreComponent;
-  let fixture: ComponentFixture<WhoWeAreComponent>;
+describe('FreeTestComponent', () => {
+  let component: FreeTestComponent;
+  let fixture: ComponentFixture<FreeTestComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [WhoWeAreComponent]
+      declarations: [FreeTestComponent]
     });
-    fixture = TestBed.createComponent(WhoWeAreComponent);
+    fixture = TestBed.createComponent(FreeTestComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

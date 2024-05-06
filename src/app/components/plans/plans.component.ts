@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./plans.component.scss']
 })
 export class PlansComponent {
-
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }

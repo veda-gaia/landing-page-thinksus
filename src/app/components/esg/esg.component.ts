@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./esg.component.scss']
 })
 export class EsgComponent {
-
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }

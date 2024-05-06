@@ -43,6 +43,10 @@ body {font-family: "Raleway", sans-serif; overflow-y: hidden;}
     max-height: 100dvh;
 }
 
+.opacity-08 {
+    opacity: .8;
+}
+
 @keyframes fade-in {
     from {
         opacity: 0;
@@ -259,6 +263,10 @@ body, html, .bg-1 {
     font-size: 0.8rem;
 }
 
+.f-size-0-85rem {
+    font-size: 0.85rem;
+}
+
 .f-size-1rem {
     font-size: 1rem;
 }
@@ -281,6 +289,10 @@ body, html, .bg-1 {
 
 .l-height-1-5 {
     line-height: 1.5rem;
+}
+
+.l-height-1-25 {
+    line-height: 1.25rem;
 }
 
 .l-height-2-0625 {
@@ -750,7 +762,7 @@ button:disabled {
 }
 
 .language-container {
-    top: 20vh;
+    top: 15vh;
     left: -145px;
     transition: .3s;
 
@@ -1049,4 +1061,19 @@ header {
             transform: translateY(0);
         }
     } 
+}
+
+.glossary-card {
+    background-color: $brand-white;
+    border: 1px solid #E1E6DD;
+
+    border-radius: 8px;
+}
+
+.vertical-separator {
+    display: block;
+    height: 425px;
+    width: 1px;
+
+    background-color: $gray-2;
 }

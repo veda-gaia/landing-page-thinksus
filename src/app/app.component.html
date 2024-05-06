@@ -5,7 +5,7 @@
 <app-footer></app-footer>
 
 <!-- Seletor de Idioma -->
-<div class="language-container d-flex align-items-start justify-content-end m-0 position-absolute" [class.active]="openSelectorLanguage">
+<div class="language-container d-flex align-items-start justify-content-end m-0 position-fixed" [class.active]="openSelectorLanguage">
     <ul class="m-0 languages-list" (click)="toggleSelector()">
         <li (click)="changeLanguage('en-US')">
             English
@@ -13,7 +13,7 @@
         <li (click)="changeLanguage('pt-BR')">
             Português - BR
         </li>
-    </ul>
+    </ul> 
     <div>
         <button class="language-btn" (click)="toggleSelector()">
             <img *ngIf="!openSelectorLanguage" src="/assets/icon/language.svg" alt="Linguagens" width="20px">

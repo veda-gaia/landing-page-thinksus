@@ -1,0 +1,291 @@
+<div class="w-100 py-5 brand-bg"></div>
+
+<!-- Sistema de avaliação -->
+<section class="py-5">
+    <div class="container pt-4">
+        <div class="row justify-content-center">
+            <form *ngIf="actualStep === 1" [formGroup]="form1" (submit)="onSubmitStep1()" class="fade-in-right col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-5 pb-lg-5 pt-lg-4">
+                <h4 class="brand-text fw-700 pb-3">
+                    Avaliação gratuita
+                </h4>
+
+                <p class="secondary-text fw-600 pb-5">
+                    Primeiro, precisamos que você se identifique
+                </p>
+
+                <label for="name" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Nome</label>
+                <input type="text" class="w-100 mb-4" formControlName="name" placeholder="Digite seu nome" autocomplete="off" id="name" name="name">
+
+                <label for="email" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Email</label>
+                <input type="text" mask="A*@A*.SSS" [validation]="true" [dropSpecialCharacters]="false" class="w-100 mb-4" formControlName="email" placeholder="Digite seu email" autocomplete="off" id="email" name="email">
+
+                <label for="role" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Cargo</label>
+                <input type="text" class="w-100 mb-4" formControlName="role" placeholder="Digite seu cargo" autocomplete="off" id="role" name="role">
+
+                <label for="companyName" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Nome da empresa</label>
+                <input type="text" class="w-100 mb-4" formControlName="companyName" placeholder="Digite seu cargo" autocomplete="off" id="companyName" name="companyName">
+                
+                <div class="mb-5 d-flex align-items-start gap-2">
+                    <input type="checkbox" style="width: fit-content;" class="d-inline" formControlName="acceptTerms" placeholder="aceito os termos" id="acceptTerms" name="acceptTerms">
+                    <div>
+                        <label for="acceptTerms" class="fw-500 secondary-text f-size-1rem l-spacing-0-75 d-inline gap-1">
+                            Eu li e aceito os 
+                            <a class="brand-text d-inline text-decoration-underline cursor-pointer">Termos de Uso e Privacidade</a>
+                        </label>
+                    </div>
+                </div>
+
+                <button class="secondary-brand-btn px-lg-5 d-block mx-auto w-100" [disabled]="form1.invalid" type="submit">
+                    Iniciar Avaliação
+                </button>
+                <a routerLink="/home">
+                    <button class="brand-outline-btn px-lg-5 d-block mx-auto w-100 mt-3 opacity-08" >
+                        Voltar
+                    </button>
+                </a>
+            </form>
+
+            <form *ngIf="actualStep === 2" [formGroup]="form2" (submit)="onSubmitStep2()" class="fade-in-right col pb-lg-5 pt-lg-4">
+                <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 w-100 pb-5">
+                    <h4 class="brand-text fw-700 p-0">
+                        Avaliação gratuita
+                    </h4>
+    
+                    <div class="d-flex align-items-center justify-content-end gap-3">
+                        <p class="secondary-text fw-600 p-0 pe-2">
+                            Questão &shy; {{ actualStep - 1 }} &shy; de &shy; 3
+                        </p>
+
+                        <button class="bg-transparent border-0 shadow-none" (click)="stepBack()">
+                            <img src="assets/icon/step-back.svg" alt="">
+                        </button>
+
+                        <button class="bg-transparent border-0 shadow-none">
+                            <img src="assets/icon/step-next.svg" alt="">
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
+                    <div class="flex-grow-1 w-100">
+                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep - 1 }}. Existe controle de pegada de carbono e ações para mitigação?</p>
+
+                        <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                            <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
+                            <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Sim</label>
+                        </div>
+
+                        <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                            <input type="radio" style="width: fit-content;" formControlName="answer" id="no" name="answer" value="no">
+                            <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não</label>
+                        </div>
+
+                        <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                            <input type="radio" style="width: fit-content;" formControlName="answer" id="undefined" name="answer" value="undefined">
+                            <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
+                        </div>
+
+                        <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
+                            Próximo
+                        </button>
+                    </div>
+
+                    <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
+                        <h4 class="brand-text fw-700 p-0 pb-4">
+                            Glossário
+                        </h4>
+
+                        <p class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                            {{ keepReading 
+                                ? 
+                                'A pegada de carbono (carbon footprint - em inglês) é uma metodologia criada para medir as emissões de gases estufa - todas elas, independente do tipo de gás emitido, são convertidas em carbono equivalente. Esses gases são emitidos na atmosfera durante o ciclo de vida de um produto, de processos ou de serviços. São exemplos de atividades que geram emissões a queima de combustíveis fósseis, o cultivo de arroz, a criação de pastagem para gado, o desmatamento, as queimadas, a produção de cimento, o uso desenfreado de recursos naturais, entre outras.'
+                                :
+                                'A pegada de carbono (carbon footprint - em inglês) é uma metodologia criada para medir as emissões de gases estufa - todas elas, independente do tipo de gás emitido, são convertidas em carbono equivalente. Esses gases são emitidos na atmosfera durante o ciclo de vida de um produto, de processos ou de serviços. São exemplos de atividades que geram emissões a queima de combustíveis fósseis, o cultivo de arroz, a criação de pastagem para gado, o desmatamento, as queimadas, a produção de cimento, o uso desenfreado de recursos naturais, entre outras.'.slice(0, 400) + '...'
+                            }}
+                            
+                        </p>
+
+                        <div class="d-flex align-items-center justify-content-end w-100">
+                            <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
+                                Continuar lendo
+                                <img src="/assets/icon/share.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <form *ngIf="actualStep === 3" [formGroup]="form3" (submit)="onSubmitStep3()" class="fade-in-right col pb-lg-5 pt-lg-4">
+                <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 w-100 pb-5">
+                    <h4 class="brand-text fw-700 p-0">
+                        Avaliação gratuita
+                    </h4>
+    
+                    <div class="d-flex align-items-center justify-content-end gap-3">
+                        <p class="secondary-text fw-600 p-0 pe-2">
+                            Questão &shy; {{ actualStep - 1 }} &shy; de &shy; 3
+                        </p>
+
+                        <button class="bg-transparent border-0 shadow-none" (click)="stepBack()">
+                            <img src="assets/icon/step-back.svg" alt="">
+                        </button>
+
+                        <button class="bg-transparent border-0 shadow-none">
+                            <img src="assets/icon/step-next.svg" alt="">
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
+                    <div class="flex-grow-1 w-100">
+                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep - 1 }}. Existe controle de pegada de carbono e ações para mitigação?</p>
+
+                        <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                            <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
+                            <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Sim</label>
+                        </div>
+
+                        <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                            <input type="radio" style="width: fit-content;" formControlName="answer" id="no" name="answer" value="no">
+                            <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não</label>
+                        </div>
+
+                        <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                            <input type="radio" style="width: fit-content;" formControlName="answer" id="undefined" name="answer" value="undefined">
+                            <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
+                        </div>
+
+                        <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
+                            Próximo
+                        </button>
+                    </div>
+
+                    <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
+                        <h4 class="brand-text fw-700 p-0 pb-4">
+                            Glossário
+                        </h4>
+
+                        <p class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                            {{ keepReading 
+                                ? 
+                                'A pegada de carbono (carbon footprint - em inglês) é uma metodologia criada para medir as emissões de gases estufa - todas elas, independente do tipo de gás emitido, são convertidas em carbono equivalente. Esses gases são emitidos na atmosfera durante o ciclo de vida de um produto, de processos ou de serviços. São exemplos de atividades que geram emissões a queima de combustíveis fósseis, o cultivo de arroz, a criação de pastagem para gado, o desmatamento, as queimadas, a produção de cimento, o uso desenfreado de recursos naturais, entre outras.'
+                                :
+                                'A pegada de carbono (carbon footprint - em inglês) é uma metodologia criada para medir as emissões de gases estufa - todas elas, independente do tipo de gás emitido, são convertidas em carbono equivalente. Esses gases são emitidos na atmosfera durante o ciclo de vida de um produto, de processos ou de serviços. São exemplos de atividades que geram emissões a queima de combustíveis fósseis, o cultivo de arroz, a criação de pastagem para gado, o desmatamento, as queimadas, a produção de cimento, o uso desenfreado de recursos naturais, entre outras.'.slice(0, 400) + '...'
+                            }}
+                            
+                        </p>
+
+                        <div class="d-flex align-items-center justify-content-end w-100">
+                            <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
+                                Continuar lendo
+                                <img src="/assets/icon/share.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <form *ngIf="actualStep === 4" [formGroup]="form4" (submit)="onSubmitStep4()" class="fade-in-right col pb-lg-5 pt-lg-4">
+                <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 w-100 pb-5">
+                    <h4 class="brand-text fw-700 p-0">
+                        Avaliação gratuita
+                    </h4>
+    
+                    <div class="d-flex align-items-center justify-content-end gap-3">
+                        <p class="secondary-text fw-600 p-0 pe-2">
+                            Questão &shy; {{ actualStep - 1 }} &shy; de &shy; 3
+                        </p>
+
+                        <button class="bg-transparent border-0 shadow-none" (click)="stepBack()">
+                            <img src="assets/icon/step-back.svg" alt="">
+                        </button>
+
+                        <button class="bg-transparent border-0 shadow-none">
+                            <img src="assets/icon/step-next.svg" alt="">
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
+                    <div class="flex-grow-1 w-100">
+                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep - 1 }}. Existe controle de pegada de carbono e ações para mitigação?</p>
+
+                        <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                            <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
+                            <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Sim</label>
+                        </div>
+
+                        <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                            <input type="radio" style="width: fit-content;" formControlName="answer" id="no" name="answer" value="no">
+                            <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não</label>
+                        </div>
+
+                        <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                            <input type="radio" style="width: fit-content;" formControlName="answer" id="undefined" name="answer" value="undefined">
+                            <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
+                        </div>
+
+                        <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
+                            Próximo
+                        </button>
+                    </div>
+
+                    <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
+                        <h4 class="brand-text fw-700 p-0 pb-4">
+                            Glossário
+                        </h4>
+
+                        <p class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                            {{ keepReading 
+                                ? 
+                                'A pegada de carbono (carbon footprint - em inglês) é uma metodologia criada para medir as emissões de gases estufa - todas elas, independente do tipo de gás emitido, são convertidas em carbono equivalente. Esses gases são emitidos na atmosfera durante o ciclo de vida de um produto, de processos ou de serviços. São exemplos de atividades que geram emissões a queima de combustíveis fósseis, o cultivo de arroz, a criação de pastagem para gado, o desmatamento, as queimadas, a produção de cimento, o uso desenfreado de recursos naturais, entre outras.'
+                                :
+                                'A pegada de carbono (carbon footprint - em inglês) é uma metodologia criada para medir as emissões de gases estufa - todas elas, independente do tipo de gás emitido, são convertidas em carbono equivalente. Esses gases são emitidos na atmosfera durante o ciclo de vida de um produto, de processos ou de serviços. São exemplos de atividades que geram emissões a queima de combustíveis fósseis, o cultivo de arroz, a criação de pastagem para gado, o desmatamento, as queimadas, a produção de cimento, o uso desenfreado de recursos naturais, entre outras.'.slice(0, 400) + '...'
+                            }}
+                            
+                        </p>
+
+                        <div class="d-flex align-items-center justify-content-end w-100">
+                            <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
+                                Continuar lendo
+                                <img src="/assets/icon/share.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div *ngIf="actualStep === 5" class="pb-5 fade-in-right d-flex flex-column flex-lg-row align-items-start gap-5 justify-content-between">
+                <div class="w-100 flex-grow-1 ps-lg-5">
+                    <h1 class="pb-2">
+                        {{ form1.controls['companyName'].value }}
+                    </h1>
+                    <p class="fw-600 l-spacing-0-75">
+                        + {{ form1.controls['name'].value }}
+                    </p>
+    
+                    <img src="/assets/img/selo.svg" alt="Selo prata ThinkSus" class="mt-5 shadow-sm">
+                </div>
+                
+                <div class="vertical-separator d-none d-lg-block me-5"></div>
+
+                <div class="w-100 flex-grow-1">
+                    <h2 class="pb-1">
+                        Parabéns!
+                    </h2>
+                    <h5 class="fw-600 l-spacing-0-75 pb-4">
+                        Você concluiu a Avaliação gratuita!
+                    </h5>
+
+                    <p class="fw-400 f-size-1rem l-height-1-5">
+                        A sua pontuação inicial foi de 60%, lhe 
+                        rendendo o selo de Bronze, o que significa 
+                        que sua empresa tem entendimento e já 
+                        pratica ESG, apesar de precisa melhorar 
+                        em alguns pontos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

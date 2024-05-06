@@ -3,9 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { EsgComponent } from './components/esg/esg.component';
 import { PlansComponent } from './components/plans/plans.component';
-import { WhoWeAreComponent } from './components/who-we-are/who-we-are.component';
 import { RatingSystemComponent } from './components/rating-system/rating-system.component';
 import { KnowMoreComponent } from './components/know-more/know-more.component';
+import { FreeTestComponent } from './components/free-test/free-test.component';
 
 const routes: Routes = [
   {
@@ -22,16 +22,20 @@ const routes: Routes = [
     component: EsgComponent,
   },
   {
-    path: 'planos',
+    path: 'plans',
     component: PlansComponent,
   },
   {
-    path: 'saiba-mais',
+    path: 'about-us',
     component: KnowMoreComponent,
   },
   {
-    path: 'quem-somos',
-    component: WhoWeAreComponent,
+    path: 'free-test',
+    component: FreeTestComponent,
+  },
+  {
+    path: 'about-us',
+    component: KnowMoreComponent,
   },
   {
     path: 'enterprise-rating-system',

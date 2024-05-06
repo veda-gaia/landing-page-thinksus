@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'landing-page-thinksus';
+  openSelectorLanguage = false
+  selectedLanguage: string
+
+  constructor(){
+    this.selectedLanguage = 'pt-BR'
+  }
+
+  changeLanguage(language: string) {
+    this.selectedLanguage = language
+  }
+
+  toggleSelector() {
+    this.openSelectorLanguage = !this.openSelectorLanguage
+  }
 }

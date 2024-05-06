@@ -131,6 +131,19 @@ body {font-family: "Raleway", sans-serif; overflow-y: hidden;}
     animation-delay: .8s;
 }
 
+// @media (prefers-reduced-motion: no-preference) {
+//     .left-view-fade {
+//         transform: translateX(-30px); opacity: .2;
+//         animation: left-view-fade linear forwards;
+//         animation-timeline: view();
+//         animation-range: 250px 500px;
+//     }
+
+//     @keyframes left-view-fade {
+//         to { transform: translateX(0); opacity: 1; }
+//     }
+// }
+
 // Colors
 $primary-oposite-1: #070707;
 $primary-oposite-2: #0F1216;
@@ -721,6 +734,46 @@ button:disabled {
     border-radius: .4rem;
     padding: .7rem 1.5rem;
     transition: .3s;
+}
+
+.language-btn {
+    background-color: $brand-white;
+    border-radius: 0 .5rem .5rem 0;
+    border: none;
+    box-shadow: none;
+
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.language-container {
+    top: 20vh;
+    left: -145px;
+    transition: .3s;
+
+    &.active {
+        left: 0;
+    }
+}
+
+.languages-list {
+    background-color: $brand-white;
+    border-radius: 0 0 .5rem 0;
+    overflow: hidden;
+    
+    li {
+        padding: 1rem;
+        background-color: $brand-white;
+        transition: .2s;
+        cursor: pointer;
+
+        // &:hover {
+        //     background-color: $gray-2;
+        // }
+    }
 }
 
 // Form

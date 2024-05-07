@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./free-test.component.scss']
 })
 export class FreeTestComponent {
-  actualStep = 5
+  actualStep = 1
   keepReading = false
   
   form1: FormGroup

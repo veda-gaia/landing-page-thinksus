@@ -19,10 +19,10 @@ export class FreeTestComponent {
     private fb: FormBuilder
   ) {
     this.form1 = this.fb.group({
-      name: ['Mateus Borges', Validators.required],
+      name: ['', Validators.required],
       email: ['', Validators.required],
       role: ['', Validators.required],
-      companyName: ['ColabX', Validators.required],
+      companyName: ['', Validators.required],
       acceptTerms: [false, Validators.requiredTrue],
     })
 

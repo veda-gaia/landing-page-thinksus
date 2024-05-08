@@ -1,0 +1,208 @@
+<div class="w-100 py-5 brand-bg"></div>
+
+<!-- Sistema de avaliação -->
+<section class="container-fluid">
+    <div class="row justify-content-center justify-content-lg-between">
+        <div class="d-none d-lg-block col-0 col-lg-6 ps-0">
+            <img src="/assets/img/auth-img.jpg" alt="Imagem de indústria" class="auth-img">
+        </div>
+        <div class="col-12 col-lg-6 pb-lg-5 pt-lg-4 d-flex flex-column align-items-center justify-content-center pb-5 pb-lg-0">
+            <!-- Steps Metric  -->
+            <div class="d-flex align-items-center justify-content-start gap-4 max-width-360 w-100 pt-5 mt-5 mt-lg-0">
+                <p class="secondary-text fw-600 m-0 p-0">
+                    Parte 1 de 4
+                </p>
+
+                <div class="d-flex align-items-center justify-content-start gap-2">
+                    <div class="metric-step" [class.active]="actualStep === 1"></div>
+                    <div class="metric-step" [class.active]="actualStep === 2"></div>
+                    <div class="metric-step" [class.active]="actualStep === 3"></div>
+                    <div class="metric-step" [class.active]="(actualStep === 4) || (actualStep === 5)"></div>
+                </div>
+            </div>
+
+            <form *ngIf="actualStep === 1" [formGroup]="form1" (submit)="onSubmitStep1()" class="fade-in-right py-5 pb-lg-5 pt-lg-4 max-width-360">
+                <h4 class="brand-text fw-700 pb-2">
+                    Cadastro
+                </h4>
+
+                <p class="secondary-text fw-600 pb-4">
+                    Primeiro, precisamos que você se identifique
+                </p>
+
+                <label for="name" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Nome</label>
+                <input type="text" class="w-100 mb-4" formControlName="name" placeholder="Digite seu nome" autocomplete="off" id="name" name="name">
+
+                <label for="email" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Email</label>
+                <input type="text" mask="A*@A*.SSS" [validation]="true" [dropSpecialCharacters]="false" class="w-100 mb-4" formControlName="email" placeholder="email@email.com" autocomplete="off" id="email" name="email">
+
+                <label for="phone" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Telefone</label>
+                <input type="tel" class="w-100 mb-4" formControlName="phone" mask="(00) 00000-0000" placeholder="(00) 00000-0000" autocomplete="off" id="phone" name="phone">
+
+                <label for="role" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Cargo</label>
+                <input type="text" class="w-100 mb-4" formControlName="role" placeholder="Digite seu cargo" autocomplete="off" id="role" name="role">
+
+                <label for="password" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Senha</label>
+                <input type="text" class="w-100 mb-4" formControlName="password" placeholder="Digite uma senha de 8 dígitos" autocomplete="off" id="password" name="password">
+                
+                <div class="mb-5 d-flex align-items-start gap-2">
+                    <input type="checkbox" style="width: fit-content;" class="d-inline" formControlName="acceptTerms" placeholder="aceito os termos" id="acceptTerms" name="acceptTerms">
+                    <div>
+                        <label for="acceptTerms" class="fw-500 secondary-text f-size-1rem l-spacing-0-75 d-inline gap-1">
+                            Eu li e aceito os 
+                            <a class="brand-text d-inline text-decoration-underline cursor-pointer">Termos de Uso e Privacidade</a>
+                        </label>
+                    </div>
+                </div>
+
+                <button class="secondary-brand-btn px-lg-5 d-block mx-auto w-100" [disabled]="form1.invalid" type="submit">
+                    Avançar
+                </button>
+                <a routerLink="/login">
+                    <button class="brand-outline-btn px-lg-5 d-block mx-auto w-100 mt-3 opacity-08">
+                        Já Sou Cadastrado
+                    </button>
+                </a>
+            </form>
+
+            <form *ngIf="actualStep === 2" [formGroup]="form2" (submit)="onSubmitStep2()" class="fade-in-right py-5 pb-lg-5 pt-lg-4 max-width-360">
+                <h4 class="brand-text fw-700 pb-2">
+                    Cadastro
+                </h4>
+
+                <p class="secondary-text fw-600 pb-4">
+                    Identifique a empresa
+                </p>
+
+                <label for="enterpriseName" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Nome da empresa</label>
+                <input type="text" class="w-100 mb-4" formControlName="enterpriseName" placeholder="Digite o nome da empresa" autocomplete="off" id="enterpriseName" name="enterpriseName">
+
+                <label for="document" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">CNPJ</label>
+                <input type="text" mask="00.000.000/0000-00" class="w-100 mb-4" formControlName="document" placeholder="00.000.000/0000-00" autocomplete="off" id="document" name="document">
+                
+                <label for="country" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">País</label>
+                <select name="country" id="country" formControlName="country" class="d-block mb-4">
+                    <option *ngFor="let country of countryList" [value]="country">{{ country }}</option>
+                </select>
+
+                <div class="d-flex align-items-start justify-content-between gap-3">
+                    <div>
+                        <label for="state" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Estado Sede</label>
+                        <input type="text" class="w-100 mb-4" formControlName="state" placeholder="Digite o Estado" autocomplete="off" id="state" name="state">
+                    </div>
+
+                    <div>
+                        <label for="city" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Cidade Sede</label>
+                        <input type="text" class="w-100 mb-4" formControlName="city" placeholder="Digite a Cidade" autocomplete="off" id="city" name="city">
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-start justify-content-between gap-3 mb-4">
+                    <div>
+                        <label for="sector" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Setor</label>
+                        <input type="text" class="w-100 mb-4" formControlName="sector" placeholder="Digite o Setor" autocomplete="off" id="sector" name="sector">
+                    </div>
+
+                    <div>
+                        <label for="segment" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Segmento</label>
+                        <input type="text" class="w-100 mb-4" formControlName="segment" placeholder="Digite o Segmento" autocomplete="off" id="segment" name="segment">
+                    </div>
+                </div>
+
+                <button class="secondary-brand-btn px-lg-5 d-block mx-auto w-100" [disabled]="form2.invalid" type="submit">
+                    Avançar
+                </button>
+                <button class="brand-outline-btn px-lg-5 d-block mx-auto w-100 mt-3 opacity-08" (click)="stepBack()">
+                    Voltar
+                </button>
+            </form>
+
+            <form *ngIf="actualStep === 3" [formGroup]="form3" (submit)="onSubmitStep3()" class="fade-in-right py-5 pb-lg-5 pt-lg-4 max-width-360">
+                <h4 class="brand-text fw-700 pb-2">
+                    Cadastro
+                </h4>
+
+                <p class="secondary-text fw-600 pb-4">
+                    Identifique a empresa
+                </p>
+                
+                <label for="collaboratorsAmmount" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Número de colaboradores na empresa</label>
+                <select name="collaboratorsAmmount" id="collaboratorsAmmount" formControlName="collaboratorsAmmount" class="d-block mb-4">
+                    <option value="1-100">De 1 a 100</option>
+                    <option value="100-1.000">De 100 a 1.000</option>
+                    <option value="1.000-5.000">De 1.000 a 5.000</option>
+                    <option value="5.000-50.000">De 5.000 a 50.000</option>
+                    <option value="50.000+">Mais de 50.000</option>
+                </select>
+                
+                <label for="invoicing" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Faturamento da empresa</label>
+                <select name="invoicing" id="invoicing" formControlName="invoicing" class="d-block mb-4">
+                    <option value="above-10.000">Acima de R$10.000,00</option>
+                    <option value="above-50.000">Acima de R$50.000,00</option>
+                    <option value="above-100.000">Acima de R$100.000,00</option>
+                    <option value="above-1.000.000">Acima de R$1.000.000,00</option>
+                </select>
+
+                <button class="secondary-brand-btn px-lg-5 d-block mx-auto w-100" [disabled]="form3.invalid" type="submit">
+                    Avançar
+                </button>
+                <button class="brand-outline-btn px-lg-5 d-block mx-auto w-100 mt-3 opacity-08" (click)="stepBack()">
+                    Voltar
+                </button>
+            </form>
+
+            <div *ngIf="actualStep === 4" class="fade-in-right py-5 pb-lg-5 pt-lg-4 max-width-360">
+                <h4 class="brand-text fw-700 pb-2">
+                    Confirmação
+                </h4>
+
+                <p class="secondary-text fw-600 pb-4">
+                    Confirme o seu email
+                </p>
+
+                <p class="secondary-text fw-600 pb-4">
+                    Clique no link que enviamos para:
+                </p>
+
+                <p class="brand-text fw-800 pb-4">
+                    {{ email.value }}
+                </p>
+                
+                <p class="secondary-text fw-600 pb-5">
+                    Após a confirmação, clique em continuar para prosseguir com o cadastro
+                </p>
+
+                <button class="secondary-brand-btn px-lg-5 d-block mx-auto w-100" (click)="onSubmitStep4()">
+                    Avançar
+                </button>
+                <button class="brand-outline-btn px-lg-5 d-block mx-auto w-100 mt-3 opacity-08" (click)="stepBack()">
+                    Voltar
+                </button>
+            </div>
+
+            <div *ngIf="actualStep === 5" class="fade-in-right py-5 pb-lg-5 pt-lg-4 max-width-360">
+                <h4 class="brand-text fw-700 pb-2">
+                    Email confirmado
+                </h4>
+
+                <p class="secondary-text fw-600 pb-4">
+                    Agradecemos o cadastro, {{ name.value }}
+                </p>
+
+                <p class="brand-text fw-800 pb-4">
+                    Aproveite o Painel ThinkSus
+                </p>
+                
+                <p class="secondary-text fw-600 pb-5">
+                    Você pode clicar no botão abaixo para entrar na aplicaçãoo
+                </p>
+
+                <a routerLink="/logged/home">
+                    <button class="secondary-brand-btn px-lg-5 d-block mx-auto w-100">
+                        Ir Para o Painel
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

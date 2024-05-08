@@ -1,23 +1,27 @@
-<app-header></app-header>
-
-<router-outlet></router-outlet>
-
-<app-footer></app-footer>
-
 <!-- Seletor de Idioma -->
-<div class="language-container d-flex align-items-start justify-content-end m-0 position-fixed" [class.active]="openSelectorLanguage">
-    <ul class="m-0 languages-list" (click)="toggleSelector()">
-        <li (click)="changeLanguage('en-US')">
-            English
-        </li>
-        <li (click)="changeLanguage('pt-BR')">
-            Português - BR
-        </li>
-    </ul> 
+<div class="language-container d-flex flex-row-reverse align-items-start justify-content-end m-0 position-fixed" [class.active]="openSelectorLanguage">
     <div>
         <button class="language-btn" (click)="toggleSelector()">
             <img *ngIf="!openSelectorLanguage" src="/assets/icon/language.svg" alt="Linguagens" width="20px">
             <img *ngIf="openSelectorLanguage" src="/assets/icon/chevron-left.svg" alt="Fechar" width="25px">
         </button>
     </div>
+    <ul class="m-0 languages-list" (click)="toggleSelector()">
+        <li (click)="changeLanguage('en-US')">
+            <button class="no-bg-btn p-0 m-0" title="Change language to English">
+                English
+            </button>
+        </li>
+        <li (click)="changeLanguage('pt-BR')" title="Mudar idioma para Português do Brasil">
+            <button class="no-bg-btn p-0 m-0">
+                Português - BR
+            </button>
+        </li>
+    </ul> 
 </div>
+
+<app-header></app-header>
+
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>

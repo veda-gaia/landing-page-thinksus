@@ -13,6 +13,8 @@ import { KnowMoreComponent } from './components/know-more/know-more.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FreeTestComponent } from './components/free-test/free-test.component';
 import { NgxMaskDirective, NgxMaskPipe, provideEnvironmentNgxMask } from 'ngx-mask';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { NgxMaskDirective, NgxMaskPipe, provideEnvironmentNgxMask } from 'ngx-ma
     PlansComponent,
     RatingSystemComponent,
     KnowMoreComponent,
-    FreeTestComponent
+    FreeTestComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

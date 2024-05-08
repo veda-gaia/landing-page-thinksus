@@ -657,6 +657,21 @@ input {
     }
 }
 
+select {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5rem;
+    letter-spacing: 0.03681rem;
+    color: $primary-text;
+    width: 100%;
+    background-color: $input-background;
+    border: 1px solid #c1d4c7;
+    border-radius: 4px;
+
+    padding: .75rem 1rem .75rem 1rem;
+}
+
 // Buttons
 button {
     transition: .3s;
@@ -759,6 +774,12 @@ button:disabled {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.no-bg-btn {
+    border-color: transparent;
+    border: none;
+    box-shadow: none;
 }
 
 .language-container {
@@ -1077,3 +1098,34 @@ header {
 
     background-color: $gray-2;
 }
+
+.auth-img {
+    object-fit: cover;
+
+    height: 100%;
+    min-height: 100%;
+    max-height: 100%;
+
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+}
+
+.max-width-360 {
+    max-width: 360px;
+}
+
+.metric-step {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    border: 3px solid $support-lines;
+    border-radius: .5rem;
+    
+    transition: .3s;
+    
+    &.active {
+        border: 5px solid $brand-dark;
+    }
+}
+

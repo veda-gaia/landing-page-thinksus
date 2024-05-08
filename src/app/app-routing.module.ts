@@ -6,6 +6,8 @@ import { PlansComponent } from './components/plans/plans.component';
 import { RatingSystemComponent } from './components/rating-system/rating-system.component';
 import { KnowMoreComponent } from './components/know-more/know-more.component';
 import { FreeTestComponent } from './components/free-test/free-test.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   {
@@ -40,6 +42,14 @@ const routes: Routes = [
   {
     path: 'enterprise-rating-system',
     component: RatingSystemComponent,
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
   },
 ];
 

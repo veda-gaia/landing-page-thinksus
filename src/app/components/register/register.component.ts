@@ -10,6 +10,7 @@ import { countryList } from 'src/app/util/country';
 export class RegisterComponent {
   actualStep = 1
   keepReading = false
+  showPassword = false
   
   form1: FormGroup
   form2: FormGroup

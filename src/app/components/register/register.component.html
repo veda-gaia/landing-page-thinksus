@@ -6,6 +6,7 @@
         <div class="d-none d-lg-block col-0 col-lg-6 ps-0">
             <img src="/assets/img/auth-img.jpg" alt="Imagem de indústria" class="auth-img">
         </div>
+
         <div class="col-12 col-lg-6 pb-lg-5 pt-lg-4 d-flex flex-column align-items-center justify-content-center pb-5 pb-lg-0">
             <!-- Steps Metric  -->
             <div class="d-flex align-items-center justify-content-start gap-4 max-width-360 w-100 pt-5 mt-5 mt-lg-0">
@@ -43,7 +44,11 @@
                 <input type="text" class="w-100 mb-4" formControlName="role" placeholder="Digite seu cargo" autocomplete="off" id="role" name="role">
 
                 <label for="password" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Senha</label>
-                <input type="text" class="w-100 mb-4" formControlName="password" placeholder="Digite uma senha de 8 dígitos" autocomplete="off" id="password" name="password">
+                <div class="input-container mb-4">
+                    <input [type]="showPassword ? 'text' : 'password'" class="w-100" formControlName="password" placeholder="Digite sua senha" autocomplete="off" id="password" name="password">
+                    <img *ngIf="showPassword" (click)="showPassword = false" src="/assets/icon/eye.svg" alt="Esconder senha" class="input-icon cursor-pointer">
+                    <img *ngIf="!showPassword" (click)="showPassword = true" src="/assets/icon/eye-slash.svg" alt="Mostrar senha" class="input-icon cursor-pointer">
+                </div>
                 
                 <div class="mb-5 d-flex align-items-start gap-2">
                     <input type="checkbox" style="width: fit-content;" class="d-inline" formControlName="acceptTerms" placeholder="aceito os termos" id="acceptTerms" name="acceptTerms">

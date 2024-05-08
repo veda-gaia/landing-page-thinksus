@@ -13,8 +13,8 @@ export class FooterComponent {
     private fb: FormBuilder
   ) {
     this.form = fb.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
+      nameMessage: ['', Validators.required],
+      emailMessage: ['', Validators.required],
       subject: ['', Validators.required],
       message: ['', Validators.required],
     })

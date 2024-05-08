@@ -1,1 +1,41 @@
-<p>login works!</p>
+<div class="w-100 py-5 brand-bg"></div>
+
+<!-- Sistema de avaliação -->
+<section class="container-fluid">
+    <div class="row justify-content-center justify-content-lg-between">
+        <div class="d-none d-lg-block col-0 col-lg-6 ps-0">
+            <img src="/assets/img/login-img.jpg" alt="Imagem de indústria" class="auth-img">
+        </div>
+        
+        <div class="col-12 col-lg-6 pb-lg-5 pt-lg-4 d-flex flex-column align-items-center justify-content-center pb-5 pb-lg-0">
+            <form [formGroup]="form" (submit)="onSubmit()" class="fade-in-right py-5 pb-lg-5 pt-lg-4 max-width-360">
+                <h4 class="brand-text fw-700 pb-2">
+                    Login
+                </h4>
+
+                <p class="secondary-text fw-600 pb-4 mb-2">
+                    Faça seu login para acessar o painel ThinkSus
+                </p>
+
+                <label for="email" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Email</label>
+                <input type="text" mask="A*@A*.SSS" [validation]="true" [dropSpecialCharacters]="false" class="w-100 mb-4" formControlName="email" placeholder="email@email.com" autocomplete="off" id="email" name="email">
+
+                <label for="password" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Senha</label>
+                <div class="input-container mb-4">
+                    <input [type]="showPassword ? 'text' : 'password'" class="w-100" formControlName="password" placeholder="Digite sua senha" autocomplete="off" id="password" name="password">
+                    <img *ngIf="showPassword" (click)="showPassword = false" src="/assets/icon/eye.svg" alt="Esconder senha" class="input-icon cursor-pointer">
+                    <img *ngIf="!showPassword" (click)="showPassword = true" src="/assets/icon/eye-slash.svg" alt="Mostrar senha" class="input-icon cursor-pointer">
+                </div>
+
+                <button class="secondary-brand-btn px-lg-5 d-block mx-auto w-100" [disabled]="form.invalid" type="submit">
+                    Avançar
+                </button>
+                <a routerLink="/register">
+                    <button class="brand-outline-btn px-lg-5 d-block mx-auto w-100 mt-3 opacity-08">
+                        Não Tem Cadastro? Crie Uma Conta!
+                    </button>
+                </a>
+            </form>
+        </div>
+    </div>
+</section>

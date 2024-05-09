@@ -21,9 +21,17 @@ export class LoginComponent {
     })
   }
 
+  ngOnInit() {
+    this.scrollToTop()
+  }
+
   onSubmit() {
     if(this.form.invalid) return
 
     this.router.navigate(['/logged'])
+  }
+  
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

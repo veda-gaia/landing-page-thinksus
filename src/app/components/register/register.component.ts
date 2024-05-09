@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { countryList } from 'src/app/util/country';
 
@@ -7,7 +7,7 @@ import { countryList } from 'src/app/util/country';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   actualStep = 1
   keepReading = false
   showPassword = false
@@ -44,6 +44,10 @@ export class RegisterComponent {
       collaboratorsAmmount: ['1.000-5.000', Validators.required],
       invoicing: ['above-50.000', Validators.required],
     })
+  }
+
+  ngOnInit() {
+    this.scrollToTop()
   }
 
   onSubmitStep1() {
@@ -86,5 +90,9 @@ export class RegisterComponent {
 
   get document() {
     return this.form2.controls['document'] as FormControl
+  }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

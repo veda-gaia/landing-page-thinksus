@@ -32,7 +32,7 @@ export class RegisterComponent {
 
     this.form2 = this.fb.group({
       enterpriseName: ['', Validators.required],
-      document: ['', Validators.required],
+      document: [''],
       country: ['Brasil', Validators.required],
       state: ['', Validators.required],
       city: ['', Validators.required],
@@ -78,5 +78,13 @@ export class RegisterComponent {
 
   get name() {
     return this.form1.controls['name'] as FormControl
+  }
+
+  get country() {
+    return this.form2.controls['country'] as FormControl
+  }
+
+  get document() {
+    return this.form2.controls['document'] as FormControl
   }
 }

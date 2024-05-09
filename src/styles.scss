@@ -786,6 +786,7 @@ button:disabled {
     top: 15vh;
     left: -145px;
     transition: .3s;
+    z-index: 9999;
 
     &.active {
         left: 0;

@@ -11,7 +11,7 @@
             <!-- Steps Metric  -->
             <div class="d-flex align-items-center justify-content-start gap-4 max-width-360 w-100 pt-5 mt-5 mt-lg-0">
                 <p class="secondary-text fw-600 m-0 p-0">
-                    Parte 1 de 4
+                    {{ "REGISTER.PART" | translate }} {{ actualStep }} {{ "REGISTER.OF" | translate }} 4
                 </p>
 
                 <div class="d-flex align-items-center justify-content-start gap-2">
@@ -24,28 +24,28 @@
 
             <form *ngIf="actualStep === 1" [formGroup]="form1" (submit)="onSubmitStep1()" class="fade-in-right py-5 pb-lg-5 pt-lg-4 max-width-360">
                 <h4 class="brand-text fw-700 pb-2">
-                    Cadastro
+                    {{ "REGISTER.REGISTER" | translate }}
                 </h4>
 
                 <p class="secondary-text fw-600 pb-4">
-                    Primeiro, precisamos que você se identifique
+                    {{ "REGISTER.TITLE_1" | translate }}
                 </p>
 
-                <label for="name" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Nome</label>
-                <input type="text" class="w-100 mb-4" formControlName="name" placeholder="Digite seu nome" autocomplete="off" id="name" name="name">
+                <label for="name" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.NAME" | translate }}</label>
+                <input type="text" class="w-100 mb-4" formControlName="name" placeholder="{{ 'REGISTER.NAME_PLACEHOLDER' | translate }}" autocomplete="off" id="name" name="name">
 
-                <label for="email" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Email</label>
+                <label for="email" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.EMAIL" | translate }}</label>
                 <input type="text" mask="A*@A*.SSS" [validation]="true" [dropSpecialCharacters]="false" class="w-100 mb-4" formControlName="email" placeholder="email@email.com" autocomplete="off" id="email" name="email">
 
-                <label for="phone" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Telefone</label>
+                <label for="phone" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.PHONE" | translate }}</label>
                 <input type="tel" class="w-100 mb-4" formControlName="phone" mask="(00) 00000-0000" placeholder="(00) 00000-0000" autocomplete="off" id="phone" name="phone">
 
-                <label for="role" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Cargo</label>
-                <input type="text" class="w-100 mb-4" formControlName="role" placeholder="Digite seu cargo" autocomplete="off" id="role" name="role">
+                <label for="role" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.ROLE" | translate }}</label>
+                <input type="text" class="w-100 mb-4" formControlName="role" placeholder="{{ 'REGISTER.ROLE_PLACEHOLDER' | translate }}" autocomplete="off" id="role" name="role">
 
-                <label for="password" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Senha</label>
+                <label for="password" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.PASSWORD" | translate }}</label>
                 <div class="input-container mb-4">
-                    <input [type]="showPassword ? 'text' : 'password'" class="w-100" formControlName="password" placeholder="Digite sua senha" autocomplete="off" id="password" name="password">
+                    <input [type]="showPassword ? 'text' : 'password'" class="w-100" formControlName="password" placeholder="{{ 'REGISTER.PASSWORD_PLACEHOLDER' | translate }}" autocomplete="off" id="password" name="password">
                     <img *ngIf="showPassword" (click)="showPassword = false" src="/assets/icon/eye.svg" alt="Esconder senha" class="input-icon cursor-pointer">
                     <img *ngIf="!showPassword" (click)="showPassword = true" src="/assets/icon/eye-slash.svg" alt="Mostrar senha" class="input-icon cursor-pointer">
                 </div>
@@ -54,119 +54,118 @@
                     <input type="checkbox" style="width: fit-content;" class="d-inline" formControlName="acceptTerms" placeholder="aceito os termos" id="acceptTerms" name="acceptTerms">
                     <div>
                         <label for="acceptTerms" class="fw-500 secondary-text f-size-1rem l-spacing-0-75 d-inline gap-1">
-                            Eu li e aceito os 
-                            <a class="brand-text d-inline text-decoration-underline cursor-pointer">Termos de Uso e Privacidade</a>
+                            {{ "REGISTER.AGREE" | translate }} <a class="brand-text d-inline text-decoration-underline cursor-pointer">{{ "REGISTER.TERMS" | translate }}</a>
                         </label>
                     </div>
                 </div>
 
                 <button class="secondary-brand-btn px-lg-5 d-block mx-auto w-100" [disabled]="form1.invalid" type="submit">
-                    Avançar
+                    {{ "REGISTER.NEXT" | translate }}
                 </button>
                 <a routerLink="/login">
                     <button class="brand-outline-btn px-lg-5 d-block mx-auto w-100 mt-3 opacity-08">
-                        Já Sou Cadastrado
+                        {{ "REGISTER.I_HAVE" | translate }}
                     </button>
                 </a>
             </form>
 
             <form *ngIf="actualStep === 2" [formGroup]="form2" (submit)="onSubmitStep2()" class="fade-in-right py-5 pb-lg-5 pt-lg-4 max-width-360">
                 <h4 class="brand-text fw-700 pb-2">
-                    Cadastro
+                    {{ "REGISTER.REGISTER" | translate }}
                 </h4>
 
                 <p class="secondary-text fw-600 pb-4">
-                    Identifique a empresa
+                    {{ "REGISTER.SUBTITLE_2" | translate }}
                 </p>
 
-                <label for="enterpriseName" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Nome da empresa</label>
-                <input type="text" class="w-100 mb-4" formControlName="enterpriseName" placeholder="Digite o nome da empresa" autocomplete="off" id="enterpriseName" name="enterpriseName">
+                <label for="enterpriseName" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.ENTERPRISE_NAME" | translate }}</label>
+                <input type="text" class="w-100 mb-4" formControlName="enterpriseName" placeholder="{{ 'REGISTER.ENTERPRISE_NAME_PLACEHOLDER' | translate }}" autocomplete="off" id="enterpriseName" name="enterpriseName">
 
-                <label for="document" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">CNPJ</label>
-                <input type="text" mask="00.000.000/0000-00" class="w-100 mb-4" formControlName="document" placeholder="00.000.000/0000-00" autocomplete="off" id="document" name="document">
+                <label *ngIf="country.value === 'Brasil'" for="document" class="fade-in pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.DOCUMENT" | translate }}</label>
+                <input *ngIf="country.value === 'Brasil'" type="text" mask="00.000.000/0000-00" class="fade-in w-100 mb-4" formControlName="document" placeholder="00.000.000/0000-00" autocomplete="off" id="document" name="document">
                 
-                <label for="country" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">País</label>
+                <label for="country" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.COUNTRY" | translate }}</label>
                 <select name="country" id="country" formControlName="country" class="d-block mb-4">
                     <option *ngFor="let country of countryList" [value]="country">{{ country }}</option>
                 </select>
 
                 <div class="d-flex align-items-start justify-content-between gap-3">
                     <div>
-                        <label for="state" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Estado Sede</label>
-                        <input type="text" class="w-100 mb-4" formControlName="state" placeholder="Digite o Estado" autocomplete="off" id="state" name="state">
+                        <label for="state" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.STATE" | translate }}</label>
+                        <input type="text" class="w-100 mb-4" formControlName="state" placeholder="{{ 'REGISTER.STATE_PLACEHOLDER' | translate }}" autocomplete="off" id="state" name="state">
                     </div>
 
                     <div>
-                        <label for="city" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Cidade Sede</label>
-                        <input type="text" class="w-100 mb-4" formControlName="city" placeholder="Digite a Cidade" autocomplete="off" id="city" name="city">
+                        <label for="city" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.CITY" | translate }}</label>
+                        <input type="text" class="w-100 mb-4" formControlName="city" placeholder="{{ 'REGISTER.CITY_PLACEHOLDER' | translate }}" autocomplete="off" id="city" name="city">
                     </div>
                 </div>
 
                 <div class="d-flex align-items-start justify-content-between gap-3 mb-4">
                     <div>
-                        <label for="sector" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Setor</label>
-                        <input type="text" class="w-100 mb-4" formControlName="sector" placeholder="Digite o Setor" autocomplete="off" id="sector" name="sector">
+                        <label for="sector" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.FIELD" | translate }}</label>
+                        <input type="text" class="w-100 mb-4" formControlName="sector" placeholder="{{ 'REGISTER.FIELD_PLACEHOLDER' | translate }}" autocomplete="off" id="sector" name="sector">
                     </div>
 
                     <div>
-                        <label for="segment" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Segmento</label>
-                        <input type="text" class="w-100 mb-4" formControlName="segment" placeholder="Digite o Segmento" autocomplete="off" id="segment" name="segment">
+                        <label for="segment" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.SEGMENT" | translate }}</label>
+                        <input type="text" class="w-100 mb-4" formControlName="segment" placeholder="{{ 'REGISTER.SEGMENT_PLACEHOLDER' | translate }}" autocomplete="off" id="segment" name="segment">
                     </div>
                 </div>
 
-                <button class="secondary-brand-btn px-lg-5 d-block mx-auto w-100" [disabled]="form2.invalid" type="submit">
-                    Avançar
+                <button class="secondary-brand-btn px-lg-5 d-block mx-auto w-100" [disabled]="(form2.invalid) || (country.value === 'Brasil' && !document.value)" type="submit">
+                    {{ "REGISTER.NEXT" | translate }}
                 </button>
                 <button class="brand-outline-btn px-lg-5 d-block mx-auto w-100 mt-3 opacity-08" (click)="stepBack()">
-                    Voltar
+                    {{ "REGISTER.BACK" | translate }}
                 </button>
             </form>
 
-            <form *ngIf="actualStep === 3" [formGroup]="form3" (submit)="onSubmitStep3()" class="fade-in-right py-5 pb-lg-5 pt-lg-4 max-width-360">
+            <form *ngIf="actualStep === 3" [formGroup]="form3" (submit)="onSubmitStep3()" class="fade-in-right py-5 pb-lg-5 pt-lg-4 max-width-360 w-100">
                 <h4 class="brand-text fw-700 pb-2">
-                    Cadastro
+                    {{ "REGISTER.REGISTER" | translate }}
                 </h4>
 
                 <p class="secondary-text fw-600 pb-4">
-                    Identifique a empresa
+                    {{ "REGISTER.SUBTITLE_2" | translate }}
                 </p>
                 
-                <label for="collaboratorsAmmount" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Número de colaboradores na empresa</label>
+                <label for="collaboratorsAmmount" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.COLLABORATORS_AMMOUNT" | translate }}</label>
                 <select name="collaboratorsAmmount" id="collaboratorsAmmount" formControlName="collaboratorsAmmount" class="d-block mb-4">
-                    <option value="1-100">De 1 a 100</option>
-                    <option value="100-1.000">De 100 a 1.000</option>
-                    <option value="1.000-5.000">De 1.000 a 5.000</option>
-                    <option value="5.000-50.000">De 5.000 a 50.000</option>
-                    <option value="50.000+">Mais de 50.000</option>
+                    <option value="1-100">{{ "REGISTER.AMMOUNT_1" | translate }}</option>
+                    <option value="100-1.000">{{ "REGISTER.AMMOUNT_2" | translate }}</option>
+                    <option value="1.000-5.000">{{ "REGISTER.AMMOUNT_3" | translate }}</option>
+                    <option value="5.000-50.000">{{ "REGISTER.AMMOUNT_4" | translate }}</option>
+                    <option value="50.000+">{{ "REGISTER.AMMOUNT_5" | translate }}</option>
                 </select>
                 
-                <label for="invoicing" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Faturamento da empresa</label>
+                <label for="invoicing" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.INVOICING" | translate }}</label>
                 <select name="invoicing" id="invoicing" formControlName="invoicing" class="d-block mb-4">
-                    <option value="above-10.000">Acima de R$10.000,00</option>
-                    <option value="above-50.000">Acima de R$50.000,00</option>
-                    <option value="above-100.000">Acima de R$100.000,00</option>
-                    <option value="above-1.000.000">Acima de R$1.000.000,00</option>
+                    <option value="above-10.000">{{ "REGISTER.INVOICING_1" | translate }}</option>
+                    <option value="above-50.000">{{ "REGISTER.INVOICING_2" | translate }}</option>
+                    <option value="above-100.000">{{ "REGISTER.INVOICING_3" | translate }}</option>
+                    <option value="above-1.000.000">{{ "REGISTER.INVOICING_4" | translate }}</option>
                 </select>
 
                 <button class="secondary-brand-btn px-lg-5 d-block mx-auto w-100" [disabled]="form3.invalid" type="submit">
-                    Avançar
+                    {{ "REGISTER.NEXT" | translate }}
                 </button>
                 <button class="brand-outline-btn px-lg-5 d-block mx-auto w-100 mt-3 opacity-08" (click)="stepBack()">
-                    Voltar
+                    {{ "REGISTER.BACK" | translate }}
                 </button>
             </form>
 
             <div *ngIf="actualStep === 4" class="fade-in-right py-5 pb-lg-5 pt-lg-4 max-width-360">
                 <h4 class="brand-text fw-700 pb-2">
-                    Confirmação
+                    {{ "REGISTER.TITLE_2" | translate }}
                 </h4>
 
                 <p class="secondary-text fw-600 pb-4">
-                    Confirme o seu email
+                    {{ "REGISTER.SUBTITLE_3" | translate }}
                 </p>
 
                 <p class="secondary-text fw-600 pb-4">
-                    Clique no link que enviamos para:
+                    {{ "REGISTER.CLICK_LINK" | translate }}
                 </p>
 
                 <p class="brand-text fw-800 pb-4">
@@ -174,37 +173,37 @@
                 </p>
                 
                 <p class="secondary-text fw-600 pb-5">
-                    Após a confirmação, clique em continuar para prosseguir com o cadastro
+                    {{ "REGISTER.POST_CONFIRMATION" | translate }}
                 </p>
 
                 <button class="secondary-brand-btn px-lg-5 d-block mx-auto w-100" (click)="onSubmitStep4()">
-                    Avançar
+                    {{ "REGISTER.NEXT" | translate }}
                 </button>
                 <button class="brand-outline-btn px-lg-5 d-block mx-auto w-100 mt-3 opacity-08" (click)="stepBack()">
-                    Voltar
+                    {{ "REGISTER.BACK" | translate }}
                 </button>
             </div>
 
             <div *ngIf="actualStep === 5" class="fade-in-right py-5 pb-lg-5 pt-lg-4 max-width-360">
                 <h4 class="brand-text fw-700 pb-2">
-                    Email confirmado
+                    {{ "REGISTER.TITLE_3" | translate }}
                 </h4>
 
                 <p class="secondary-text fw-600 pb-4">
-                    Agradecemos o cadastro, {{ name.value }}
+                    {{ "REGISTER.SUBTITLE_4" | translate }} {{ name.value }}
                 </p>
 
                 <p class="brand-text fw-800 pb-4">
-                    Aproveite o Painel ThinkSus
+                    {{ "REGISTER.ENJOY" | translate }}
                 </p>
                 
                 <p class="secondary-text fw-600 pb-5">
-                    Você pode clicar no botão abaixo para entrar na aplicaçãoo
+                    {{ "REGISTER.CLICK_BUTTON" | translate }}
                 </p>
 
                 <a routerLink="/logged/home">
                     <button class="secondary-brand-btn px-lg-5 d-block mx-auto w-100">
-                        Ir Para o Painel
+                        {{ "REGISTER.GO_TO_PANEL" | translate }}
                     </button>
                 </a>
             </div>

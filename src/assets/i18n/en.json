@@ -1,0 +1,61 @@
+{
+    "HOME": {
+        "TITLE": "Sustainable Future"
+    },
+    "REGISTER": {
+        "PART": "Parte",
+        "OF": "de",
+        "REGISTER": "Registration",
+        "TITLE_1": "Fill in the form below:",
+        "TITLE_2": "Confirmation",
+        "TITLE_3": "E-mail confirmation",
+        "SUBTITLE_2": " Identify your business",
+        "SUBTITLE_3": "Please check your e-mail",
+        "SUBTITLE_4": "Thank you for you registration,",
+        "NAME": "Full name",
+        "NAME_PLACEHOLDER": "You full name",
+        "EMAIL": "E-mail",
+        "PHONE": "Phone number",
+        "ROLE": "Position",
+        "ROLE_PLACEHOLDER": "Your position",
+        "PASSWORD": "Password",
+        "PASSWORD_PLACEHOLDER": "Insert 8-character pasword",
+        "AGREE": "I agree to the",
+        "TERMS": "Terms and Conditions and Privacy Policy",
+        "NEXT": "Next",
+        "I_HAVE": "Already have an account? Log in here",
+
+        "ENTERPRISE_NAME": "Business name",
+        "ENTERPRISE_NAME_PLACEHOLDER": "Set the Business Name",
+        "DOCUMENT": "CNPJ",
+        "COUNTRY": "Country",
+        "STATE": "State",
+        "STATE_PLACEHOLDER": "Set the State",
+        "CITY": "City",
+        "CITY_PLACEHOLDER": "Set the City",
+        "FIELD": "Field",
+        "FIELD_PLACEHOLDER": "Set the Field",
+        "SEGMENT": "Segment",
+        "SEGMENT_PLACEHOLDER": "Set the Segment",
+        "BACK": "Back",
+                
+        "COLLABORATORS_AMMOUNT": "Number of employees",
+        "AMMOUNT_1": "From 1 to 100",
+        "AMMOUNT_2": "From 100 to 1.000",
+        "AMMOUNT_3": "From 1.000 to 5.000",
+        "AMMOUNT_4": "From 5.000 to 50.000",
+        "AMMOUNT_5": "Above 50.000",
+        "INVOICING": "Business income",
+        "INVOICING_1": "Above $10,000",
+        "INVOICING_2": "Above $50,000",
+        "INVOICING_3": "Above $100,000",
+        "INVOICING_4": "Above $1,000,000",
+        
+        "CLICK_LINK": "Click on the link we have sent to:",
+        "POST_CONFIRMATION": "Ater confirming, click on Continue to proceed with your registration",
+
+        "ENJOY": "Enjoy the ThinkSus Panel",
+        "CLICK_BUTTON": "Ater confirming, click on Continue to proceed with your registration",
+        "GO_TO_PANEL": "Go to ThinkSus Panel"
+    }
+}

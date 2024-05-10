@@ -894,7 +894,32 @@
                         + {{ form1.controls['name'].value }}
                     </p>
     
-                    <img src="/assets/img/selo.svg" alt="Selo prata ThinkSus" class="mt-5 shadow-sm">
+                    <div *ngIf="score >= 60 && score <= 75" class="selo-bronze mt-5">
+                        <p class="f-size-1.1rem pt-2 ps-2" style="color: #404040;">Selo ThinkSus</p>
+
+                        <div>
+                            <p class="score ps-1 pb-1">{{ score }}</p>
+                            <p class="score-title pb-3 ps-3">Bronze</p>
+                        </div>
+                    </div>
+    
+                    <div *ngIf="score > 75 && score < 90" class="selo-prata mt-5">
+                        <p class="f-size-1.1rem pt-2 ps-2" style="color: #404040;">Selo ThinkSus</p>
+
+                        <div>
+                            <p class="score ps-1 pb-1">{{ score }}</p>
+                            <p class="score-title pb-3 ps-3">Prata</p>
+                        </div>
+                    </div>
+    
+                    <div *ngIf="score >= 90" class="selo-dourado mt-5">
+                        <p class="f-size-1.1rem pt-2 ps-2" style="color: #404040;">Selo ThinkSus</p>
+
+                        <div>
+                            <p class="score ps-1 pb-1">{{ score }}</p>
+                            <p class="score-title pb-3 ps-3">Ouro</p>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="vertical-separator d-none d-lg-block me-5"></div>

@@ -200,14 +200,18 @@ export class FreeTestComponent {
     ]
 
     yesAnswers.forEach(i => {
-      if(i === 'yes') this.score = this.score + 8.333
+      if(i === 'yes') {
+        this.score = this.score + 8.333
+        console.log('yes', this.score)
+      }
     })
 
-    if(this.form13.controls['answer'].value === 'no') {
+    if(this.form12.controls['answer'].value === 'no') {
       this.score = this.score + 8.333
+      console.log('no', this.score)
     }
 
-    this.score = (this.score / 12) * 10
+    // this.score = (this.score / 100) * 12
     this.score = Math.round(this.score)
 
     this.actualStep = 14

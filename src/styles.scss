@@ -1130,3 +1130,155 @@ header {
     }
 }
 
+.selo-bronze {
+    font-family: "Roboto", sans-serif;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: .5rem;
+
+    width: 248px;
+    height: 248px;
+
+    padding: .5rem;
+    border-radius: .5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);;
+    
+    background-image: 
+        url("/assets/img/logo-selo.png"),
+        url("/assets/img/fundo-bronze.png")
+        ;
+    background-position: 
+        top right,
+        center
+        ;
+    background-repeat: 
+        no-repeat,
+        no-repeat
+        ;
+    background-size: 
+        150px,
+        cover
+        ;
+
+    .score {
+        font-size: 7rem;
+        font-weight: 700;
+
+        color: #764513;
+        text-shadow: 4px 5px 0 rgba(255, 255, 255, .5);
+    }
+    
+    .score-title {
+        font-size: 2rem;
+        font-weight: 700;
+    
+        color: #764513;
+        text-shadow: 2px 2px 0 rgba(255, 255, 255, .5);
+
+    }
+}
+
+.selo-prata {
+    font-family: "Roboto", sans-serif;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: .5rem;
+
+    width: 248px;
+    height: 248px;
+
+    padding: .5rem;
+    border-radius: .5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);;
+    
+    background-image: 
+        url("/assets/img/logo-selo.png"),
+        url("/assets/img/fundo-prata.jpg")
+        ;
+    background-position: 
+        top right,
+        center
+        ;
+    background-repeat: 
+        no-repeat,
+        no-repeat
+        ;
+    background-size: 
+        150px,
+        cover
+        ;
+
+    .score {
+        font-size: 7rem;
+        font-weight: 700;
+
+        color: #404040;
+        text-shadow: 4px 5px 0 rgba(255, 255, 255, .5);
+    }
+    
+    .score-title {
+        font-size: 2rem;
+        font-weight: 700;
+    
+        color: #404040;
+        text-shadow: 2px 2px 0 rgba(255, 255, 255, .5);
+
+    }
+}
+
+.selo-dourado {
+    font-family: "Roboto", sans-serif;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: .5rem;
+
+    width: 248px;
+    height: 248px;
+
+    padding: .5rem;
+    border-radius: .5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);;
+    
+    background-image: 
+        url("/assets/img/logo-selo.png"),
+        url("/assets/img/fundo-dourado.jpg")
+        ;
+    background-position: 
+        top right,
+        center
+        ;
+    background-repeat: 
+        no-repeat,
+        no-repeat
+        ;
+    background-size: 
+        150px,
+        cover
+        ;
+
+    .score {
+        font-size: 7rem;
+        font-weight: 700;
+
+        color: #b18222;
+        text-shadow: 4px 5px 0 rgba(255, 255, 255, .5);
+    }
+    
+    .score-title {
+        font-size: 2rem;
+        font-weight: 700;
+    
+        color: #FFFFFF;
+        text-shadow: 2px 2px 0 rgba(64, 64, 64, .5);
+
+    }
+}

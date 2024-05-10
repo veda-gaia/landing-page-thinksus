@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./free-test.component.scss']
 })
 export class FreeTestComponent {
-  actualStep = 14
+  actualStep = 1
   keepReading = false
   score = 0
   
@@ -207,6 +207,7 @@ export class FreeTestComponent {
       this.score = this.score + 8.333
     }
 
+    this.score = (this.score / 12) * 10
     this.score = Math.round(this.score)
 
     this.actualStep = 14

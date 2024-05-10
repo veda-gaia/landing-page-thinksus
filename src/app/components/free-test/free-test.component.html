@@ -95,17 +95,26 @@
                             Glossário
                         </h4>
 
-                        <p class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                        <p *ngIf="
+                            'Detalhamento documentado sobre como os resíduos são tratados e geridos na empresa.'.length > 200
+                        " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
                             {{ keepReading 
                                 ? 
                                 'Detalhamento documentado sobre como os resíduos são tratados e geridos na empresa.'
                                 :
-                                'Detalhamento documentado sobre como os resíduos são tratados e geridos na empresa.'.slice(0, 400) + '...'
+                                'Detalhamento documentado sobre como os resíduos são tratados e geridos na empresa.'.slice(0, 200) + '...'
                             }}
-                            
                         </p>
 
-                        <div class="d-flex align-items-center justify-content-end w-100">
+                        <p *ngIf="
+                            'Detalhamento documentado sobre como os resíduos são tratados e geridos na empresa.'.length <= 200
+                        " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                            {{ 'Detalhamento documentado sobre como os resíduos são tratados e geridos na empresa.'}}
+                        </p>
+
+                        <div *ngIf="
+                            'Detalhamento documentado sobre como os resíduos são tratados e geridos na empresa.'.length > 200
+                        " class="d-flex align-items-center justify-content-end w-100">
                             <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
                                 Continuar lendo
                                 <img src="/assets/icon/share.svg" alt="">
@@ -165,17 +174,27 @@
                             Glossário
                         </h4>
 
-                        <p class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                        
+                        <p *ngIf="
+                            'Recursos naturais são elementos da natureza que são retirados para atender a demanda do homem (Ex.: energia solar, madeira, solo, água, vento, animais, vegetais).'.length > 200
+                        " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
                             {{ keepReading 
                                 ? 
                                 'Recursos naturais são elementos da natureza que são retirados para atender a demanda do homem (Ex.: energia solar, madeira, solo, água, vento, animais, vegetais).'
                                 :
-                                'Recursos naturais são elementos da natureza que são retirados para atender a demanda do homem (Ex.: energia solar, madeira, solo, água, vento, animais, vegetais).'.slice(0, 400) + '...'
+                                'Recursos naturais são elementos da natureza que são retirados para atender a demanda do homem (Ex.: energia solar, madeira, solo, água, vento, animais, vegetais).'.slice(0, 200) + '...'
                             }}
-                            
                         </p>
 
-                        <div class="d-flex align-items-center justify-content-end w-100">
+                        <p *ngIf="
+                            'Recursos naturais são elementos da natureza que são retirados para atender a demanda do homem (Ex.: energia solar, madeira, solo, água, vento, animais, vegetais).'.length <= 200
+                        " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                            {{ 'Recursos naturais são elementos da natureza que são retirados para atender a demanda do homem (Ex.: energia solar, madeira, solo, água, vento, animais, vegetais).'}}
+                        </p>
+
+                        <div *ngIf="
+                            'Recursos naturais são elementos da natureza que são retirados para atender a demanda do homem (Ex.: energia solar, madeira, solo, água, vento, animais, vegetais).'.length > 200
+                        " class="d-flex align-items-center justify-content-end w-100">
                             <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
                                 Continuar lendo
                                 <img src="/assets/icon/share.svg" alt="">
@@ -235,17 +254,26 @@
                             Glossário
                         </h4>
 
-                        <p class="f-size-0-85rem l-height-1-25 text-dark pb-4">
-                            {{ keepReading 
-                                ? 
-                                'Pegada de carbono são quanto de matéria prima e produção de poluentes são criados durante o processo produtivo. Cálculos envolvem cada recurso natural consumido (como litros de gasolina, kgw de energia, quantidade de matéria prima, etc.). O cálculo quantifica por quantidade de carbono toda a operação, gerando uma pegada de carbono para ser reportada ao final'
-                                :
-                                'Pegada de carbono são quanto de matéria prima e produção de poluentes são criados durante o processo produtivo. Cálculos envolvem cada recurso natural consumido (como litros de gasolina, kgw de energia, quantidade de matéria prima, etc.). O cálculo quantifica por quantidade de carbono toda a operação, gerando uma pegada de carbono para ser reportada ao final'.slice(0, 400) + '...'
-                            }}
-                            
+                        <p *ngIf="
+                        'Pegada de carbono são quanto de matéria prima e produção de poluentes são criados durante o processo produtivo. Cálculos envolvem cada recurso natural consumido (como litros de gasolina, kgw de energia, quantidade de matéria prima, etc.). O cálculo quantifica por quantidade de carbono toda a operação, gerando uma pegada de carbono para ser reportada ao final'.length > 200
+                    " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                        {{ keepReading 
+                            ? 
+                            'Pegada de carbono são quanto de matéria prima e produção de poluentes são criados durante o processo produtivo. Cálculos envolvem cada recurso natural consumido (como litros de gasolina, kgw de energia, quantidade de matéria prima, etc.). O cálculo quantifica por quantidade de carbono toda a operação, gerando uma pegada de carbono para ser reportada ao final'
+                            :
+                            'Pegada de carbono são quanto de matéria prima e produção de poluentes são criados durante o processo produtivo. Cálculos envolvem cada recurso natural consumido (como litros de gasolina, kgw de energia, quantidade de matéria prima, etc.). O cálculo quantifica por quantidade de carbono toda a operação, gerando uma pegada de carbono para ser reportada ao final'.slice(0, 200) + '...'
+                        }}
                         </p>
 
-                        <div class="d-flex align-items-center justify-content-end w-100">
+                        <p *ngIf="
+                            'Pegada de carbono são quanto de matéria prima e produção de poluentes são criados durante o processo produtivo. Cálculos envolvem cada recurso natural consumido (como litros de gasolina, kgw de energia, quantidade de matéria prima, etc.). O cálculo quantifica por quantidade de carbono toda a operação, gerando uma pegada de carbono para ser reportada ao final'.length <= 200
+                        " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                            {{ 'Pegada de carbono são quanto de matéria prima e produção de poluentes são criados durante o processo produtivo. Cálculos envolvem cada recurso natural consumido (como litros de gasolina, kgw de energia, quantidade de matéria prima, etc.). O cálculo quantifica por quantidade de carbono toda a operação, gerando uma pegada de carbono para ser reportada ao final'}}
+                        </p>
+
+                        <div *ngIf="
+                            'Pegada de carbono são quanto de matéria prima e produção de poluentes são criados durante o processo produtivo. Cálculos envolvem cada recurso natural consumido (como litros de gasolina, kgw de energia, quantidade de matéria prima, etc.). O cálculo quantifica por quantidade de carbono toda a operação, gerando uma pegada de carbono para ser reportada ao final'.length > 200
+                        " class="d-flex align-items-center justify-content-end w-100">
                             <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
                                 Continuar lendo
                                 <img src="/assets/icon/share.svg" alt="">
@@ -305,17 +333,26 @@
                             Glossário
                         </h4>
 
-                        <p class="f-size-0-85rem l-height-1-25 text-dark pb-4">
-                            {{ keepReading 
-                                ? 
-                                'Adoção de protocolos que diminuam impactos negativos que afetem mudanças climáticas.'
-                                :
-                                'Adoção de protocolos que diminuam impactos negativos que afetem mudanças climáticas.'.slice(0, 400) + '...'
-                            }}
-                            
+                        <p *ngIf="
+                        'Adoção de protocolos que diminuam impactos negativos que afetem mudanças climáticas.'.length > 200
+                    " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                        {{ keepReading 
+                            ? 
+                            'Adoção de protocolos que diminuam impactos negativos que afetem mudanças climáticas.'
+                            :
+                            'Adoção de protocolos que diminuam impactos negativos que afetem mudanças climáticas.'.slice(0, 200) + '...'
+                        }}
                         </p>
 
-                        <div class="d-flex align-items-center justify-content-end w-100">
+                        <p *ngIf="
+                            'Adoção de protocolos que diminuam impactos negativos que afetem mudanças climáticas.'.length <= 200
+                        " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                            {{ 'Adoção de protocolos que diminuam impactos negativos que afetem mudanças climáticas.'}}
+                        </p>
+
+                        <div *ngIf="
+                            'Adoção de protocolos que diminuam impactos negativos que afetem mudanças climáticas.'.length > 200
+                        " class="d-flex align-items-center justify-content-end w-100">
                             <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
                                 Continuar lendo
                                 <img src="/assets/icon/share.svg" alt="">
@@ -374,18 +411,27 @@
                         <h4 class="brand-text fw-700 p-0 pb-4">
                             Glossário
                         </h4>
-
-                        <p class="f-size-0-85rem l-height-1-25 text-dark pb-4">
-                            {{ keepReading 
-                                ? 
-                                'A empresa possui vínculos com organizações sociais/ políticas na cidade que atua.'
-                                :
-                                'A empresa possui vínculos com organizações sociais/ políticas na cidade que atua.'.slice(0, 400) + '...'
-                            }}
-                            
+                        
+                        <p *ngIf="
+                        'A empresa possui vínculos com organizações sociais/ políticas na cidade que atua.'.length > 200
+                    " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                        {{ keepReading 
+                            ? 
+                            'A empresa possui vínculos com organizações sociais/ políticas na cidade que atua.'
+                            :
+                            'A empresa possui vínculos com organizações sociais/ políticas na cidade que atua.'.slice(0, 200) + '...'
+                        }}
                         </p>
 
-                        <div class="d-flex align-items-center justify-content-end w-100">
+                        <p *ngIf="
+                            'A empresa possui vínculos com organizações sociais/ políticas na cidade que atua.'.length <= 200
+                        " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                            {{ 'A empresa possui vínculos com organizações sociais/ políticas na cidade que atua.'}}
+                        </p>
+
+                        <div *ngIf="
+                            'A empresa possui vínculos com organizações sociais/ políticas na cidade que atua.'.length > 200
+                        " class="d-flex align-items-center justify-content-end w-100">
                             <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
                                 Continuar lendo
                                 <img src="/assets/icon/share.svg" alt="">
@@ -444,18 +490,27 @@
                         <h4 class="brand-text fw-700 p-0 pb-4">
                             Glossário
                         </h4>
-
-                        <p class="f-size-0-85rem l-height-1-25 text-dark pb-4">
-                            {{ keepReading 
-                                ? 
-                                'O código interno de Combate à Corrupção foi escrito de forma clara, com informações objetivas, usando palavras de fácil compreensão.'
-                                :
-                                'O código interno de Combate à Corrupção foi escrito de forma clara, com informações objetivas, usando palavras de fácil compreensão.'.slice(0, 400) + '...'
-                            }}
-                            
+                                                
+                        <p *ngIf="
+                        'O código interno de Combate à Corrupção foi escrito de forma clara, com informações objetivas, usando palavras de fácil compreensão.'.length > 200
+                    " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                        {{ keepReading 
+                            ? 
+                            'O código interno de Combate à Corrupção foi escrito de forma clara, com informações objetivas, usando palavras de fácil compreensão.'
+                            :
+                            'O código interno de Combate à Corrupção foi escrito de forma clara, com informações objetivas, usando palavras de fácil compreensão.'.slice(0, 200) + '...'
+                        }}
                         </p>
 
-                        <div class="d-flex align-items-center justify-content-end w-100">
+                        <p *ngIf="
+                            'O código interno de Combate à Corrupção foi escrito de forma clara, com informações objetivas, usando palavras de fácil compreensão.'.length <= 200
+                        " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                            {{ 'O código interno de Combate à Corrupção foi escrito de forma clara, com informações objetivas, usando palavras de fácil compreensão.'}}
+                        </p>
+
+                        <div *ngIf="
+                            'O código interno de Combate à Corrupção foi escrito de forma clara, com informações objetivas, usando palavras de fácil compreensão.'.length > 200
+                        " class="d-flex align-items-center justify-content-end w-100">
                             <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
                                 Continuar lendo
                                 <img src="/assets/icon/share.svg" alt="">
@@ -514,18 +569,27 @@
                         <h4 class="brand-text fw-700 p-0 pb-4">
                             Glossário
                         </h4>
-
-                        <p class="f-size-0-85rem l-height-1-25 text-dark pb-4">
-                            {{ keepReading 
-                                ? 
-                                'A empresa segue a CLT para contratação de funcionários, recolhe INSS e FGTS regularmente (sem atraso), com salários compatíveis com o mercado, respeitando ao menos o mínimo estabelicido pela convenção coletiva da categoria.'
-                                :
-                                'A empresa segue a CLT para contratação de funcionários, recolhe INSS e FGTS regularmente (sem atraso), com salários compatíveis com o mercado, respeitando ao menos o mínimo estabelicido pela convenção coletiva da categoria.'.slice(0, 400) + '...'
-                            }}
-                            
+                                                                        
+                        <p *ngIf="
+                        'A empresa segue a CLT para contratação de funcionários, recolhe INSS e FGTS regularmente (sem atraso), com salários compatíveis com o mercado, respeitando ao menos o mínimo estabelicido pela convenção coletiva da categoria.'.length > 200
+                    " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                        {{ keepReading 
+                            ? 
+                            'A empresa segue a CLT para contratação de funcionários, recolhe INSS e FGTS regularmente (sem atraso), com salários compatíveis com o mercado, respeitando ao menos o mínimo estabelicido pela convenção coletiva da categoria.'
+                            :
+                            'A empresa segue a CLT para contratação de funcionários, recolhe INSS e FGTS regularmente (sem atraso), com salários compatíveis com o mercado, respeitando ao menos o mínimo estabelicido pela convenção coletiva da categoria.'.slice(0, 200) + '...'
+                        }}
                         </p>
 
-                        <div class="d-flex align-items-center justify-content-end w-100">
+                        <p *ngIf="
+                            'A empresa segue a CLT para contratação de funcionários, recolhe INSS e FGTS regularmente (sem atraso), com salários compatíveis com o mercado, respeitando ao menos o mínimo estabelicido pela convenção coletiva da categoria.'.length <= 200
+                        " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                            {{ 'A empresa segue a CLT para contratação de funcionários, recolhe INSS e FGTS regularmente (sem atraso), com salários compatíveis com o mercado, respeitando ao menos o mínimo estabelicido pela convenção coletiva da categoria.'}}
+                        </p>
+
+                        <div *ngIf="
+                            'A empresa segue a CLT para contratação de funcionários, recolhe INSS e FGTS regularmente (sem atraso), com salários compatíveis com o mercado, respeitando ao menos o mínimo estabelicido pela convenção coletiva da categoria.'.length > 200
+                        " class="d-flex align-items-center justify-content-end w-100">
                             <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
                                 Continuar lendo
                                 <img src="/assets/icon/share.svg" alt="">
@@ -584,18 +648,27 @@
                         <h4 class="brand-text fw-700 p-0 pb-4">
                             Glossário
                         </h4>
-
-                        <p class="f-size-0-85rem l-height-1-25 text-dark pb-4">
-                            {{ keepReading 
-                                ? 
-                                'O manual de normas e condutas de como os fornecedores devem se comportar para se classificar fornecedor para a empresa está em conformidade  com as regras de normas e condutas da empresa que este estabeleceu relação comercial?'
-                                :
-                                'O manual de normas e condutas de como os fornecedores devem se comportar para se classificar fornecedor para a empresa está em conformidade  com as regras de normas e condutas da empresa que este estabeleceu relação comercial?'.slice(0, 400) + '...'
-                            }}
-                            
+                                                                                                
+                        <p *ngIf="
+                        'O manual de normas e condutas de como os fornecedores devem se comportar para se classificar fornecedor para a empresa está em conformidade  com as regras de normas e condutas da empresa que este estabeleceu relação comercial?'.length > 200
+                    " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                        {{ keepReading 
+                            ? 
+                            'O manual de normas e condutas de como os fornecedores devem se comportar para se classificar fornecedor para a empresa está em conformidade  com as regras de normas e condutas da empresa que este estabeleceu relação comercial?'
+                            :
+                            'O manual de normas e condutas de como os fornecedores devem se comportar para se classificar fornecedor para a empresa está em conformidade  com as regras de normas e condutas da empresa que este estabeleceu relação comercial?'.slice(0, 200) + '...'
+                        }}
                         </p>
 
-                        <div class="d-flex align-items-center justify-content-end w-100">
+                        <p *ngIf="
+                            'O manual de normas e condutas de como os fornecedores devem se comportar para se classificar fornecedor para a empresa está em conformidade  com as regras de normas e condutas da empresa que este estabeleceu relação comercial?'.length <= 200
+                        " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                            {{ 'O manual de normas e condutas de como os fornecedores devem se comportar para se classificar fornecedor para a empresa está em conformidade  com as regras de normas e condutas da empresa que este estabeleceu relação comercial?'}}
+                        </p>
+
+                        <div *ngIf="
+                            'O manual de normas e condutas de como os fornecedores devem se comportar para se classificar fornecedor para a empresa está em conformidade  com as regras de normas e condutas da empresa que este estabeleceu relação comercial?'.length > 200
+                        " class="d-flex align-items-center justify-content-end w-100">
                             <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
                                 Continuar lendo
                                 <img src="/assets/icon/share.svg" alt="">
@@ -654,18 +727,27 @@
                         <h4 class="brand-text fw-700 p-0 pb-4">
                             Glossário
                         </h4>
-
-                        <p class="f-size-0-85rem l-height-1-25 text-dark pb-4">
-                            {{ keepReading 
-                                ? 
-                                'Auditoria é uma análise cuidadosa, detalhada e sistemática das atividades desenvolvidas em determinada organização, cujo objetivo é averiguar se elas estão de acordo com as planejadas e/ou estabelecidas previamente, se foram implementadas com eficácia e adequadas (em conformidade) à consecução dos objetivos.'
-                                :
-                                'Auditoria é uma análise cuidadosa, detalhada e sistemática das atividades desenvolvidas em determinada organização, cujo objetivo é averiguar se elas estão de acordo com as planejadas e/ou estabelecidas previamente, se foram implementadas com eficácia e adequadas (em conformidade) à consecução dos objetivos.'.slice(0, 400) + '...'
-                            }}
-                            
+                                
+                        <p *ngIf="
+                        'Auditoria é uma análise cuidadosa, detalhada e sistemática das atividades desenvolvidas em determinada organização, cujo objetivo é averiguar se elas estão de acordo com as planejadas e/ou estabelecidas previamente, se foram implementadas com eficácia e adequadas (em conformidade) à consecução dos objetivos.'.length > 200
+                    " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                        {{ keepReading 
+                            ? 
+                            'Auditoria é uma análise cuidadosa, detalhada e sistemática das atividades desenvolvidas em determinada organização, cujo objetivo é averiguar se elas estão de acordo com as planejadas e/ou estabelecidas previamente, se foram implementadas com eficácia e adequadas (em conformidade) à consecução dos objetivos.'
+                            :
+                            'Auditoria é uma análise cuidadosa, detalhada e sistemática das atividades desenvolvidas em determinada organização, cujo objetivo é averiguar se elas estão de acordo com as planejadas e/ou estabelecidas previamente, se foram implementadas com eficácia e adequadas (em conformidade) à consecução dos objetivos.'.slice(0, 200) + '...'
+                        }}
                         </p>
 
-                        <div class="d-flex align-items-center justify-content-end w-100">
+                        <p *ngIf="
+                            'Auditoria é uma análise cuidadosa, detalhada e sistemática das atividades desenvolvidas em determinada organização, cujo objetivo é averiguar se elas estão de acordo com as planejadas e/ou estabelecidas previamente, se foram implementadas com eficácia e adequadas (em conformidade) à consecução dos objetivos.'.length <= 200
+                        " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                            {{ 'Auditoria é uma análise cuidadosa, detalhada e sistemática das atividades desenvolvidas em determinada organização, cujo objetivo é averiguar se elas estão de acordo com as planejadas e/ou estabelecidas previamente, se foram implementadas com eficácia e adequadas (em conformidade) à consecução dos objetivos.'}}
+                        </p>
+
+                        <div *ngIf="
+                            'Auditoria é uma análise cuidadosa, detalhada e sistemática das atividades desenvolvidas em determinada organização, cujo objetivo é averiguar se elas estão de acordo com as planejadas e/ou estabelecidas previamente, se foram implementadas com eficácia e adequadas (em conformidade) à consecução dos objetivos.'.length > 200
+                        " class="d-flex align-items-center justify-content-end w-100">
                             <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
                                 Continuar lendo
                                 <img src="/assets/icon/share.svg" alt="">
@@ -725,17 +807,26 @@
                             Glossário
                         </h4>
 
-                        <p class="f-size-0-85rem l-height-1-25 text-dark pb-4">
-                            {{ keepReading 
-                                ? 
-                                'Os lucros obtidos pela empresa esteve em níveis considerados aceitáveis, como positivos e dentro da média  comparado com os indicadores do mercado?'
-                                :
-                                'Os lucros obtidos pela empresa esteve em níveis considerados aceitáveis, como positivos e dentro da média  comparado com os indicadores do mercado?'.slice(0, 400) + '...'
-                            }}
-                            
+                        <p *ngIf="
+                        'Os lucros obtidos pela empresa esteve em níveis considerados aceitáveis, como positivos e dentro da média  comparado com os indicadores do mercado?'.length > 200
+                    " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                        {{ keepReading 
+                            ? 
+                            'Os lucros obtidos pela empresa esteve em níveis considerados aceitáveis, como positivos e dentro da média  comparado com os indicadores do mercado?'
+                            :
+                            'Os lucros obtidos pela empresa esteve em níveis considerados aceitáveis, como positivos e dentro da média  comparado com os indicadores do mercado?'.slice(0, 200) + '...'
+                        }}
                         </p>
 
-                        <div class="d-flex align-items-center justify-content-end w-100">
+                        <p *ngIf="
+                            'Os lucros obtidos pela empresa esteve em níveis considerados aceitáveis, como positivos e dentro da média  comparado com os indicadores do mercado?'.length <= 200
+                        " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                            {{ 'Os lucros obtidos pela empresa esteve em níveis considerados aceitáveis, como positivos e dentro da média  comparado com os indicadores do mercado?'}}
+                        </p>
+
+                        <div *ngIf="
+                            'Os lucros obtidos pela empresa esteve em níveis considerados aceitáveis, como positivos e dentro da média  comparado com os indicadores do mercado?'.length > 200
+                        " class="d-flex align-items-center justify-content-end w-100">
                             <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
                                 Continuar lendo
                                 <img src="/assets/icon/share.svg" alt="">
@@ -794,18 +885,27 @@
                         <h4 class="brand-text fw-700 p-0 pb-4">
                             Glossário
                         </h4>
-
-                        <p class="f-size-0-85rem l-height-1-25 text-dark pb-4">
-                            {{ keepReading 
-                                ? 
-                                'O produto pode apresentar danos e riscos à saúde de quem o consome caso ele seja consumido em quantidades excessivas, além das recomendadas'
-                                :
-                                'O produto pode apresentar danos e riscos à saúde de quem o consome caso ele seja consumido em quantidades excessivas, além das recomendadas'.slice(0, 400) + '...'
-                            }}
-                            
+                        
+                        <p *ngIf="
+                        'O produto pode apresentar danos e riscos à saúde de quem o consome caso ele seja consumido em quantidades excessivas, além das recomendadas'.length > 200
+                    " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                        {{ keepReading 
+                            ? 
+                            'O produto pode apresentar danos e riscos à saúde de quem o consome caso ele seja consumido em quantidades excessivas, além das recomendadas'
+                            :
+                            'O produto pode apresentar danos e riscos à saúde de quem o consome caso ele seja consumido em quantidades excessivas, além das recomendadas'.slice(0, 200) + '...'
+                        }}
                         </p>
 
-                        <div class="d-flex align-items-center justify-content-end w-100">
+                        <p *ngIf="
+                            'O produto pode apresentar danos e riscos à saúde de quem o consome caso ele seja consumido em quantidades excessivas, além das recomendadas'.length <= 200
+                        " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                            {{ 'O produto pode apresentar danos e riscos à saúde de quem o consome caso ele seja consumido em quantidades excessivas, além das recomendadas'}}
+                        </p>
+
+                        <div *ngIf="
+                            'O produto pode apresentar danos e riscos à saúde de quem o consome caso ele seja consumido em quantidades excessivas, além das recomendadas'.length > 200
+                        " class="d-flex align-items-center justify-content-end w-100">
                             <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
                                 Continuar lendo
                                 <img src="/assets/icon/share.svg" alt="">
@@ -864,18 +964,27 @@
                         <h4 class="brand-text fw-700 p-0 pb-4">
                             Glossário
                         </h4>
-
-                        <p class="f-size-0-85rem l-height-1-25 text-dark pb-4">
-                            {{ keepReading 
-                                ? 
-                                'Todos os funcionários têm acesso à documentos que relatam o desempenho financeiro da empresa'
-                                :
-                                'Todos os funcionários têm acesso à documentos que relatam o desempenho financeiro da empresa'.slice(0, 400) + '...'
-                            }}
-                            
+                                                
+                        <p *ngIf="
+                        'Todos os funcionários têm acesso à documentos que relatam o desempenho financeiro da empresa'.length > 200
+                    " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                        {{ keepReading 
+                            ? 
+                            'Todos os funcionários têm acesso à documentos que relatam o desempenho financeiro da empresa'
+                            :
+                            'Todos os funcionários têm acesso à documentos que relatam o desempenho financeiro da empresa'.slice(0, 200) + '...'
+                        }}
                         </p>
 
-                        <div class="d-flex align-items-center justify-content-end w-100">
+                        <p *ngIf="
+                            'Todos os funcionários têm acesso à documentos que relatam o desempenho financeiro da empresa'.length <= 200
+                        " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                            {{ 'Todos os funcionários têm acesso à documentos que relatam o desempenho financeiro da empresa'}}
+                        </p>
+
+                        <div *ngIf="
+                            'Todos os funcionários têm acesso à documentos que relatam o desempenho financeiro da empresa'.length > 200
+                        " class="d-flex align-items-center justify-content-end w-100">
                             <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
                                 Continuar lendo
                                 <img src="/assets/icon/share.svg" alt="">

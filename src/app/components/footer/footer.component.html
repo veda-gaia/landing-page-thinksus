@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="d-flex flex-column flex-md-row align-items-start gap-5">
                     <div class="w-100">
-                        <h3 class="brand-text pb-2">Fale com a ThinkSus!</h3>
+                        <h3 class="brand-text pb-2">{{ "FOOTER.TALK_TO" | translate }}</h3>
                         <!-- <h5 class="brand-text fw-400">
                             Estaremos felizes em receber seu contato
                         </h5> -->
@@ -12,7 +12,7 @@
     
                     <form [formGroup]="form" class="w-100 d-block" (submit)="onSubmit()">
                         <div class="input-container mb-3">
-                            <input type="text" class="w-100" formControlName="nameMessage" placeholder="Nome completo" autocomplete="off" id="nameMessage" name="nameMessage">
+                            <input type="text" class="w-100" formControlName="nameMessage" placeholder="{{ 'FOOTER.NAME_PLACEHOLDER' | translate }}" autocomplete="off" id="nameMessage" name="nameMessage">
                             <img src="/assets/icon/name.svg" alt="Nome" class="input-icon">
                         </div>
                         
@@ -22,14 +22,14 @@
                         </div>
                         
                         <div class="input-container mb-3">
-                            <input type="text" class="w-100" formControlName="subject" placeholder="Assunto da mensagem" autocomplete="off" id="subject" name="subject">
+                            <input type="text" class="w-100" formControlName="subject" placeholder="{{ 'FOOTER.SUBJECT_PLACEHOLDER' | translate }}" autocomplete="off" id="subject" name="subject">
                             <img src="/assets/icon/subject.svg" alt="Assunto" class="input-icon">
                         </div>
                         
-                        <textarea class="w-100" formControlName="message" placeholder="Deixe aqui sua mensagem se tiver dúvidas sobre nossos produtos e planos, sugestões de melhorias, ou reclamações sobre nossos serviços que logo retornaremos seu contato." autocomplete="off" id="message" name="message"></textarea>
+                        <textarea class="w-100" formControlName="message" placeholder="{{ 'FOOTER.MESSAGE_PLACEHOLDER' | translate }}" autocomplete="off" id="message" name="message"></textarea>
 
                         <div class="w-100 d-flex justify-content-end pt-4">
-                            <button class="brand-btn px-5" type="submit" [disabled]="form.invalid">Enviar mensagem</button>
+                            <button class="brand-btn px-5" type="submit" [disabled]="form.invalid">{{ 'FOOTER.SEND_BTN' | translate }}</button>
                         </div>
                     </form>
                 </div>
@@ -49,9 +49,9 @@
         <div class="col d-flex flex-column flex-md-row align-items-center justify-content-between pb-3">
             <div>
                 <p class="f-size-1-3125rem fw-400 brand-text l-spacing-0-75 l-height-2-0625 pb-3 text-center text-md-start" style="max-width: 612px;">
-                    Seja bem-vindo à ThinkSus! O seu parceiro digital ESG para um mundo mais sustentável.
+                    {{ 'FOOTER.WELCOME' | translate }}
                 </p>
-                <a href="{{ 'PRIVACY_LINK' | translate }}" target="_blank" class="f-size-1-rem fw-500 secondary-text l-spacing-1-68 l-height-1-5 text-decoration-underline cursor-pointer d-block text-center text-md-start w-100">Termos de privacidade</a>
+                <a href="{{ 'PRIVACY_LINK' | translate }}" target="_blank" class="f-size-1-rem fw-500 secondary-text l-spacing-1-68 l-height-1-5 text-decoration-underline cursor-pointer d-block text-center text-md-start w-100">{{ 'FOOTER.PRIVACY_TERMS' | translate }}</a>
             </div>
 
             <div class="d-flex align-items-center justify-content-end gap-4 pt-5">
@@ -67,7 +67,7 @@
 
     <div class="row">
         <div class="col pb-5 pt-4">
-            <p class="f-size-1rem fw-300 gray-4-text l-spacing-1-68 text-center l-height-1-5">Copyright ©2024 Todos os direitos reservados</p>
+            <p class="f-size-1rem fw-300 gray-4-text l-spacing-1-68 text-center l-height-1-5">{{ 'FOOTER.RESERVED' | translate }}</p>
         </div>
     </div>
 </footer>

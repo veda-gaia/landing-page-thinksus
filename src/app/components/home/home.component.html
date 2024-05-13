@@ -3,11 +3,10 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h4 class="text-white fade-in">Liderança de um</h4>
+                <h4 class="text-white fade-in">{{ "HOME.SUBTITLE" | translate }}</h4>
                 <h1 class="text-white fade-in">{{ "HOME.TITLE" | translate }}</h1>
-                <h5 class="fw-500 text-white pt-4 pt-md-3 fade-in-left">
-                    A <span class="fw-700">ThinkSus</span> é referência em sustentabilidade aplicada, <br class="d-none d-md-block">
-                    design e gestão de negócios.
+                <h5 class="fw-500 text-white pt-4 pt-md-3 fade-in-left" style="max-width: 660px;">
+                    {{ "HOME.RAW" | translate }}
                 </h5>
             </div>
         </div>
@@ -19,71 +18,56 @@
     <div class="row py-5">
         <div class="col pb-lg-5 pt-lg-4">
             <h3 class="brand-text l-spacing-minus-1 pb-4">
-                Planos ThinkSus: vantagens e benefícios
+                {{ "HOME.PLAN_TITLE" | translate }}
             </h3>
 
             <div class="d-flex flex-column flex-lg-row align-items-start justify-content-between gap-5 pt-5 pb-5">
                 <div class="d-flex flex-column gap-2 w-100">
                     <div class="w-100">
-                        <img src="/assets/img/avaliation.svg" alt="Avaliação de performance ESG" width="70px" class="d-block mx-auto mx-md-0">
+                        <img src="/assets/img/avaliation.svg" alt="{{ 'HOME.AVALIATION_TITLE' | translate }}" width="70px" class="d-block mx-auto mx-md-0">
                     </div>
 
                     <h6 class="primary-text pt-2">
-                        Avaliação de performance ESG
+                        {{ "HOME.AVALIATION_TITLE" | translate }}
                     </h6>
 
                     <p class="body-1 secondary-text">
-                        Ao simular sua performance ESG em nossa 
-                        plataforma você e sua empresa terão mais 
-                        clareza sobre os aspectos materiais como 
-                        riscos socioambientais e de governança da sua operação
+                        {{ "HOME.AVALIATION_BODY" | translate }}
                     </p>
                 </div>
                 
                 <div class="d-flex flex-column gap-2 w-100 mx-xl-3">
                     <div class="w-100">
-                        <img src="/assets/img/aderence.svg" alt="Aderência aos ODS" width="64px" class="d-block mx-auto mx-md-0">
+                        <img src="/assets/img/aderence.svg" alt="{{ 'HOME.AVALIATION_TITLE' | translate }}" width="64px" class="d-block mx-auto mx-md-0">
                     </div>
 
                     <h6 class="primary-text pt-2">
-                        Aderência aos ODS
+                        {{ "HOME.ADERENCE_TITLE" | translate }}
                     </h6>
  
                     <p class="body-1 secondary-text">
-                        A plataforma ESGers é uma ferramenta 
-                        para a transparência e responsabilidade 
-                        socioambiental de sua empresa, indicando 
-                        como sua operação mais contribui com os 
-                        Objetivos do Desenvolvimento Sustentável da ONU (ODS)
+                        {{ 'HOME.ADERENCE_BODY' | translate }}
                     </p>
                 </div>
 
                 <div class="d-flex flex-column gap-2 w-100">
                     <div class="w-100">
-                        <img src="/assets/img/validation.svg" alt="Validação da Blockchain" width="70px" class="d-block mx-auto mx-md-0">
+                        <img src="/assets/img/validation.svg" alt="{{ 'HOME.ADERENCE_TITLE' | translate }}" width="70px" class="d-block mx-auto mx-md-0">
                     </div>
 
                     <h6 class="primary-text pt-2">
-                        Validação em Blockchain
+                        {{ 'HOME.ADERENCE_TITLE' | translate }}
                     </h6>
 
                     <p class="body-1 secondary-text">
-                        Disponibilizamos ferramenta de gestão 
-                        ESG e rastreio de dados para grandes 
-                        cadeias de suprimentos. Garanta sua 
-                        competitividade e continuidade dos 
-                        negócios deixando transparente a 
-                        verificação de impactos. Nossa 
-                        certificação atesta, mediante 
-                        evidências, a conformidade 
-                        com as normas ESG
+                        {{ 'HOME.BLOCKCHAIN_BODY' | translate }}
                     </p>
                 </div>
             </div>
 
             <a routerLink="/plans" (click)="scrollToTop()" class="d-block mx-auto mt-5">
                 <button class="brand-btn d-block mx-auto">
-                    Escolha a melhor opção: conheça nossos planos
+                    {{ 'HOME.CHOOSE_BTN' | translate }}
                 </button>
             </a>
         </div>
@@ -99,13 +83,12 @@
     
                 <div>
                     <h3 class="white-text l-spacing-minus-1 pb-3">
-                        Futuro sustentável é agora!
+                        {{ 'HOME.CHOOSE_BTN' | translate }}
+                        
                     </h3>
 
                     <p class="body-2 white-text" style="max-width: 650px;">
-                        A <span class="body-2 white-text fw-700">ThinkSus</span> traz inovações com a pontuação ESG 
-                        e promove melhorias de desempenho em todos os 
-                        setores de suas operações.
+                        {{ 'HOME.INOVATION' | translate }}
                     </p>
                 </div>
             </div>
@@ -115,47 +98,43 @@
             <div class="col d-flex flex-column flex-lg-row align-items-start justify-content-between gap-5 pt-3 pb-5">
                 <div class="d-flex flex-column gap-2 w-100 me-xxl-2">
                     <div class="w-100">
-                        <img src="/assets/img/balance.svg" alt="Equilíbrio" width="80px" class="d-block mx-auto">
+                        <img src="/assets/img/balance.svg" alt="{{ 'HOME.BALANCE' | translate }}" width="80px" class="d-block mx-auto">
                     </div>
 
                     <h6 class="text-white pt-2 text-center">
-                        Equilíbrio
+                        {{ 'HOME.BALANCE' | translate }}
                     </h6>
 
                     <p class="body-1 text-white text-center fw-400">
-                        Saiba qual é o cenário ESG atual de seus 
-                        negócios e como adequá-los às práticas 
-                        atuais de mercado.
+                        {{ 'HOME.KNOW_WHAT' | translate }}
                     </p>
                 </div>
                 
                 <div class="d-flex flex-column gap-2 w-100 mx-xl-4 mx-xxl-5">
                     <div class="w-100">
-                        <img src="/assets/img/positioning.svg" alt="Posicionamento" width="80px" class="d-block mx-auto">
+                        <img src="/assets/img/positioning.svg" alt="{{ 'HOME.POSITIONING' | translate }}" width="80px" class="d-block mx-auto">
                     </div>
 
                     <h6 class="text-white pt-2 text-center">
-                        Posicionamento
+                        {{ 'HOME.POSITIONING' | translate }}
                     </h6>
 
                     <p class="body-1 text-white text-center fw-400">
-                        Tenha um posicionamento sustentável e 
-                        entenda seus impactos na sociedade.
+                        {{ 'HOME.HAVE_A' | translate }}
                     </p>
                 </div>
 
                 <div class="d-flex flex-column gap-2 w-100 ms-xxl-2">
                     <div class="w-100">
-                        <img src="/assets/img/evolution.svg" alt="Evolução" width="80px" class="d-block mx-auto">
+                        <img src="/assets/img/evolution.svg" alt="{{ 'HOME.EVOLUTION' | translate }}" width="80px" class="d-block mx-auto">
                     </div>
 
                     <h6 class="text-white pt-2 text-center">
-                        Evolução
+                        {{ 'HOME.EVOLUTION' | translate }}
                     </h6>
 
                     <p class="body-1 text-white text-center fw-400">
-                        Construa uma relação saudável com seus stakeholders, 
-                        e estabeleça métricas de um propósito sustentável 
+                        {{ 'HOME.BUILD' | translate }}
                     </p>
                 </div>
             </div>
@@ -163,9 +142,9 @@
 
         <div class="row py-4">
             <div class="col">
-                <button class="secondary-brand-btn d-block mx-auto p-0">
+                <!-- <button class="secondary-brand-btn d-block mx-auto p-0">
                     
-                </button>
+                </button> -->
             </div>
         </div>
     </div>
@@ -190,30 +169,19 @@
                         <!-- Carousel 1 -->
                         <div class="carousel-item active py-5">
                             <div class="container-card-carousel py-3 d-block mx-auto px-4 px-xl-5 py-5">
-                                <h5 class="fw-500 secondary-text pb-2">Noticias populares</h5>
+                                <h5 class="fw-500 secondary-text pb-2">{{ 'HOME.EXAMPLE_1' | translate }}</h5>
                                 <h3 class="primary-text l-spacing-minus-1 pb-3">
-                                    Lorem ipsum dolor sit amet, consectetur
+                                    {{ 'HOME.EXAMPLE_4' | translate }}
                                 </h3>
 
                                 <h5 class="fw-500 primary-text">
-                                    Lorem ipsum dolor sit amet, consectetur
-                                    adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua.
-                                    Ut enim ad minim veniam, quis nostrud
-                                    exercitation ullamco laboris nisi ut
-                                    aliquip ex ea commodo consequat. Duis
-                                    aute irure dolor in reprehenderit in
-                                    voluptate velit esse cillum dolore eu
-                                    fugiat nulla pariatur. Excepteur sint
-                                    occaecat cupidatat non proident,
-                                    sunt in culpa qui ofcia deserunt
-                                    mollit anim id est laborum.
+                                    {{ 'HOME.EXAMPLE_2' | translate }}
                                 </h5>
 
                                 <div class="w-100 d-flex align-items-center justify-content-end pt-4">
                                     <button
                                         class="brand-text f-size-1rem fw-800 l-spacing-1-68 border-0 bg-transparent shadow-none p-4">
-                                        Saiba mais
+                                        {{ 'HOME.EXAMPLE_3' | translate }}
                                     </button>
                                 </div>
                             </div>
@@ -222,30 +190,19 @@
                         <!-- Carousel 2 -->
                         <div class="carousel-item py-5">
                             <div class="container-card-carousel py-3 d-block mx-auto px-4 px-xl-5 py-5">
-                                <h5 class="fw-500 secondary-text pb-2">Noticias populares</h5>
+                                <h5 class="fw-500 secondary-text pb-2">{{ 'HOME.EXAMPLE_1' | translate }}</h5>
                                 <h3 class="primary-text l-spacing-minus-1 pb-3">
-                                    Lorem ipsum dolor sit amet, consectetur
+                                    {{ 'HOME.EXAMPLE_4' | translate }}
                                 </h3>
 
                                 <h5 class="fw-500 primary-text">
-                                    Lorem ipsum dolor sit amet, consectetur
-                                    adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua.
-                                    Ut enim ad minim veniam, quis nostrud
-                                    exercitation ullamco laboris nisi ut
-                                    aliquip ex ea commodo consequat. Duis
-                                    aute irure dolor in reprehenderit in
-                                    voluptate velit esse cillum dolore eu
-                                    fugiat nulla pariatur. Excepteur sint
-                                    occaecat cupidatat non proident,
-                                    sunt in culpa qui ofcia deserunt
-                                    mollit anim id est laborum.
+                                    {{ 'HOME.EXAMPLE_2' | translate }}
                                 </h5>
 
                                 <div class="w-100 d-flex align-items-center justify-content-end pt-4">
                                     <button
                                         class="brand-text f-size-1rem fw-800 l-spacing-1-68 border-0 bg-transparent shadow-none p-4">
-                                        Saiba mais
+                                        {{ 'HOME.EXAMPLE_3' | translate }}
                                     </button>
                                 </div>
                             </div>
@@ -254,30 +211,19 @@
                         <!-- Carousel 3 -->
                         <div class="carousel-item py-5">
                             <div class="container-card-carousel py-3 d-block mx-auto px-4 px-xl-5 py-5">
-                                <h5 class="fw-500 secondary-text pb-2">Noticias populares</h5>
+                                <h5 class="fw-500 secondary-text pb-2">{{ 'HOME.EXAMPLE_1' | translate }}</h5>
                                 <h3 class="primary-text l-spacing-minus-1 pb-3">
-                                    Lorem ipsum dolor sit amet, consectetur
+                                    {{ 'HOME.EXAMPLE_4' | translate }}
                                 </h3>
 
                                 <h5 class="fw-500 primary-text">
-                                    Lorem ipsum dolor sit amet, consectetur
-                                    adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua.
-                                    Ut enim ad minim veniam, quis nostrud
-                                    exercitation ullamco laboris nisi ut
-                                    aliquip ex ea commodo consequat. Duis
-                                    aute irure dolor in reprehenderit in
-                                    voluptate velit esse cillum dolore eu
-                                    fugiat nulla pariatur. Excepteur sint
-                                    occaecat cupidatat non proident,
-                                    sunt in culpa qui ofcia deserunt
-                                    mollit anim id est laborum.
+                                    {{ 'HOME.EXAMPLE_2' | translate }}
                                 </h5>
 
                                 <div class="w-100 d-flex align-items-center justify-content-end pt-4">
                                     <button
                                         class="brand-text f-size-1rem fw-800 l-spacing-1-68 border-0 bg-transparent shadow-none p-4">
-                                        Saiba mais
+                                        {{ 'HOME.EXAMPLE_3' | translate }}
                                     </button>
                                 </div>
                             </div>

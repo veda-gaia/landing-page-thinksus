@@ -12,16 +12,28 @@ import { RatingSystemComponent } from './components/rating-system/rating-system.
 import { KnowMoreComponent } from './components/know-more/know-more.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FreeTestComponent } from './components/free-test/free-test.component';
-import { NgxMaskDirective, NgxMaskPipe, provideEnvironmentNgxMask } from 'ngx-mask';
+import {
+  NgxMaskDirective,
+  NgxMaskPipe,
+  provideEnvironmentNgxMask,
+} from 'ngx-mask';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClient,
+  HttpClientModule,
+} from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CepService } from './services/cep.service';
+import { ToastrModule } from 'ngx-toastr';
+import { AuthenticationService } from './services/authentication.service';
+import { AuthInterceptor } from './services/auth-interceptor.service';
+import { UserService } from './services/user.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json')
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
@@ -36,7 +48,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     KnowMoreComponent,
     FreeTestComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,18 +57,27 @@ export function HttpLoaderFactory(http: HttpClient) {
     NgxMaskDirective,
     NgxMaskPipe,
     HttpClientModule,
+    ToastrModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    })
+        deps: [HttpClient],
+      },
+    }),
   ],
   providers: [
     provideEnvironmentNgxMask(),
-    CepService
+    AuthInterceptor,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+    CepService,
+    AuthenticationService,
+    UserService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

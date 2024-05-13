@@ -1,10 +1,9 @@
 import { HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { isDevMode } from '@angular/core';
 import { throwError } from 'rxjs';
-
-import { environment } from 'src/enviroments/environment';
 import CryptoUtil from '../util/crypto.util';
 import LocalStorageUtil, { LocalStorageKeys } from '../util/localStorage.util';
+import { environment } from 'src/environments/environment';
 
 export abstract class BaseService {
   protected anonymousHeader() {
@@ -35,12 +34,13 @@ export abstract class BaseService {
   }
 
   protected extractData(response: any) {
-    // console.log(`res`, response)
     return response.data || {};
   }
+
   protected resp(response: any) {
     return response || {};
   }
+
   protected serviceError(response: Response | any) {
     let customError: string[] = [];
     let customResponse = new Error();

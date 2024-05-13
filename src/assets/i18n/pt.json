@@ -1,8 +1,43 @@
 {
     "TERMS_LINK": "https://drive.google.com/file/d/1nsHyn87E0AVplsPGq5p3jpc7vpoGw2g_/view",
     "PRIVACY_LINK": "https://docs.google.com/document/d/1L3ldyG-MrOsMjvNWjg5CCCJjTLoBO5lc/edit#heading=h.gjdgxs",
+    "HEADER": {
+        "SUBTITLE": "AAAA"
+    },
+    "FOOTER": {
+        "TALK_TO": "Fale com a ThinkSus!",
+        "NAME_PLACEHOLDER": "Nome completo",
+        "SUBJECT_PLACEHOLDER": "Assunto da mensagem",
+        "MESSAGE_PLACEHOLDER": "Deixe aqui sua mensagem se tiver dúvidas sobre nossos produtos e planos, sugestões de melhorias, ou reclamações sobre nossos serviços que logo retornaremos seu contato.",
+        "SEND_BTN": "Enviar mensagem",
+        "WELCOME": "Seja bem-vindo à ThinkSus! O seu parceiro digital ESG para um mundo mais sustentável.",
+        "RESERVED": "Copyright ©2024 Todos os direitos reservados",
+        "PRIVACY_TERMS": "Termos de privacidade"
+    },
     "HOME": {
-        "TITLE": "Futuro sustentável"
+        "SUBTITLE": "Liderança de um",
+        "TITLE": "Futuro sustentável",
+        "RAW": "A ThinkSus é referência em sustentabilidade aplicada, design e gestão de negócios.",
+        "PLAN_TITLE": "Planos ThinkSus: vantagens e benefícios",
+        "AVALIATION_TITLE": "Avaliação de performance ESG",
+        "AVALIATION_BODY": "Ao simular sua performance ESG em nossa plataforma você e sua empresa terão mais clareza sobre os aspectos materiais como riscos socioambientais e de governança da sua operação",
+        "ADERENCE_TITLE": "Avaliação de performance ESG",
+        "ADERENCE_BODY": "A plataforma ESGers é uma ferramenta para a transparência e responsabilidade socioambiental de sua empresa, indicando como sua operação mais contribui com os Objetivos do Desenvolvimento Sustentável da ONU (ODS)",
+        "BLOCKCHAIN_TITLE": "Validação em Blockchain",
+        "BLOCKCHAIN_BODY": "Disponibilizamos ferramenta de gestão ESG e rastreio de dados para grandes cadeias de suprimentos. Garanta sua competitividade e continuidade dos negócios deixando transparente a verificação de impactos. Nossa certificação atesta, mediante evidências, a conformidade com as normas ESG",
+        "CHOOSE_BTN": "Escolha a melhor opção: conheça nossos planos",
+        "FUTURE": "Futuro sustentável é agora!",
+        "INOVATION": "A ThinkSus traz inovações com a pontuação ESG e promove melhorias de desempenho em todos os setores de suas operações.",
+        "BALANCE": "Equilíbrio",
+        "KNOW_WHAT": "Saiba qual é o cenário ESG atual de seus negócios e como adequá-los às práticas atuais de mercado.",
+        "POSITIONING": "Posicionamento",
+        "HAVE_A": "Tenha um posicionamento sustentável e entenda seus impactos na sociedade.",
+        "EVOLUTION": "Evolução",
+        "BUILD": "Construa uma relação saudável com seus stakeholders, e estabeleça métricas de um propósito sustentável ",
+        "EXAMPLE_1": "Noticias populares",
+        "EXAMPLE_2": "Lorem ipsum dolor sit amet, consecteturadipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris nisi utaliquip ex ea commodo consequat. Duisaute irure dolor in reprehenderit involuptate velit esse cillum dolore eufugiat nulla pariatur. Excepteur sintoccaecat cupidatat non proident,sunt in culpa qui ofcia deseruntmollit anim id est laborum.",
+        "EXAMPLE_3": "Saiba mais",
+        "EXAMPLE_4": "Lorem ipsum dolor sit amet, consectetur"
     },
     "REGISTER": {
         "PART": "Parte",

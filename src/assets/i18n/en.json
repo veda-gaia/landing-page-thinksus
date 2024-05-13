@@ -1,8 +1,43 @@
 {
     "TERMS_LINK": "https://drive.google.com/file/d/1kQFs-9lpGh_mRSaYXB3g4-bXSkZtL6kO/view",
     "PRIVACY_LINK": "https://docs.google.com/document/d/1NE0XrXsl50QHPj1XweECKPJ65BWSKpsJ/edit",
+    "HEADER": {
+        "SUBTITLE": "AAAA"
+    },
+    "FOOTER": {
+        "TALK_TO": "ThinkSus wants to hear from you!",
+        "NAME_PLACEHOLDER": "Your full name",
+        "SUBJECT_PLACEHOLDER": "Subject",
+        "MESSAGE_PLACEHOLDER": "Leave us a message in case you have any doubts about our products, subscription plans, suggestions or any complaints that soon we will get back to you!",
+        "SEND_BTN": "Send",
+        "WELCOME": "Welcome to ThinkSus! Your ESG digital partner to a greener world.",
+        "RESERVED": "All rights reserved",
+        "PRIVACY_TERMS": "Privacy terms"
+    },
     "HOME": {
-        "TITLE": "Sustainable Future"
+        "SUBTITLE": "Lidearship to a",
+        "TITLE": "Sustainable Future",
+        "RAW": "ThinkSus sets the benchmark for applied sustainability, design and business management",
+        "PLAN_TITLE": "ESGers ThinkSus Plans: advantages and benefits",
+        "AVALIATION_TITLE": "ESG performance evaluation",
+        "AVALIATION_BODY": "By simulating your ESG performance on our platform, you and your company will gain more clarity on material aspects such as social and environmental risks and governance of your operation.",
+        "ADERENCE_TITLE": "SDG Adherence",
+        "ADERENCE_BODY": "It is a tool for the transparency and social and environmental responsibility of your company, indicating how your operation contributes most to UN's SDG",
+        "BLOCKCHAIN_TITLE": "Blockchain validation",
+        "BLOCKCHAIN_BODY": "We provide an ESG management tool and data tracking for large supply chains. Ensure your competitiveness and business continuity by making the verification of impacts transparent. Our certification attests, with evidence, compliance with ESG standards",
+        "CHOOSE_BTN": "Choose the best option: Learn more about our plans",
+        "FUTURE": "The green future is now!",
+        "INOVATION": "The ThinkSus ESG rating fosters innovation and encourages performance improvement in every aspect of your operations.",
+        "BALANCE": "Balance",
+        "KNOW_WHAT": "Find out the current ESG scenario in your business and how to fit into the latest market trends",
+        "POSITIONING": "Positioning",
+        "HAVE_A": "Have a sustainable positioning and learn its impacts on society",
+        "EVOLUTION": "Evolution",
+        "BUILD": "Build a healthy relationship with your stakeholders with a sustainable purpose for the future",
+        "EXAMPLE_1": "Noticias populares",
+        "EXAMPLE_2": "Lorem ipsum dolor sit amet, consecteturadipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris nisi utaliquip ex ea commodo consequat. Duisaute irure dolor in reprehenderit involuptate velit esse cillum dolore eufugiat nulla pariatur. Excepteur sintoccaecat cupidatat non proident,sunt in culpa qui ofcia deseruntmollit anim id est laborum.",
+        "EXAMPLE_3": "Saiba mais",
+        "EXAMPLE_4": "Lorem ipsum dolor sit amet, consectetur"
     },
     "REGISTER": {
         "PART": "Parte",

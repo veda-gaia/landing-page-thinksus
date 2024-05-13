@@ -2,7 +2,10 @@
     "TERMS_LINK": "https://drive.google.com/file/d/1kQFs-9lpGh_mRSaYXB3g4-bXSkZtL6kO/view",
     "PRIVACY_LINK": "https://docs.google.com/document/d/1NE0XrXsl50QHPj1XweECKPJ65BWSKpsJ/edit",
     "HEADER": {
-        "SUBTITLE": "AAAA"
+        "PLANS": "Plans",
+        "ABOUT": "About Us",
+        "SIGN_UP": "Sign Up",
+        "SIGN_IN": "Sign In"
     },
     "FOOTER": {
         "TALK_TO": "ThinkSus wants to hear from you!",

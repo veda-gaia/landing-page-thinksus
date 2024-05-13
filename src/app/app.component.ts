@@ -19,6 +19,11 @@ export class AppComponent {
 
     this.translateService.setDefaultLang(languageCode)
     this.translateService.use(languageCode)
+    // this.translateService.onLangChange.subscribe({
+    //   next: (data: any) => {
+    //     console.log(data)
+    //   }
+    // })
   }
   
   changeLanguage(language: string) {

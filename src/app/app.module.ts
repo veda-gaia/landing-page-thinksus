@@ -18,6 +18,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { CepService } from './services/cep.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json')
@@ -54,6 +55,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [
     provideEnvironmentNgxMask(),
+    CepService
   ],
   bootstrap: [AppComponent]
 })

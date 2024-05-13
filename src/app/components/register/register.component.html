@@ -80,15 +80,18 @@
 
                 <label for="enterpriseName" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.ENTERPRISE_NAME" | translate }}</label>
                 <input type="text" class="w-100 mb-4" formControlName="enterpriseName" placeholder="{{ 'REGISTER.ENTERPRISE_NAME_PLACEHOLDER' | translate }}" autocomplete="off" id="enterpriseName" name="enterpriseName">
-
-                <label *ngIf="country.value === 'Brasil'" for="document" class="fade-in pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.DOCUMENT" | translate }}</label>
-                <input *ngIf="country.value === 'Brasil'" type="text" mask="00.000.000/0000-00" class="fade-in w-100 mb-4" formControlName="document" placeholder="00.000.000/0000-00" autocomplete="off" id="document" name="document">
                 
                 <label for="country" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.COUNTRY" | translate }}</label>
                 <select name="country" id="country" formControlName="country" class="d-block mb-4">
                     <option *ngFor="let country of countryList" [value]="country">{{ country }}</option>
                 </select>
 
+                <label *ngIf="country.value === 'Estados Unidos'" for="zipCode" class="fade-in pb-2 fw-600 f-size-1rem l-spacing-1-68">Zip Code</label>
+                <input *ngIf="country.value === 'Estados Unidos'" type="text" pattern='^[0-9]{5}(?:[0-9]{4})?$' mask="00000-0000" [validation]="false" [showMaskTyped]="true" class="fade-in w-100 mb-4" formControlName="zipCode" placeholder="00000-000" autocomplete="off" id="zipCode" name="zipCode">
+
+                <label *ngIf="country.value === 'Brasil'" for="zipCode" class="fade-in pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.ZIPCODE" | translate }}</label>
+                <input *ngIf="country.value === 'Brasil'" type="text" mask="00000-000" class="fade-in w-100 mb-4" formControlName="zipCode" placeholder="00000-000" autocomplete="off" id="zipCode" name="zipCode">
+                
                 <div class="d-flex align-items-start justify-content-between gap-3">
                     <div>
                         <label for="state" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.STATE" | translate }}</label>
@@ -101,15 +104,26 @@
                     </div>
                 </div>
 
+                <label *ngIf="country.value === 'Brasil'" for="document" class="fade-in pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.DOCUMENT" | translate }}</label>
+                <input *ngIf="country.value === 'Brasil'" type="text" mask="00.000.000/0000-00" class="fade-in w-100 mb-4" formControlName="document" placeholder="00.000.000/0000-00" autocomplete="off" id="document" name="document">
+
                 <div class="d-flex align-items-start justify-content-between gap-3 mb-4">
-                    <div>
+                    <div class="flex-grow-1 w-100">
                         <label for="sector" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.FIELD" | translate }}</label>
-                        <input type="text" class="w-100 mb-4" formControlName="sector" placeholder="{{ 'REGISTER.FIELD_PLACEHOLDER' | translate }}" autocomplete="off" id="sector" name="sector">
+                        <select name="sector" id="sector" formControlName="sector" class="d-block mb-4 w-100">
+                            <option value="">{{ 'REGISTER.FIELD_PLACEHOLDER' | translate }}</option>
+                            <option *ngFor="let sector of sectorList" [value]="sector">{{ sector }}</option>
+                        </select>
+                        <!-- <input type="text" class="w-100 mb-4" formControlName="sector" placeholder="{{ 'REGISTER.FIELD_PLACEHOLDER' | translate }}" autocomplete="off" id="sector" name="sector"> -->
                     </div>
 
-                    <div>
+                    <div class="flex-grow-1 w-100">
                         <label for="segment" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.SEGMENT" | translate }}</label>
-                        <input type="text" class="w-100 mb-4" formControlName="segment" placeholder="{{ 'REGISTER.SEGMENT_PLACEHOLDER' | translate }}" autocomplete="off" id="segment" name="segment">
+                        <select name="segment" id="segment" formControlName="segment" class="d-block mb-4 w-100" [class.opacity-05]="!segmentList.length">
+                            <option value="">{{ 'REGISTER.SEGMENT_PLACEHOLDER' | translate }}</option>
+                            <option *ngFor="let segment of segmentList" [value]="segment">{{ segment }}</option>
+                        </select>
+                        <!-- <input type="text" class="w-100 mb-4" formControlName="segment" placeholder="{{ 'REGISTER.SEGMENT_PLACEHOLDER' | translate }}" autocomplete="off" id="segment" name="segment"> -->
                     </div>
                 </div>
 

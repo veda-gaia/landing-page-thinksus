@@ -29,6 +29,7 @@
         
         "ENTERPRISE_NAME": "Nome da empresa",
         "ENTERPRISE_NAME_PLACEHOLDER": "Digite o nome da empresa",
+        "ZIPCODE": "CEP",
         "DOCUMENT": "CNPJ",
         "COUNTRY": "País",
         "STATE": "Estado Sede",
@@ -36,9 +37,9 @@
         "CITY": "Cidade Sede",
         "CITY_PLACEHOLDER": "Digite a Cidade",
         "FIELD": "Setor",
-        "FIELD_PLACEHOLDER": "Digite o Setor",
+        "FIELD_PLACEHOLDER": "Selecione o Setor",
         "SEGMENT": "Segmento",
-        "SEGMENT_PLACEHOLDER": "Digite o Segmento",
+        "SEGMENT_PLACEHOLDER": "Selecione o Segmento",
         "BACK": "Voltar",
         
         "COLLABORATORS_AMMOUNT": "Número de colaboradores na empresa",

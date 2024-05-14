@@ -8,50 +8,57 @@ import { LoginComponent } from './login/login.component';
 import { PlansComponent } from './plans/plans.component';
 import { RatingSystemComponent } from './rating-system/rating-system.component';
 import { RegisterComponent } from './register/register.component';
+import { LandingComponent } from './landing.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
-  {
-    path: 'home',
-    component: HomeComponent,
-  },
-  {
-    path: 'esg',
-    component: EsgComponent,
-  },
-  {
-    path: 'plans',
-    component: PlansComponent,
-  },
-  {
-    path: 'about-us',
-    component: KnowMoreComponent,
-  },
-  {
-    path: 'free-test',
-    component: FreeTestComponent,
-  },
-  {
-    path: 'about-us',
-    component: KnowMoreComponent,
-  },
-  {
-    path: 'enterprise-rating-system',
-    component: RatingSystemComponent,
-  },
-  {
-    path: 'register',
-    component: RegisterComponent,
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
-  },
+    component: LandingComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+      },
+      {
+        path: 'home',
+        component: HomeComponent,
+      },
+      {
+        path: 'esg',
+        component: EsgComponent,
+      },
+      {
+        path: 'plans',
+        component: PlansComponent,
+      },
+      {
+        path: 'about-us',
+        component: KnowMoreComponent,
+      },
+      {
+        path: 'free-test',
+        component: FreeTestComponent,
+      },
+      {
+        path: 'about-us',
+        component: KnowMoreComponent,
+      },
+      {
+        path: 'enterprise-rating-system',
+        component: RatingSystemComponent,
+      },
+      {
+        path: 'register',
+        component: RegisterComponent,
+      },
+      {
+        path: 'login',
+        component: LoginComponent,
+      },
+    ]
+  }
 ];
 
 @NgModule({

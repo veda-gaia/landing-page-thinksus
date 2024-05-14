@@ -5,34 +5,41 @@ import { AssesmentComponent } from './assesment/assesment.component';
 import { AssesmentQuestionaryComponent } from './assesment-questionary/assesment-questionary.component';
 import { OdsComponent } from './ods/ods.component';
 import { ResultsComponent } from './results/results.component';
+import { LoggedComponent } from './logged.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full'
-  },
-  {
-    redirectTo: 'dashboard',
-    component: DashboardComponent
-  },
-  {
-    redirectTo: 'assesment',
-    component: AssesmentComponent
-  },
-  {
-    redirectTo: 'assesment/questionary',
-    component: AssesmentQuestionaryComponent
-  },
-  {
-    redirectTo: 'ods',
-    component: OdsComponent
-  },
-  {
-    redirectTo: 'results',
-    component: ResultsComponent
-  },
+    component: LoggedComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full'
+      },
+      {
+        path: 'dashboard',
+        component: DashboardComponent
+      },
+      {
+        path: 'assesment',
+        component: AssesmentComponent
+      },
+      {
+        path: 'assesment/questionary',
+        component: AssesmentQuestionaryComponent
+      },
+      {
+        path: 'ods',
+        component: OdsComponent
+      },
+      {
+        path: 'results',
+        component: ResultsComponent
+      },
+    ]
+  }
 ];
 
 @NgModule({

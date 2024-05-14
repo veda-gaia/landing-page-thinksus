@@ -7,17 +7,19 @@ import { OdsComponent } from './ods/ods.component';
 import { ImprovementsComponent } from './improvements/improvements.component';
 import { AssesmentComponent } from './assesment/assesment.component';
 import { AssesmentQuestionaryComponent } from './assesment-questionary/assesment-questionary.component';
+import { LoggedComponent } from './logged.component';
 
 
 
 @NgModule({
   declarations: [
+    LoggedComponent,
     DashboardComponent,
     ResultsComponent,
     OdsComponent,
     ImprovementsComponent,
     AssesmentComponent,
-    AssesmentQuestionaryComponent
+    AssesmentQuestionaryComponent,
   ],
   imports: [
     CommonModule,

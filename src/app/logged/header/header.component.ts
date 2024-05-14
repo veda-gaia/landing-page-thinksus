@@ -2,18 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-landing',
-  templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.scss']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
 })
-export class LandingComponent implements OnInit {
-  openSelectorLanguage = false
+export class HeaderComponent implements OnInit {
   selectedLanguage: string = ''
+
+  menuMobileOpen = false;
 
   constructor(
     private translateService: TranslateService
-  ){
-  }
+  ){}
   
   ngOnInit() {
     this.selectedLanguage = this.translateService.currentLang
@@ -25,7 +25,11 @@ export class LandingComponent implements OnInit {
     this.translateService.use(language)
   }
 
-  toggleSelector() {
-    this.openSelectorLanguage = !this.openSelectorLanguage
+  toggleMenuMobile() {
+    this.menuMobileOpen = !this.menuMobileOpen
+  }
+  
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

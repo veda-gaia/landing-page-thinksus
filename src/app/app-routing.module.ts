@@ -1,56 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { EsgComponent } from './components/esg/esg.component';
-import { PlansComponent } from './components/plans/plans.component';
-import { RatingSystemComponent } from './components/rating-system/rating-system.component';
-import { KnowMoreComponent } from './components/know-more/know-more.component';
-import { FreeTestComponent } from './components/free-test/free-test.component';
-import { RegisterComponent } from './components/register/register.component';
-import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './landing/home/home.component';
+import { EsgComponent } from './landing/esg/esg.component';
+import { PlansComponent } from './landing/plans/plans.component';
+import { RatingSystemComponent } from './landing/rating-system/rating-system.component';
+import { KnowMoreComponent } from './landing/know-more/know-more.component';
+import { FreeTestComponent } from './landing/free-test/free-test.component';
+import { RegisterComponent } from './landing/register/register.component';
+import { LoginComponent } from './landing/login/login.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    loadChildren: () => import('./landing/landing.module').then(m => m.LandingModule)
   },
   {
-    path: 'home',
-    component: HomeComponent,
-  },
-  {
-    path: 'esg',
-    component: EsgComponent,
-  },
-  {
-    path: 'plans',
-    component: PlansComponent,
-  },
-  {
-    path: 'about-us',
-    component: KnowMoreComponent,
-  },
-  {
-    path: 'free-test',
-    component: FreeTestComponent,
-  },
-  {
-    path: 'about-us',
-    component: KnowMoreComponent,
-  },
-  {
-    path: 'enterprise-rating-system',
-    component: RatingSystemComponent,
-  },
-  {
-    path: 'register',
-    component: RegisterComponent,
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
-  },
+    path: 'logged',
+    loadChildren: () => import('./logged/logged.module').then(m => m.LoggedModule)
+  }
 ];
 
 @NgModule({

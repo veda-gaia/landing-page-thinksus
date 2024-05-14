@@ -200,7 +200,7 @@ export class RegisterComponent implements OnInit {
       },
       error: (err) => {
         console.error(err);
-        this.toastr.error(err.error.errors, 'Registar Usuario', {progressBar: true});
+        this.toastr.error(err.error.errors, 'Error', {progressBar: true});
       },
     });
   }
@@ -214,7 +214,7 @@ export class RegisterComponent implements OnInit {
       },
       error: (err) => {
         console.error(err);
-        this.toastr.error(err.error.errors, 'Ativar Usuario', {progressBar: true});
+        this.toastr.error(err.error.errors, 'Error', {progressBar: true});
       },
     });
   }

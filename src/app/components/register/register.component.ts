@@ -14,7 +14,7 @@ import { ptAgribusinessList, ptIndustryList, ptServicesList } from 'src/app/util
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  actualStep = 2
+  actualStep = 1
   keepReading = false
   showPassword = false
   

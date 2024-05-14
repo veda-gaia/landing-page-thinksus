@@ -95,6 +95,8 @@
 
         "ENTERPRISE_NAME": "Business name",
         "ENTERPRISE_NAME_PLACEHOLDER": "Set the Business Name",
+        "CODE_PLACEHOLDER": "Set the Code",
+        "CODE": "Verification Code",
         "ZIPCODE": "Zip Code",
         "DOCUMENT": "Brazilian Tax ID Number",
         "COUNTRY": "Country",
@@ -122,7 +124,7 @@
         "INVOICING_3": "Above $100,000",
         "INVOICING_4": "Above $1,000,000",
         
-        "CLICK_LINK": "Click on the link we have sent to:",
+        "CLICK_LINK": "Enter the code we sent to:",
         "POST_CONFIRMATION": "Ater confirming, click on Continue to proceed with your registration",
 
         "ENJOY": "Enjoy the ThinkSus Panel",

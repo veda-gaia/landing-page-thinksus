@@ -95,6 +95,8 @@
         
         "ENTERPRISE_NAME": "Nome da empresa",
         "ENTERPRISE_NAME_PLACEHOLDER": "Digite o nome da empresa",
+        "CODE_PLACEHOLDER": "Digite o código de verificação",
+        "CODE": "Código de verificação",
         "ZIPCODE": "CEP",
         "DOCUMENT": "CNPJ",
         "COUNTRY": "País",
@@ -122,7 +124,7 @@
         "INVOICING_3": "Acima de R$100.000,00",
         "INVOICING_4": "Acima de R$1.000.000,00",
         
-        "CLICK_LINK": "Clique no link que enviamos para:",
+        "CLICK_LINK": "Digite o código que enviamos para:",
         "POST_CONFIRMATION": "Após a confirmação, clique em continuar para prosseguir com o cadastro",
         "ENJOY": "Aproveite o Painel ThinkSus",
         "CLICK_BUTTON": "Você pode clicar no botão abaixo para entrar na aplicação",

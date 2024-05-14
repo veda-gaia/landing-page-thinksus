@@ -191,7 +191,10 @@
                     {{ "REGISTER.POST_CONFIRMATION" | translate }}
                 </p>
 
-                <button class="secondary-brand-btn px-lg-5 d-block mx-auto w-100" (click)="onSubmitStep4()">
+                <label for="code" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.CODE" | translate }}</label>
+                <input type="text" class="w-100 mb-4" [formControl]="code" placeholder="{{ 'REGISTER.CODE_PLACEHOLDER' | translate }}" autocomplete="off" id="code" name="code" mask="000 000">
+
+                <button [disabled]="code.invalid" class="secondary-brand-btn px-lg-5 d-block mx-auto w-100" (click)="onSubmitStep4()">
                     {{ "REGISTER.NEXT" | translate }}
                 </button>
                 <button class="brand-outline-btn px-lg-5 d-block mx-auto w-100 mt-3 opacity-08" (click)="stepBack()">

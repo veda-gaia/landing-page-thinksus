@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  FormGroup,
   FormBuilder,
-  Validators,
   FormControl,
+  Validators
 } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
 import { CompanyEmployeesEnum } from 'src/app/enums/company-employees.enum';
 import { CompanySectionEnum } from 'src/app/enums/company-section.enum';
 import { CompanySegmentEnum } from 'src/app/enums/company-segment.enum';
@@ -38,6 +38,8 @@ export class RegisterComponent implements OnInit {
   showPassword = false;
   companyEmployeesEnum = CompanyEmployeesEnum;
 
+  code = new FormControl('', [Validators.required, Validators.minLength(6)]);
+
   form1;
   form2;
   form3;
@@ -50,7 +52,8 @@ export class RegisterComponent implements OnInit {
     private fb: FormBuilder,
     private cepService: CepService,
     private translateService: TranslateService,
-    private userService: UserService
+    private userService: UserService,
+    private toastr: ToastrService
   ) {
     this.form1 = this.fb.group({
       name: ['', Validators.required],
@@ -81,8 +84,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.scrollToTop();
 
-    // Subscribe Zip Code / CEP
-    this.form2.controls['zipCode'].valueChanges.subscribe({
+    this.form2.controls.zipCode.valueChanges.subscribe({
       next: (data) => {
         if (data && data.length === 8) {
           this.cepService.getBrazilCepInfo(data).subscribe({
@@ -198,12 +200,23 @@ export class RegisterComponent implements OnInit {
       },
       error: (err) => {
         console.error(err);
+        this.toastr.error(err.error.errors, 'Registar Usuario', {progressBar: true});
       },
     });
   }
 
   onSubmitStep4() {
-    this.actualStep = 5;
+    if (this.code.invalid || !this.code.value) return;
+    this.userService.activeUser({email: this.email.value, code: +this.code.value}).subscribe({
+      next: (data) => {
+        console.log(data);
+        this.actualStep = 5;
+      },
+      error: (err) => {
+        console.error(err);
+        this.toastr.error(err.error.errors, 'Ativar Usuario', {progressBar: true});
+      },
+    });
   }
 
   stepBack() {

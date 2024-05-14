@@ -1,35 +1,59 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  Validators
+} from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
+import { CompanyEmployeesEnum } from 'src/app/enums/company-employees.enum';
+import { CompanySectionEnum } from 'src/app/enums/company-section.enum';
+import { CompanySegmentEnum } from 'src/app/enums/company-segment.enum';
+import { UserRegisterRequestDto } from 'src/app/interfaces/user/user-register-request.dto';
 import { CepService } from 'src/app/services/cep.service';
+import { UserService } from 'src/app/services/user.service';
 import { countryList } from 'src/app/util/country';
 import { enSectorList } from 'src/app/util/en-sector';
-import { enAgribusinessList, enIndustryList, enServicesList } from 'src/app/util/en-segment';
-import { ptSectorList } from 'src/app/util/pt-sector';
-import { ptAgribusinessList, ptIndustryList, ptServicesList } from 'src/app/util/pt-segment';
+import {
+  SegmentList,
+  enAgribusinessList,
+  enIndustryList,
+  enServicesList,
+} from 'src/app/util/en-segment';
+import { SectorList, ptSectorList } from 'src/app/util/pt-sector';
+import {
+  ptAgribusinessList,
+  ptIndustryList,
+  ptServicesList,
+} from 'src/app/util/pt-segment';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  actualStep = 1
-  keepReading = false
-  showPassword = false
-  
-  form1: FormGroup
-  form2: FormGroup
-  form3: FormGroup
+  actualStep = 1;
+  keepReading = false;
+  showPassword = false;
+  companyEmployeesEnum = CompanyEmployeesEnum;
 
-  countryList = countryList
-  sectorList: string[] = []
-  segmentList: string[] = []
+  code = new FormControl('', [Validators.required, Validators.minLength(6)]);
+
+  form1;
+  form2;
+  form3;
+
+  countryList = countryList;
+  sectorList: SectorList[] = [];
+  segmentList: SegmentList[] = [];
 
   constructor(
     private fb: FormBuilder,
     private cepService: CepService,
     private translateService: TranslateService,
+    private userService: UserService,
+    private toastr: ToastrService
   ) {
     this.form1 = this.fb.group({
       name: ['', Validators.required],
@@ -38,7 +62,7 @@ export class RegisterComponent implements OnInit {
       role: ['', Validators.required],
       password: ['', Validators.required],
       acceptTerms: [false, Validators.requiredTrue],
-    })
+    });
 
     this.form2 = this.fb.group({
       enterpriseName: ['', Validators.required],
@@ -49,127 +73,170 @@ export class RegisterComponent implements OnInit {
       document: [''],
       sector: ['', Validators.required],
       segment: ['', Validators.required],
-    })
+    });
 
     this.form3 = this.fb.group({
       collaboratorsAmmount: ['1.000-5.000', Validators.required],
       invoicing: ['above-50.000', Validators.required],
-    })
+    });
   }
 
   ngOnInit() {
-    this.scrollToTop()
+    this.scrollToTop();
 
-    // Subscribe Zip Code / CEP
-    this.form2.controls['zipCode'].valueChanges.subscribe({
+    this.form2.controls.zipCode.valueChanges.subscribe({
       next: (data) => {
-        if(data.length === 8) {
+        if (data && data.length === 8) {
           this.cepService.getBrazilCepInfo(data).subscribe({
             next: (data) => {
-              this.form2.controls['state'].setValue(data.uf)
-              this.form2.controls['city'].setValue(data.localidade)
-            }
-          })
+              this.form2.controls['state'].setValue(data.uf);
+              this.form2.controls['city'].setValue(data.localidade);
+            },
+          });
         }
-      }
-    })
+      },
+    });
 
-    const currentLang = this.translateService.currentLang
-    if(currentLang === 'en') {
-      this.sectorList = enSectorList
+    const currentLang = this.translateService.currentLang;
+    if (currentLang === 'en') {
+      this.sectorList = enSectorList;
     } else {
-      this.sectorList = ptSectorList
+      this.sectorList = ptSectorList;
     }
 
     // Subscribe Language
     this.translateService.onLangChange.subscribe({
       next: (data: any) => {
-        if(data.lang === 'en') {
-          this.sectorList = enSectorList
+        if (data.lang === 'en') {
+          this.sectorList = enSectorList;
         } else {
-          this.sectorList = ptSectorList
+          this.sectorList = ptSectorList;
         }
 
-        this.handleSegment(this.form2.controls['sector'].value)
-      }
-    })
-    
+        this.handleSegment(this.form2.controls.sector.value);
+      },
+    });
+
     // Subscribe Sector
-    this.form2.controls['sector'].valueChanges.subscribe({
+    this.form2.controls.sector.valueChanges.subscribe({
       next: (data) => {
-        this.handleSegment(data)
-      }
-    })
+        if (!data) return;
+        this.handleSegment(data);
+      },
+    });
   }
 
   handleSegment(data: any) {
-    const currentLang = this.translateService.currentLang
+    const currentLang = this.translateService.currentLang;
 
-    if(data === 'Agronegócio' || data === 'Agribusiness') {
-      if(currentLang === 'en') {
-        this.segmentList = enAgribusinessList
-      } else this.segmentList = ptAgribusinessList
+    if (data === CompanySectionEnum.Agribusiness) {
+      if (currentLang === 'en') {
+        this.segmentList = enAgribusinessList;
+      } else this.segmentList = ptAgribusinessList;
 
-      return
+      return;
     }
 
-    if(data === 'Indústria' || data === 'Industry') {
-      if(currentLang === 'en') {
-        this.segmentList = enIndustryList
-      } else this.segmentList = ptIndustryList
-      
-      return
+    if (data === CompanySectionEnum.Industry) {
+      if (currentLang === 'en') {
+        this.segmentList = enIndustryList;
+      } else this.segmentList = ptIndustryList;
+
+      return;
     }
 
-    if(data === 'Serviços' || data === 'Services') {
-      if(currentLang === 'en') {
-        this.segmentList = enServicesList
-      } else this.segmentList = ptServicesList
-      
-      return
+    if (data === CompanySectionEnum.Services) {
+      if (currentLang === 'en') {
+        this.segmentList = enServicesList;
+      } else this.segmentList = ptServicesList;
+
+      return;
     }
   }
 
   onSubmitStep1() {
-    if(this.form1.invalid) return
+    if (this.form1.invalid) return;
 
-    this.actualStep = 2
+    this.actualStep = 2;
   }
 
   onSubmitStep2() {
-    if(this.form2.invalid) return
+    if (this.form2.invalid) return;
 
-    this.actualStep = 3
+    this.actualStep = 3;
   }
 
   onSubmitStep3() {
-    if(this.form3.invalid) return
+    if (this.form3.invalid) return;
 
-    this.actualStep = 4
+    const dto: UserRegisterRequestDto = {
+      company: {
+        cnpj: this.form2.controls['document'].value as string,
+        company: this.form2.controls['enterpriseName'].value as string,
+        companyAdress: {
+          country: this.form2.controls['country'].value as string,
+          state: this.form2.controls['state'].value as string,
+          city: this.form2.controls['city'].value as string,
+          zipCode: this.form2.controls['zipCode'].value as string,
+        },
+        segment: this.form2.controls['segment'].value as CompanySegmentEnum,
+        section: this.form2.controls['sector'].value as CompanySectionEnum,
+        numberEmployees: this.form3.controls['collaboratorsAmmount']
+          .value as CompanyEmployeesEnum,
+      },
+      user: {
+        name: this.name.value,
+        email: this.email.value,
+        password: this.form1.controls['password'].value as string,
+        phone: this.form1.controls['phone'].value as string,
+        positionRole: this.form1.controls['role'].value as string,
+      },
+    };
+
+    this.userService.register(dto).subscribe({
+      next: (data) => {
+        console.log(data);
+        this.actualStep = 4;
+      },
+      error: (err) => {
+        console.error(err);
+        this.toastr.error(err.error.errors, 'Error', {progressBar: true});
+      },
+    });
   }
 
   onSubmitStep4() {
-    this.actualStep = 5
+    if (this.code.invalid || !this.code.value) return;
+    this.userService.activeUser({email: this.email.value, code: +this.code.value}).subscribe({
+      next: (data) => {
+        console.log(data);
+        this.actualStep = 5;
+      },
+      error: (err) => {
+        console.error(err);
+        this.toastr.error(err.error.errors, 'Error', {progressBar: true});
+      },
+    });
   }
 
   stepBack() {
-    this.actualStep = this.actualStep - 1
+    this.actualStep = this.actualStep - 1;
   }
 
   get email() {
-    return this.form1.controls['email'] as FormControl
+    return this.form1.controls['email'] as FormControl;
   }
 
   get name() {
-    return this.form1.controls['name'] as FormControl
+    return this.form1.controls['name'] as FormControl;
   }
 
   get country() {
-    return this.form2.controls['country'] as FormControl
+    return this.form2.controls['country'] as FormControl;
   }
 
   get document() {
-    return this.form2.controls['document'] as FormControl
+    return this.form2.controls['document'] as FormControl;
   }
 
   scrollToTop() {

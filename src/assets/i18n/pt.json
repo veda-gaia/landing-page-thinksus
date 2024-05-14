@@ -95,6 +95,8 @@
         
         "ENTERPRISE_NAME": "Nome da empresa",
         "ENTERPRISE_NAME_PLACEHOLDER": "Digite o nome da empresa",
+        "CODE_PLACEHOLDER": "Digite o código de verificação",
+        "CODE": "Código de verificação",
         "ZIPCODE": "CEP",
         "DOCUMENT": "CNPJ",
         "COUNTRY": "País",
@@ -110,20 +112,20 @@
         "BACK": "Voltar",
         
         "COLLABORATORS_AMMOUNT": "Número de colaboradores na empresa",
-        "AMMOUNT_1": "De 1 a 100",
-        "AMMOUNT_2": "De 100 a 1.000",
-        "AMMOUNT_3": "De 1.000 a 5.000",
-        "AMMOUNT_4": "De 5.000 a 50.000",
-        "AMMOUNT_5": "Mais de 50.000",
+        "AMMOUNT_1": "De 1 a 20",
+        "AMMOUNT_2": "De 21 a 50",
+        "AMMOUNT_3": "De 51 a 200",
+        "AMMOUNT_4": "De 201 a 500",
+        "AMMOUNT_5": "De 501 a 2.000",
+        "AMMOUNT_6": "Mais de 2.000",
         "INVOICING": "Faturamento da empresa",
         "INVOICING_1": "Acima de R$10.000,00",
         "INVOICING_2": "Acima de R$50.000,00",
         "INVOICING_3": "Acima de R$100.000,00",
         "INVOICING_4": "Acima de R$1.000.000,00",
         
-        "CLICK_LINK": "Clique no link que enviamos para:",
+        "CLICK_LINK": "Digite o código que enviamos para:",
         "POST_CONFIRMATION": "Após a confirmação, clique em continuar para prosseguir com o cadastro",
-
         "ENJOY": "Aproveite o Painel ThinkSus",
         "CLICK_BUTTON": "Você pode clicar no botão abaixo para entrar na aplicação",
         "GO_TO_PANEL": "Ir Para o Painel"

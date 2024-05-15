@@ -167,5 +167,22 @@
         "TEAM_COF_1": "/assets/img/abner.png",
         "TEAM_COF_2": "/assets/img/carrijo.png",
         "TEAM_COF_3": "/assets/img/prestes.png"
+    },
+    "SIDEBAR": {
+        "TAKE_ASSESMENT": "Realize uma Avaliação para saber o seu Status ESG:",
+        "HOME": "Home",
+        "AVALIATION": "Avaliação",
+        "RESULTS": "Resultados",
+        "ODS": "ODS",
+        "INSTRUCTIONS": "Instruções de uso",
+        "WANT_MORE": "Quer mais?",
+        "HAVE_ACCESS": "Tenha acesso a mais dados em nossa plataforma.",
+        "SEE_PLANS": "Ver Planos"
+    },
+    "FOOTER_LOGGED": {
+        "RIGHTS": "@ 2023, ThinkSus, todos os direitos reservados",
+        "ABOUT": "Sobre ESG",
+        "SUBSCRIPTION": "Assinatura",
+        "HELP": "Ajuda"
     }
 }

@@ -8,6 +8,12 @@ import { ImprovementsComponent } from './improvements/improvements.component';
 import { AssesmentComponent } from './assesment/assesment.component';
 import { AssesmentQuestionaryComponent } from './assesment-questionary/assesment-questionary.component';
 import { LoggedComponent } from './logged.component';
+import { HeaderComponent } from './header/header.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { FooterComponent } from './footer/footer.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
+import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 
 
 
@@ -20,10 +26,17 @@ import { LoggedComponent } from './logged.component';
     ImprovementsComponent,
     AssesmentComponent,
     AssesmentQuestionaryComponent,
+    HeaderComponent,
+    SidebarComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,
-    LoggedRoutingModule
+    LoggedRoutingModule,
+    ReactiveFormsModule,
+    NgxMaskDirective,
+    NgxMaskPipe,
+    TranslateModule
   ]
 })
 export class LoggedModule { }

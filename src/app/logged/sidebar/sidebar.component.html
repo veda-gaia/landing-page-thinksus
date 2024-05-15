@@ -10,7 +10,7 @@
     
         <a class="d-flex align-items-center justify-content-between gap-3 py-3 cursor-pointer">
             <p class="f-size-12px white-text fw-500 l-height-1rem">
-                Realize uma Avaliação para saber o seu Status ESG:
+                {{ 'SIDEBAR.TAKE_ASSESMENT' | translate }}
             </p>
             <img src="/assets/icon/plus.svg" alt="Fazer Avaliação">
         </a>
@@ -20,31 +20,31 @@
                 <li class="w-100">
                     <a class="nav-link-btn" routerLink="/logged/dashboard" routerLinkActive="active">
                         <img src="/assets/icon/home.svg" alt="Home">
-                        Home
+                        {{ 'SIDEBAR.HOME' | translate }}
                     </a>
                 </li>
                 <li class="w-100">
                     <a class="nav-link-btn" routerLink="/logged/assesment" routerLinkActive="active">
                         <img src="/assets/icon/assesment.svg" alt="Avaliação">
-                        Avaliação
+                        {{ 'SIDEBAR.AVALIATION' | translate }}
                     </a>
                 </li>
                 <li class="w-100">
                     <a class="nav-link-btn" routerLink="/logged/results" routerLinkActive="active">
                         <img src="/assets/icon/results.svg" alt="Home">
-                        Resultados
+                        {{ 'SIDEBAR.RESULTS' | translate }}
                     </a>
                 </li>
                 <li class="w-100">
                     <a class="nav-link-btn" routerLink="/logged/ods" routerLinkActive="active">
                         <img src="/assets/icon/ods.svg" alt="ODS">
-                        ODS
+                        {{ 'SIDEBAR.ODS' | translate }}
                     </a>
                 </li>
                 <li class="w-100">
                     <a class="nav-link-btn" routerLink="/logged/use-instructions" routerLinkActive="active">
                         <img src="/assets/icon/use-instructions.svg" alt="use-instructions">
-                        Instruções de uso
+                        {{ 'SIDEBAR.INSTRUCTIONS' | translate }}
                     </a>
                 </li>
             </ul>
@@ -52,11 +52,11 @@
     </div>
 
     <div>
-        <p class="brand-50-text f-size-0-8rem l-height-1-25 fw-700">Quer mais?</p>
-        <p class="brand-50-text f-size-0-8rem l-height-1-25 fw-400">Tenha acesso a mais dados em nossa plataforma.</p>
+        <p class="brand-50-text f-size-0-8rem l-height-1-25 fw-700">{{ 'SIDEBAR.WANT_MORE' | translate }}</p>
+        <p class="brand-50-text f-size-0-8rem l-height-1-25 fw-400">{{ 'SIDEBAR.HAVE_ACCESS' | translate }}</p>
 
         <button class="white-outline-btn d-flex align-items-center justify-content-between mt-3 w-100">
-            Ver Planos
+            {{ 'SIDEBAR.SEE_PLANS' | translate }}
             <img src="/assets/icon/tag.svg" alt="Planos">
         </button>
     </div>

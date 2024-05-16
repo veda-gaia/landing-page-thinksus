@@ -1357,17 +1357,23 @@ header {
 
 }
 
-div.both-container {
-    app-dashboard {
-        opacity: 1;
-        transition: .3s;
+@media screen and (max-width: 500px) {
+    div.both-container {
+        app-dashboard {
+            opacity: 1;
+            transition: .3s;
+        }
+    }
+    
+    div.both-container:has(aside.active) {
+        app-dashboard {
+            opacity: 0;
+        }
     }
 }
 
-div.both-container:has(aside.active) {
-    app-dashboard {
-        opacity: 0;
-    }
+app-dashboard {
+    width: 100%;
 }
 
 .open-btn {

@@ -67,8 +67,8 @@ export class RegisterComponent implements OnInit {
     this.form2 = this.fb.group({
       enterpriseName: ['', Validators.required],
       country: ['Brasil', Validators.required],
-      state: ['', Validators.required],
-      city: ['', Validators.required],
+      state: [''],
+      city: [''],
       zipCode: [''],
       document: [''],
       sector: ['', Validators.required],
@@ -76,8 +76,8 @@ export class RegisterComponent implements OnInit {
     });
 
     this.form3 = this.fb.group({
-      collaboratorsAmmount: ['1.000-5.000', Validators.required],
-      invoicing: ['above-50.000', Validators.required],
+      collaboratorsAmmount: [''],
+      invoicing: ['', Validators.required],
     });
   }
 
@@ -237,6 +237,14 @@ export class RegisterComponent implements OnInit {
 
   get document() {
     return this.form2.controls['document'] as FormControl;
+  }
+
+  get state() {
+    return this.form2.controls['state'] as FormControl;
+  }
+
+  get city() {
+    return this.form2.controls['city'] as FormControl;
   }
 
   scrollToTop() {

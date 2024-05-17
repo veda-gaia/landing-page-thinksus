@@ -104,6 +104,7 @@
         "STATE_PLACEHOLDER": "Set the State",
         "STATE_OPTIONAL": "State (optional)",
         "CITY": "City",
+        "CITY_OPTIONAL": "City (optional)",
         "CITY_PLACEHOLDER": "Set the City",
         "FIELD": "Economic Sector",
         "FIELD_PLACEHOLDER": "Select the Economic Sector",
@@ -111,25 +112,27 @@
         "SEGMENT_PLACEHOLDER": "Select the Segment",
         "BACK": "Back",
                 
-        "COLLABORATORS_AMMOUNT": "Number of employees",
-        "AMMOUNT_1": "From 1 to 20",
-        "AMMOUNT_2": "From 21 to 50",
-        "AMMOUNT_3": "From 51 to 200",
-        "AMMOUNT_4": "From 201 to 500",
-        "AMMOUNT_5": "From 501 to 2.000",
-        "AMMOUNT_6": "Above 2.000",
+        "COLLABORATORS_AMMOUNT": "Number of employees (optional)",
+        "AMMOUNT_1": "1 - 20 employees",
+        "AMMOUNT_2": "21 - 50 employees",
+        "AMMOUNT_3": "51 - 200 employees",
+        "AMMOUNT_4": "201 - 500 employees",
+        "AMMOUNT_5": "501 - 2000 employees",
+        "AMMOUNT_6": "> 2001 employees",
         "INVOICING": "Company revenue",
-        "INVOICING_1": "Above $10,000",
-        "INVOICING_2": "Above $50,000",
-        "INVOICING_3": "Above $100,000",
-        "INVOICING_4": "Above $1,000,000",
+        "INVOICING_1": "< BRL 360 thousand",
+        "INVOICING_2": "BRL 360 mil - BRL 4,8 milhões",
+        "INVOICING_3": "BRL 4,8 milhões - BRL 20 milhões",
+        "INVOICING_4": "> BRL 20 milhões",
         
         "CLICK_LINK": "Enter the code we sent to:",
         "POST_CONFIRMATION": "Ater confirming, click on Continue to proceed with your registration",
 
         "ENJOY": "Enjoy the ThinkSus Panel",
         "CLICK_BUTTON": "Ater confirming, click on Continue to proceed with your registration",
-        "GO_TO_PANEL": "Go to ThinkSus Panel"
+        "GO_TO_PANEL": "Go to ThinkSus Panel",
+
+        "SELECT": "Select"
     },
     "PLANS": {
         "TITLE": "Learn more about our plans",

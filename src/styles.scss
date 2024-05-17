@@ -1343,16 +1343,37 @@ header {
     width: 0;
     overflow-x: hidden;
     transition: .3s;
+    opacity: 0;
 
     padding: 1.5rem 0;
     
     position: relative;
     
     &.active {
-        width: fit-content;
+        width: 256px;
         padding: 1.5rem;
+        opacity: 1;
     }
 
+}
+
+@media screen and (max-width: 500px) {
+    div.both-container {
+        app-dashboard {
+            opacity: 1;
+            transition: .3s;
+        }
+    }
+    
+    div.both-container:has(aside.active) {
+        app-dashboard {
+            opacity: 0;
+        }
+    }
+}
+
+app-dashboard {
+    width: 100%;
 }
 
 .open-btn {
@@ -1366,6 +1387,7 @@ header {
     top: 6.5rem;
     left: 0;
     position: fixed;
+    z-index: 999;
 
     &:hover {
         background-color: $brand-primary-hover;

@@ -1514,3 +1514,18 @@ app-dashboard {
         background-color: $gray-4;
     }
 }
+
+.high-border {
+    border: 1px solid #F59969;
+    color: #F59969;
+}
+
+.intermediate-border {
+    border: 1px solid #5183B1;
+    color: #5183B1;
+}
+
+.low-border {
+    border: 1px solid #38A169;
+    color: #38A169;
+}

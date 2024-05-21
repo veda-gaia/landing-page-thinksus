@@ -120,10 +120,15 @@
         "AMMOUNT_5": "De 501 a 2.000",
         "AMMOUNT_6": "> 2001 funcionários",
         "INVOICING": "Faturamento da empresa",
-        "INVOICING_1": "< R$ 360 mil",
-        "INVOICING_2": "R$ 360 mil - R$ 4,8 milhões",
-        "INVOICING_3": "R$ 4,8 milhões - R$ 20 milhões",
-        "INVOICING_4": "> R$ 20 milhões",
+        "BRL_INVOICING_1": "< R$ 360 mil",
+        "BRL_INVOICING_2": "R$ 360 mil - R$ 4,8 milhões",
+        "BRL_INVOICING_3": "R$ 4,8 milhões - R$ 20 milhões",
+        "BRL_INVOICING_4": "> R$ 20 milhões",
+
+        "USD_INVOICING_1": "< USD 360 mil",
+        "USD_INVOICING_2": "USD 360 mil - USD 4,8 milhões",
+        "USD_INVOICING_3": "USD 4,8 milhões - USD 20 milhões",
+        "USD_INVOICING_4": "> USD 20 milhões",
         
         "CLICK_LINK": "Digite o código que enviamos para:",
         "POST_CONFIRMATION": "Após a confirmação, clique em continuar para prosseguir com o cadastro",
@@ -132,6 +137,15 @@
         "GO_TO_PANEL": "Ir Para o Painel",
 
         "SELECT": "Selecione"
+    },
+    "LOGIN": {
+        "TITLE": "Login",
+        "SUBTITLE": "Faça seu login para acessar o painel ThinkSus",
+        "EMAIL": "Email",
+        "PASSWORD": "Senha",
+        "INSERT_PASSWORD": "Digite sua senha",
+        "NEXT": "Avançar",
+        "REGISTER": "Não Tem Cadastro? Crie Uma Conta!"
     },
     "PLANS": {
         "TITLE": "Conheça nossos planos",

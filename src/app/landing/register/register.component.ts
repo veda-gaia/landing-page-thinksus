@@ -12,7 +12,7 @@ import { CompanySegmentEnum } from 'src/app/enums/company-segment.enum';
 import { UserRegisterRequestDto } from 'src/app/interfaces/user/user-register-request.dto';
 import { CepService } from 'src/app/services/cep.service';
 import { UserService } from 'src/app/services/user.service';
-import { countryList } from 'src/app/util/country';
+import { countryListEn, countryListPt } from 'src/app/util/country';
 import { enSectorList } from 'src/app/util/en-sector';
 import {
   SegmentList,
@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit {
   form2;
   form3;
 
-  countryList = countryList;
+  countryList: any[] = [];
   sectorList: SectorList[] = [];
   segmentList: SegmentList[] = [];
 
@@ -66,7 +66,7 @@ export class RegisterComponent implements OnInit {
 
     this.form2 = this.fb.group({
       enterpriseName: ['', Validators.required],
-      country: ['Brasil', Validators.required],
+      country: ['Brazil', Validators.required],
       state: [''],
       city: [''],
       zipCode: [''],
@@ -100,8 +100,10 @@ export class RegisterComponent implements OnInit {
     const currentLang = this.translateService.currentLang;
     if (currentLang === 'en') {
       this.sectorList = enSectorList;
+      this.countryList = countryListEn
     } else {
       this.sectorList = ptSectorList;
+      this.countryList = countryListPt
     }
 
     // Subscribe Language
@@ -109,8 +111,10 @@ export class RegisterComponent implements OnInit {
       next: (data: any) => {
         if (data.lang === 'en') {
           this.sectorList = enSectorList;
+          this.countryList = countryListEn
         } else {
           this.sectorList = ptSectorList;
+          this.countryList = countryListPt
         }
 
         this.handleSegment(this.form2.controls.sector.value);

@@ -120,10 +120,14 @@
         "AMMOUNT_5": "501 - 2000 employees",
         "AMMOUNT_6": "> 2001 employees",
         "INVOICING": "Company revenue",
-        "INVOICING_1": "< BRL 360 thousand",
-        "INVOICING_2": "BRL 360 mil - BRL 4,8 milhões",
-        "INVOICING_3": "BRL 4,8 milhões - BRL 20 milhões",
-        "INVOICING_4": "> BRL 20 milhões",
+        "BRL_INVOICING_1": "< BRL 360 thousand",
+        "BRL_INVOICING_2": "BRL 360 mil - BRL 4,8 milhões",
+        "BRL_INVOICING_3": "BRL 4,8 milhões - BRL 20 milhões",
+        "BRL_INVOICING_4": "> BRL 20 milhões",
+        "USD_INVOICING_1": "< USD 360 thousand",
+        "USD_INVOICING_2": "USD 360 mil - USD 4,8 milhões",
+        "USD_INVOICING_3": "USD 4,8 milhões - USD 20 milhões",
+        "USD_INVOICING_4": "> USD 20 milhões",
         
         "CLICK_LINK": "Enter the code we sent to:",
         "POST_CONFIRMATION": "Ater confirming, click on Continue to proceed with your registration",
@@ -133,6 +137,15 @@
         "GO_TO_PANEL": "Go to ThinkSus Panel",
 
         "SELECT": "Select"
+    },
+    "LOGIN": {
+        "TITLE": "Login",
+        "SUBTITLE": "Login to access ThinkSus panel",
+        "EMAIL": "E-mail",
+        "PASSWORD": "Password",
+        "INSERT_PASSWORD": "Your password",
+        "NEXT": "Next",
+        "REGISTER": "New here? Create an account!"
     },
     "PLANS": {
         "TITLE": "Learn more about our plans",

@@ -84,29 +84,29 @@
                 
                 <label for="country" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.COUNTRY" | translate }}</label>
                 <select name="country" id="country" formControlName="country" class="d-block mb-4">
-                    <option *ngFor="let country of countryList" [value]="country">{{ country }}</option>
+                    <option *ngFor="let country of countryList" [value]="country.value">{{ country.name }}</option>
                 </select>
 
-                <label *ngIf="country.value === 'Estados Unidos'" for="zipCode" class="fade-in pb-2 fw-600 f-size-1rem l-spacing-1-68">Zip Code</label>
-                <input *ngIf="country.value === 'Estados Unidos'" type="text" pattern='^[0-9]{5}(?:[0-9]{4})?$' mask="00000-0000" [validation]="false" [showMaskTyped]="true" class="fade-in w-100 mb-4" formControlName="zipCode" placeholder="00000-000" autocomplete="off" id="zipCode" name="zipCode">
+                <label *ngIf="country.value === 'United States'" for="zipCode" class="fade-in pb-2 fw-600 f-size-1rem l-spacing-1-68">Zip Code</label>
+                <input *ngIf="country.value === 'United States'" type="text" pattern='^[0-9]{5}(?:[0-9]{4})?$' mask="00000-0000" [validation]="false" [showMaskTyped]="true" class="fade-in w-100 mb-4" formControlName="zipCode" placeholder="00000-000" autocomplete="off" id="zipCode" name="zipCode">
 
-                <label *ngIf="country.value === 'Brasil'" for="zipCode" class="fade-in pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.ZIPCODE" | translate }}</label>
-                <input *ngIf="country.value === 'Brasil'" type="text" mask="00000-000" class="fade-in w-100 mb-4" formControlName="zipCode" placeholder="00000-000" autocomplete="off" id="zipCode" name="zipCode">
+                <label *ngIf="country.value === 'Brazil'" for="zipCode" class="fade-in pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.ZIPCODE" | translate }}</label>
+                <input *ngIf="country.value === 'Brazil'" type="text" mask="00000-000" class="fade-in w-100 mb-4" formControlName="zipCode" placeholder="00000-000" autocomplete="off" id="zipCode" name="zipCode">
                 
                 <div class="d-flex align-items-start justify-content-between gap-3">
                     <div>
-                        <label for="state" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ ((country.value !== 'Brasil' && country.value !== 'Estados Unidos') ? "REGISTER.STATE_OPTIONAL" : "REGISTER.STATE") | translate }}</label>
+                        <label for="state" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ ((country.value !== 'Brazil' && country.value !== 'United States') ? "REGISTER.STATE_OPTIONAL" : "REGISTER.STATE") | translate }}</label>
                         <input type="text" class="w-100 mb-4" formControlName="state" placeholder="{{ 'REGISTER.STATE_PLACEHOLDER' | translate }}" autocomplete="off" id="state" name="state">
                     </div>
 
                     <div>
-                        <label for="city" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ ((country.value !== 'Brasil' && country.value !== 'Estados Unidos') ? "REGISTER.CITY_OPTIONAL" : "REGISTER.CITY") | translate }}</label>
+                        <label for="city" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ ((country.value !== 'Brazil' && country.value !== 'United States') ? "REGISTER.CITY_OPTIONAL" : "REGISTER.CITY") | translate }}</label>
                         <input type="text" class="w-100 mb-4" formControlName="city" placeholder="{{ 'REGISTER.CITY_PLACEHOLDER' | translate }}" autocomplete="off" id="city" name="city">
                     </div>
                 </div>
 
-                <label *ngIf="country.value === 'Brasil'" for="document" class="fade-in pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.DOCUMENT" | translate }}</label>
-                <input *ngIf="country.value === 'Brasil'" type="text" mask="00.000.000/0000-00" class="fade-in w-100 mb-4" formControlName="document" placeholder="00.000.000/0000-00" autocomplete="off" id="document" name="document">
+                <label *ngIf="country.value === 'Brazil'" for="document" class="fade-in pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.DOCUMENT" | translate }}</label>
+                <input *ngIf="country.value === 'Brazil'" type="text" mask="00.000.000/0000-00" class="fade-in w-100 mb-4" formControlName="document" placeholder="00.000.000/0000-00" autocomplete="off" id="document" name="document">
 
                 <div class="d-flex align-items-start justify-content-between gap-3 mb-4">
                     <div class="flex-grow-1 w-100">
@@ -128,7 +128,7 @@
                     </div>
                 </div>
 
-                <button class="secondary-brand-btn px-lg-5 d-block mx-auto w-100" [disabled]="(form2.invalid) || (country.value === 'Brasil' && !document.value) || ((country.value === 'Brasil' || country.value === 'Estados Unidos') && (!state.value || !city.value))" type="submit">
+                <button class="secondary-brand-btn px-lg-5 d-block mx-auto w-100" [disabled]="(form2.invalid) || (country.value === 'Brazil' && !document.value) || ((country.value === 'Brazil' || country.value === 'United States') && (!state.value || !city.value))" type="submit">
                     {{ "REGISTER.NEXT" | translate }}
                 </button>
                 <button class="brand-outline-btn px-lg-5 d-block mx-auto w-100 mt-3 opacity-08" (click)="stepBack()">
@@ -157,12 +157,20 @@
                 </select>
                 
                 <label for="invoicing" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.INVOICING" | translate }}</label>
-                <select name="invoicing" id="invoicing" formControlName="invoicing" class="d-block mb-4">
+                <select *ngIf="country.value === 'Brazil'" name="invoicing" id="invoicing" formControlName="invoicing" class="d-block mb-4">
                     <option value="" disabled>{{ "REGISTER.SELECT" | translate }}</option>
-                    <option value="< 360k">{{ "REGISTER.INVOICING_1" | translate }}</option>
-                    <option value="360k - 4.8m">{{ "REGISTER.INVOICING_2" | translate }}</option>
-                    <option value="4.8m - 20m">{{ "REGISTER.INVOICING_3" | translate }}</option>
-                    <option value="> 20m">{{ "REGISTER.INVOICING_4" | translate }}</option>
+                    <option value="< 360k">{{ "REGISTER.BRL_INVOICING_1" | translate }}</option>
+                    <option value="360k - 4.8m">{{ "REGISTER.BRL_INVOICING_2" | translate }}</option>
+                    <option value="4.8m - 20m">{{ "REGISTER.BRL_INVOICING_3" | translate }}</option>
+                    <option value="> 20m">{{ "REGISTER.BRL_INVOICING_4" | translate }}</option>
+                </select>
+
+                <select *ngIf="country.value === 'United States'" name="invoicing" id="invoicing" formControlName="invoicing" class="d-block mb-4">
+                    <option value="" disabled>{{ "REGISTER.SELECT" | translate }}</option>
+                    <option value="< 360k">{{ "REGISTER.USD_INVOICING_1" | translate }}</option>
+                    <option value="360k - 4.8m">{{ "REGISTER.USD_INVOICING_2" | translate }}</option>
+                    <option value="4.8m - 20m">{{ "REGISTER.USD_INVOICING_3" | translate }}</option>
+                    <option value="> 20m">{{ "REGISTER.USD_INVOICING_4" | translate }}</option>
                 </select>
 
                 <button class="secondary-brand-btn px-lg-5 d-block mx-auto w-100" [disabled]="form3.invalid" type="submit">

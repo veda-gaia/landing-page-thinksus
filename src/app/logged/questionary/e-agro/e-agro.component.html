@@ -1,0 +1,797 @@
+<div class="fade-in row">
+    <div class="col">
+        <h3 class="alpha-800-text f-size-1-5rem fw-700">
+            Avaliação Ambiental
+        </h3>
+
+        <div class="d-flex align-items-center justify-content-between gap-2 pb-4">
+            <div class="d-flex align-items-center justify-content-start gap-2 pb-2">
+                <p class="f-size-1rem fw-500 alpha-800-text">
+                    Questão
+                </p>
+                <p class="f-size-1rem fw-500 alpha-800-text">
+                    <span class="brand-text fw-700">
+                        {{ actualStep }}
+                    </span> / 10
+                </p>
+            </div>
+        </div>
+
+        <div class="glossary-card p-3 p-xl-4">
+            <p class="f-size-1rem alpha-800-text fw-500 l-height-1-25">
+                Importante: Para garantir a precisão das suas respostas, há um limite de 30% para seleções marcadas como 'não se aplica'. Se esse limite for excedido, você receberá uma notificação para revisar suas respostas.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Sistema de avaliação -->
+<section class="fade-in row justify-content-center pb-5 pt-4">
+    <form *ngIf="actualStep === 1" [formGroup]="form1" (submit)="onSubmitStep1()" class="fade-in-right col pb-lg-5 pt-lg-4">
+        <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
+            <div class="flex-grow-1 w-100">
+                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep }}. O nível atual de desmatamento está dentro do permitido legalmente?</p>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
+                    <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Sim</label>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="no" name="answer" value="no">
+                    <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não</label>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="undefined" name="answer" value="undefined">
+                    <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
+                </div>
+
+                <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form1.invalid" type="submit">
+                    Próximo
+                </button>
+            </div>
+
+            <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
+                <h4 class="brand-text fw-700 p-0 pb-4">
+                    Glossário
+                </h4>
+
+                <p *ngIf="
+                    'A quantidade de desmatamento que a empresa causa está dentro dos limites aceitáveis dentro das leis ambientais '.length > 200
+                " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                    {{ keepReading 
+                        ? 
+                        'A quantidade de desmatamento que a empresa causa está dentro dos limites aceitáveis dentro das leis ambientais '
+                        :
+                        'A quantidade de desmatamento que a empresa causa está dentro dos limites aceitáveis dentro das leis ambientais '.slice(0, 200) + '...'
+                    }}
+                </p>
+
+                <p *ngIf="
+                    'A quantidade de desmatamento que a empresa causa está dentro dos limites aceitáveis dentro das leis ambientais '.length <= 200
+                " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                    {{ 'A quantidade de desmatamento que a empresa causa está dentro dos limites aceitáveis dentro das leis ambientais '}}
+                </p>
+
+                <div *ngIf="
+                    'A quantidade de desmatamento que a empresa causa está dentro dos limites aceitáveis dentro das leis ambientais '.length > 200
+                " class="d-flex align-items-center justify-content-end w-100">
+                    <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
+                        Continuar lendo
+                        <img src="/assets/icon/share.svg" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form *ngIf="actualStep === 2" [formGroup]="form2" (submit)="onSubmitStep2()" class="fade-in-right col pb-lg-5 pt-lg-4">
+        <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
+            <div class="flex-grow-1 w-100">
+                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep }}. Existe Política e práticas de bem estar animal?</p>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
+                    <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Sim</label>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="no" name="answer" value="no">
+                    <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não</label>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="undefined" name="answer" value="undefined">
+                    <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
+                </div>
+
+                <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
+                    Próximo
+                </button>
+            </div>
+
+            <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
+                <h4 class="brand-text fw-700 p-0 pb-4">
+                    Glossário
+                </h4>
+
+                <p *ngIf="
+                    'Regras e normas que a empresa deve seguir para o bem estar animal'.length > 200
+                " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                    {{ keepReading 
+                        ? 
+                        'Regras e normas que a empresa deve seguir para o bem estar animal'
+                        :
+                        'Regras e normas que a empresa deve seguir para o bem estar animal'.slice(0, 200) + '...'
+                    }}
+                </p>
+
+                <p *ngIf="
+                    'Regras e normas que a empresa deve seguir para o bem estar animal'.length <= 200
+                " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                    {{ 'Regras e normas que a empresa deve seguir para o bem estar animal'}}
+                </p>
+
+                <div *ngIf="
+                    'Regras e normas que a empresa deve seguir para o bem estar animal'.length > 200
+                " class="d-flex align-items-center justify-content-end w-100">
+                    <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
+                        Continuar lendo
+                        <img src="/assets/icon/share.svg" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form *ngIf="actualStep === 3" [formGroup]="form3" (submit)="onSubmitStep3()" class="fade-in-right col pb-lg-5 pt-lg-4">
+        <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
+            <div class="flex-grow-1 w-100">
+                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep }}. Existe um compliance de responsabilidade ambiental divulgado para todos?</p>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
+                    <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Sim</label>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="no" name="answer" value="no">
+                    <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não</label>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="undefined" name="answer" value="undefined">
+                    <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
+                </div>
+
+                <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form3.invalid" type="submit">
+                    Próximo
+                </button>
+            </div>
+
+            <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
+                <h4 class="brand-text fw-700 p-0 pb-4">
+                    Glossário
+                </h4>
+
+                
+                <p *ngIf="
+                    'Compliance são regras e orientações de responsabilidade individual e coletiva da empresa, em termos de ações que impactam o meio ambiente (como reciclar materiais, reduzir consumo). E essas regras devem ser comunicadas e relembradas para todos os funcionários da empresa periodicamente.'.length > 200
+                " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                    {{ keepReading 
+                        ? 
+                        'Compliance são regras e orientações de responsabilidade individual e coletiva da empresa, em termos de ações que impactam o meio ambiente (como reciclar materiais, reduzir consumo). E essas regras devem ser comunicadas e relembradas para todos os funcionários da empresa periodicamente.'
+                        :
+                        'Compliance são regras e orientações de responsabilidade individual e coletiva da empresa, em termos de ações que impactam o meio ambiente (como reciclar materiais, reduzir consumo). E essas regras devem ser comunicadas e relembradas para todos os funcionários da empresa periodicamente.'.slice(0, 200) + '...'
+                    }}
+                </p>
+
+                <p *ngIf="
+                    'Compliance são regras e orientações de responsabilidade individual e coletiva da empresa, em termos de ações que impactam o meio ambiente (como reciclar materiais, reduzir consumo). E essas regras devem ser comunicadas e relembradas para todos os funcionários da empresa periodicamente.'.length <= 200
+                " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                    {{ 'Compliance são regras e orientações de responsabilidade individual e coletiva da empresa, em termos de ações que impactam o meio ambiente (como reciclar materiais, reduzir consumo). E essas regras devem ser comunicadas e relembradas para todos os funcionários da empresa periodicamente.'}}
+                </p>
+
+                <div *ngIf="
+                    'Compliance são regras e orientações de responsabilidade individual e coletiva da empresa, em termos de ações que impactam o meio ambiente (como reciclar materiais, reduzir consumo). E essas regras devem ser comunicadas e relembradas para todos os funcionários da empresa periodicamente.'.length > 200
+                " class="d-flex align-items-center justify-content-end w-100">
+                    <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
+                        Continuar lendo
+                        <img src="/assets/icon/share.svg" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form *ngIf="actualStep === 4" [formGroup]="form4" (submit)="onSubmitStep4()" class="fade-in-right col pb-lg-5 pt-lg-4">
+        <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
+            <div class="flex-grow-1 w-100">
+                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep }}. Fonte de energia é através de fontes renováveis? (solar, eólica, outra)</p>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
+                    <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Sim</label>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="no" name="answer" value="no">
+                    <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não</label>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="undefined" name="answer" value="undefined">
+                    <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
+                </div>
+
+                <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form4.invalid" type="submit">
+                    Próximo
+                </button>
+            </div>
+
+            <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
+                <h4 class="brand-text fw-700 p-0 pb-4">
+                    Glossário
+                </h4>
+
+                <p *ngIf="
+                'Fontes de energias são o que alimenta as máquinas, prédios e operações. Em geral são água e luz da cidade. Fontes alternativas seriam captar e tratar água da chuva, ter geração de energia elétrica por painel solar ou de fonte eólica (ventos e turbinas)'.length > 200
+            " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                {{ keepReading 
+                    ? 
+                    'Fontes de energias são o que alimenta as máquinas, prédios e operações. Em geral são água e luz da cidade. Fontes alternativas seriam captar e tratar água da chuva, ter geração de energia elétrica por painel solar ou de fonte eólica (ventos e turbinas)'
+                    :
+                    'Fontes de energias são o que alimenta as máquinas, prédios e operações. Em geral são água e luz da cidade. Fontes alternativas seriam captar e tratar água da chuva, ter geração de energia elétrica por painel solar ou de fonte eólica (ventos e turbinas)'.slice(0, 200) + '...'
+                }}
+                </p>
+
+                <p *ngIf="
+                    'Fontes de energias são o que alimenta as máquinas, prédios e operações. Em geral são água e luz da cidade. Fontes alternativas seriam captar e tratar água da chuva, ter geração de energia elétrica por painel solar ou de fonte eólica (ventos e turbinas)'.length <= 200
+                " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                    {{ 'Fontes de energias são o que alimenta as máquinas, prédios e operações. Em geral são água e luz da cidade. Fontes alternativas seriam captar e tratar água da chuva, ter geração de energia elétrica por painel solar ou de fonte eólica (ventos e turbinas)'}}
+                </p>
+
+                <div *ngIf="
+                    'Fontes de energias são o que alimenta as máquinas, prédios e operações. Em geral são água e luz da cidade. Fontes alternativas seriam captar e tratar água da chuva, ter geração de energia elétrica por painel solar ou de fonte eólica (ventos e turbinas)'.length > 200
+                " class="d-flex align-items-center justify-content-end w-100">
+                    <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
+                        Continuar lendo
+                        <img src="/assets/icon/share.svg" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form *ngIf="actualStep === 5" [formGroup]="form5" (submit)="onSubmitStep5()" class="fade-in-right col pb-lg-5 pt-lg-4">
+        <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
+            <div class="flex-grow-1 w-100">
+                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep }}. Existe captação de água da chuva para reuso?</p>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
+                    <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Sim</label>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="no" name="answer" value="no">
+                    <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não</label>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="undefined" name="answer" value="undefined">
+                    <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
+                </div>
+
+                <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
+                    Próximo
+                </button>
+            </div>
+
+            <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
+                <h4 class="brand-text fw-700 p-0 pb-4">
+                    Glossário
+                </h4>
+
+                <p *ngIf="
+                'Formas e técnicas de captação de água da chuva que, após tratamentos, permitem a reutilização para reaproveitamento. Isso diminuiria a utilização da água proveniente da rede municipal regular'.length > 200
+            " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                {{ keepReading 
+                    ? 
+                    'Formas e técnicas de captação de água da chuva que, após tratamentos, permitem a reutilização para reaproveitamento. Isso diminuiria a utilização da água proveniente da rede municipal regular'
+                    :
+                    'Formas e técnicas de captação de água da chuva que, após tratamentos, permitem a reutilização para reaproveitamento. Isso diminuiria a utilização da água proveniente da rede municipal regular'.slice(0, 200) + '...'
+                }}
+                </p>
+
+                <p *ngIf="
+                    'Formas e técnicas de captação de água da chuva que, após tratamentos, permitem a reutilização para reaproveitamento. Isso diminuiria a utilização da água proveniente da rede municipal regular'.length <= 200
+                " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                    {{ 'Formas e técnicas de captação de água da chuva que, após tratamentos, permitem a reutilização para reaproveitamento. Isso diminuiria a utilização da água proveniente da rede municipal regular'}}
+                </p>
+
+                <div *ngIf="
+                    'Formas e técnicas de captação de água da chuva que, após tratamentos, permitem a reutilização para reaproveitamento. Isso diminuiria a utilização da água proveniente da rede municipal regular'.length > 200
+                " class="d-flex align-items-center justify-content-end w-100">
+                    <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
+                        Continuar lendo
+                        <img src="/assets/icon/share.svg" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form *ngIf="actualStep === 6" [formGroup]="form6" (submit)="onSubmitStep6()" class="fade-in-right col pb-lg-5 pt-lg-4">
+        <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
+            <div class="flex-grow-1 w-100">
+                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep }}. Os veículos utilizam combustível fóssil?</p>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
+                    <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Sim</label>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="no" name="answer" value="no">
+                    <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não</label>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="undefined" name="answer" value="undefined">
+                    <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
+                </div>
+
+                <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
+                    Próximo
+                </button>
+            </div>
+
+            <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
+                <h4 class="brand-text fw-700 p-0 pb-4">
+                    Glossário
+                </h4>
+                
+                <p *ngIf="
+                'Combustíveis fósseis são: petróleo, carvão mineral e gás natural, provenientes da decomposição de seres vivos. No caso em geral gasolina e diesel são combustíveis fóssil. A alternativa seria veículos elétricos.'.length > 200
+            " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                {{ keepReading 
+                    ? 
+                    'Combustíveis fósseis são: petróleo, carvão mineral e gás natural, provenientes da decomposição de seres vivos. No caso em geral gasolina e diesel são combustíveis fóssil. A alternativa seria veículos elétricos.'
+                    :
+                    'Combustíveis fósseis são: petróleo, carvão mineral e gás natural, provenientes da decomposição de seres vivos. No caso em geral gasolina e diesel são combustíveis fóssil. A alternativa seria veículos elétricos.'.slice(0, 200) + '...'
+                }}
+                </p>
+
+                <p *ngIf="
+                    'Combustíveis fósseis são: petróleo, carvão mineral e gás natural, provenientes da decomposição de seres vivos. No caso em geral gasolina e diesel são combustíveis fóssil. A alternativa seria veículos elétricos.'.length <= 200
+                " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                    {{ 'Combustíveis fósseis são: petróleo, carvão mineral e gás natural, provenientes da decomposição de seres vivos. No caso em geral gasolina e diesel são combustíveis fóssil. A alternativa seria veículos elétricos.'}}
+                </p>
+
+                <div *ngIf="
+                    'Combustíveis fósseis são: petróleo, carvão mineral e gás natural, provenientes da decomposição de seres vivos. No caso em geral gasolina e diesel são combustíveis fóssil. A alternativa seria veículos elétricos.'.length > 200
+                " class="d-flex align-items-center justify-content-end w-100">
+                    <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
+                        Continuar lendo
+                        <img src="/assets/icon/share.svg" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form *ngIf="actualStep === 7" [formGroup]="form7" (submit)="onSubmitStep7()" class="fade-in-right col pb-lg-5 pt-lg-4">
+        <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
+            <div class="flex-grow-1 w-100">
+                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep }}. Existe acompanhamento de consumo de recursos naturais mensal e metas para redução?</p>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
+                    <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Sim</label>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="no" name="answer" value="no">
+                    <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não</label>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="undefined" name="answer" value="undefined">
+                    <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
+                </div>
+
+                <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
+                    Próximo
+                </button>
+            </div>
+
+            <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
+                <h4 class="brand-text fw-700 p-0 pb-4">
+                    Glossário
+                </h4>
+                                        
+                <p *ngIf="
+                'Recursos naturais são elementos da natureza que são retirados para atender a demanda do homem (Ex.: energia solar, madeira, solo, água, vento, animais, vegetais).'.length > 200
+            " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                {{ keepReading 
+                    ? 
+                    'Recursos naturais são elementos da natureza que são retirados para atender a demanda do homem (Ex.: energia solar, madeira, solo, água, vento, animais, vegetais).'
+                    :
+                    'Recursos naturais são elementos da natureza que são retirados para atender a demanda do homem (Ex.: energia solar, madeira, solo, água, vento, animais, vegetais).'.slice(0, 200) + '...'
+                }}
+                </p>
+
+                <p *ngIf="
+                    'Recursos naturais são elementos da natureza que são retirados para atender a demanda do homem (Ex.: energia solar, madeira, solo, água, vento, animais, vegetais).'.length <= 200
+                " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                    {{ 'Recursos naturais são elementos da natureza que são retirados para atender a demanda do homem (Ex.: energia solar, madeira, solo, água, vento, animais, vegetais).'}}
+                </p>
+
+                <div *ngIf="
+                    'Recursos naturais são elementos da natureza que são retirados para atender a demanda do homem (Ex.: energia solar, madeira, solo, água, vento, animais, vegetais).'.length > 200
+                " class="d-flex align-items-center justify-content-end w-100">
+                    <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
+                        Continuar lendo
+                        <img src="/assets/icon/share.svg" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form *ngIf="actualStep === 8" [formGroup]="form8" (submit)="onSubmitStep8()" class="fade-in-right col pb-lg-5 pt-lg-4">
+        <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
+            <div class="flex-grow-1 w-100">
+                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep }}. Todos os dejetos da operação são tratados antes de descarte? (esgoto, material de descarte, tratamento de afluentes)</p>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
+                    <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Sim</label>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="no" name="answer" value="no">
+                    <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não</label>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="undefined" name="answer" value="undefined">
+                    <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
+                </div>
+
+                <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
+                    Próximo
+                </button>
+            </div>
+
+            <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
+                <h4 class="brand-text fw-700 p-0 pb-4">
+                    Glossário
+                </h4>
+                                                                
+                <p *ngIf="
+                'Dejetos apresentam riscos de poluição ao meio ambiente caso não sejam manejados e tratados corretamente. Materiais utilizados na produção precisam ser reciclados corretamente, esgoto tratado e qualquer outro material que resta descartado corretamente '.length > 200
+            " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                {{ keepReading 
+                    ? 
+                    'Dejetos apresentam riscos de poluição ao meio ambiente caso não sejam manejados e tratados corretamente. Materiais utilizados na produção precisam ser reciclados corretamente, esgoto tratado e qualquer outro material que resta descartado corretamente '
+                    :
+                    'Dejetos apresentam riscos de poluição ao meio ambiente caso não sejam manejados e tratados corretamente. Materiais utilizados na produção precisam ser reciclados corretamente, esgoto tratado e qualquer outro material que resta descartado corretamente '.slice(0, 200) + '...'
+                }}
+                </p>
+
+                <p *ngIf="
+                    'Dejetos apresentam riscos de poluição ao meio ambiente caso não sejam manejados e tratados corretamente. Materiais utilizados na produção precisam ser reciclados corretamente, esgoto tratado e qualquer outro material que resta descartado corretamente '.length <= 200
+                " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                    {{ 'Dejetos apresentam riscos de poluição ao meio ambiente caso não sejam manejados e tratados corretamente. Materiais utilizados na produção precisam ser reciclados corretamente, esgoto tratado e qualquer outro material que resta descartado corretamente '}}
+                </p>
+
+                <div *ngIf="
+                    'Dejetos apresentam riscos de poluição ao meio ambiente caso não sejam manejados e tratados corretamente. Materiais utilizados na produção precisam ser reciclados corretamente, esgoto tratado e qualquer outro material que resta descartado corretamente '.length > 200
+                " class="d-flex align-items-center justify-content-end w-100">
+                    <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
+                        Continuar lendo
+                        <img src="/assets/icon/share.svg" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form *ngIf="actualStep === 9" [formGroup]="form9" (submit)="onSubmitStep9()" class="fade-in-right col pb-lg-5 pt-lg-4">
+        <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
+            <div class="flex-grow-1 w-100">
+                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep }}. Existe um reporte mensal da gestão dos resíduos?</p>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
+                    <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Sim</label>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="no" name="answer" value="no">
+                    <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não</label>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="undefined" name="answer" value="undefined">
+                    <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
+                </div>
+
+                <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
+                    Próximo
+                </button>
+            </div>
+
+            <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
+                <h4 class="brand-text fw-700 p-0 pb-4">
+                    Glossário
+                </h4>
+                                                                                        
+                <p *ngIf="
+                'Detalhamento documentado sobre como os resíduos são tratados e geridos na empresa. Nesse caso a questão é se existe uma comunicação mensal/periodica para os funcionários em geral.'.length > 200
+            " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                {{ keepReading 
+                    ? 
+                    'Detalhamento documentado sobre como os resíduos são tratados e geridos na empresa. Nesse caso a questão é se existe uma comunicação mensal/periodica para os funcionários em geral.'
+                    :
+                    'Detalhamento documentado sobre como os resíduos são tratados e geridos na empresa. Nesse caso a questão é se existe uma comunicação mensal/periodica para os funcionários em geral.'.slice(0, 200) + '...'
+                }}
+                </p>
+
+                <p *ngIf="
+                    'Detalhamento documentado sobre como os resíduos são tratados e geridos na empresa. Nesse caso a questão é se existe uma comunicação mensal/periodica para os funcionários em geral.'.length <= 200
+                " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                    {{ 'Detalhamento documentado sobre como os resíduos são tratados e geridos na empresa. Nesse caso a questão é se existe uma comunicação mensal/periodica para os funcionários em geral.'}}
+                </p>
+
+                <div *ngIf="
+                    'Detalhamento documentado sobre como os resíduos são tratados e geridos na empresa. Nesse caso a questão é se existe uma comunicação mensal/periodica para os funcionários em geral.'.length > 200
+                " class="d-flex align-items-center justify-content-end w-100">
+                    <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
+                        Continuar lendo
+                        <img src="/assets/icon/share.svg" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form *ngIf="actualStep === 10" [formGroup]="form10" (submit)="onSubmitStep10()" class="fade-in-right col pb-lg-5 pt-lg-4">
+        <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
+            <div class="flex-grow-1 w-100">
+                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep }}. Existem alternativas atuais em execução para minimizar poluição?</p>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
+                    <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Sim</label>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="no" name="answer" value="no">
+                    <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não</label>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="undefined" name="answer" value="undefined">
+                    <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
+                </div>
+
+                <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
+                    Próximo
+                </button>
+            </div>
+
+            <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
+                <h4 class="brand-text fw-700 p-0 pb-4">
+                    Glossário
+                </h4>
+                        
+                <p *ngIf="
+                'Protocolos, regras e técnicas para a diminuição de poluição que estejam em curso. Um exemplo seria programa de conciencização de consumo de água, reciclagem de materiais e consumo consciente de energia elétrica.'.length > 200
+            " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                {{ keepReading 
+                    ? 
+                    'Protocolos, regras e técnicas para a diminuição de poluição que estejam em curso. Um exemplo seria programa de conciencização de consumo de água, reciclagem de materiais e consumo consciente de energia elétrica.'
+                    :
+                    'Protocolos, regras e técnicas para a diminuição de poluição que estejam em curso. Um exemplo seria programa de conciencização de consumo de água, reciclagem de materiais e consumo consciente de energia elétrica.'.slice(0, 200) + '...'
+                }}
+                </p>
+
+                <p *ngIf="
+                    'Protocolos, regras e técnicas para a diminuição de poluição que estejam em curso. Um exemplo seria programa de conciencização de consumo de água, reciclagem de materiais e consumo consciente de energia elétrica.'.length <= 200
+                " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                    {{ 'Protocolos, regras e técnicas para a diminuição de poluição que estejam em curso. Um exemplo seria programa de conciencização de consumo de água, reciclagem de materiais e consumo consciente de energia elétrica.'}}
+                </p>
+
+                <div *ngIf="
+                    'Protocolos, regras e técnicas para a diminuição de poluição que estejam em curso. Um exemplo seria programa de conciencização de consumo de água, reciclagem de materiais e consumo consciente de energia elétrica.'.length > 200
+                " class="d-flex align-items-center justify-content-end w-100">
+                    <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
+                        Continuar lendo
+                        <img src="/assets/icon/share.svg" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form *ngIf="actualStep === 11" [formGroup]="form11" (submit)="onSubmitStep11()" class="fade-in-right col pb-lg-5 pt-lg-4">
+        <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
+            <div class="flex-grow-1 w-100">
+                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep }}. Ocorre na atividade econômica o Uso de pesticida no solo e/ou contaminação do lençol freático?</p>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
+                    <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Sim</label>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="no" name="answer" value="no">
+                    <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não</label>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="undefined" name="answer" value="undefined">
+                    <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
+                </div>
+
+                <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
+                    Próximo
+                </button>
+            </div>
+
+            <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
+                <h4 class="brand-text fw-700 p-0 pb-4">
+                    Glossário
+                </h4>
+
+                <p *ngIf="
+                'O uso de pesticidas (substâncias químicas para controle de pragas e insetos) é presente no processo'.length > 200
+            " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                {{ keepReading 
+                    ? 
+                    'O uso de pesticidas (substâncias químicas para controle de pragas e insetos) é presente no processo'
+                    :
+                    'O uso de pesticidas (substâncias químicas para controle de pragas e insetos) é presente no processo'.slice(0, 200) + '...'
+                }}
+                </p>
+
+                <p *ngIf="
+                    'O uso de pesticidas (substâncias químicas para controle de pragas e insetos) é presente no processo'.length <= 200
+                " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                    {{ 'O uso de pesticidas (substâncias químicas para controle de pragas e insetos) é presente no processo'}}
+                </p>
+
+                <div *ngIf="
+                    'O uso de pesticidas (substâncias químicas para controle de pragas e insetos) é presente no processo'.length > 200
+                " class="d-flex align-items-center justify-content-end w-100">
+                    <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
+                        Continuar lendo
+                        <img src="/assets/icon/share.svg" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form *ngIf="actualStep === 12" [formGroup]="form12" (submit)="onSubmitStep12()" class="fade-in-right col pb-lg-5 pt-lg-4">
+        <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
+            <div class="flex-grow-1 w-100">
+                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep }}. Existe atualmente um Programa de Mitigação de mudanças climáticas?</p>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
+                    <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Sim</label>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="no" name="answer" value="no">
+                    <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não</label>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="undefined" name="answer" value="undefined">
+                    <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
+                </div>
+
+                <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
+                    Próximo
+                </button>
+            </div>
+
+            <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
+                <h4 class="brand-text fw-700 p-0 pb-4">
+                    Glossário
+                </h4>
+                
+                <p *ngIf="
+                'Adoção de protocolos que diminuam impactos negativos que afetem mudanças climáticas.'.length > 200
+            " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                {{ keepReading 
+                    ? 
+                    'Adoção de protocolos que diminuam impactos negativos que afetem mudanças climáticas.'
+                    :
+                    'Adoção de protocolos que diminuam impactos negativos que afetem mudanças climáticas.'.slice(0, 200) + '...'
+                }}
+                </p>
+
+                <p *ngIf="
+                    'Adoção de protocolos que diminuam impactos negativos que afetem mudanças climáticas.'.length <= 200
+                " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                    {{ 'Adoção de protocolos que diminuam impactos negativos que afetem mudanças climáticas.'}}
+                </p>
+
+                <div *ngIf="
+                    'Adoção de protocolos que diminuam impactos negativos que afetem mudanças climáticas.'.length > 200
+                " class="d-flex align-items-center justify-content-end w-100">
+                    <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
+                        Continuar lendo
+                        <img src="/assets/icon/share.svg" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form *ngIf="actualStep === 13" [formGroup]="form13" (submit)="finish()" class="fade-in-right col pb-lg-5 pt-lg-4">
+        <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
+            <div class="flex-grow-1 w-100">
+                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep }}. Operação pode ser duramente afetada por mudanças climáticas? (secas, queimadas, tornados, etc.)</p>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
+                    <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Sim</label>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="no" name="answer" value="no">
+                    <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não</label>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                    <input type="radio" style="width: fit-content;" formControlName="answer" id="undefined" name="answer" value="undefined">
+                    <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
+                </div>
+
+                <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form13.invalid" type="submit">
+                    Próximo
+                </button>
+            </div>
+
+            <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
+                <h4 class="brand-text fw-700 p-0 pb-4">
+                    Glossário
+                </h4>
+                
+                <p *ngIf="
+                'As atividades da empresa podem sofrer mudanças em sua produção por conta das mudanças climáticas, como chuvas acima do nível normal (alagamento), secas excessivas, local sujeito a furacão.'.length > 200
+            " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                {{ keepReading 
+                    ? 
+                    'As atividades da empresa podem sofrer mudanças em sua produção por conta das mudanças climáticas, como chuvas acima do nível normal (alagamento), secas excessivas, local sujeito a furacão.'
+                    :
+                    'As atividades da empresa podem sofrer mudanças em sua produção por conta das mudanças climáticas, como chuvas acima do nível normal (alagamento), secas excessivas, local sujeito a furacão.'.slice(0, 200) + '...'
+                }}
+                </p>
+
+                <p *ngIf="
+                    'As atividades da empresa podem sofrer mudanças em sua produção por conta das mudanças climáticas, como chuvas acima do nível normal (alagamento), secas excessivas, local sujeito a furacão.'.length <= 200
+                " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                    {{ 'As atividades da empresa podem sofrer mudanças em sua produção por conta das mudanças climáticas, como chuvas acima do nível normal (alagamento), secas excessivas, local sujeito a furacão.'}}
+                </p>
+
+                <div *ngIf="
+                    'As atividades da empresa podem sofrer mudanças em sua produção por conta das mudanças climáticas, como chuvas acima do nível normal (alagamento), secas excessivas, local sujeito a furacão.'.length > 200
+                " class="d-flex align-items-center justify-content-end w-100">
+                    <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
+                        Continuar lendo
+                        <img src="/assets/icon/share.svg" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>

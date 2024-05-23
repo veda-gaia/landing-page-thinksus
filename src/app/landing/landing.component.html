@@ -8,12 +8,14 @@
   </div>
   <ul class="m-0 languages-list" (click)="toggleSelector()">
       <li (click)="changeLanguage('en')">
-          <button class="no-bg-btn p-0 m-0" title="Change language to English">
-              English
-          </button>
-      </li>
-      <li (click)="changeLanguage('pt')" title="Mudar idioma para Português do Brasil">
-          <button class="no-bg-btn p-0 m-0">
+          <button class="no-bg-btn p-0 m-0 d-flex l-height-1rem align-items-center justify-content-start gap-2" title="Change language to English">
+                <img src="/assets/icon/usa.png" width="24px" alt="Português do Brasil">
+                English
+            </button>
+        </li>
+        <li (click)="changeLanguage('pt')" title="Mudar idioma para Português do Brasil">
+            <button class="no-bg-btn p-0 m-0 d-flex l-height-1rem align-items-center justify-content-start gap-2">
+              <img src="/assets/icon/brasil.png" width="24px" alt="Português do Brasil">
               Português - BR
           </button>
       </li>

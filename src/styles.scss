@@ -849,7 +849,7 @@ button:disabled {
 
 .language-container {
     top: 15vh;
-    left: -145px;
+    left: -177px;
     transition: .3s;
     z-index: 9999;
 
@@ -1375,6 +1375,7 @@ header {
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+    gap: 1.5rem;
     
     max-width: 256px;
     width: 0;

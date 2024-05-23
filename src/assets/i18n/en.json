@@ -194,7 +194,8 @@
         "INSTRUCTIONS": "Instructions for use",
         "WANT_MORE": "Want more?",
         "HAVE_ACCESS": "Get more information in our platform",
-        "SEE_PLANS": "Check plans"
+        "SEE_PLANS": "Check plans",
+        "LOGOUT": "Logout"
     },
     "FOOTER_LOGGED": {
         "RIGHTS": "@ 2023, ThinkSus, All rights reserved",

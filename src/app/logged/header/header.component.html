@@ -30,7 +30,7 @@
                                 </p>
                             </li>
                             <li class="dropdown-item d-flex align-items-center justify-content-start gap-2 cursor-pointer" (click)="changeLanguage('en')">
-                                <img src="/assets/icon/usa.png" width="24px" alt="Português do Brasil">
+                                <img src="/assets/icon/usa.png" width="24px" alt="USA English">
                                 <p class="fw-600 brand-text f-size-0-85rem">
                                     EN/US
                                 </p>
@@ -120,6 +120,14 @@
                         </p>
                     </li>
                 </ul>
+            </li>
+            <li class="w-100">
+                <a routerLink="/home" class="w-100">
+                    <button class="no-bg-btn bg-transparent primary-text d-flex fw-700 gap-2 align-items-center justify-content-center w-100 pt-3">
+                        <img src="/assets/icon/logout-dark.svg" alt="Sair">
+                        {{ 'SIDEBAR.LOGOUT' | translate }}
+                    </button>
+                </a>
             </li>
         </ul>
     </nav>

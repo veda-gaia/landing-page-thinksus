@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AssesmentComponent } from './assesment/assesment.component';
-import { AssesmentQuestionaryComponent } from './assesment-questionary/assesment-questionary.component';
 import { OdsComponent } from './ods/ods.component';
 import { ResultsComponent } from './results/results.component';
 import { LoggedComponent } from './logged.component';
+import { EAgroComponent } from './questionary/e-agro/e-agro.component';
 
 
 const routes: Routes = [
@@ -27,16 +27,18 @@ const routes: Routes = [
         component: AssesmentComponent
       },
       {
-        path: 'assesment/questionary',
-        component: AssesmentQuestionaryComponent
-      },
-      {
         path: 'ods',
         component: OdsComponent
       },
       {
         path: 'results',
         component: ResultsComponent
+      },
+
+      // Questionary
+      {
+        path: 'assesment/e-agro',
+        component: EAgroComponent
       },
     ]
   }

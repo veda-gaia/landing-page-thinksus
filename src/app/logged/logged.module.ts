@@ -22,6 +22,8 @@ import { GServiceComponent } from './questionary/g-service/g-service.component';
 import { EIndustryComponent } from './questionary/e-industry/e-industry.component';
 import { SIndustryComponent } from './questionary/s-industry/s-industry.component';
 import { GIndustryComponent } from './questionary/g-industry/g-industry.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmModalComponent } from './questionary/confirm-modal/confirm-modal.component';
 
 
 
@@ -45,6 +47,7 @@ import { GIndustryComponent } from './questionary/g-industry/g-industry.componen
     EIndustryComponent,
     SIndustryComponent,
     GIndustryComponent,
+    ConfirmModalComponent,
   ],
   imports: [
     CommonModule,
@@ -52,7 +55,8 @@ import { GIndustryComponent } from './questionary/g-industry/g-industry.componen
     ReactiveFormsModule,
     NgxMaskDirective,
     NgxMaskPipe,
-    TranslateModule
+    TranslateModule,
+    NgbModule,
   ]
 })
 export class LoggedModule { }

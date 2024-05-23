@@ -194,6 +194,7 @@ $brand-auxiliar: #CC94F6;
 
 $auxiliar-50: #FFFFF0;
 $brand-50: #F0FFF4;
+$teal-900: #1D4044;
 
 $linear-colorful: var(--Linear-Linear, linear-gradient(217deg, #CC94F6 16.01%, #0F6 97.05%));
 
@@ -374,6 +375,10 @@ body, html, .bg-1 {
 
 .brand-text {
     color: $brand-primary;
+}
+
+.teal-900-text {
+    color: $teal-900;
 }
 
 .brand-700-text {
@@ -1051,7 +1056,7 @@ header {
 @media screen and (max-width: 1200px) {
     .blockchain-technology-bg {
         background-image: none;
-        background-color: #FFFFFF;
+        background-color: $white-text;
         border-radius: 20px 20px 0 0;
 
         .first-part-text {
@@ -1346,7 +1351,7 @@ header {
         font-size: 2rem;
         font-weight: 700;
     
-        color: #FFFFFF;
+        color: $white-text;
         text-shadow: 2px 2px 0 rgba(64, 64, 64, .5);
 
     }
@@ -1472,7 +1477,7 @@ div.both-container:has(aside.active) {
 }
 
 .card-logged {
-    background-color: #FFFFFF;
+    background-color: $white-text;
     border: 1px solid $gray-strokes;
     border-radius: .5rem;
 }
@@ -1552,3 +1557,9 @@ div.both-container:has(aside.active) {
     color: #38A169;
 }
 
+// Modal
+.modal-bg {
+    background-color: $white-text;
+    border-radius: .5rem;
+    border: none;
+}

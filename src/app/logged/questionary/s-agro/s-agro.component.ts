@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component';
 
 @Component({
   selector: 'app-s-agro',
@@ -31,6 +33,7 @@ export class SAgroComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private modalService: NgbModal
   ) {
     this.form1 = this.fb.group({
       answer: ['', Validators.required],
@@ -215,7 +218,15 @@ export class SAgroComponent {
   }
 
   finish() {
-    // Abrir modal de enviar formulário
+    // Abre o modal de enviar formulário
+    const modalRef = this.modalService.open(ConfirmModalComponent, {centered: true});
+
+    // Se inscreve na resposta do usuário
+    modalRef.componentInstance.accepted.subscribe((closed: boolean) => {
+      if (closed) {
+        // Enviar forms para o backend
+      }
+    });
   }
 
   stepBack() {

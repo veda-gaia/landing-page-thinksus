@@ -1,0 +1,27 @@
+<section class="container modal-bg p-3 p-md-4">
+    <div class="row">
+        <div class="col">
+            <div class="d-flex align-items-start justify-content-between">
+                <div class="ps-3 pe-2 py-2 d-block"></div>
+
+                <h4 class="teal-900-text f-size-1-5rem pt-3 fw-700 text-center">
+                    FINALIZAR QUESTIONARIO
+                </h4>
+
+                <button class="no-bg-btn bg-transparent p-0" (click)="exit()" title="fechar">
+                    <img src="/assets/icon/close-modal.svg" alt="">
+                </button>
+            </div>
+
+            <p class="w-100 text-center fw-500 alpha-700-text f-size-1rem l-height-1-5rem pt-3 pb-4 d-block mx-auto" style="max-width: 375px;">
+                Tem certeza que deseja finalizar o questionário?
+                Ao finalizar, você <span class="fw-700">NÃO</span> poderá alterar as respostas.
+            </p>
+
+            <div class="d-flex align-items-center justify-content-between gap-4 pt-2">
+                <button class="brand-outline-btn w-75" (click)="exit()" title="Cancelar">Cancelar</button>
+                <button class="brand-btn w-100" (click)="accept()" title="Confirmar">Finalizar</button>
+            </div>
+        </div>
+    </div>
+</section>

@@ -6,6 +6,8 @@ import { OdsComponent } from './ods/ods.component';
 import { ResultsComponent } from './results/results.component';
 import { LoggedComponent } from './logged.component';
 import { EAgroComponent } from './questionary/e-agro/e-agro.component';
+import { SAgroComponent } from './questionary/s-agro/s-agro.component';
+import { GAgroComponent } from './questionary/g-agro/g-agro.component';
 
 
 const routes: Routes = [
@@ -39,6 +41,14 @@ const routes: Routes = [
       {
         path: 'assesment/e-agro',
         component: EAgroComponent
+      },
+      {
+        path: 'assesment/s-agro',
+        component: SAgroComponent
+      },
+      {
+        path: 'assesment/g-agro',
+        component: GAgroComponent
       },
     ]
   }

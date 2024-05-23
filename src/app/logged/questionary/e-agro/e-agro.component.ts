@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-e-agro',
@@ -26,7 +27,8 @@ export class EAgroComponent {
   form13: FormGroup
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router,
   ) {
     this.form1 = this.fb.group({
       answer: ['', Validators.required],
@@ -211,7 +213,9 @@ export class EAgroComponent {
         return acc
       }
     }, 0)
+  }
 
-    
+  continueLater() {
+    this.router.navigate(['/logged/assesment'])
   }
 }

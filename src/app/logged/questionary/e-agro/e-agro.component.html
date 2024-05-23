@@ -30,7 +30,7 @@
     <form *ngIf="actualStep === 1" [formGroup]="form1" (submit)="onSubmitStep1()" class="fade-in-right col pb-lg-5 pt-lg-4">
         <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
             <div class="flex-grow-1 w-100">
-                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep }}. O nível atual de desmatamento está dentro do permitido legalmente?</p>
+                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68 l-height-1-5rem">{{ actualStep }}. O nível atual de desmatamento está dentro do permitido legalmente?</p>
 
                 <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                     <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
@@ -89,7 +89,7 @@
     <form *ngIf="actualStep === 2" [formGroup]="form2" (submit)="onSubmitStep2()" class="fade-in-right col pb-lg-5 pt-lg-4">
         <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
             <div class="flex-grow-1 w-100">
-                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep }}. Existe Política e práticas de bem estar animal?</p>
+                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68 l-height-1-5rem">{{ actualStep }}. Existe Política e práticas de bem estar animal?</p>
 
                 <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                     <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
@@ -106,9 +106,21 @@
                     <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
                 </div>
 
-                <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
-                    Próximo
-                </button>
+                <div class="d-flex flex-column-reverse flex-lg-row align-items-center justify-content-between mt-5">
+                    <button (click)="continueLater()" class="no-bg-btn bg-transparent brand-text fw-700 pt-5 pt-lg-0">
+                        Continuar depois
+                    </button>
+
+                    <div class="d-flex align-items-center justify-content-between gap-3">
+                        <button (click)="stepBack()" class="brand-outline-btn bg-transparent x-lg-5 d-block" type="submit">
+                            Voltar
+                        </button>
+                        
+                        <button class="secondary-brand-btn px-lg-5 d-block" [disabled]="form2.invalid" type="submit">
+                            Próximo
+                        </button>
+                    </div>
+                </div>
             </div>
 
             <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
@@ -148,7 +160,7 @@
     <form *ngIf="actualStep === 3" [formGroup]="form3" (submit)="onSubmitStep3()" class="fade-in-right col pb-lg-5 pt-lg-4">
         <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
             <div class="flex-grow-1 w-100">
-                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep }}. Existe um compliance de responsabilidade ambiental divulgado para todos?</p>
+                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68 l-height-1-5rem">{{ actualStep }}. Existe um compliance de responsabilidade ambiental divulgado para todos?</p>
 
                 <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                     <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
@@ -165,9 +177,22 @@
                     <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
                 </div>
 
-                <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form3.invalid" type="submit">
-                    Próximo
-                </button>
+
+                <div class="d-flex flex-column-reverse flex-lg-row align-items-center justify-content-between mt-5">
+                    <button (click)="continueLater()" class="no-bg-btn bg-transparent brand-text fw-700 pt-5 pt-lg-0">
+                        Continuar depois
+                    </button>
+
+                    <div class="d-flex align-items-center justify-content-between gap-3">
+                        <button (click)="stepBack()" class="brand-outline-btn bg-transparent x-lg-5 d-block" type="submit">
+                            Voltar
+                        </button>
+                        
+                        <button class="secondary-brand-btn px-lg-5 d-block" [disabled]="form3.invalid" type="submit">
+                            Próximo
+                        </button>
+                    </div>
+                </div>
             </div>
 
             <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
@@ -208,7 +233,7 @@
     <form *ngIf="actualStep === 4" [formGroup]="form4" (submit)="onSubmitStep4()" class="fade-in-right col pb-lg-5 pt-lg-4">
         <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
             <div class="flex-grow-1 w-100">
-                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep }}. Fonte de energia é através de fontes renováveis? (solar, eólica, outra)</p>
+                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68 l-height-1-5rem">{{ actualStep }}. Fonte de energia é através de fontes renováveis? (solar, eólica, outra)</p>
 
                 <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                     <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
@@ -225,9 +250,21 @@
                     <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
                 </div>
 
-                <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form4.invalid" type="submit">
-                    Próximo
-                </button>
+                <div class="d-flex flex-column-reverse flex-lg-row align-items-center justify-content-between mt-5">
+                    <button (click)="continueLater()" class="no-bg-btn bg-transparent brand-text fw-700 pt-5 pt-lg-0">
+                        Continuar depois
+                    </button>
+
+                    <div class="d-flex align-items-center justify-content-between gap-3">
+                        <button (click)="stepBack()" class="brand-outline-btn bg-transparent x-lg-5 d-block" type="submit">
+                            Voltar
+                        </button>
+                        
+                        <button class="secondary-brand-btn px-lg-5 d-block" [disabled]="form4.invalid" type="submit">
+                            Próximo
+                        </button>
+                    </div>
+                </div>
             </div>
 
             <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
@@ -267,7 +304,7 @@
     <form *ngIf="actualStep === 5" [formGroup]="form5" (submit)="onSubmitStep5()" class="fade-in-right col pb-lg-5 pt-lg-4">
         <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
             <div class="flex-grow-1 w-100">
-                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep }}. Existe captação de água da chuva para reuso?</p>
+                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68 l-height-1-5rem">{{ actualStep }}. Existe captação de água da chuva para reuso?</p>
 
                 <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                     <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
@@ -284,9 +321,21 @@
                     <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
                 </div>
 
-                <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
-                    Próximo
-                </button>
+                <div class="d-flex flex-column-reverse flex-lg-row align-items-center justify-content-between mt-5">
+                    <button (click)="continueLater()" class="no-bg-btn bg-transparent brand-text fw-700 pt-5 pt-lg-0">
+                        Continuar depois
+                    </button>
+
+                    <div class="d-flex align-items-center justify-content-between gap-3">
+                        <button (click)="stepBack()" class="brand-outline-btn bg-transparent x-lg-5 d-block" type="submit">
+                            Voltar
+                        </button>
+                        
+                        <button class="secondary-brand-btn px-lg-5 d-block" [disabled]="form5.invalid" type="submit">
+                            Próximo
+                        </button>
+                    </div>
+                </div>
             </div>
 
             <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
@@ -326,7 +375,7 @@
     <form *ngIf="actualStep === 6" [formGroup]="form6" (submit)="onSubmitStep6()" class="fade-in-right col pb-lg-5 pt-lg-4">
         <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
             <div class="flex-grow-1 w-100">
-                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep }}. Os veículos utilizam combustível fóssil?</p>
+                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68 l-height-1-5rem">{{ actualStep }}. Os veículos utilizam combustível fóssil?</p>
 
                 <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                     <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
@@ -343,9 +392,21 @@
                     <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
                 </div>
 
-                <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
-                    Próximo
-                </button>
+                <div class="d-flex flex-column-reverse flex-lg-row align-items-center justify-content-between mt-5">
+                    <button (click)="continueLater()" class="no-bg-btn bg-transparent brand-text fw-700 pt-5 pt-lg-0">
+                        Continuar depois
+                    </button>
+
+                    <div class="d-flex align-items-center justify-content-between gap-3">
+                        <button (click)="stepBack()" class="brand-outline-btn bg-transparent x-lg-5 d-block" type="submit">
+                            Voltar
+                        </button>
+                        
+                        <button class="secondary-brand-btn px-lg-5 d-block" [disabled]="form6.invalid" type="submit">
+                            Próximo
+                        </button>
+                    </div>
+                </div>
             </div>
 
             <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
@@ -385,7 +446,7 @@
     <form *ngIf="actualStep === 7" [formGroup]="form7" (submit)="onSubmitStep7()" class="fade-in-right col pb-lg-5 pt-lg-4">
         <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
             <div class="flex-grow-1 w-100">
-                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep }}. Existe acompanhamento de consumo de recursos naturais mensal e metas para redução?</p>
+                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68 l-height-1-5rem">{{ actualStep }}. Existe acompanhamento de consumo de recursos naturais mensal e metas para redução?</p>
 
                 <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                     <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
@@ -402,9 +463,21 @@
                     <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
                 </div>
 
-                <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
-                    Próximo
-                </button>
+                <div class="d-flex flex-column-reverse flex-lg-row align-items-center justify-content-between mt-5">
+                    <button (click)="continueLater()" class="no-bg-btn bg-transparent brand-text fw-700 pt-5 pt-lg-0">
+                        Continuar depois
+                    </button>
+
+                    <div class="d-flex align-items-center justify-content-between gap-3">
+                        <button (click)="stepBack()" class="brand-outline-btn bg-transparent x-lg-5 d-block" type="submit">
+                            Voltar
+                        </button>
+                        
+                        <button class="secondary-brand-btn px-lg-5 d-block" [disabled]="form7.invalid" type="submit">
+                            Próximo
+                        </button>
+                    </div>
+                </div>
             </div>
 
             <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
@@ -444,7 +517,7 @@
     <form *ngIf="actualStep === 8" [formGroup]="form8" (submit)="onSubmitStep8()" class="fade-in-right col pb-lg-5 pt-lg-4">
         <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
             <div class="flex-grow-1 w-100">
-                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep }}. Todos os dejetos da operação são tratados antes de descarte? (esgoto, material de descarte, tratamento de afluentes)</p>
+                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68 l-height-1-5rem">{{ actualStep }}. Todos os dejetos da operação são tratados antes de descarte? (esgoto, material de descarte, tratamento de afluentes)</p>
 
                 <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                     <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
@@ -461,9 +534,21 @@
                     <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
                 </div>
 
-                <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
-                    Próximo
-                </button>
+                <div class="d-flex flex-column-reverse flex-lg-row align-items-center justify-content-between mt-5">
+                    <button (click)="continueLater()" class="no-bg-btn bg-transparent brand-text fw-700 pt-5 pt-lg-0">
+                        Continuar depois
+                    </button>
+
+                    <div class="d-flex align-items-center justify-content-between gap-3">
+                        <button (click)="stepBack()" class="brand-outline-btn bg-transparent x-lg-5 d-block" type="submit">
+                            Voltar
+                        </button>
+                        
+                        <button class="secondary-brand-btn px-lg-5 d-block" [disabled]="form8.invalid" type="submit">
+                            Próximo
+                        </button>
+                    </div>
+                </div>
             </div>
 
             <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
@@ -503,7 +588,7 @@
     <form *ngIf="actualStep === 9" [formGroup]="form9" (submit)="onSubmitStep9()" class="fade-in-right col pb-lg-5 pt-lg-4">
         <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
             <div class="flex-grow-1 w-100">
-                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep }}. Existe um reporte mensal da gestão dos resíduos?</p>
+                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68 l-height-1-5rem">{{ actualStep }}. Existe um reporte mensal da gestão dos resíduos?</p>
 
                 <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                     <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
@@ -520,9 +605,21 @@
                     <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
                 </div>
 
-                <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
-                    Próximo
-                </button>
+                <div class="d-flex flex-column-reverse flex-lg-row align-items-center justify-content-between mt-5">
+                    <button (click)="continueLater()" class="no-bg-btn bg-transparent brand-text fw-700 pt-5 pt-lg-0">
+                        Continuar depois
+                    </button>
+
+                    <div class="d-flex align-items-center justify-content-between gap-3">
+                        <button (click)="stepBack()" class="brand-outline-btn bg-transparent x-lg-5 d-block" type="submit">
+                            Voltar
+                        </button>
+                        
+                        <button class="secondary-brand-btn px-lg-5 d-block" [disabled]="form9.invalid" type="submit">
+                            Próximo
+                        </button>
+                    </div>
+                </div>
             </div>
 
             <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
@@ -562,7 +659,7 @@
     <form *ngIf="actualStep === 10" [formGroup]="form10" (submit)="onSubmitStep10()" class="fade-in-right col pb-lg-5 pt-lg-4">
         <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
             <div class="flex-grow-1 w-100">
-                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep }}. Existem alternativas atuais em execução para minimizar poluição?</p>
+                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68 l-height-1-5rem">{{ actualStep }}. Existem alternativas atuais em execução para minimizar poluição?</p>
 
                 <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                     <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
@@ -579,9 +676,21 @@
                     <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
                 </div>
 
-                <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
-                    Próximo
-                </button>
+                <div class="d-flex flex-column-reverse flex-lg-row align-items-center justify-content-between mt-5">
+                    <button (click)="continueLater()" class="no-bg-btn bg-transparent brand-text fw-700 pt-5 pt-lg-0">
+                        Continuar depois
+                    </button>
+
+                    <div class="d-flex align-items-center justify-content-between gap-3">
+                        <button (click)="stepBack()" class="brand-outline-btn bg-transparent x-lg-5 d-block" type="submit">
+                            Voltar
+                        </button>
+                        
+                        <button class="secondary-brand-btn px-lg-5 d-block" [disabled]="form10.invalid" type="submit">
+                            Próximo
+                        </button>
+                    </div>
+                </div>
             </div>
 
             <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
@@ -621,7 +730,7 @@
     <form *ngIf="actualStep === 11" [formGroup]="form11" (submit)="onSubmitStep11()" class="fade-in-right col pb-lg-5 pt-lg-4">
         <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
             <div class="flex-grow-1 w-100">
-                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep }}. Ocorre na atividade econômica o Uso de pesticida no solo e/ou contaminação do lençol freático?</p>
+                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68 l-height-1-5rem">{{ actualStep }}. Ocorre na atividade econômica o Uso de pesticida no solo e/ou contaminação do lençol freático?</p>
 
                 <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                     <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
@@ -638,9 +747,21 @@
                     <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
                 </div>
 
-                <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
-                    Próximo
-                </button>
+                <div class="d-flex flex-column-reverse flex-lg-row align-items-center justify-content-between mt-5">
+                    <button (click)="continueLater()" class="no-bg-btn bg-transparent brand-text fw-700 pt-5 pt-lg-0">
+                        Continuar depois
+                    </button>
+
+                    <div class="d-flex align-items-center justify-content-between gap-3">
+                        <button (click)="stepBack()" class="brand-outline-btn bg-transparent x-lg-5 d-block" type="submit">
+                            Voltar
+                        </button>
+                        
+                        <button class="secondary-brand-btn px-lg-5 d-block" [disabled]="form11.invalid" type="submit">
+                            Próximo
+                        </button>
+                    </div>
+                </div>
             </div>
 
             <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
@@ -680,7 +801,7 @@
     <form *ngIf="actualStep === 12" [formGroup]="form12" (submit)="onSubmitStep12()" class="fade-in-right col pb-lg-5 pt-lg-4">
         <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
             <div class="flex-grow-1 w-100">
-                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep }}. Existe atualmente um Programa de Mitigação de mudanças climáticas?</p>
+                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68 l-height-1-5rem">{{ actualStep }}. Existe atualmente um Programa de Mitigação de mudanças climáticas?</p>
 
                 <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                     <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
@@ -697,9 +818,21 @@
                     <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
                 </div>
 
-                <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
-                    Próximo
-                </button>
+                <div class="d-flex flex-column-reverse flex-lg-row align-items-center justify-content-between mt-5">
+                    <button (click)="continueLater()" class="no-bg-btn bg-transparent brand-text fw-700 pt-5 pt-lg-0">
+                        Continuar depois
+                    </button>
+
+                    <div class="d-flex align-items-center justify-content-between gap-3">
+                        <button (click)="stepBack()" class="brand-outline-btn bg-transparent x-lg-5 d-block" type="submit">
+                            Voltar
+                        </button>
+                        
+                        <button class="secondary-brand-btn px-lg-5 d-block" [disabled]="form12.invalid" type="submit">
+                            Próximo
+                        </button>
+                    </div>
+                </div>
             </div>
 
             <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
@@ -739,7 +872,7 @@
     <form *ngIf="actualStep === 13" [formGroup]="form13" (submit)="finish()" class="fade-in-right col pb-lg-5 pt-lg-4">
         <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
             <div class="flex-grow-1 w-100">
-                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep }}. Operação pode ser duramente afetada por mudanças climáticas? (secas, queimadas, tornados, etc.)</p>
+                <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68 l-height-1-5rem">{{ actualStep }}. Operação pode ser duramente afetada por mudanças climáticas? (secas, queimadas, tornados, etc.)</p>
 
                 <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                     <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
@@ -756,9 +889,21 @@
                     <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
                 </div>
 
-                <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form13.invalid" type="submit">
-                    Próximo
-                </button>
+                <div class="d-flex flex-column-reverse flex-lg-row align-items-center justify-content-between mt-5">
+                    <button (click)="continueLater()" class="no-bg-btn bg-transparent brand-text fw-700 pt-5 pt-lg-0">
+                        Continuar depois
+                    </button>
+
+                    <div class="d-flex align-items-center justify-content-between gap-3">
+                        <button (click)="stepBack()" class="brand-outline-btn bg-transparent x-lg-5 d-block" type="submit">
+                            Voltar
+                        </button>
+                        
+                        <button class="secondary-brand-btn px-lg-5 d-block" [disabled]="form13.invalid" type="submit">
+                            Próximo
+                        </button>
+                    </div>
+                </div>
             </div>
 
             <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">

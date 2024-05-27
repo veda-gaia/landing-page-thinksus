@@ -202,5 +202,24 @@
         "ABOUT": "Sobre ESG",
         "SUBSCRIPTION": "Assinatura",
         "HELP": "Ajuda"
+    },
+    "QUESTIONARY": {
+        "GOVERNAMENTAL_TITLE": "Avaliação Governamental",
+        "QUESTION": "Questão",
+        "30_PERCENT": "Importante: Para garantir a precisão das suas respostas, há um limite de 30% para seleções marcadas como 'não se aplica'. Se esse limite for excedido, você receberá uma notificação para revisar suas respostas.",
+        "YES": "Sim",
+        "NO": "Não",
+        "DOESNT_APPLY": "Não se aplica",
+        "NEXT": "Próximo",
+        "CONTINUE_LATER": "Continuar depois",
+        "BACK": "Voltar",
+        "GLOSSARY": "Glossário",
+        "EXPAND": "Continuar lendo",
+        "LIMIT_EXCEDED": "Atenção: Limite de \"Não se aplica\" excedido",
+        "DOCUMENT_NEEDED": "Importante: Necessário envio de documento comprobatório",
+        "ANSWER_SUMMARY": "Resumo das respostas",
+        "CANNOT_CHANGE": "Importante: Ao finalizar o questionário, você não poderá alterar as respostas.",
+        "REVIEW": "Revisar questões",
+        "DOCUMENT_SEND": "Envio de documentos"
     }
 }

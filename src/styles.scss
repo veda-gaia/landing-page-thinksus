@@ -192,6 +192,9 @@ $brand-700: #276749;
 $brand-800: #22543D;
 $brand-auxiliar: #CC94F6;
 
+$blue-50: #EBF8FF;
+$blue-100: #BEE3F8;
+
 $auxiliar-50: #FFFFF0;
 $brand-50: #F0FFF4;
 $teal-900: #1D4044;
@@ -1162,6 +1165,13 @@ header {
 .glossary-card {
     background-color: $brand-white;
     border: 1px solid $gray-strokes;
+
+    border-radius: 8px;
+}
+
+.blue-card {
+    background-color: $blue-50;
+    border: 1px solid $blue-100;
 
     border-radius: 8px;
 }

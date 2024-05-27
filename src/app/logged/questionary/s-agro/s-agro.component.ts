@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component';
@@ -14,207 +14,148 @@ export class SAgroComponent {
   undefinedAnswers = 0
   keepReading = false
   
-  form1: FormGroup
-  form2: FormGroup
-  form3: FormGroup
-  form4: FormGroup
-  form5: FormGroup
-  form6: FormGroup
-  form7: FormGroup
-  form8: FormGroup
-  form9: FormGroup
-  form10: FormGroup
-  form11: FormGroup
-  form12: FormGroup
-  form13: FormGroup
-  form14: FormGroup
-  form15: FormGroup
+  questionaryData = [
+    {
+      question: 'Empresa possui Compliance Interno de Função Social?',
+      description: 'Compliance interno de função social são regras e orientações de responsabilidade individual e coletiva da empresa que contemplam esferas da sociedade, como criação de empregos, pagamento de tributos, geração de riqueza, contribuição para o desenvolvimento econômico, social e cultural do entorno, adoção de práticas sustentáveis e respeito aos direitos dos consumidores.',
+      documentNeeded: true,
+      id: 'S1'
+    },
+    {
+      question: 'Todos os Trabalhadores estão registrados, com salário condizente com a função?',
+      description: 'A empresa segue a CLT para contratação de funcionários, com salários compatíveis com o mercado.',
+      documentNeeded: true,
+      id: 'S3'
+    },
+    {
+      question: 'Processo seletivo para todas as vagas em aberto é feito de forma justa, sem diferenciação de credo, cor, raça ou opção sexual?',
+      description: 'O processo de seleção de novos funcionários respeita a diversidade, sem classifica-los como forma eliminatória suas escolhas de religião, cor da pele, etnia e opção sexual, levando apenas em conta suas aptidões profissionais e capacidade de desenvolver o trabalho para que está sendo avaliado.',
+      documentNeeded: true,
+      id: 'S4'
+    },
+    {
+      question: 'Houve algum acidente de trabalho com ferimento nos últimos 24 meses?',
+      description: 'Ocorrência de acidentes de trabalho com funcionários durante o exercício de sua função, com ou sem perca de tempo de trabalho, no período anterior de 24 meses da data de respostas desse questionário.',
+      documentNeeded: true,
+      id: 'S5'
+    },
+    {
+      question: 'Houve condenação em primeira instância na Justiça do Trabalho nos últimos 5 anos?',
+      description: 'A empresa foi acionada e punida judicialmente por não cumprir com as leis de bases e diretrizes de trabalho.',
+      documentNeeded: true,
+      id: 'S6'
+    },
+    {
+      question: 'Existe interação com outras organizações sociais/políticas na cidade do negócio?',
+      description: 'A empresa possui vínculos com organizações sociais/ políticas na cidade que atua.',
+      documentNeeded: true,
+      id: 'S7'
+    },
+    {
+      question: 'Compromissos sociais são reportados de forma consistente (últimos 48 meses)?',
+      description: 'São documentados/relatados todos os compromissos sociais (criação, desenvolvimento e apoio e à  programas voltados para a comunidade, qualidade de vida e meio ambiente.)',
+      documentNeeded: true,
+      id: 'S8'
+    },
+    {
+      question: 'Existe controle de informação sigilosa, de acordo com a Lei de Proteção de Dados?',
+      description: 'As informações sigilosas são mantidas em segredo por meio de controles e diretrizes de acordo com a Lei Geral de Proteção de Dados',
+      documentNeeded: true,
+      id: 'S9'
+    },
+    {
+      question: 'Existe Canal de Comunicação com clientes e fornecedores?',
+      description: 'Ferramentas que viabilizam formas de comunicação entre clientes e fornecedores',
+      documentNeeded: true,
+      id: 'S10'
+    },
+    {
+      question: 'Existe forma de denúncia anônima? Se sim, os casos são investigados e reportados com todos os funcionários ?',
+      description: 'Canais para denúncia anônima, onde quem denuncia não será identificado, será mantido sigilo sobre quem fez a denúncia. Em caso afirmativo, o setor responsável por receber as denúncias analisa e toma medidas e providências com funcionários para sanar a questão. ',
+      documentNeeded: true,
+      id: 'S11'
+    },
+    {
+      question: 'Código Interno de Combate a Corrupção é claro e comunicado para todos os funcionários?',
+      description: 'O código interno de Combate à Corrupção foi escrito de forma clara, com informações objetivas, usando palavras de fácil compreensão.',
+      documentNeeded: true,
+      id: 'S12'
+    },
+    {
+      question: 'A empresa pratica política de preços de forma a manipular a livre concorrência do mercado?',
+      description: 'A forma de precificação dos produtos da empresa é feita de forma justa e leal para a livre concorrência do mercado.',
+      documentNeeded: true,
+      id: 'S13'
+    },
+    {
+      question: 'Existe termo de conduta Social dos Fornecedores? Se sim, ele está de acordo com os valores de Compliances internos?',
+      description: 'O manual de normas e condutas de como os fornecedores devem se comportar para se classificar fornecedor para a empresa está em conformidade  com as regras de normas e condutas da empresa que este estabeleceu relação comercial?  ',
+      documentNeeded: true,
+      id: 'S14'
+    },
+    {
+      question: 'Existe report interno ou externo com os questionamentos dos clientes, de forma transparente, nos últimos 48 meses?',
+      description: 'Todos os questionamentos vindos de clientes são relatados em documentos sem que haja censura.',
+      documentNeeded: true,
+      id: 'S15'
+    },
+    {
+      question: 'Entre os benefícios oferecidos aos funcionários, existe algum incentivo à educação, cultura e/ou treinamento extra (além da função específica)?',
+      description: 'Entre os benefícios podem ser parcerias de desconto para cursos extra-curriculares ou de educação continuada, programa de treinamento e estudo na própria empresa ou incentivo financeiro para ser gasto com educação',
+      documentNeeded: true,
+      id: 'S16'
+    },
+  ]
+
+  formArray: FormArray<FormControl<any>>
+  formArrayDocuments: FormArray<FormControl<any>>
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private modalService: NgbModal
   ) {
-    this.form1 = this.fb.group({
-      answer: ['', Validators.required],
-      question: ['S1', Validators.required],
+    this.formArray = this.fb.array([])
+    this.formArrayDocuments = this.fb.array([])
+
+    this.questionaryData.forEach((item) => {
+      this.formArray.push(new FormControl('', Validators.required))
     })
 
-    this.form2 = this.fb.group({
-      answer: ['', Validators.required],
-      question: ['S3', Validators.required],
-    })
-
-    this.form3 = this.fb.group({
-      answer: ['', Validators.required],
-      question: ['S4', Validators.required],
-    })
-
-    this.form4 = this.fb.group({
-      answer: ['', Validators.required],
-      question: ['S5', Validators.required],
-    })
-
-    this.form5 = this.fb.group({
-      answer: ['', Validators.required],
-      question: ['S6', Validators.required],
-    })
-
-    this.form6 = this.fb.group({
-      answer: ['', Validators.required],
-      question: ['S7', Validators.required],
-    })
-
-    this.form7 = this.fb.group({
-      answer: ['', Validators.required],
-      question: ['S8', Validators.required],
-    })
-
-    this.form8 = this.fb.group({
-      answer: ['', Validators.required],
-      question: ['S9', Validators.required],
-    })
-
-    this.form9 = this.fb.group({
-      answer: ['', Validators.required],
-      question: ['S10', Validators.required],
-    })
-
-    this.form10 = this.fb.group({
-      answer: ['', Validators.required],
-      question: ['S11', Validators.required],
-    })
-
-    this.form11 = this.fb.group({
-      answer: ['', Validators.required],
-      question: ['S12', Validators.required],
-    })
-
-    this.form12 = this.fb.group({
-      answer: ['', Validators.required],
-      question: ['S13', Validators.required],
-    })
-
-    this.form13 = this.fb.group({
-      answer: ['', Validators.required],
-      question: ['S14', Validators.required],
-    })
-
-    this.form14 = this.fb.group({
-      answer: ['', Validators.required],
-      question: ['S15', Validators.required],
-    })
-
-    this.form15 = this.fb.group({
-      answer: ['', Validators.required],
-      question: ['S16', Validators.required],
+    this.formArray.valueChanges.subscribe({
+      next: () => {
+        this.checkDoesntApply()
+      }
     })
   }
 
-  onSubmitStep1() {
-    if(this.form1.invalid) return
-
-    this.actualStep = 2
-    this.checkDoesntApply()
+  ngOnInit() {
+    this.scrollToTop()
   }
 
-  onSubmitStep2() {
-    if(this.form2.invalid) return
+  onSubmitStep(step: number) {
+    if(this.formArray.at(step).invalid) return
 
-    this.actualStep = 3
-    this.keepReading = false
-    this.checkDoesntApply()
+    this.actualStep = step + 2
+    // this.checkDoesntApply()
   }
 
-  onSubmitStep3() {
-    if(this.form3.invalid) return
-
-    this.actualStep = 4
-    this.keepReading = false
+  submitRevision() {
+    this.formArray.controls.forEach((control, index) => {
+      if(this.questionaryData[index].documentNeeded && control.value === 'yes') {
+        this.formArrayDocuments.push(new FormControl('', Validators.required))
+      } else {
+        this.formArrayDocuments.push(new FormControl(''))
+      }
+    })
+    
+    this.actualStep = this.actualStep + 1
   }
 
-  onSubmitStep4() {
-    if(this.form4.invalid) return
+  submitDocuments() {
+    if(this.formArrayDocuments.invalid) return
 
-    this.actualStep = 5
-    this.keepReading = false
-  }
-
-  onSubmitStep5() {
-    if(this.form5.invalid) return
-
-    this.actualStep = 6
-    this.keepReading = false
-  }
-
-  onSubmitStep6() {
-    if(this.form6.invalid) return
-
-    this.actualStep = 7
-    this.keepReading = false
-  }
-
-  onSubmitStep7() {
-    if(this.form7.invalid) return
-
-    this.actualStep = 8
-    this.keepReading = false
-  }
-
-  onSubmitStep8() {
-    if(this.form8.invalid) return
-
-    this.actualStep = 9
-    this.keepReading = false
-  }
-
-  onSubmitStep9() {
-    if(this.form9.invalid) return
-
-    this.actualStep = 10
-    this.keepReading = false
-  }
-
-  onSubmitStep10() {
-    if(this.form10.invalid) return
-
-    this.actualStep = 11
-    this.keepReading = false
-  }
-
-  onSubmitStep11() {
-    if(this.form11.invalid) return
-
-    this.actualStep = 12
-    this.keepReading = false
-  }
-
-  onSubmitStep12() {
-    if(this.form12.invalid) return
-
-    this.actualStep = 13
-    this.keepReading = false
-  }
-
-  onSubmitStep13() {
-    if(this.form13.invalid) return
-
-    this.actualStep = 14
-    this.keepReading = false
-  }
-
-  onSubmitStep14() {
-    if(this.form14.invalid) return
-
-    this.actualStep = 15
-    this.keepReading = false
-  }
-
-  onSubmitStep15() {
-    if(this.form15.invalid) return
-
-    this.actualStep = 16
-    this.keepReading = false
+    this.finish()
   }
 
   finish() {
@@ -225,6 +166,7 @@ export class SAgroComponent {
     modalRef.componentInstance.accepted.subscribe((closed: boolean) => {
       if (closed) {
         // Enviar forms para o backend
+        this.router.navigate(['/logged/assesment'])
       }
     });
   }
@@ -235,31 +177,22 @@ export class SAgroComponent {
   }
 
   checkDoesntApply() {
-    const formsArray = [
-      this.form1.controls['answer'].value,
-      this.form2.controls['answer'].value,
-      this.form3.controls['answer'].value,
-      this.form4.controls['answer'].value,
-      this.form5.controls['answer'].value,
-      this.form6.controls['answer'].value,
-      this.form7.controls['answer'].value,
-      this.form8.controls['answer'].value,
-      this.form9.controls['answer'].value,
-      this.form10.controls['answer'].value,
-      this.form12.controls['answer'].value,
-      this.form13.controls['answer'].value,
-    ]
-
-    this.undefinedAnswers = formsArray.reduce((acc: number, cur: string) => {
-      if(cur === 'undefined') {
+    this.undefinedAnswers = this.formArray.controls.reduce((acc: number, cur: FormControl) => {
+      if(cur.value === 'undefined') {
         return acc + 1
       } else {
         return acc
       }
     }, 0)
+
+    // console.log(this.undefinedAnswers)
   }
 
   continueLater() {
     this.router.navigate(['/logged/assesment'])
+  }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

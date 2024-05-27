@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component';
 
 @Component({
   selector: 'app-e-agro',
@@ -12,177 +14,149 @@ export class EAgroComponent {
   undefinedAnswers = 0
   keepReading = false
   
-  form1: FormGroup
-  form2: FormGroup
-  form3: FormGroup
-  form4: FormGroup
-  form5: FormGroup
-  form6: FormGroup
-  form7: FormGroup
-  form8: FormGroup
-  form9: FormGroup
-  form10: FormGroup
-  form11: FormGroup
-  form12: FormGroup
-  form13: FormGroup
+  questionaryData = [
+    {
+      question: 'O nível atual de desmatamento está dentro do permitido legalmente?',
+      description: 'A quantidade de desmatamento que a empresa causa está dentro dos limites aceitáveis dentro das leis ambientais',
+      documentNeeded: true,
+      id: 'E1'
+    },
+    {
+      question: 'Existe Política e práticas de bem estar animal?',
+      description: 'Regras e normas que a empresa deve seguir para o bem estar animal',
+      documentNeeded: true,
+      id: 'E2'
+    },
+    {
+      question: 'Existe um compliance de responsabilidade ambiental divulgado para todos?',
+      description: 'Compliance são regras e orientações de responsabilidade individual e coletiva da empresa, em termos de ações que impactam o meio ambiente (como reciclar materiais, reduzir consumo). E essas regras devem ser comunicadas e relembradas para todos os funcionários da empresa periodicamente.',
+      documentNeeded: true,
+      id: 'E4'
+    },
+    {
+      question: 'Fonte de energia é através de fontes renováveis? (solar, eólica, outra)',
+      description: 'Fontes de energias são o que alimenta as máquinas, prédios e operações. Em geral são água e luz da cidade. Fontes alternativas seriam captar e tratar água da chuva, ter geração de energia elétrica por painel solar ou de fonte eólica (ventos e turbinas)',
+      documentNeeded: true,
+      id: 'E5'
+    },
+    {
+      question: 'Existe captação de água da chuva para reuso?',
+      description: 'Formas e técnicas de captação de água da chuva que, após tratamentos, permitem a reutilização para reaproveitamento. Isso diminuiria a utilização da água proveniente da rede municipal regular',
+      documentNeeded: true,
+      id: 'E6'
+    },
+    {
+      question: 'Os veículos utilizam combustível fóssil?',
+      description: 'Combustíveis fósseis são: petróleo, carvão mineral e gás natural, provenientes da decomposição de seres vivos. No caso em geral gasolina e diesel são combustíveis fóssil. A alternativa seria veículos elétricos.',
+      documentNeeded: true,
+      id: 'E7'
+    },
+    {
+      question: 'Existe acompanhamento de consumo de recursos naturais mensal e metas para redução?',
+      description: 'Recursos naturais são elementos da natureza que são retirados para atender a demanda do homem (Ex.: energia solar, madeira, solo, água, vento, animais, vegetais).',
+      documentNeeded: true,
+      id: 'E8'
+    },
+    {
+      question: 'Todos os dejetos da operação são tratados antes de descarte? (esgoto, material de descarte, tratamento de afluentes)',
+      description: 'Dejetos apresentam riscos de poluição ao meio ambiente caso não sejam manejados e tratados corretamente. Materiais utilizados na produção precisam ser reciclados corretamente, esgoto tratado e qualquer outro material que resta descartado corretamente ',
+      documentNeeded: true,
+      id: 'E9'
+    },
+    {
+      question: 'Existe um reporte mensal da gestão dos resíduos?',
+      description: 'Detalhamento documentado sobre como os resíduos são tratados e geridos na empresa. Nesse caso a questão é se existe uma comunicação mensal/periodica para os funcionários em geral.',
+      documentNeeded: true,
+      id: 'E10'
+    },
+    {
+      question: 'Existem alternativas atuais em execução para minimizar poluição?',
+      description: 'Protocolos, regras e técnicas para a diminuição de poluição que estejam em curso. Um exemplo seria programa de conciencização de consumo de água, reciclagem de materiais e consumo consciente de energia elétrica.',
+      documentNeeded: true,
+      id: 'E11'
+    },
+    {
+      question: 'Ocorre na atividade econômica o Uso de pesticida no solo e/ou contaminação do lençol freático?',
+      description: 'O uso de pesticidas (substâncias químicas para controle de pragas e insetos) é presente no processo',
+      documentNeeded: true,
+      id: 'E12'
+    },
+    {
+      question: 'Existe atualmente um Programa de Mitigação de mudanças climáticas?',
+      description: 'Adoção de protocolos que diminuam impactos negativos que afetem mudanças climáticas.',
+      documentNeeded: true,
+      id: 'E14'
+    },
+    {
+      question: 'Operação pode ser duramente afetada por mudanças climáticas? (secas, queimadas, tornados, etc.)',
+      description: 'As atividades da empresa podem sofrer mudanças em sua produção por conta das mudanças climáticas, como chuvas acima do nível normal (alagamento), secas excessivas, local sujeito a furacão.',
+      documentNeeded: true,
+      id: 'E15'
+    },
+  ]
+
+  formArray: FormArray<FormControl<any>>
+  formArrayDocuments: FormArray<FormControl<any>>
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private modalService: NgbModal
   ) {
-    this.form1 = this.fb.group({
-      answer: ['', Validators.required],
-      question: ['E1', Validators.required],
+    this.formArray = this.fb.array([])
+    this.formArrayDocuments = this.fb.array([])
+
+    this.questionaryData.forEach((item) => {
+      this.formArray.push(new FormControl('', Validators.required))
     })
 
-    this.form2 = this.fb.group({
-      answer: ['', Validators.required],
-      question: ['E2', Validators.required],
-    })
-
-    this.form3 = this.fb.group({
-      answer: ['', Validators.required],
-      question: ['E4', Validators.required],
-    })
-
-    this.form4 = this.fb.group({
-      answer: ['', Validators.required],
-      question: ['E5', Validators.required],
-    })
-
-    this.form5 = this.fb.group({
-      answer: ['', Validators.required],
-      question: ['E6', Validators.required],
-    })
-
-    this.form6 = this.fb.group({
-      answer: ['', Validators.required],
-      question: ['E7', Validators.required],
-    })
-
-    this.form7 = this.fb.group({
-      answer: ['', Validators.required],
-      question: ['E8', Validators.required],
-    })
-
-    this.form8 = this.fb.group({
-      answer: ['', Validators.required],
-      question: ['E9', Validators.required],
-    })
-
-    this.form9 = this.fb.group({
-      answer: ['', Validators.required],
-      question: ['E10', Validators.required],
-    })
-
-    this.form10 = this.fb.group({
-      answer: ['', Validators.required],
-      question: ['E11', Validators.required],
-    })
-
-    this.form11 = this.fb.group({
-      answer: ['', Validators.required],
-      question: ['E12', Validators.required],
-    })
-
-    this.form12 = this.fb.group({
-      answer: ['', Validators.required],
-      question: ['E14', Validators.required],
-    })
-
-    this.form13 = this.fb.group({
-      answer: ['', Validators.required],
-      question: ['E15', Validators.required],
+    this.formArray.valueChanges.subscribe({
+      next: () => {
+        this.checkDoesntApply()
+      }
     })
   }
 
-  onSubmitStep1() {
-    if(this.form1.invalid) return
-
-    this.actualStep = 2
-    this.checkDoesntApply()
+  ngOnInit() {
+    this.scrollToTop()
   }
 
-  onSubmitStep2() {
-    if(this.form2.invalid) return
+  onSubmitStep(step: number) {
+    if(this.formArray.at(step).invalid) return
 
-    this.actualStep = 3
-    this.keepReading = false
-    this.checkDoesntApply()
+    this.actualStep = step + 2
+    // this.checkDoesntApply()
   }
 
-  onSubmitStep3() {
-    if(this.form3.invalid) return
-
-    this.actualStep = 4
-    this.keepReading = false
+  submitRevision() {
+    this.formArray.controls.forEach((control, index) => {
+      if(this.questionaryData[index].documentNeeded && control.value === 'yes') {
+        this.formArrayDocuments.push(new FormControl('', Validators.required))
+      } else {
+        this.formArrayDocuments.push(new FormControl(''))
+      }
+    })
+    
+    this.actualStep = this.actualStep + 1
   }
 
-  onSubmitStep4() {
-    if(this.form4.invalid) return
+  submitDocuments() {
+    if(this.formArrayDocuments.invalid) return
 
-    this.actualStep = 5
-    this.keepReading = false
-  }
-
-  onSubmitStep5() {
-    if(this.form5.invalid) return
-
-    this.actualStep = 6
-    this.keepReading = false
-  }
-
-  onSubmitStep6() {
-    if(this.form6.invalid) return
-
-    this.actualStep = 7
-    this.keepReading = false
-  }
-
-  onSubmitStep7() {
-    if(this.form7.invalid) return
-
-    this.actualStep = 8
-    this.keepReading = false
-  }
-
-  onSubmitStep8() {
-    if(this.form8.invalid) return
-
-    this.actualStep = 9
-    this.keepReading = false
-  }
-
-  onSubmitStep9() {
-    if(this.form9.invalid) return
-
-    this.actualStep = 10
-    this.keepReading = false
-  }
-
-  onSubmitStep10() {
-    if(this.form10.invalid) return
-
-    this.actualStep = 11
-    this.keepReading = false
-  }
-
-  onSubmitStep11() {
-    if(this.form11.invalid) return
-
-    this.actualStep = 12
-    this.keepReading = false
-  }
-
-  onSubmitStep12() {
-    if(this.form12.invalid) return
-
-    this.actualStep = 13
-    this.keepReading = false
+    this.finish()
   }
 
   finish() {
-    // Abrir modal de enviar formulário
+    // Abre o modal de enviar formulário
+    const modalRef = this.modalService.open(ConfirmModalComponent, {centered: true});
+
+    // Se inscreve na resposta do usuário
+    modalRef.componentInstance.accepted.subscribe((closed: boolean) => {
+      if (closed) {
+        // Enviar forms para o backend
+        this.router.navigate(['/logged/assesment'])
+      }
+    });
   }
 
   stepBack() {
@@ -191,31 +165,22 @@ export class EAgroComponent {
   }
 
   checkDoesntApply() {
-    const formsArray = [
-      this.form1.controls['answer'].value,
-      this.form2.controls['answer'].value,
-      this.form3.controls['answer'].value,
-      this.form4.controls['answer'].value,
-      this.form5.controls['answer'].value,
-      this.form6.controls['answer'].value,
-      this.form7.controls['answer'].value,
-      this.form8.controls['answer'].value,
-      this.form9.controls['answer'].value,
-      this.form10.controls['answer'].value,
-      this.form12.controls['answer'].value,
-      this.form13.controls['answer'].value,
-    ]
-
-    this.undefinedAnswers = formsArray.reduce((acc: number, cur: string) => {
-      if(cur === 'undefined') {
+    this.undefinedAnswers = this.formArray.controls.reduce((acc: number, cur: FormControl) => {
+      if(cur.value === 'undefined') {
         return acc + 1
       } else {
         return acc
       }
     }, 0)
+
+    // console.log(this.undefinedAnswers)
   }
 
   continueLater() {
     this.router.navigate(['/logged/assesment'])
+  }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

@@ -205,6 +205,8 @@
     },
     "QUESTIONARY": {
         "GOVERNAMENTAL_TITLE": "Avaliação Governamental",
+        "ENVIRONMENTAL_TITLE": "Avaliação Ambiental",
+        "SOCIAL_TITLE": "Avaliação Social",
         "QUESTION": "Questão",
         "30_PERCENT": "Importante: Para garantir a precisão das suas respostas, há um limite de 30% para seleções marcadas como 'não se aplica'. Se esse limite for excedido, você receberá uma notificação para revisar suas respostas.",
         "YES": "Sim",

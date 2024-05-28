@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./ods.component.scss']
 })
 export class OdsComponent {
+  seeMore = false
 
+  toggleSeeMore() {
+    this.seeMore = !this.seeMore
+  }
 }

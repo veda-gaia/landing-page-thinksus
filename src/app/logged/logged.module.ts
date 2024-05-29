@@ -24,6 +24,7 @@ import { SIndustryComponent } from './questionary/s-industry/s-industry.componen
 import { GIndustryComponent } from './questionary/g-industry/g-industry.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmModalComponent } from './questionary/confirm-modal/confirm-modal.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 
@@ -48,6 +49,7 @@ import { ConfirmModalComponent } from './questionary/confirm-modal/confirm-modal
     SIndustryComponent,
     GIndustryComponent,
     ConfirmModalComponent,
+    PaymentComponent,
   ],
   imports: [
     CommonModule,

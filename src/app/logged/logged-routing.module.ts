@@ -8,6 +8,12 @@ import { LoggedComponent } from './logged.component';
 import { EAgroComponent } from './questionary/e-agro/e-agro.component';
 import { SAgroComponent } from './questionary/s-agro/s-agro.component';
 import { GAgroComponent } from './questionary/g-agro/g-agro.component';
+import { EIndustryComponent } from './questionary/e-industry/e-industry.component';
+import { SIndustryComponent } from './questionary/s-industry/s-industry.component';
+import { GIndustryComponent } from './questionary/g-industry/g-industry.component';
+import { EServiceComponent } from './questionary/e-service/e-service.component';
+import { SServiceComponent } from './questionary/s-service/s-service.component';
+import { GServiceComponent } from './questionary/g-service/g-service.component';
 
 
 const routes: Routes = [
@@ -49,6 +55,30 @@ const routes: Routes = [
       {
         path: 'assesment/g-agro',
         component: GAgroComponent
+      },
+      {
+        path: 'assesment/e-industry',
+        component: EIndustryComponent
+      },
+      {
+        path: 'assesment/s-industry',
+        component: SIndustryComponent
+      },
+      {
+        path: 'assesment/g-industry',
+        component: GIndustryComponent
+      },
+      {
+        path: 'assesment/e-service',
+        component: EServiceComponent
+      },
+      {
+        path: 'assesment/s-service',
+        component: SServiceComponent
+      },
+      {
+        path: 'assesment/g-service',
+        component: GServiceComponent
       },
     ]
   }

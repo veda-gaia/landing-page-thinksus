@@ -14,6 +14,7 @@ import { GIndustryComponent } from './questionary/g-industry/g-industry.componen
 import { EServiceComponent } from './questionary/e-service/e-service.component';
 import { SServiceComponent } from './questionary/s-service/s-service.component';
 import { GServiceComponent } from './questionary/g-service/g-service.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 const routes: Routes = [
@@ -41,6 +42,10 @@ const routes: Routes = [
       {
         path: 'results',
         component: ResultsComponent
+      },
+      {
+        path: 'payment',
+        component: PaymentComponent
       },
 
       // Questionary

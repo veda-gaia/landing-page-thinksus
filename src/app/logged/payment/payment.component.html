@@ -1,1 +1,53 @@
-<p>payment works!</p>
+<form [formGroup]="form" (submit)="onSubmit()" class="container-fluid">
+    <div class="row justify-content-center justify-content-lg-between">
+        <div class="col-12 col-lg-8 pb-lg-5 pt-lg-4 d-flex flex-column align-items-center justify-content-center pb-5 pb-lg-0">
+            <div class="fade-in py-5 pb-lg-5 pt-lg-4 w-100 max-width-572">
+                <h4 class="brand-text fw-700 pb-2">
+                    {{ "LOGIN.TITLE" | translate }}
+                </h4>
+
+                <p class="secondary-text fw-600 pb-4 mb-2">
+                    {{ "LOGIN.SUBTITLE" | translate }}
+                </p>
+
+                <label for="email" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "LOGIN.EMAIL" | translate }}</label>
+                <input type="text" mask="A*@A*.SSS" [validation]="true" [dropSpecialCharacters]="false" class="w-100 mb-4" formControlName="email" placeholder="email@email.com" autocomplete="off" id="email" name="email">
+
+                <button class="secondary-brand-btn px-lg-5 d-block mx-auto w-100" [disabled]="invalidPaymentForm" type="submit">
+                    {{ 'LOGIN.NEXT' | translate }}
+                </button>
+                <a routerLink="/register">
+                    <button class="brand-outline-btn px-lg-5 d-block mx-auto w-100 mt-3 opacity-08">
+                        {{ 'LOGIN.REGISTER' | translate }}
+                    </button>
+                </a>
+            </div>
+        </div>
+        
+        <div class="col-12 col-lg-4 pb-lg-5 pt-lg-4 d-flex flex-column align-items-center justify-content-start pb-5 pb-lg-0">
+            <div *ngIf="plan === 'simulation'" class="d-flex align-items-start justify-content-between gap-2">
+                <p class="flex-grow-1 w-100">
+                    Plano Simulação
+                </p>
+                
+                <p class="text-nowrap">R$ 200,00</p>
+            </div>
+
+            <div *ngIf="plan === 'solution'" class="d-flex align-items-start justify-content-between gap-2">
+                <p class="flex-grow-1 w-100">
+                    Plano Solução
+                </p>
+                
+                <p class="text-nowrap">R$ 200,00</p>
+            </div>
+
+            <div *ngIf="plan === 'supply'" class="d-flex align-items-start justify-content-between gap-2">
+                <p class="flex-grow-1 w-100">
+                    Plano Cadeia de Suprimento
+                </p>
+                
+                <p class="text-nowrap">R$ 200,00</p>
+            </div>
+        </div>
+    </div>
+</form>

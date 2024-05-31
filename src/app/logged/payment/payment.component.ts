@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-payment',
@@ -14,7 +15,8 @@ export class PaymentComponent {
   plan = 'simulation'
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router,
   ) {
     this.form = this.fb.group({
       cardNumber: [''],
@@ -39,7 +41,9 @@ export class PaymentComponent {
   }
 
   onSubmit() {
-    if(this.invalidPaymentForm) return
+    if(this.invalidPaymentForm || this.invalidAnotherAddress) return
+
+    this.router.navigate(['/logged/assesment'])
   }
 
   changeSelectedAddress(address: string) {

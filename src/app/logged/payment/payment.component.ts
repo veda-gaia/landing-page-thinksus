@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-payment',
@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class PaymentComponent {
   form: FormGroup
+  addressForm: FormGroup
   paymentMethod = 'credit'
   selectedAddress = 'same'
   plan = 'simulation'
@@ -26,10 +27,27 @@ export class PaymentComponent {
       state: [''],
       country: [''],
     })
+
+    this.addressForm = this.fb.group({
+      name: ['', Validators.required],
+      address: ['', Validators.required],
+      postalCode: ['', Validators.required],
+      city: ['', Validators.required],
+      state: ['', Validators.required],
+      country: ['', Validators.required],
+    })
   }
 
   onSubmit() {
     if(this.invalidPaymentForm) return
+  }
+
+  changeSelectedAddress(address: string) {
+    this.selectedAddress = address
+  }
+
+  changeSelectedPlan(plan: string) {
+    this.plan = plan
   }
 
   get invalidPaymentForm(): boolean {
@@ -47,6 +65,15 @@ export class PaymentComponent {
         !this.form.controls['state'].value ||
         !this.form.controls['country'].value
       )
+    ) return true
+    else return false
+  }
+
+  get invalidAnotherAddress(): boolean {
+    if(
+      this.selectedAddress === 'another'
+      &&
+      this.addressForm.invalid
     ) return true
     else return false
   }

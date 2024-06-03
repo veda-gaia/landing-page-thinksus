@@ -15,6 +15,8 @@ import { EServiceComponent } from './questionary/e-service/e-service.component';
 import { SServiceComponent } from './questionary/s-service/s-service.component';
 import { GServiceComponent } from './questionary/g-service/g-service.component';
 import { PaymentComponent } from './payment/payment.component';
+import { ControlPanelComponent } from './control-panel/control-panel.component';
+import { SuppliersComponent } from './suppliers/suppliers.component';
 
 
 const routes: Routes = [
@@ -38,6 +40,14 @@ const routes: Routes = [
       {
         path: 'ods',
         component: OdsComponent
+      },
+      {
+        path: 'control-panel',
+        component: ControlPanelComponent
+      },
+      {
+        path: 'suppliers',
+        component: SuppliersComponent
       },
       {
         path: 'results',

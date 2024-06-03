@@ -252,6 +252,10 @@ body, html, .bg-1 {
     background-color: $gray-lines;
 }
 
+.white-bg {
+    background-color: $white-text;
+}
+
 .primary-oposite-1-bg {
     background-color: $primary-oposite-1;
 }
@@ -1670,5 +1674,135 @@ div.both-container:has(aside.active) {
 @media screen and (min-width: 992px) {
     .max-w-lg {
         max-width: 328px;
+    }
+}
+
+// Table
+th,
+td {
+    text-align: left;
+}
+
+th, td {
+    font-size: .9rem;
+    line-height: 1.5rem;
+    letter-spacing: .005em;
+    margin: 0;
+    color: $gray-text;
+    font-weight: 300;
+}
+
+th {
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    color: $gray-text;
+}
+
+td {
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    color: $alpha-800;
+}
+
+tr {
+    background-color: transparent;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+    .body-row-tr:last-child {
+        border-bottom: none !important;
+    }
+}
+
+.body-row-tr, .header-row-tr {
+    border-bottom: 1px solid $gray-lines;
+}
+
+.body-row-tr {
+    background-color: transparent;
+    transition: .3s;
+
+    &:focus, &:hover, &:active {
+        background-color: $input-bg;
+    }
+}
+
+th {
+    padding-top: .5rem;
+    padding-bottom: .44rem;
+
+    &:first-child {
+        padding-left: 1rem;
+    }
+}
+
+td {
+    padding-top: 1rem;
+    padding-bottom: .75rem;
+
+    &:first-child {
+        padding-left: 1rem;
+    }
+}
+
+.table-container-real {
+    max-width: 100%;
+    overflow-x: auto;
+    border: 1px solid $gray-strokes;
+    border-radius: 12px;
+    background-color: $white-text;
+
+    ::-webkit-scrollbar-button {
+        display: none;
+    }
+    
+    ::-webkit-scrollbar {
+        // width: 3px !important;
+        height: 4px;
+        background-color: transparent;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background-color: $brand-primary;
+        border-radius: 5px;
+    }
+}
+
+.table-container-real table {
+    white-space: nowrap;
+    border-spacing: 15px 0;
+}
+
+.table-container-much table {
+    border-collapse: separate !important;
+    border-spacing: 15px 0 !important;
+
+    .body-row-tr {
+        background-color: transparent;
+        &:focus, &:hover, &:active {
+            background-color: transparent !important;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .table-container-real {
+        max-width: 100%;
+        overflow-x: auto;
+    }
+    
+    .table-container-real table {
+        white-space: nowrap;
+        border-collapse: separate;
+        border-spacing: 15px 0;
     }
 }

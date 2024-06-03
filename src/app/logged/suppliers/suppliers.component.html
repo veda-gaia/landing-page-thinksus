@@ -1,0 +1,79 @@
+<section class="w-100">
+    <div class="row pb-4 pt-4">
+        <div class="col d-flex flex-column flex-md-row align-item-center justify-content-between gap-3 pb-4">
+            <h3 class="alpha-800-text f-size-1-5rem fw-800">
+                Lista de fornecedores
+            </h3>
+
+            <button class="brand-btn px-3">
+                Adicionar fornecedor
+            </button>
+        </div>
+    </div>
+
+    <div class="row pb-4">
+        <form [formGroup]="form" class="col pb-4 d-flex flex-column flex-sm-row align-item-center justify-content-between gap-3">
+            <div class="input-container" style="max-height: 53px;">
+                <input type="text" class="white-bg" formControlName="search" placeholder="Pesquise" name="search" id="search">
+                <img src="/assets/icon/search.svg" class="input-icon" alt="Pesquisar" width="20px">
+            </div>
+
+            <select name="orderBy" id="orderBy" formControlName="orderBy" class="d-block white-bg">
+                <option value="" disabled>Ordenar por</option>
+                <option value="seal">Selo</option>
+                <option value="alphabetical">Ordem alfabética</option>
+            </select>
+        </form>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="w-100 pb-2">
+                <div class="table-container-real">
+                    <table class="white-bg border-radius-10 pt-2">
+                        <tr class="header-row-tr">
+                            <th>Selo</th>
+                            <th>Fornecedor</th>
+                            <th>Valor de compra</th>
+                            <th>ThinkSus Score</th>
+                            <th>CNPJ</th>
+                            <th>Ações</th>
+                        </tr>
+                        <tr *ngFor="let item of filteredList" class="body-row-tr">
+                            <td class="">
+                                <img src="/assets/icon/none-seal.svg" alt="Sem selo" width="24px">
+                            </td>
+                            <td class="">
+                                {{ item.name }}
+                            </td>
+                            <td class="">
+                                {{ item.buyValue }}
+                            </td>
+                            <td class="">
+                                {{ item.score }}
+                            </td>
+                            <td class="">
+                                {{ item.document }}
+                            </td>
+                            <td class="">
+                                <button class="bg-transparent border-0 shadow-none p-2" title="Detalhes">
+                                    <img src="/assets/icon/info.svg" width="20px" alt="Detalhes">
+                                </button>
+                                <button class="bg-transparent border-0 shadow-none p-2" title="Minus">
+                                    <img src="/assets/icon/minus.svg" width="20px" alt="Minus">
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <p *ngIf="!filteredList.length" class="w-100 text-center py-4 py-xl-5 color-app-300 font-s-09rem d-flex align-items-center justify-content-center gap-2">
+                    <span class="material-symbols-rounded color-app-300 font-s-09rem">
+                        page_info
+                    </span>
+                    Sem resultados
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

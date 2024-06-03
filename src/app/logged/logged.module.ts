@@ -27,7 +27,8 @@ import { ConfirmModalComponent } from './questionary/confirm-modal/confirm-modal
 import { PaymentComponent } from './payment/payment.component';
 import { ControlPanelComponent } from './control-panel/control-panel.component';
 import { SuppliersComponent } from './suppliers/suppliers.component';
-
+import { AddSupplierModalComponent } from './add-supplier-modal/add-supplier-modal.component';
+import { CurrencyMaskModule } from 'ng2-currency-mask';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { SuppliersComponent } from './suppliers/suppliers.component';
     PaymentComponent,
     ControlPanelComponent,
     SuppliersComponent,
+    AddSupplierModalComponent,
   ],
   imports: [
     CommonModule,
@@ -63,6 +65,7 @@ import { SuppliersComponent } from './suppliers/suppliers.component';
     NgxMaskPipe,
     TranslateModule,
     NgbModule,
+    CurrencyMaskModule
   ]
 })
 export class LoggedModule { }

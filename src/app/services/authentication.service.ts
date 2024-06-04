@@ -33,13 +33,13 @@ export class AuthenticationService extends BaseService {
 
   login(dto: LoginInterface): Observable<AuthorizationInterface> {
     return this.httpClient
-      .post(`${this.url}/login`, this.encrypt(dto), this.anonymousHeader())
+      .post(`${this.url}/authenticate`, this.encrypt(dto), this.anonymousHeader())
       .pipe(map(this.extractData), catchError(this.serviceError));
   }
 
   loginWithToken(): Observable<AuthorizationInterface> {
     return this.httpClient
-      .post(`${this.url}/login/token`, {}, this.authorizedHeader())
+      .post(`${this.url}/authenticate-with-token`, {}, this.authorizedHeader())
       .pipe(map(this.extractData), catchError(this.serviceError));
   }
 

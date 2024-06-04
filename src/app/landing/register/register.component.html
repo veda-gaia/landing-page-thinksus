@@ -1,6 +1,5 @@
 <div class="w-100 py-5 brand-bg"></div>
 
-<!-- Sistema de avaliação -->
 <section class="container-fluid">
     <div class="row justify-content-center justify-content-lg-between">
         <div class="d-none d-lg-block col-0 col-lg-6 ps-0">
@@ -230,7 +229,7 @@
                     {{ "REGISTER.CLICK_BUTTON" | translate }}
                 </p>
 
-                <a routerLink="/logged/home">
+                <a class="cursor-pointer" (click)="loginAndEnter()">
                     <button class="secondary-brand-btn px-lg-5 d-block mx-auto w-100">
                         {{ "REGISTER.GO_TO_PANEL" | translate }}
                     </button>

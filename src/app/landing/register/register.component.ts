@@ -4,12 +4,15 @@ import {
   FormControl,
   Validators
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { CompanyEmployeesEnum } from 'src/app/enums/company-employees.enum';
 import { CompanySectionEnum } from 'src/app/enums/company-section.enum';
 import { CompanySegmentEnum } from 'src/app/enums/company-segment.enum';
+import { LoginInterface } from 'src/app/interfaces/authentication/authentication.interface';
 import { UserRegisterRequestDto } from 'src/app/interfaces/user/user-register-request.dto';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { CepService } from 'src/app/services/cep.service';
 import { UserService } from 'src/app/services/user.service';
 import { countryListEn, countryListPt } from 'src/app/util/country';
@@ -53,7 +56,9 @@ export class RegisterComponent implements OnInit {
     private cepService: CepService,
     private translateService: TranslateService,
     private userService: UserService,
-    private toastr: ToastrService
+    private authService: AuthenticationService,
+    private toastr: ToastrService,
+    private router: Router,
   ) {
     this.form1 = this.fb.group({
       name: ['', Validators.required],
@@ -221,6 +226,20 @@ export class RegisterComponent implements OnInit {
         this.toastr.error(err.error.errors, 'Error', {progressBar: true});
       },
     });
+  }
+
+  loginAndEnter() {
+    const dto: LoginInterface = {
+      email: this.form1.controls['email'].value ? this.form1.controls['email'].value : '',
+      password: this.form1.controls['password'].value ? this.form1.controls['password'].value : ''
+    }
+
+    this.authService.login(dto).subscribe({
+      next: (data) => {
+        this.authService.setAuthUser(data);
+        this.router.navigate(['/logged'])
+      }
+    })
   }
 
   stepBack() {

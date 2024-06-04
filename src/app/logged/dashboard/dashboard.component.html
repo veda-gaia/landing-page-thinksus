@@ -1,222 +1,447 @@
-<div class="row pb-4">
-  <div class="col">
-    <div class="dashboard-score-pre-container d-flex flex-column flex-xl-row align-item-center justify-content-between gap-4 p-4 card-logged">
-      <div class="flex-grow-1 d-flex flex-column align-item-start justify-content-start gap-4">
-        <div class="w-100 d-flex align-item-center justify-content-between w-100 pb-2">
+<!-- Pre Avaliacao -->
+<ng-container *ngIf="avaliationStatus === 'pre-avaliation' else postAvaliation">
+  <div class="row pb-4">
+    <div class="col">
+      <div class="dashboard-score-pre-container d-flex flex-column flex-xl-row align-item-center justify-content-between gap-4 p-4 card-logged">
+        <div class="flex-grow-1 d-flex flex-column align-item-start justify-content-start gap-4">
+          <div class="w-100 d-flex align-item-center justify-content-between w-100 pb-2">
+            <div>
+              <h4 class="primary-text f-size-1-5rem fw-700 pb-1" (click)="toggleAvaliationStatus()">
+                Pontuação ThinkSus
+              </h4>
+    
+              <p class="alpha-700-text f-size-0-85rem fw-500">
+                Olá, Mateus. No momento, você não possui um score.
+              </p>
+            </div>
+  
+            <h4 class="primary-text f-size-2rem fw-700">
+              -
+            </h4>
+          </div>
+  
+          <div class="d-flex flex-column flex-sm-row align-item-start justify-content-between gap-3">
+            <div>
+              <p class="alpha-700-text l-height-1-5 f-size-12px fw-500 pb-1">
+                Tipo
+              </p>
+                  
+              <p class="brand-800-text f-size-0-85rem fw-600 l-height-1-5 pb-2">
+                Ambiental
+              </p>
+                  
+              <p class="brand-800-text f-size-0-85rem fw-600 l-height-1-5 pb-2">
+                Social
+              </p>
+                  
+              <p class="brand-800-text f-size-0-85rem fw-600 l-height-1-5">
+                Governança
+              </p>
+            </div>
+  
+            <div>
+              <p class="alpha-700-text l-height-1-5 f-size-12px fw-500 pb-1">
+                Progresso
+              </p>
+                
+              <div class="d-flex flex-column align-item-start justify-content-start pb-1">
+                <p class="gray-3-text f-size-1rem fw-600 l-height-1-5">
+                  0/15
+                </p>
+                <div class="mini-progress-container">
+                  <div class="mini-progress" style="width: 0%;"></div>
+                </div>
+              </div>
+                
+              <div class="d-flex flex-column align-item-start justify-content-start pb-1">
+                <p class="gray-3-text f-size-1rem fw-600 l-height-1-5">
+                  0/15
+                </p>
+                <div class="mini-progress-container">
+                  <div class="mini-progress" style="width: 0%;"></div>
+                </div>
+              </div>
+                
+              <div class="d-flex flex-column align-item-start justify-content-start pb-1">
+                <p class="gray-3-text f-size-1rem fw-600 l-height-1-5">
+                  0/15
+                </p>
+                <div class="mini-progress-container">
+                  <div class="mini-progress" style="width: 0%;"></div>
+                </div>
+              </div>
+            </div>
+  
+            <div>
+              <p class="alpha-700-text l-height-1-5 f-size-12px fw-500 pb-1">
+                Score por segmento
+              </p>
+                
+              <div class="d-flex flex-column align-item-start justify-content-start pb-1">
+                <p class="gray-3-text f-size-1rem fw-600 l-height-1-5">
+                  -
+                </p>
+                <div class="mini-progress-container">
+                  <div class="mini-progress" style="width: 0%;"></div>
+                </div>
+              </div>
+                
+              <div class="d-flex flex-column align-item-start justify-content-start pb-1">
+                <p class="gray-3-text f-size-1rem fw-600 l-height-1-5">
+                  -
+                </p>
+                <div class="mini-progress-container">
+                  <div class="mini-progress" style="width: 0%;"></div>
+                </div>
+              </div>
+                
+              <div class="d-flex flex-column align-item-start justify-content-start pb-1">
+                <p class="gray-3-text f-size-1rem fw-600 l-height-1-5">
+                  -
+                </p>
+                <div class="mini-progress-container">
+                  <div class="mini-progress" style="width: 0%;"></div>
+                </div>
+              </div>
+            </div>
+  
+            <div>
+              <p class="alpha-700-text l-height-1-5 f-size-12px fw-500 pb-1">
+                Status
+              </p>
+                  
+              <a routerLink="/logged/payment">
+                <button class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-center gap-2">
+                  Iniciar
+                  <img src="/assets/icon/play.svg" alt="Iniciar">
+                </button>
+              </a>
+                  
+              <a routerLink="/logged/payment">
+                <button class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-center gap-2">
+                  Iniciar
+                  <img src="/assets/icon/play.svg" alt="Iniciar">
+                </button>
+              </a>
+                  
+              <a routerLink="/logged/payment">
+                <button class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-center gap-2">
+                  Iniciar
+                  <img src="/assets/icon/play.svg" alt="Iniciar">
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="indicator-card p-4" style="min-width: 280px; z-index: 1;">
+          <h4 class="f-size-1-25rem l-height-1-5rem fw-700 primary-text mb-2">
+            Indicador Geral
+          </h4>
+          <p class="f-size-0-85rem l-height-1-25 fw-500 primary-text mb-2" style="max-width: 182px;">
+            Você ainda não possui um indicador.
+          </p>
+          <p class="f-size-0-671875rem l-height-1rem fw-500 primary-text mb-4 pb-2" style="max-width: 182px;">
+            Faça a avaliação para saber o seu rank geral.
+          </p>
+  
+          <a routerLink="/logged/payment">
+            <button class="brand-btn w-100">
+              Fazer Avaliação
+            </button> 
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="fade-in row">
+    <div class="col-12 col-xl-5">
+      <div class="card-logged p-3 p-lg-4">
+        <h4 class="primary-text f-size-1-5rem fw-700 pb-3">
+          Histórico de pontuação
+        </h4>
+  
+        <img src="/assets/img/graph-dash.svg" alt="Gráfico exemplo" class="w-100">
+      </div>
+    </div>
+  
+    <div class="col-12 col-xl-7 pt-4 pt-xl-0">
+      <div class="card-logged p-3 p-lg-4">
+        <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 pb-3">
           <div>
             <h4 class="primary-text f-size-1-5rem fw-700 pb-1">
-              Pontuação ThinkSus
+              Nível de aderência atual
             </h4>
   
             <p class="alpha-700-text f-size-0-85rem fw-500">
-              Olá, Mateus. No momento, você não possui um score.
+              17 objetivos das ODS
             </p>
           </div>
-
-          <h4 class="primary-text f-size-2rem fw-700">
-            -
-          </h4>
-        </div>
-
-        <div class="d-flex flex-column flex-sm-row align-item-start justify-content-between gap-3">
-          <div>
-            <p class="alpha-700-text l-height-1-5 f-size-12px fw-500 pb-1">
-              Tipo
-            </p>
-                
-            <p class="brand-800-text f-size-0-85rem fw-600 l-height-1-5 pb-2">
-              Ambiental
-            </p>
-                
-            <p class="brand-800-text f-size-0-85rem fw-600 l-height-1-5 pb-2">
-              Social
-            </p>
-                
-            <p class="brand-800-text f-size-0-85rem fw-600 l-height-1-5">
-              Governança
-            </p>
-          </div>
-
-          <div>
-            <p class="alpha-700-text l-height-1-5 f-size-12px fw-500 pb-1">
-              Progresso
-            </p>
-              
-            <div class="d-flex flex-column align-item-start justify-content-start pb-1">
-              <p class="gray-3-text f-size-1rem fw-600 l-height-1-5">
-                0/15
-              </p>
-              <div class="mini-progress-container">
-                <div class="mini-progress" style="width: 0%;"></div>
-              </div>
-            </div>
-              
-            <div class="d-flex flex-column align-item-start justify-content-start pb-1">
-              <p class="gray-3-text f-size-1rem fw-600 l-height-1-5">
-                0/15
-              </p>
-              <div class="mini-progress-container">
-                <div class="mini-progress" style="width: 0%;"></div>
-              </div>
-            </div>
-              
-            <div class="d-flex flex-column align-item-start justify-content-start pb-1">
-              <p class="gray-3-text f-size-1rem fw-600 l-height-1-5">
-                0/15
-              </p>
-              <div class="mini-progress-container">
-                <div class="mini-progress" style="width: 0%;"></div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <p class="alpha-700-text l-height-1-5 f-size-12px fw-500 pb-1">
-              Score por segmento
-            </p>
-              
-            <div class="d-flex flex-column align-item-start justify-content-start pb-1">
-              <p class="gray-3-text f-size-1rem fw-600 l-height-1-5">
-                -
-              </p>
-              <div class="mini-progress-container">
-                <div class="mini-progress" style="width: 0%;"></div>
-              </div>
-            </div>
-              
-            <div class="d-flex flex-column align-item-start justify-content-start pb-1">
-              <p class="gray-3-text f-size-1rem fw-600 l-height-1-5">
-                -
-              </p>
-              <div class="mini-progress-container">
-                <div class="mini-progress" style="width: 0%;"></div>
-              </div>
-            </div>
-              
-            <div class="d-flex flex-column align-item-start justify-content-start pb-1">
-              <p class="gray-3-text f-size-1rem fw-600 l-height-1-5">
-                -
-              </p>
-              <div class="mini-progress-container">
-                <div class="mini-progress" style="width: 0%;"></div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <p class="alpha-700-text l-height-1-5 f-size-12px fw-500 pb-1">
-              Status
-            </p>
-                
-            <a routerLink="/logged/payment">
-              <button class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-center gap-2">
-                Iniciar
-                <img src="/assets/icon/play.svg" alt="Iniciar">
-              </button>
-            </a>
-                
-            <a routerLink="/logged/payment">
-              <button class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-center gap-2">
-                Iniciar
-                <img src="/assets/icon/play.svg" alt="Iniciar">
-              </button>
-            </a>
-                
-            <a routerLink="/logged/payment">
-              <button class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-center gap-2">
-                Iniciar
-                <img src="/assets/icon/play.svg" alt="Iniciar">
-              </button>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="indicator-card p-4" style="min-width: 280px; z-index: 1;">
-        <h4 class="f-size-1-25rem l-height-1-5rem fw-700 primary-text mb-2">
-          Indicador Geral
-        </h4>
-        <p class="f-size-0-85rem l-height-1-25 fw-500 primary-text mb-2" style="max-width: 182px;">
-          Você ainda não possui um indicador.
-        </p>
-        <p class="f-size-0-671875rem l-height-1rem fw-500 primary-text mb-4 pb-2" style="max-width: 182px;">
-          Faça a avaliação para saber o seu rank geral.
-        </p>
-
-        <a routerLink="/logged/payment">
-          <button class="brand-btn w-100">
-            Fazer Avaliação
-          </button> 
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="fade-in row">
-  <div class="col-12 col-xl-5">
-    <div class="card-logged p-3 p-lg-4">
-      <h4 class="primary-text f-size-1-5rem fw-700 pb-3">
-        Histórico de pontuação
-      </h4>
-
-      <img src="/assets/img/graph-dash.svg" alt="Gráfico exemplo" class="w-100">
-    </div>
-  </div>
-
-  <div class="col-12 col-xl-7 pt-4 pt-xl-0">
-    <div class="card-logged p-3 p-lg-4">
-      <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 pb-3">
-        <div>
-          <h4 class="primary-text f-size-1-5rem fw-700 pb-1">
-            Nível de aderência atual
-          </h4>
-
-          <p class="alpha-700-text f-size-0-85rem fw-500">
-            17 objetivos das ODS
-          </p>
+    
+          <button class="no-bg-btn text-nowrap fw-600 brand-text bg-transparent d-flex align-item-center justify-content-center gap-2">
+            Gerar relatório
+            <img src="/assets/icon/download.svg" alt="Download">
+          </button>
         </div>
   
-        <button class="no-bg-btn text-nowrap fw-600 brand-text bg-transparent d-flex align-item-center justify-content-center gap-2">
-          Gerar relatório
-          <img src="/assets/icon/download.svg" alt="Download">
-        </button>
-      </div>
-
-      <div class="high-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2 mb-2">
-        <div class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
-          <img src="/assets/icon/selos-ods/1.svg" alt="1" title="1">
-          <img src="/assets/icon/selos-ods/2.svg" alt="2" title="2">
-          <img src="/assets/icon/selos-ods/3.svg" alt="3" title="3">
-          <img src="/assets/icon/selos-ods/4.svg" alt="4" title="4">
-          <img src="/assets/icon/selos-ods/5.svg" alt="5" title="5">
-          <img src="/assets/icon/selos-ods/7.svg" alt="6" title="6">
+        <div class="high-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2 mb-2">
+          <div class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
+            <img src="/assets/icon/selos-ods/1.svg" alt="1" title="1">
+            <img src="/assets/icon/selos-ods/2.svg" alt="2" title="2">
+            <img src="/assets/icon/selos-ods/3.svg" alt="3" title="3">
+            <img src="/assets/icon/selos-ods/4.svg" alt="4" title="4">
+            <img src="/assets/icon/selos-ods/5.svg" alt="5" title="5">
+            <img src="/assets/icon/selos-ods/7.svg" alt="6" title="6">
+          </div>
+          <p class="f-size-12px fw-500 pb-1">Alto</p>
         </div>
-        <p class="f-size-12px fw-500 pb-1">Alto</p>
-      </div>
-
-      <div class="intermediate-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2 mb-2">
-        <div class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
-          <img src="/assets/icon/selos-ods/7.svg" alt="7" title="7">
-          <img src="/assets/icon/selos-ods/8.svg" alt="8" title="8">
-          <img src="/assets/icon/selos-ods/9.svg" alt="9" title="9">
-          <img src="/assets/icon/selos-ods/10.svg" alt="10" title="10">
-          <img src="/assets/icon/selos-ods/11.svg" alt="11" title="11">
-          <img src="/assets/icon/selos-ods/12.svg" alt="12" title="12">
-          <img src="/assets/icon/selos-ods/13.svg" alt="13" title="13">
-          <img src="/assets/icon/selos-ods/14.svg" alt="14" title="14">
+  
+        <div class="intermediate-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2 mb-2">
+          <div class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
+            <img src="/assets/icon/selos-ods/7.svg" alt="7" title="7">
+            <img src="/assets/icon/selos-ods/8.svg" alt="8" title="8">
+            <img src="/assets/icon/selos-ods/9.svg" alt="9" title="9">
+            <img src="/assets/icon/selos-ods/10.svg" alt="10" title="10">
+            <img src="/assets/icon/selos-ods/11.svg" alt="11" title="11">
+            <img src="/assets/icon/selos-ods/12.svg" alt="12" title="12">
+            <img src="/assets/icon/selos-ods/13.svg" alt="13" title="13">
+            <img src="/assets/icon/selos-ods/14.svg" alt="14" title="14">
+          </div>
+          <p class="f-size-12px fw-500 pb-1">Intermediário</p>
         </div>
-        <p class="f-size-12px fw-500 pb-1">Intermediário</p>
-      </div>
-
-      <div class="low-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2">
-        <div class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
-          <img src="/assets/icon/selos-ods/15.svg" alt="15" title="15">
-          <img src="/assets/icon/selos-ods/16.svg" alt="16" title="16">
-          <img src="/assets/icon/selos-ods/17.svg" alt="17" title="17">
+  
+        <div class="low-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2">
+          <div class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
+            <img src="/assets/icon/selos-ods/15.svg" alt="15" title="15">
+            <img src="/assets/icon/selos-ods/16.svg" alt="16" title="16">
+            <img src="/assets/icon/selos-ods/17.svg" alt="17" title="17">
+          </div>
+          <p class="f-size-12px fw-500 pb-1">Baixo</p>
         </div>
-        <p class="f-size-12px fw-500 pb-1">Baixo</p>
       </div>
     </div>
   </div>
-</div>
+</ng-container>
+
+<!-- Pos Avaliacao -->
+<ng-template #postAvaliation>
+  <div class="row pb-4">
+    <div class="col d-flex flex-column flex-xl-row align-item-start justify-content-between gap-4">
+      <div class="p-4 card-logged flex-grow-1 d-flex flex-column align-item-start justify-content-start gap-4">
+        <div class="w-100 d-flex align-item-center justify-content-between w-100 pb-2">
+          <div>
+            <h4 class="primary-text f-size-1-5rem fw-700 pb-1" (click)="toggleAvaliationStatus()">
+              Pontuação ThinkSus
+            </h4>
+
+            <p class="alpha-700-text f-size-0-85rem fw-500">
+              Olá, Mateus. Esse é o seu Score total atual.
+            </p>
+          </div>
+
+          <div>
+            <div class="d-flex align-items-end justify-content-between gap-4 pb-2">
+              <p class="d-block yellow-500-text f-size-12px l-height-1-25 fw-700">
+                OURO
+              </p>
+
+              <h4 class="d-block yellow-500-text f-size-3rem l-height-3 fw-700">
+                97
+              </h4>
+            </div>
+
+            <p class="alpha-600-text f-size-12px l-height-1-25 fw-500">
+              Gerado em 00/00/0000
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <div class="d-flex flex-column align-item-start justify-content-start pb-1">
+            <p class="green-800-text l-height-1-25rem f-size-0-85rem fw-600 ">
+              Ambiental
+            </p>
+            <div class="score-progress-container green-100-bg">
+              <div class="score-progress green-400-bg gap-2" style="width: 70%;">
+                <p class="white-text f-size-12px l-height-1rem fw-500">Nota</p>
+                <p class="white-text f-size-0-85rem l-height-1-25rem fw-700 pe-2">70</p>
+              </div>
+
+              <p class="score-100">
+                100
+              </p>
+            </div>
+          </div>
+
+          <div class="d-flex flex-column align-item-start justify-content-start pb-1">
+            <p class="green-800-text l-height-1-25rem f-size-0-85rem fw-600">
+              Social
+            </p>
+            <div class="score-progress-container purple-100-bg">
+              <div class="score-progress purple-500-bg gap-2" style="width: 43%;">
+                <p class="white-text f-size-12px l-height-1rem fw-500">Nota</p>
+                <p class="white-text f-size-0-85rem l-height-1-25rem fw-700 pe-2">43</p>
+              </div>
+
+              <p class="score-100">
+                100
+              </p>
+            </div>
+          </div>
+
+          <div class="d-flex flex-column align-item-start justify-content-start pb-1">
+            <p class="green-800-text l-height-1-25rem f-size-0-85rem fw-600">
+              Social
+            </p>
+            <div class="score-progress-container blue-100-bg">
+              <div class="score-progress blue-400-bg gap-2" style="width: 70%;">
+                <p class="white-text f-size-12px l-height-1rem fw-500">Nota</p>
+                <p class="white-text f-size-0-85rem l-height-1-25rem fw-700 pe-2">70</p>
+              </div>
+
+              <p class="score-100">
+                100
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-logged flex-grow-1 p-4">
+        <h4 class="primary-text f-size-1-5rem fw-700 pb-1">
+          Distribuição de aderência ESG
+        </h4>
+
+        <p class="alpha-700-text f-size-0-85rem fw-500 pb-3">
+          A partir das notas parciais
+        </p>
+
+        <div class="d-flex align-item-start justify-content-between w-100">
+          <div class="green-400-bg score-block" style="width: calc(29% - .3rem);"></div>
+          <div class="purple-500-bg score-block" style="width: calc(17% - .3rem);"></div>
+          <div class="blue-400-bg score-block" style="width: calc(53% - .3rem);"></div>
+        </div>
+
+        <div class="d-flex flex-row align-item-start justify-content-start gap-3 pt-4">
+          <div>
+            <p class="d-block f-size-12px l-height-1-25rem brand-800-text fw-500">
+              Ambiental
+            </p>
+            
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <img src="/assets/icon/ambiental.svg" alt="ambiental">
+              <p class="f-size-0-85rem l-height-1-25rem dark-text fw-700">
+                29,25%
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <p class="d-block f-size-12px l-height-1-25rem brand-800-text fw-500">
+              Social
+            </p>
+
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <img src="/assets/icon/social.svg" alt="social">
+              <p class="f-size-0-85rem l-height-1-25rem dark-text fw-700">
+                17,69%
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <p class="d-block f-size-12px l-height-1-25rem brand-800-text fw-500">
+              Governança
+            </p>
+
+            <div class="d-flex align-items-center justify-content-start gap-2">
+              <img src="/assets/icon/governance.svg" alt="governance">
+              <p class="f-size-0-85rem l-height-1-25rem dark-text fw-700">
+                53,07%
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fade-in row">
+    <div class="col-12 col-xl-7 pt-4 pt-xl-0">
+      <div class="card-logged p-3 p-lg-4">
+        <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 pb-3">
+          <div>
+            <h4 class="primary-text f-size-1-5rem fw-700 pb-1">
+              Nível de aderência atual
+            </h4>
+
+            <p class="alpha-700-text f-size-0-85rem fw-500">
+              17 objetivos das ODS
+            </p>
+          </div>
+    
+          <button class="no-bg-btn text-nowrap fw-600 brand-text bg-transparent d-flex align-item-center justify-content-center gap-2">
+            Gerar relatório
+            <img src="/assets/icon/download.svg" alt="Download">
+          </button>
+        </div>
+
+        <div class="high-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2 mb-2">
+          <div class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
+            <img src="/assets/icon/selos-ods/1.svg" alt="1" title="1">
+            <img src="/assets/icon/selos-ods/2.svg" alt="2" title="2">
+            <img src="/assets/icon/selos-ods/3.svg" alt="3" title="3">
+            <img src="/assets/icon/selos-ods/4.svg" alt="4" title="4">
+            <img src="/assets/icon/selos-ods/5.svg" alt="5" title="5">
+            <img src="/assets/icon/selos-ods/7.svg" alt="6" title="6">
+          </div>
+          <p class="f-size-12px fw-500 pb-1">Alto</p>
+        </div>
+
+        <div class="intermediate-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2 mb-2">
+          <div class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
+            <img src="/assets/icon/selos-ods/7.svg" alt="7" title="7">
+            <img src="/assets/icon/selos-ods/8.svg" alt="8" title="8">
+            <img src="/assets/icon/selos-ods/9.svg" alt="9" title="9">
+            <img src="/assets/icon/selos-ods/10.svg" alt="10" title="10">
+            <img src="/assets/icon/selos-ods/11.svg" alt="11" title="11">
+            <img src="/assets/icon/selos-ods/12.svg" alt="12" title="12">
+            <img src="/assets/icon/selos-ods/13.svg" alt="13" title="13">
+            <img src="/assets/icon/selos-ods/14.svg" alt="14" title="14">
+          </div>
+          <p class="f-size-12px fw-500 pb-1">Intermediário</p>
+        </div>
+
+        <div class="low-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2">
+          <div class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
+            <img src="/assets/icon/selos-ods/15.svg" alt="15" title="15">
+            <img src="/assets/icon/selos-ods/16.svg" alt="16" title="16">
+            <img src="/assets/icon/selos-ods/17.svg" alt="17" title="17">
+          </div>
+          <p class="f-size-12px fw-500 pb-1">Baixo</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-xl-5">
+      <div class="card-logged p-3 p-lg-4">
+        <p class="f-size-0-85rem l-height-1-25rem alpha-800-text fw-500">
+          Sua operação é consciente de sua pegada ambiental e já apresenta ações que visam a otimização de recursos e preservação do meio natural. Há métricas que dialogam com riscos climáticos e/ou hídricos e busca minimizar o consumo energético, evitando assim emissões massivas de CO2. Procure ampliar as métricas de todos os consumos de recursos para ter registros mensais e anuais para eventual elaboração de relatórios que possam vir a ser exigidos por grandes clientes.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row pt-5 pb-5 pb-md-0">
+      <div class="col d-flex flex-column flex-sm-row align-items-center justify-content-end gap-3">
+        <button class="brand-outline-btn bg-transparent x-lg-5 d-block" type="button">
+          Sugestão de melhorias
+        </button>
+      
+        <button class="secondary-brand-btn px-lg-5 d-block" type="button">
+          Visão geral
+        </button>
+      </div>
+  </div>
+</ng-template>

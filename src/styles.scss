@@ -173,6 +173,8 @@ $support-9: rgba(174, 176, 187, .09);
 $support-lines: #E0E0E0;
 $support-lines-dark: #364A3D;
 
+$system-success: #38A169;
+
 $background: #F7F7F7;
 $input-background: transparent;
 
@@ -518,8 +520,8 @@ body, html, .bg-1 {
     color: $danger;
 }
 
-.danger-text {
-    color: $success;
+.system-success-text {
+    color: $system-success;
 }
 
 .brand-50-text {
@@ -1710,8 +1712,8 @@ div.both-container:has(aside.active) {
 }
 
 .low-border {
-    border: 1px solid #38A169;
-    color: #38A169;
+    border: 1px solid $system-success;
+    color: $system-success;
 }
 
 // Modal

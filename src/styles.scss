@@ -215,6 +215,7 @@ $yellow-500: #D69E2E;
 
 $green-100: #C6F6D5;
 $green-400: #48BB78;
+$green-600: #25855A;
 $green-800: #22543D;
 
 $purple-100: #E9D8FD;
@@ -526,6 +527,10 @@ body, html, .bg-1 {
 
 .brand-50-text {
     color: $brand-50;
+}
+
+.green-600-text {
+    color: $green-600;
 }
 
 .green-800-text {

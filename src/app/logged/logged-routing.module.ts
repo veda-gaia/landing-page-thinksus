@@ -17,6 +17,7 @@ import { GServiceComponent } from './questionary/g-service/g-service.component';
 import { PaymentComponent } from './payment/payment.component';
 import { ControlPanelComponent } from './control-panel/control-panel.component';
 import { SuppliersComponent } from './suppliers/suppliers.component';
+import { ImprovementsComponent } from './improvements/improvements.component';
 
 
 const routes: Routes = [
@@ -52,6 +53,10 @@ const routes: Routes = [
       {
         path: 'results',
         component: ResultsComponent
+      },
+      {
+        path: 'results/improvements',
+        component: ImprovementsComponent
       },
       {
         path: 'payment',

@@ -1923,3 +1923,31 @@ td {
         border-spacing: 15px 0;
     }
 }
+
+.custom-accordion {
+    transition: .3s;
+
+    .content-custom-accordion {
+        display: block;
+        height: 0;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .open-close-icon {
+        transition: .3;
+        transform: rotate(180deg);
+    }
+
+    &.active {
+        border: 1px solid $green-400;
+
+        .content-custom-accordion {
+            height: fit-content;
+        }
+        
+        .open-close-icon {
+            transform: rotate(0deg);
+        }
+    }
+}

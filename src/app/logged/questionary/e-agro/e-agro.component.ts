@@ -143,7 +143,7 @@ export class EAgroComponent {
   }
 
   submitDocuments() {
-    if(this.formArrayDocuments.invalid) return
+    // if(this.formArrayDocuments.invalid) return
 
     this.finish()
   }
@@ -165,7 +165,7 @@ export class EAgroComponent {
           })
         }
 
-        this.esgRatingService.reister(dto).subscribe({
+        this.esgRatingService.register(dto).subscribe({
           next: (data) => {
             this.router.navigate(['/logged/assesment'])
           },

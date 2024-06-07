@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, FormArray, FormControl } from '@ang
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component';
+import { EsgRatingService } from 'src/app/services/esg-rating.service';
 
 @Component({
   selector: 'app-s-agro',
@@ -113,7 +114,8 @@ export class SAgroComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private esgRatingService: EsgRatingService,
   ) {
     this.formArray = this.fb.array([])
     this.formArrayDocuments = this.fb.array([])
@@ -142,7 +144,7 @@ export class SAgroComponent {
 
   submitRevision() {
     this.formArray.controls.forEach((control, index) => {
-      if(this.questionaryData[index].documentNeeded && control.value === 'yes') {
+      if(this.questionaryData[index].documentNeeded && control.value === 'Yes') {
         this.formArrayDocuments.push(new FormControl('', Validators.required))
       } else {
         this.formArrayDocuments.push(new FormControl(''))
@@ -153,7 +155,7 @@ export class SAgroComponent {
   }
 
   submitDocuments() {
-    if(this.formArrayDocuments.invalid) return
+    // if(this.formArrayDocuments.invalid) return
 
     this.finish()
   }
@@ -166,7 +168,24 @@ export class SAgroComponent {
     modalRef.componentInstance.accepted.subscribe((closed: boolean) => {
       if (closed) {
         // Enviar forms para o backend
-        this.router.navigate(['/logged/assesment'])
+        const dto = {
+          answers: this.formArray.controls.map((control, index) => {
+            return {
+              esgNumber: this.questionaryData[index].id,
+              answer: control.value,
+            }
+          })
+        }
+
+        this.esgRatingService.register(dto).subscribe({
+          next: (data) => {
+            this.router.navigate(['/logged/assesment'])
+          },
+          error: (err) => {
+            console.log(err)
+          }
+        })
+
       }
     });
   }
@@ -178,7 +197,7 @@ export class SAgroComponent {
 
   checkDoesntApply() {
     this.undefinedAnswers = this.formArray.controls.reduce((acc: number, cur: FormControl) => {
-      if(cur.value === 'undefined') {
+      if(cur.value === 'Not apply') {
         return acc + 1
       } else {
         return acc

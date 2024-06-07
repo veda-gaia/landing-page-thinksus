@@ -27,7 +27,7 @@ export class EsgRatingService extends BaseService {
       .pipe(map(this.extractData), catchError(this.serviceError));
   }
 
-  reister(dto: any): Observable<any> {
+  register(dto: any): Observable<any> {
     return this.httpClient
       .post(`${this.url}/register`, dto, this.authorizedHeader())
       .pipe(map(this.extractData), catchError(this.serviceError));

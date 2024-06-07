@@ -35,17 +35,17 @@
                         <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68 l-height-1-5rem">{{ actualStep }}. {{ questionaryData[i].question }}</p>
         
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
-                            <input [formControl]="control" type="radio" style="width: fit-content;" id="yes" name="answer" value="yes">
-                            <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "QUESTIONARY.YES" | translate }}</label>
+                            <input [formControl]="control" type="radio" style="width: fit-content;" id="Yes" name="answer" value="Yes">
+                            <label for="Yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "QUESTIONARY.YES" | translate }}</label>
                         </div>
         
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
-                            <input [formControl]="control" type="radio" style="width: fit-content;" id="no" name="answer" value="no">
-                            <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "QUESTIONARY.NO" | translate }}</label>
+                            <input [formControl]="control" type="radio" style="width: fit-content;" id="No" name="answer" value="No">
+                            <label for="No" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "QUESTIONARY.NO" | translate }}</label>
                         </div>
         
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
-                            <input [formControl]="control" type="radio" style="width: fit-content;" id="undefined" name="answer" value="undefined">
+                            <input [formControl]="control" type="radio" style="width: fit-content;" id="undefined" name="answer" value="Not apply">
                             <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "QUESTIONARY.DOESNT_APPLY" | translate }}</label>
                         </div>
         
@@ -150,16 +150,16 @@
             </p>
             <p class="d-flex w-100 f-size-1rem l-height-1-25rem alpha-700-text fw-400 gap-1">
                 resposta: &shy;
-                <span *ngIf="formArray.controls[index].value === 'yes'" class="fw-700">{{ "QUESTIONARY.YES" | translate }}</span>
-                <span *ngIf="formArray.controls[index].value === 'no'" class="fw-700">{{ "QUESTIONARY.NO" | translate }}</span>
-                <span *ngIf="formArray.controls[index].value === 'undefined'" class="fw-700">{{ "QUESTIONARY.DOESNT_APPLY" | translate }}</span>
+                <span *ngIf="formArray.controls[index].value === 'Yes'" class="fw-700">{{ "QUESTIONARY.YES" | translate }}</span>
+                <span *ngIf="formArray.controls[index].value === 'No'" class="fw-700">{{ "QUESTIONARY.NO" | translate }}</span>
+                <span *ngIf="formArray.controls[index].value === 'Not apply'" class="fw-700">{{ "QUESTIONARY.DOESNT_APPLY" | translate }}</span>
             </p>
         </li>
     </ul>
 
     <div class="w-100 d-flex align-items-center justify-content-end gap-3 pt-4">
         <button (click)="stepBack()" class="brand-outline-btn bg-transparent x-lg-5 d-block" type="button">
-            {{ "QUESTIONARY.YES" | translate }}
+            {{ "QUESTIONARY.BACK" | translate }}
         </button>
         
         <button class="secondary-brand-btn px-lg-5 d-block" type="button" (click)="submitRevision()">
@@ -202,12 +202,12 @@
                 </p>
                 <p class="d-flex w-100 f-size-1rem l-height-1-25rem alpha-700-text fw-400 gap-1">
                     resposta: &shy;
-                    <span *ngIf="formArray.controls[index].value === 'yes'" class="fw-700">{{ "QUESTIONARY.YES" | translate }}</span>
-                    <span *ngIf="formArray.controls[index].value === 'no'" class="fw-700">{{ "QUESTIONARY.NO" | translate }}</span>
-                    <span *ngIf="formArray.controls[index].value === 'undefined'" class="fw-700">{{ "QUESTIONARY.DOESNT_APPLY" | translate }}</span>
+                    <span *ngIf="formArray.controls[index].value === 'Yes'" class="fw-700">{{ "QUESTIONARY.YES" | translate }}</span>
+                    <span *ngIf="formArray.controls[index].value === 'No'" class="fw-700">{{ "QUESTIONARY.NO" | translate }}</span>
+                    <span *ngIf="formArray.controls[index].value === 'Not apply'" class="fw-700">{{ "QUESTIONARY.DOESNT_APPLY" | translate }}</span>
                 </p>
 
-                <div *ngIf="(formArray.controls[index].value === 'yes') && (questionaryData[index].documentNeeded)" class="d-flex align-items-center justify-content-start gap-2 pb-3">
+                <div *ngIf="(formArray.controls[index].value === 'Yes') && (questionaryData[index].documentNeeded)" class="d-flex align-items-center justify-content-start gap-2 pb-3">
                     <input [formControl]="control" type="file" class="w-100" [id]="questionaryData[index].id" [name]="questionaryData[index].id">
                 </div>
             </li>

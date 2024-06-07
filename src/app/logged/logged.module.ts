@@ -29,6 +29,7 @@ import { ControlPanelComponent } from './control-panel/control-panel.component';
 import { SuppliersComponent } from './suppliers/suppliers.component';
 import { AddSupplierModalComponent } from './add-supplier-modal/add-supplier-modal.component';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
+import { EsgRatingService } from '../services/esg-rating.service';
 
 
 @NgModule({
@@ -66,6 +67,9 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
     TranslateModule,
     NgbModule,
     CurrencyMaskModule
+  ],
+  providers: [
+    EsgRatingService
   ]
 })
 export class LoggedModule { }

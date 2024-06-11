@@ -19,6 +19,9 @@
             <label for="document" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">CNPJ</label>
             <input type="tel" mask="000.000.000/00" class="w-100 mb-4" formControlName="document" placeholder="000.000.000/00" autocomplete="off" id="document" name="document"> 
 
+            <label for="email" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "LOGIN.EMAIL" | translate }}</label>
+            <input type="text" mask="A*@A*.SSS" [validation]="true" [dropSpecialCharacters]="false" class="w-100 mb-4" formControlName="email" placeholder="email@email.com" autocomplete="off" id="email" name="email">
+
             <label for="buyValue" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Valor de compra anual</label>
             <input type="tel" currencyMask [options]="{ prefix: 'R$ ' ,thousands: '.', decimal: ',', align: 'left' }" class="w-100 mb-4" formControlName="buyValue" placeholder="Fornecedor exemplo" autocomplete="off" id="buyValue" name="buyValue"> 
 

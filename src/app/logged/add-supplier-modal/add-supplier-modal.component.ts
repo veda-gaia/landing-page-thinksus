@@ -18,6 +18,7 @@ export class AddSupplierModalComponent {
     this.form = this.fb.group({
       name: ['', Validators.required],
       document: ['', Validators.required],
+      email: ['', Validators.required],
       buyValue: ['', Validators.required],
     })
   }

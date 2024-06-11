@@ -2,7 +2,7 @@
     <section class="w-100">
         <div class="row pb-4">
             <div class="col">
-                <h3 class="alpha-800-text f-size-1-5rem l-height-1-5rem pb-1 fw-800" (click)="toggleAvaliationStatus()">
+                <h3 class="alpha-800-text f-size-1-5rem l-height-1-5rem pb-1 fw-800">
                     Resultados
                 </h3>
                 <p class="f-size-0-85rem alpha-700-text fw-500 l-height-1-25">
@@ -38,10 +38,10 @@
 </ng-container>
 
 <ng-template #postAvaliation>
-    <section class="w-100">
+    <section class="w-100" *ngIf="!loading">
         <div class="row pb-4">
             <div class="col">
-                <h3 class="alpha-800-text f-size-1-5rem l-height-1-5rem pb-1 fw-800" (click)="toggleAvaliationStatus()">
+                <h3 class="alpha-800-text f-size-1-5rem l-height-1-5rem pb-1 fw-800">
                     Resultados
                 </h3>
                 <p class="f-size-0-85rem alpha-700-text fw-500 l-height-1-25">
@@ -61,11 +61,11 @@
                             </h4>
             
                             <p class="secondary-text f-size-1rem fw-500 pb-2">
-                                Titulo da avaliação: <span class="fw-700 gray-text">Avaliação teste 1</span>
+                                Titulo da avaliação: <span class="fw-700 gray-text">Exemplo LTDA</span>
                             </p>
             
                             <p class="secondary-text f-size-1rem fw-500 pb-4">
-                                Pontuação gerada em: <span class="fw-700 gray-text">32/13/2025</span>
+                                Pontuação gerada em: <span class="fw-700 gray-text">{{ recentResult.updatedAt | dateFormat }}</span>
                             </p>
                         </div>
 
@@ -75,7 +75,7 @@
                             </p>
 
                             <h4 class="text-end fw-800 system-success-text f-size-3rem l-height-3">
-                                97
+                                {{ recentResult.esgScore.toFixed() }}
                             </h4>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                 </div>
             </div>
 
-            <div class="col-12 col-xl-5">
+            <div class="col-12 col-xl-5 pt-4 pt-xl-0">
                 <div class="card-logged p-3 p-lg-4">
                     <h4 class="primary-text f-size-1-5rem fw-700 pb-3">
                         Histórico de pontuação
@@ -119,16 +119,19 @@
                             </tr>
                             <tr *ngFor="let item of filteredList" class="body-row-tr">
                                 <td class="">
-                                    <img src="/assets/icon/none-seal.svg" alt="Sem selo" width="24px">
+                                    <img *ngIf="item.esgScore < 60" src="/assets/icon/none-seal.svg" alt="Sem Selo" title="Sem Selo" width="20px">
+                                    <img *ngIf="item.esgScore >= 60 && item.esgScore <= 75" src="/assets/icon/seal-bronze.svg" alt="Selo de Bronze" title="Selo de Bronze" width="20px">
+                                    <img *ngIf="item.esgScore > 75 && item.esgScore < 90" src="/assets/icon/seal-silver.svg" alt="Selo de Prata" title="Selo de Prata" width="20px">
+                                    <img *ngIf="item.esgScore >= 90" src="/assets/icon/seal-gold.svg" alt="Selo de Ouro" title="Selo de Ouro" width="20px">
                                 </td>
                                 <td class="">
-                                    {{ item.title }}
+                                    {{ 'Exemplo LTDA' }}
                                 </td>
                                 <td class="">
-                                    {{ item.score }}
+                                    {{ item.esgScore.toFixed() }}
                                 </td>
                                 <td class="">
-                                    {{ item.createdAt }}
+                                    {{ item.updatedAt | dateFormat }}
                                 </td>
                                 <td class="">
                                     <button class="bg-transparent border-0 shadow-none p-2" title="Detalhes">
@@ -143,9 +146,6 @@
                     </div>
     
                     <p *ngIf="!filteredList.length" class="w-100 text-center py-4 py-xl-5 color-app-300 font-s-09rem d-flex align-items-center justify-content-center gap-2">
-                        <span class="material-symbols-rounded color-app-300 font-s-09rem">
-                            page_info
-                        </span>
                         Sem resultados
                     </p>
                 </div>

@@ -30,6 +30,7 @@ import { SuppliersComponent } from './suppliers/suppliers.component';
 import { AddSupplierModalComponent } from './add-supplier-modal/add-supplier-modal.component';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { EsgRatingService } from '../services/esg-rating.service';
+import { DateFormatPipe } from '../pipes/date-format.pipe';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { EsgRatingService } from '../services/esg-rating.service';
     ControlPanelComponent,
     SuppliersComponent,
     AddSupplierModalComponent,
+    DateFormatPipe,
   ],
   imports: [
     CommonModule,
@@ -69,7 +71,8 @@ import { EsgRatingService } from '../services/esg-rating.service';
     CurrencyMaskModule
   ],
   providers: [
-    EsgRatingService
+    EsgRatingService,
+    DateFormatPipe
   ]
 })
 export class LoggedModule { }

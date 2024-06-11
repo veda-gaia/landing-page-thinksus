@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { EsgRatingService } from 'src/app/services/esg-rating.service';
 
 @Component({
   selector: 'app-results',
@@ -7,64 +8,54 @@ import { Component } from '@angular/core';
 })
 export class ResultsComponent {
   avaliationStatus = ''
+
   list: any[] = []
   filteredList: any[] = []
+  recentResult: any
 
-  constructor() {
-    this.avaliationStatus = 'pre-avaliation'
+  loading = true
+
+  constructor(
+    private EsgRatingService: EsgRatingService
+  ) {
 
     this.loadList()
   }
 
   loadList() {
-    this.list = [
-      {
-        seal: '',
-        title: 'Exemplo LTDA',
-        buyValue: 1000000,
-        currency: 'BRL',
-        score: 55.4,
-        createdAt: '00/00/0000'
+    this.EsgRatingService.list().subscribe({
+      next: (data) => {
+        // console.log(data)
+        this.loading = false
+
+        if(!data.length) {
+          this.avaliationStatus = 'pre-avaliation'
+          return
+        }
+        
+        this.list = data
+        this.filteredList = this.list
+        this.recentResult = this.checkRecent()
+
+        this.avaliationStatus = 'post-avaliation'
+        console.log(this.recentResult)
       },
-      {
-        seal: '',
-        title: 'Exemplo LTDA',
-        buyValue: 1000000,
-        currency: 'BRL',
-        score: 55.4,
-        createdAt: '00/00/0000'
-      },
-      {
-        seal: '',
-        title: 'Exemplo LTDA',
-        buyValue: 1000000,
-        currency: 'BRL',
-        score: 55.4,
-        createdAt: '00/00/0000'
-      },
-      {
-        seal: '',
-        title: 'Exemplo LTDA',
-        buyValue: 1000000,
-        currency: 'BRL',
-        score: 55.4,
-        createdAt: '00/00/0000'
-      },
-      {
-        seal: '',
-        title: 'Exemplo LTDA',
-        buyValue: 1000000,
-        currency: 'BRL',
-        score: 55.4,
-        createdAt: '00/00/0000'
-      },
-    ]
-    this.filteredList = this.list
+      error: (err) => {
+        console.log(err)
+        this.loading = false
+      }
+    })
   }
 
-  toggleAvaliationStatus() {
-    if(this.avaliationStatus === 'pre-avaliation') {
-      this.avaliationStatus = 'post-avaliation'
-    } else this.avaliationStatus = 'pre-avaliation'
+  checkRecent(): any[] {
+    let mostRecentObject = this.filteredList[0];
+
+    this.filteredList.forEach(obj => {
+      if (new Date(obj.updatedAt) > new Date(mostRecentObject.updatedAt)) {
+        mostRecentObject = obj;
+      }
+    });
+  
+    return mostRecentObject;
   }
 }

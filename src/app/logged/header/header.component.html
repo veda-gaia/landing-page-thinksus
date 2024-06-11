@@ -75,7 +75,7 @@
             <img src="/assets/icon/close-menu-dark.svg" alt="Fechar menu" width="20px" height="20px">
         </button>
     </div>
-
+ 
     <nav class="py-5">
         <ul class="d-flex flex-column align-items-center justify-content-center gap-4">
             <li class="d-flex align-items-center justify-content-end gap-3 ps-3 mb-2">
@@ -122,7 +122,7 @@
                 </ul>
             </li>
             <li class="w-100">
-                <a routerLink="/home" class="w-100">
+                <a (click)="logout()" class="w-100 cursor-pointer">
                     <button class="no-bg-btn bg-transparent primary-text d-flex fw-700 gap-2 align-items-center justify-content-center w-100 pt-3">
                         <img src="/assets/icon/logout-dark.svg" alt="Sair">
                         {{ 'SIDEBAR.LOGOUT' | translate }}

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import LocalStorageUtil, { LocalStorageKeys } from 'src/app/util/localStorage.util';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +14,8 @@ export class HeaderComponent implements OnInit {
   menuMobileOpen = false;
 
   constructor(
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private router: Router
   ){}
   
   ngOnInit() {
@@ -30,5 +33,10 @@ export class HeaderComponent implements OnInit {
   
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  logout() {
+    this.router.navigate(['/home'])
+    LocalStorageUtil.remove(LocalStorageKeys.user)
   }
 }

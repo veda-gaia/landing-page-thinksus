@@ -44,10 +44,10 @@
                     <li class="d-flex align-items-center justify-content-end gap-3 ps-3">
                         <div>
                             <p class="primary-text f-size-0-85rem fw-400 m-0">
-                                Mateus Borges
+                                {{ user ? user.name.slice(0, 18) : '' }}
                             </p>
                             <p class="fw-700 brand-text l-height-1-5rem f-size-1rem m-0 text-end">
-                                colabX
+                                {{ company ? company.slice(0, 13) : '' }}
                             </p>
                         </div>
                         <div class="profile-container">
@@ -81,10 +81,10 @@
             <li class="d-flex align-items-center justify-content-end gap-3 ps-3 mb-2">
                 <div>
                     <p class="primary-text f-size-0-85rem fw-400 m-0">
-                        Mateus Borges
+                        {{ user ? user.name.slice(0, 18) : '' }}
                     </p>
                     <p class="fw-700 brand-text l-height-1-5rem f-size-1rem m-0 text-end">
-                        colabX
+                        {{ company ? company.slice(0, 13) : '' }}
                     </p>
                 </div>
                 <div class="profile-container">

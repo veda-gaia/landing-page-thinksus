@@ -1,3 +1,4 @@
+import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,11 +8,15 @@ import { Component } from '@angular/core';
 })
 export class DashboardComponent {
   avaliationStatus = ''
+  userName = ''
 
   constructor(
 
   ) {
     this.avaliationStatus = 'pre-avaliation'
+
+    const user = localStorage.getItem('user')
+    if(user) this.userName = JSON.parse(user).name
   }
 
   toggleAvaliationStatus() {

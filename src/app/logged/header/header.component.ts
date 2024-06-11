@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { CompanyService } from 'src/app/services/company.service';
+import { UserService } from 'src/app/services/user.service';
 import LocalStorageUtil, { LocalStorageKeys } from 'src/app/util/localStorage.util';
 
 @Component({
@@ -12,11 +15,25 @@ export class HeaderComponent implements OnInit {
   selectedLanguage: string = ''
 
   menuMobileOpen = false;
+  user: any
+  company: any
 
   constructor(
     private translateService: TranslateService,
+    private UserService: UserService,
+    private CompanyService: CompanyService,
     private router: Router
-  ){}
+  ){
+    this.CompanyService.getByUser().subscribe({
+      next: (data) => {
+        this.company = data.company
+        this.user = data.user
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })    
+  }
   
   ngOnInit() {
     this.selectedLanguage = this.translateService.currentLang

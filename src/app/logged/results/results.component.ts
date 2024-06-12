@@ -25,7 +25,7 @@ export class ResultsComponent {
   loadList() {
     this.EsgRatingService.list().subscribe({
       next: (data) => {
-        // console.log(data)
+        console.log(data)
         this.loading = false
 
         if(!data.length) {
@@ -38,7 +38,7 @@ export class ResultsComponent {
         this.recentResult = this.checkRecent()
 
         this.avaliationStatus = 'post-avaliation'
-        console.log(this.recentResult)
+        // console.log(this.recentResult)
       },
       error: (err) => {
         console.log(err)

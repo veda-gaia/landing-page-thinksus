@@ -22,72 +22,94 @@
     </div>
 </div>
 
-<div class="fade-in row">
-    <div class="col">
-        <div class="d-flex align-items-center justify-content-between gap-2">
-            <div class="flex-grow-1">
-                <h4 class="f-size-1-5rem l-height-1-5rem fw-700 primary-text mb-2">
-                    Avaliação
-                </h4>
-                <p class="alpha-700-text f-size-0-85rem fw-500">
-                    Responda os questionarios das três áreas abaixo para receber sua pontuação
-                </p>
+<form [formGroup]="form" (submit)="onSubmit()">
+    <div class="fade-in row">
+        <div class="col">
+            <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between gap-3">
+                <div class="flex-grow-1">
+                    <h4 class="f-size-1-5rem l-height-1-5rem fw-700 primary-text mb-2">
+                        Avaliação
+                    </h4>
+                    <p class="alpha-700-text f-size-0-85rem fw-500">
+                        Responda os questionarios das três áreas abaixo para receber sua pontuação
+                    </p>
+                </div>
+    
+                <div>
+                    <p class="d-block w-100 text-start f-size-12px l-height-1rem fw-500 alpha-500-text pb-2">
+                        Título da Avaliação
+                    </p>
+                    <div class="d-flex align-items-center justify-content-start gap-2" style="min-width: 360px;">
+                        <input type="text" formControlName="title" class="w-100" placeholder="Informe um título" style="padding: 7.5px 12px !important;">
+                        <button class="brand-outline-btn f-size-0-85rem" [disabled]="form.invalid" style="min-width: 93px; max-width: 93px;padding: 5px 12px !important;">
+                            Confirmar
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-<div class="fade-in row">
-    <div class="col d-flex flex-column flex-lg-row align-items-start justify-content-start gap-4 pt-4">
-        <div class="flex-grow-1 w-100 glossary-card bg-transparent p-3 p-xl-4">
-            <div class="d-flex align-items-start justify-content-between gap-3">
-                <img src="/assets/img/forest.svg" alt="Ambiental" width="168px">
-                <p class="brand-700-text fw-700 f-size-1-25rem">0%</p>
+    
+    <div class="fade-in row">
+        <div class="col d-flex flex-column flex-lg-row align-items-start justify-content-start gap-4 pt-4">
+            <div class="flex-grow-1 w-100 glossary-card bg-transparent p-3 p-xl-4">
+                <div class="d-flex align-items-start justify-content-between gap-3">
+                    <img src="/assets/img/forest.svg" alt="Ambiental" width="168px">
+                    <p class="brand-700-text fw-700 f-size-1-25rem">0%</p>
+                </div>
+                
+                <p class="brand-700-text fw-700 f-size-1-25rem pt-3 pb-2">Ambiental</p>
+                <p class="alpha-700-text fw-500 f-size-0-85rem l-height-1-25 mb-5 pb-3">Como a empresa se comporta com as ações voltadas ao meio ambiente.</p>
+    
+                <a routerLink="/logged/assesment/e-agro" class="w-100">
+                    <button class="w-100 brand-outline-btn d-flex align-items-center justify-content-between gap-3">
+                        Iniciar Avaliação
+                        <img src="/assets/icon/init.svg" alt="Iniciar">
+                    </button>
+                </a>
             </div>
             
-            <p class="brand-700-text fw-700 f-size-1-25rem pt-3 pb-2">Ambiental</p>
-            <p class="alpha-700-text fw-500 f-size-0-85rem l-height-1-25 mb-5 pb-3">Como a empresa se comporta com as ações voltadas ao meio ambiente.</p>
-
-            <a routerLink="/logged/assesment/e-agro" class="w-100">
-                <button class="w-100 brand-outline-btn d-flex align-items-center justify-content-between gap-3">
-                    Iniciar Avaliação
-                    <img src="/assets/icon/init.svg" alt="Iniciar">
-                </button>
-            </a>
-        </div>
-        
-        <div class="flex-grow-1 w-100 glossary-card bg-transparent p-3 p-xl-4">
-            <div class="d-flex align-items-start justify-content-between gap-3">
-                <img src="/assets/img/urban.svg" alt="Ambiental" width="168px">
-                <p class="brand-700-text fw-700 f-size-1-25rem">0%</p>
+            <div class="flex-grow-1 w-100 glossary-card bg-transparent p-3 p-xl-4">
+                <div class="d-flex align-items-start justify-content-between gap-3">
+                    <img src="/assets/img/urban.svg" alt="Ambiental" width="168px">
+                    <p class="brand-700-text fw-700 f-size-1-25rem">0%</p>
+                </div>
+                
+                <p class="brand-700-text fw-700 f-size-1-25rem pt-3 pb-2">Social</p>
+                <p class="alpha-700-text fw-500 f-size-0-85rem l-height-1-25 mb-5">Como a empresa se comporta com ações voltadas ao bem-estar e a questões sociais envolvendo seus funcionários</p>
+    
+                <a routerLink="/logged/assesment/s-agro" class="w-100">
+                    <button class="w-100 brand-outline-btn d-flex align-items-center justify-content-between gap-3">
+                        Iniciar Avaliação
+                        <img src="/assets/icon/init.svg" alt="Iniciar">
+                    </button>
+                </a>
             </div>
-            
-            <p class="brand-700-text fw-700 f-size-1-25rem pt-3 pb-2">Social</p>
-            <p class="alpha-700-text fw-500 f-size-0-85rem l-height-1-25 mb-5">Como a empresa se comporta com ações voltadas ao bem-estar e a questões sociais envolvendo seus funcionários</p>
-
-            <a routerLink="/logged/assesment/s-agro" class="w-100">
-                <button class="w-100 brand-outline-btn d-flex align-items-center justify-content-between gap-3">
-                    Iniciar Avaliação
-                    <img src="/assets/icon/init.svg" alt="Iniciar">
-                </button>
-            </a>
-        </div>
-
-        <div class="flex-grow-1 w-100 glossary-card bg-transparent p-3 p-xl-4">
-            <div class="d-flex align-items-start justify-content-between gap-3">
-                <img src="/assets/img/rocket.svg" alt="Ambiental" width="168px">
-                <p class="brand-700-text fw-700 f-size-1-25rem">0%</p>
+    
+            <div class="flex-grow-1 w-100 glossary-card bg-transparent p-3 p-xl-4">
+                <div class="d-flex align-items-start justify-content-between gap-3">
+                    <img src="/assets/img/rocket.svg" alt="Ambiental" width="168px">
+                    <p class="brand-700-text fw-700 f-size-1-25rem">0%</p>
+                </div>
+                
+                <p class="brand-700-text fw-700 f-size-1-25rem pt-3 pb-2">Governança</p>
+                <p class="alpha-700-text fw-500 f-size-0-85rem l-height-1-25 mb-5">Como a empresa se comporta com a administração e gestão de seus negócios, funcionários, acionistas e clientes.</p>
+    
+                <a routerLink="/logged/assesment/g-agro" class="w-100">
+                    <button class="w-100 brand-outline-btn d-flex align-items-center justify-content-between gap-3">
+                        Iniciar Avaliação
+                        <img src="/assets/icon/init.svg" alt="Iniciar">
+                    </button>
+                </a>
             </div>
-            
-            <p class="brand-700-text fw-700 f-size-1-25rem pt-3 pb-2">Governança</p>
-            <p class="alpha-700-text fw-500 f-size-0-85rem l-height-1-25 mb-5">Como a empresa se comporta com a administração e gestão de seus negócios, funcionários, acionistas e clientes.</p>
-
-            <a routerLink="/logged/assesment/g-agro" class="w-100">
-                <button class="w-100 brand-outline-btn d-flex align-items-center justify-content-between gap-3">
-                    Iniciar Avaliação
-                    <img src="/assets/icon/init.svg" alt="Iniciar">
-                </button>
-            </a>
         </div>
     </div>
-</div>
+
+    <div class="fade-in row pt-4 pb-4">
+        <div class="col d-flex align-items-start justify-content-end">
+            <button class="brand-btn px-5" type="submit" [disabled]="(form.invalid) || true">
+                Gerar pontuação
+            </button>
+        </div>
+    </div>
+</form>

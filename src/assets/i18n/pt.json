@@ -400,5 +400,30 @@
         "SIMULATION": "Simulação",
         "SOLUTION": "Solução",
         "SUPPLY": "Cadeia de Suprimento"
+    },
+    "DASHBOARD": {
+        "YOUR_SCORE": "Pontuação ThinkSus",
+        "HI": "Olá,",
+        "THATS": "No momento, você não possui um score.",
+        "TYPE": "Tipo",
+        "PROGRESS": "Progresso",
+        "SCORE_PER_SEGMENT": "Score por segmento",
+        "STATUS": "Status",
+        "ENVIRONMENTAL": "Ambiental",
+        "SOCIAL": "Social",
+        "GOVERNANCE": "Governança",
+        "START": "Iniciar",
+        "CONTINUE": "Continuar",
+        "INDICATOR": "Indicador Geral",
+        "YOU_DONT_HAVE": "Você ainda não possui um indicador.",
+        "TAKE_ASSESMENT": "Faça a avaliação para saber o seu rank geral.",
+        "START_ASSESMENT": "Fazer Avaliação",
+        "ASSESMENT_HISTORY": "Histórico de pontuação",
+        "ADERENCE_LEVEL": "Nível de aderência atual",
+        "17_OBJECTIVES": "17 objetivos das ODS",
+        "GENERATE_RELATORY": "Gerar relatório",
+        "HIGH": "Alto",
+        "INTERMEDIATE": "Intermediário",
+        "LOW": "Baixo"
     }
 }

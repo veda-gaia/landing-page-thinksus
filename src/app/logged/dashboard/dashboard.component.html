@@ -7,11 +7,11 @@
           <div class="w-100 d-flex align-item-center justify-content-between w-100 pb-2">
             <div>
               <h4 class="primary-text f-size-1-5rem fw-700 pb-1" (click)="toggleAvaliationStatus()">
-                Pontuação ThinkSus
+                {{ "DASHBOARD.YOUR_SCORE" | translate }}
               </h4>
     
               <p class="alpha-700-text f-size-0-85rem fw-500">
-                Olá, {{ userName.split(' ')[0] }}. No momento, você não possui um score.
+                {{ "DASHBOARD.HI" | translate }} {{ userName.split(' ')[0] }}. {{ "DASHBOARD.THATS" | translate }}
               </p>
             </div>
   
@@ -23,25 +23,25 @@
           <div class="d-flex flex-column flex-sm-row align-item-start justify-content-between gap-3">
             <div>
               <p class="alpha-700-text l-height-1-5 f-size-12px fw-500 pb-1">
-                Tipo
+                {{ "DASHBOARD.TYPE" | translate }}
               </p>
                   
               <p class="brand-800-text f-size-0-85rem fw-600 l-height-1-5 pb-2">
-                Ambiental
+                {{ "DASHBOARD.ENVIRONMENTAL" | translate }}
               </p>
                   
               <p class="brand-800-text f-size-0-85rem fw-600 l-height-1-5 pb-2">
-                Social
+                {{ "DASHBOARD.SOCIAL" | translate }}
               </p>
                   
               <p class="brand-800-text f-size-0-85rem fw-600 l-height-1-5">
-                Governança
+                {{ "DASHBOARD.GOVERNANCE" | translate }}
               </p>
             </div>
   
             <div>
               <p class="alpha-700-text l-height-1-5 f-size-12px fw-500 pb-1">
-                Progresso
+                {{ "DASHBOARD.PROGRESS" | translate }}
               </p>
                 
               <div class="d-flex flex-column align-item-start justify-content-start pb-1">
@@ -74,7 +74,7 @@
   
             <div>
               <p class="alpha-700-text l-height-1-5 f-size-12px fw-500 pb-1">
-                Score por segmento
+                {{ "DASHBOARD.SCORE_PER_SEGMENT" | translate }}
               </p>
                 
               <div class="d-flex flex-column align-item-start justify-content-start pb-1">
@@ -107,26 +107,26 @@
   
             <div>
               <p class="alpha-700-text l-height-1-5 f-size-12px fw-500 pb-1">
-                Status
+                {{ "DASHBOARD.STATUS" | translate }}
               </p>
                   
               <a routerLink="/logged/payment">
                 <button class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-center gap-2">
-                  Iniciar
+                  {{ "DASHBOARD.START" | translate }}
                   <img src="/assets/icon/play.svg" alt="Iniciar">
                 </button>
               </a>
                   
               <a routerLink="/logged/payment">
                 <button class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-center gap-2">
-                  Iniciar
+                  {{ "DASHBOARD.START" | translate }}
                   <img src="/assets/icon/play.svg" alt="Iniciar">
                 </button>
               </a>
                   
               <a routerLink="/logged/payment">
                 <button class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-center gap-2">
-                  Iniciar
+                  {{ "DASHBOARD.START" | translate }}
                   <img src="/assets/icon/play.svg" alt="Iniciar">
                 </button>
               </a>
@@ -136,18 +136,18 @@
   
         <div class="indicator-card p-4" style="min-width: 280px; z-index: 1;">
           <h4 class="f-size-1-25rem l-height-1-5rem fw-700 primary-text mb-2">
-            Indicador Geral
+            {{ "DASHBOARD.INDICATOR" | translate }}
           </h4>
           <p class="f-size-0-85rem l-height-1-25 fw-500 primary-text mb-2" style="max-width: 182px;">
-            Você ainda não possui um indicador.
+            {{ "DASHBOARD.YOU_DONT_HAVE" | translate }}
           </p>
           <p class="f-size-0-671875rem l-height-1rem fw-500 primary-text mb-4 pb-2" style="max-width: 182px;">
-            Faça a avaliação para saber o seu rank geral.
+            {{ "DASHBOARD.TAKE_ASSESMENT" | translate }}
           </p>
   
           <a routerLink="/logged/payment">
             <button class="brand-btn w-100">
-              Fazer Avaliação
+              {{ "DASHBOARD.START_ASSESMENT" | translate }}
             </button> 
           </a>
         </div>
@@ -159,7 +159,7 @@
     <div class="col-12 col-xl-5">
       <div class="card-logged p-3 p-lg-4">
         <h4 class="primary-text f-size-1-5rem fw-700 pb-3">
-          Histórico de pontuação
+          {{ "DASHBOARD.ASSESMENT_HISTORY" | translate }}
         </h4>
   
         <img src="/assets/img/graph-dash.svg" alt="Gráfico exemplo" class="w-100">
@@ -171,16 +171,16 @@
         <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 pb-3">
           <div>
             <h4 class="primary-text f-size-1-5rem fw-700 pb-1">
-              Nível de aderência atual
+              {{ "DASHBOARD.ADERENCE_LEVEL" | translate }}
             </h4>
   
             <p class="alpha-700-text f-size-0-85rem fw-500">
-              17 objetivos das ODS
+              {{ "DASHBOARD.17_OBJECTIVES" | translate }}
             </p>
           </div>
     
           <button class="no-bg-btn text-nowrap fw-600 brand-text bg-transparent d-flex align-item-center justify-content-center gap-2">
-            Gerar relatório
+            {{ "DASHBOARD.GENERATE_RELATORY" | translate }}
             <img src="/assets/icon/download.svg" alt="Download">
           </button>
         </div>
@@ -194,7 +194,7 @@
             <img src="/assets/icon/selos-ods/5.svg" alt="5" title="5">
             <img src="/assets/icon/selos-ods/7.svg" alt="6" title="6">
           </div>
-          <p class="f-size-12px fw-500 pb-1">Alto</p>
+          <p class="f-size-12px fw-500 pb-1">{{ "DASHBOARD.HIGH" | translate }}</p>
         </div>
   
         <div class="intermediate-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2 mb-2">
@@ -208,7 +208,7 @@
             <img src="/assets/icon/selos-ods/13.svg" alt="13" title="13">
             <img src="/assets/icon/selos-ods/14.svg" alt="14" title="14">
           </div>
-          <p class="f-size-12px fw-500 pb-1">Intermediário</p>
+          <p class="f-size-12px fw-500 pb-1">{{ "DASHBOARD.INTERMEDIATE" | translate }}</p>
         </div>
   
         <div class="low-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2">
@@ -217,7 +217,7 @@
             <img src="/assets/icon/selos-ods/16.svg" alt="16" title="16">
             <img src="/assets/icon/selos-ods/17.svg" alt="17" title="17">
           </div>
-          <p class="f-size-12px fw-500 pb-1">Baixo</p>
+          <p class="f-size-12px fw-500 pb-1">{{ "DASHBOARD.LOW" | translate }}</p>
         </div>
       </div>
     </div>

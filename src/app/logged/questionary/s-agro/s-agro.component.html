@@ -32,7 +32,7 @@
             <div *ngIf="actualStep === (i + 1)" class="fade-in-right col pb-lg-5 pt-lg-4">
                 <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
                     <div class="flex-grow-1 w-100">
-                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68 l-height-1-5rem">{{ actualStep }}. {{ questionaryData[i].question }}</p>
+                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68 l-height-1-5rem">{{ actualStep }}. {{ "QUESTIONS." + questionaryData[i].id + "_TITLE" | translate }}</p>
         
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input [formControl]="control" type="radio" style="width: fit-content;" id="Yes" name="answer" value="Yes">
@@ -75,25 +75,27 @@
                             {{ "QUESTIONARY.GLOSSARY" | translate }}
                         </h4>
         
+                        <p class="d-none" #description>{{ "QUESTIONS." + questionaryData[i].id + "_DESCRIPTION" | translate }}</p>
+
                         <p *ngIf="
-                            questionaryData[i].description.length > 200
+                            description.innerText.length > 200
                         " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
                             {{ keepReading 
                                 ? 
-                                questionaryData[i].description
+                                description.innerText
                                 :
-                                questionaryData[i].description.slice(0, 200) + '...'
+                                description.innerText.slice(0, 200) + '...'
                             }}
                         </p>
         
                         <p *ngIf="
-                            questionaryData[i].description.length <= 200
+                            description.innerText.length <= 200
                         " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
-                            {{ questionaryData[i].description }}
+                            {{ description.innerText }}
                         </p>
         
                         <div *ngIf="
-                            questionaryData[i].description.length > 200
+                            description.innerText.length > 200
                         " class="d-flex align-items-center justify-content-end w-100">
                             <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
                                 {{ "QUESTIONARY.EXPAND" | translate }}
@@ -145,8 +147,8 @@
 
     <ul>
         <li *ngFor="let item of questionaryData; let index = index" class="pb-2">
-            <p class="d-block w-100 f-size-1rem l-height-1-5rem alpha-700-text fw-700 pb-2">
-                {{ index + 1 }}. {{ item.question }}
+                        <p class="d-block w-100 f-size-1rem l-height-1-5rem alpha-700-text fw-700 pb-2">
+                {{ index + 1 }}. {{ "QUESTIONS." + item.id + "_TITLE" | translate }}
             </p>
             <p class="d-flex w-100 f-size-1rem l-height-1-25rem alpha-700-text fw-400 gap-1">
                 resposta: &shy;
@@ -198,7 +200,7 @@
         <ul>
             <li *ngFor="let control of formArrayDocuments.controls; let index = index" class="pb-5">
                 <p class="d-block w-100 f-size-1rem l-height-1-5rem alpha-700-text fw-700 pb-2">
-                    {{ index + 1 }}. {{ questionaryData[index].question }}
+                    {{ index + 1 }}. {{ "QUESTIONS." + questionaryData[index] + "_TITLE" | translate }}
                 </p>
                 <p class="d-flex w-100 f-size-1rem l-height-1-25rem alpha-700-text fw-400 gap-1">
                     resposta: &shy;

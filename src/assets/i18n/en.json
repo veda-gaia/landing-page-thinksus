@@ -204,5 +204,162 @@
         "ABOUT": "About ESG",
         "SUBSCRIPTION": "Subscription",
         "HELP": "Help"
+    },
+    "QUESTIONARY": {
+        "GOVERNAMENTAL_TITLE": "Governmental Assessment",
+        "ENVIRONMENTAL_TITLE": "Environmental Assessment",
+        "SOCIAL_TITLE": "Social Assessment",
+        "QUESTION": "Question",
+        "30_PERCENT": "Important: To ensure the accuracy of your answers, there is a 30% limit for selections marked as 'does not apply'. If this limit is exceeded, you will receive a notification to review your answers.",
+        "YES": "Yes",
+        "NO": "No",
+        "DOESNT_APPLY": "Does not apply",
+        "NEXT": "Next",
+        "CONTINUE_LATER": "Continue later",
+        "BACK": "Back",
+        "GLOSSARY": "Glossary",
+        "EXPAND": "Read more",
+        "LIMIT_EXCEDED": "Attention: \"Does not apply\" limit exceeded",
+        "DOCUMENT_NEEDED": "Important: Proof of document required",
+        "ANSWER_SUMMARY": "Answer summary",
+        "CANNOT_CHANGE": "Important: Once the questionnaire is finalized, you will not be able to change your answers.",
+        "REVIEW": "Review questions",
+        "DOCUMENT_SEND": "Document submission"
+    },
+    "QUESTIONS": {
+        "E1_TITLE": "The quantity of deforestation caused by the company is within the acceptable limits within the extend permitted by law",
+        "E1_DESCRIPTION": "The quantity of deforestation caused by the company is within the acceptable limits within the extend permitted by law",
+
+        "E2_TITLE": "Is there any policy and practice of animal welfare ?",
+        "E2_DESCRIPTION": "Rules and guidelines that the company show follow for the animal welfare",
+
+        "E3_TITLE": "Is there any carbon footprint control and mitigation actions?",
+        "E3_DESCRIPTION": "Carbon footprint is when raw material and pollutants production are originated from the production process. There is some  calculation involving each consumed resource (such as liters of car fuel, electric energy, raw material quantity etc.). The calculation quantifies the amount of carbon in every operation, resulting in carbon footprint to be reported. ",
+
+        "E4_TITLE": "Is there any disclosure of environmental responsibility compliance ?",
+        "E4_DESCRIPTION": "Compliance are rules and guidelines of individual and collective responsibility of the company, in terms of actions that impact the environment ( such as material recycling, consumption reduction). These guidelines must be communicated to all the employees from time to time. ",
+
+        "E5_TITLE": "Does the energy source is provided by renewable energy sources? (solar, wind energy)",
+        "E5_DESCRIPTION": "Energy sources are the ones that supply energy to machines, buildings and operations. In general the energy sources are water and city lights. Alternative sources would be the water collection and treatment, electric energy from solar panel or wind energy. ",
+
+        "E6_TITLE": "Is there a reuse water collection system?",
+        "E6_DESCRIPTION": "Forms and methods of rain water collection that, after going through proper treatment, enables the reuse. It provides a reduction of the water use that comes from the city system. ",
+
+        "E7_TITLE": "Do vehicles use fossil fuel?",
+        "E7_DESCRIPTION": " Fossil fuel are: petroleum, coal and natural gas, derived from the decomposition of living beings. The most common fuels are gasoline and diesel, resulted from petroleum. The alternative would be the use of electric vehicles ",
+
+        "E8_TITLE": "Is there any monitoring of natural resources monthly consumption and reduction targets?",
+        "E8_DESCRIPTION": "Natural resources as elements that are removed from nature to meet the men needs (e.g. solar energy, wood, soil, water, wind, animals, vegetables )",
+
+        "E9_TITLE": "Are all operation waste treated before disposal? (sewage, waste, effluents)",
+        "E9_DESCRIPTION": "Waste (material consumed for the operation ) present pollution risks to the environment in case of not handled and treated properly. The materials used in the production must be correctly recycled, the sewage treated and any other material left must be properly disposed.",
+
+        "E10_TITLE": "Is there a management waste monthly report?",
+        "E10_DESCRIPTION": "A detailed report, that is documented and registered ( some kind of monthly report ) regarding how the wastes are treated and controlled in the company.",
+
+        "E11_TITLE": "Are there any current alternatives in course to reduce pollution?",
+        "E11_DESCRIPTION": "Protocols, regulation and methods to reduce the pollution in course. An alternative would be a program to bring awareness regarding water consumption, material recycling and a mindful energy consumption.",
+
+        "E12_TITLE": "Does the company make use of pesticide that may infect the water table ?",
+        "E12_DESCRIPTION": "The use of pesticides ( chemical agents for pest and insects control) is common in the production",
+
+        "E13_TITLE": "Does your final product make use of disposable packaging?",
+        "E13_DESCRIPTION": "Disposable packages that are made from recycled materials, that can be reused, diminishing negative aspects in the environment",
+
+        "E14_TITLE": "Is there a climate change mitigation program?",
+        "E14_DESCRIPTION": "Use of protocols to reduce negative impacts that may affect climate changes",
+
+        "E15_TITLE": "Can climate change severely affect the operation  ( such as tornados, drought, wildfire, snowstorm)? ",
+        "E15_DESCRIPTION": "The activities of the company can go through changes on its production and in its activities in general due to climate change, such as flooding, drought, hurricanes, burnings.",
+
+        "S1_TITLE": "Is there an Intern Compliance of social Role in the company? ",
+        "S1_DESCRIPTION": "Intern Compliance of Social Role are rules and guidelines of collective and individual responsibilities of the company that contemplates spheres of society such as job creation, tax payment, wealth generation, contribution to economic, social and cultural growth, use of sustainable practice related to consumer rights.",
+
+        "S2_TITLE": "Are all the workers registered, with social taxes collected correctly on a monthly basis, and with a salary consistent with their role?",
+        "S2_DESCRIPTION": "The company follows the country's labor law to hiring, collect all taxation related to this employement, with payment on time ?",
+
+        "S3_TITLE": "Are all the workers registered, with social taxes collected correctly on a monthly basis, and with a salary consistent with their role?",
+        "S3_DESCRIPTION": "The company follows the country's labor law to hiring, collect all taxation related to this employement, with payment on time ?",
+
+        "S4_TITLE": "Is the selection process for every vacant position a fair manner , with no distinction or discrimination  of color, race, sexual or beliefs?  ",
+        "S4_DESCRIPTION": "The recruiting process for new candidates respects diversity, with no eliminatory classification related to their choice of beliefs, skin color, ethnicity and sexual orientation, considering only their professional skills and their ability to develop the work they are being evaluated to. ",
+
+        "S5_TITLE": "Has any occupational accident with injuries occurred over the last 24 months?",
+        "S5_DESCRIPTION": "Occurrence of accident at work with employees while performing their duties, with or without loss of working time, prior 24 months from the event of answering this survey.",
+
+        "S6_TITLE": "Is there any conviction in first instance on Labor Justice over the last 5 years?",
+        "S6_DESCRIPTION": "The company has been judicially sued and punished for not complying with the Labors Law",
+
+        "S7_TITLE": "Is there any interaction with social and political organizations in the city of business?",
+        "S7_DESCRIPTION": "The company has political/ social connections in the city where it operates.",
+
+        "S8_TITLE": "Are social engagements consistently reported (within the last 48 months)?",
+        "S8_DESCRIPTION": "The reports are documents describing every social commitment ( creation, development and support to programs directed to the community, life quality and environment)",
+
+        "S9_TITLE": "Is there any control for confidential information  according to General Data Protection Law?",
+        "S9_DESCRIPTION": "The confidential information is kept in private by the control and guidelines according to the General Data Protection Law ?",
+
+        "S10_TITLE": "Is there a communication channel between customers and suppliers?",
+        "S10_DESCRIPTION": "Tools that enable the communication between clients and suppliers",
+
+        "S11_TITLE": "Is there an anonymous report channel? If positive, are all cases investigated and reported to all employees?",
+        "S11_DESCRIPTION": "Anonymous report channel where the complainant is never disclosed and their confidentiality is kept. If positive, the people in charge of managing this channel will analyze it and take actions to deal with it.",
+
+        "S12_TITLE": "Is the Internal Code to fight corruption clear and available to all employees?",
+        "S12_DESCRIPTION": "The Intern Code to Fight Corruption is clear and legible for an easy understanding",
+
+        "S13_TITLE": "Does the company have a pricing policy that is used to manipulate the market free competition?",
+        "S13_DESCRIPTION": "The pricing of the products is made fairly and lawful for the market free competition",
+
+        "S14_TITLE": "Is there a term of social behavior for suppliers? If positive, is it in agreement with the Intern Compliance values ?",
+        "S14_DESCRIPTION": "The term of social behavior for suppliers demonstrate the way to classify these suppliers must be in accordance with the intern compliance of the company",
+
+        "S15_TITLE": "Is there any open report, internal or external, regarding customers inquiry from the last 48 months?",
+        "S15_DESCRIPTION": "The clients inquiries are reported without any kind of censorship",
+
+        "S16_TITLE": "Does the company provide any benefits to employees for education/ culture/other type of training, not related to the job function/business?",
+        "S16_DESCRIPTION": "Benefits may include discount partnerships for extra-curricular or continuing education courses, in-house training and study programs or financial incentives to be spent on education.",
+
+        "G1_TITLE": "Does your product present risk to the consumer's health if consumed to excess ?",
+        "G1_DESCRIPTION": "The product may be hazardous to consumer's health in case of excessive consumption beyond recommendation",
+
+        "G2_TITLE": "Does your product present risk to society in general if consumed or used incorrectly?",
+        "G2_DESCRIPTION": "The product may be hazardous to consumer's health in case of consuming it differently from recommended",
+
+        "G3_TITLE": "Is there any political, national or international risk that can affect the product market ?",
+        "G3_DESCRIPTION": "Are there any internal and external political elements  to national territory that may affect the way the product is marketed ?",
+
+        "G4_TITLE": "Is your market of operation regulated by corporate/ class institutions ?",
+        "G4_DESCRIPTION": "Should the market where your product operates follow guidelines to some kind of institution so it can be commercialized ?",
+
+        "G5_TITLE": "Is there a contingency plan against corporate risks ?",
+        "G5_DESCRIPTION": "A plan to control and reduce any possible risky situation inside the company; situations that are beyond the scope of the company's internal compliance.",
+
+        "G6_TITLE": "Does the company go through some type of auditing ( quality/ finances)?",
+        "G6_DESCRIPTION": "Auditing is a thorough analysis of the activities that are developed in specific organizations whose purpose is to investigate if they are in accordance with previous planning and if they were efficiently applied to the previous intentions.",
+
+        "G7_TITLE": "Is there any division between the ones who manages the business day-to day and the owner of the company ?",
+        "G7_DESCRIPTION": "The company has specific employees for every department to maintain its proper functioning  who is not  its owner",
+
+        "G8_TITLE": "Is there a economic/commercial connection with other subsidiaries under the same management ?",
+        "G8_DESCRIPTION": "Commercial and economical relations with other company's subsidiaries under the same management",
+
+        "G9_TITLE": "Is there an intern code related to conflict of interests ?",
+        "G9_DESCRIPTION": "A guideline with rules regarding conflict of interests",
+
+        "G10_TITLE": "Is there a public publication of your product's ingredients ?",
+        "G10_DESCRIPTION": "Public documents released through media outlets describing the ingredients that are used in the company's products",
+
+        "G11_TITLE": "Has the company been judicially penalized over the last three years for misconduct against free competition ?",
+        "G11_DESCRIPTION": "The company has been judicially noticed for practicing dishonest misconduct against free competition",
+
+        "G14_TITLE": "Is there a monthly/ annual financial report for all employees ?",
+        "G14_DESCRIPTION": "All employees have access to documents reporting the company's financial performance",
+
+        "G15_TITLE": "Is the company's profitability over the last three years on a satisfactory level, on average or above the market level?",
+        "G15_DESCRIPTION": "Does the company's profitability maintains satisfactory levels, on average compared to the market indexes ?",
+
+        "G16_TITLE": "The current business  structure support and operational growth and future market trends, without great costs of additional investment ?",
+        "G16_DESCRIPTION": "Does the company have the ability to invest in operational growth according to its income, with no need of external additional investment?"
     }
 }

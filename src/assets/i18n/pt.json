@@ -399,7 +399,8 @@
         "CHANGE_PLAN": "Alterar plano",
         "SIMULATION": "Simulação",
         "SOLUTION": "Solução",
-        "SUPPLY": "Cadeia de Suprimento"
+        "SUPPLY": "Cadeia de Suprimento",
+        "SIMULATION_PLAN" : "Plano Simulação"
     },
     "DASHBOARD": {
         "YOUR_SCORE": "Pontuação ThinkSus",

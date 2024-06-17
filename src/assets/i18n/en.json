@@ -488,5 +488,64 @@
         "BUY_VALUE": "Annual purchase value",
         "CANCEL": "Cancel",
         "ADD": "Add"
+    },
+    "ODS": {
+        "PAGE_DESCRIPTION_PT_1": "The 17 UN Sustainable Development Goals are a global proposal that addresses the main challenges of contemporary society in Brazil and around the world.",
+        "PAGE_DESCRIPTION_PT_2": "This UN proposition, which involves its member countries, is part of the 2030 Agenda, which is nothing more than a joint effort by countries, companies, institutions and civil society to end poverty, protect the environment and climate and ensure that people everywhere can enjoy peace and prosperity.",
+        "PAGE_DESCRIPTION_PT_3": "Our rating is based on the 17 UN SDGs as an adherence matrix, which determines the strengths and points to be improved so that your company and its business are within the standards of sustainable practices...",
+
+        "PAGE_TITLE": "ODS adherence to your profile",
+        "PAGE_SUBTITLE": "Objectives related to your company’s area of ​​activity",
+
+        "1_TITLE": "No Poverty",
+        "1_DESCRIPTION": "End poverty in all its forms, everywhere.",
+        
+        "2_TITLE": "Zero Hunger",
+        "2_DESCRIPTION": "End hunger, achieve food security and improved nutrition, and promote sustainable agriculture.",
+        
+        "3_TITLE": "Good Health and Wellbeing",
+        "3_DESCRIPTION": "Ensure healthy lives and promote well-being for all, at all ages.",
+        
+        "4_TITLE": "Quality Education",
+        "4_DESCRIPTION": "Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all.",
+        
+        "5_TITLE": "Gender Equality",
+        "5_DESCRIPTION": "Achieve gender equality and empower all women and girls.",
+        
+        "6_TITLE": "Clean Water and Sanitation",
+        "6_DESCRIPTION": "Ensure availability and sustainable management of water and sanitation for all.",
+        
+        "7_TITLE": "Affordable and Clean Energy",
+        "7_DESCRIPTION": "Ensure access to affordable, reliable, sustainable, and modern energy for all.",
+        
+        "8_TITLE": "Decent Work and Economic Growth",
+        "8_DESCRIPTION": "Promote sustained, inclusive, and sustainable economic growth, full and productive employment, and decent work for all.",
+        
+        "9_TITLE": "Industry, Innovation and Infrastructure",
+        "9_DESCRIPTION": "Build resilient infrastructure, promote inclusive and sustainable industrialization, and foster innovation.",
+        
+        "10_TITLE": "Reduced Inequalities",
+        "10_DESCRIPTION": "Reduce inequality within and among countries.",
+        
+        "11_TITLE": "Sustainable Cities and Communities",
+        "11_DESCRIPTION": "Make cities and human settlements inclusive, safe, resilient, and sustainable.",
+        
+        "12_TITLE": "Responsible Consumption and Production",
+        "12_DESCRIPTION": "Ensure sustainable consumption and production patterns.",
+        
+        "13_TITLE": "Climate Action",
+        "13_DESCRIPTION": "Take urgent action to combat climate change and its impacts.",
+        
+        "14_TITLE": "Life Below Water",
+        "14_DESCRIPTION": "Conserve and sustainably use the oceans, seas, and marine resources for sustainable development.",
+        
+        "15_TITLE": "Life on Land",
+        "15_DESCRIPTION": "Protect, restore, and promote sustainable use of terrestrial ecosystems, manage forests, combat desertification and biodiversity loss, and halt and reverse land degradation.",
+        
+        "16_TITLE": "Peace, Justice and Strong Institutions",
+        "16_DESCRIPTION": "Promote peaceful and inclusive societies for sustainable development, provide access to justice for all, and build effective, accountable, and inclusive institutions.",
+        
+        "17_TITLE": "Partnerships",
+        "17_DESCRIPTION": "Strengthen the means of implementation and revitalize the global partnership for sustainable development."
     }
 }

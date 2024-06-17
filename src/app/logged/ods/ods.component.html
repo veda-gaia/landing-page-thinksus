@@ -15,9 +15,9 @@
                 </div>
     
                 <p class="f-size-0-85rem l-height-1-25 fw-500 alpha-800-text" style="max-width: 550px;">
-                    Os 17 Objetivos de Desenvolvimento Sustentável da ONU é uma proposta de aceno global que aborda os principais desafios da sociedade contemporânea no Brasil e no mundo.<br>
-                    Essa proposição da ONU, que envolve seus países membros, é parte da Agenda 2030, que nada mais é que um esforço conjunto de países, empresas, instituições e sociedade civil para acabar com a pobreza, proteger o meio ambiente e o clima e garantir que as pessoas, em todos os lugares, possam desfrutar de paz e de prosperidade.<br>
-                    Nosso rating tem como matriz de aderência as 17 ODS da ONU, que determina os pontos fortes e os pontos a serem melhorados para que sua empresa e seus negócios estejam dentro dos padrões de práticas sustentáveis...
+                    {{ "ODS.PAGE_DESCRIPTION_PT_1" | translate }}<br>
+                    {{ "ODS.PAGE_DESCRIPTION_PT_2" | translate }}<br>
+                    {{ "ODS.PAGE_DESCRIPTION_PT_3" | translate }}
                 </p>
             </div>
         </div>
@@ -26,151 +26,25 @@
     <div class="row fade-in pb-4">
         <div class="col">
             <h3 class="alpha-800-text f-size-1-5rem l-height-1-5rem pb-1 fw-800">
-                Aderência ODS ao seu perfl
+                {{ "ODS.PAGE_TITLE" | translate }}
             </h3>
 
             <p class="alpha-700-text f-size-0-85rem fw-500">
-                Objetivos voltados a área de atuação de sua empresa
+                {{ "ODS.PAGE_SUBTITLE" | translate }}
             </p>
         </div>
     </div>
 
     <div class="row fade-in">
-        <div class="col col-12 col-lg-6 pb-4">
+        <div *ngFor="let i of first10" class="col col-12 col-lg-6 pb-4">
             <div class="card-logged d-flex align-item-start justify-content-start p-3 gap-2">
-                <img src="/assets/icon/selos-ods/1.svg" alt="1" width="53px" style="min-width: 53px; max-height: 53px;">
+                <img src="/assets/icon/selos-ods/{{ i.number }}.svg" alt="1" width="53px" style="min-width: 53px; max-height: 53px;">
                 <div>
                     <p class="f-size-12px fw-700 primary-text pb-2">
-                        Lorem ipsum
+                        {{ "ODS." + i.number + "_TITLE" | translate }}
                     </p>
                     <p class="f-size-12px l-height-1rem fw-500 secondary-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col col-12 col-lg-6 pb-4">
-            <div class="card-logged d-flex align-item-start justify-content-start p-3 gap-2">
-                <img src="/assets/icon/selos-ods/2.svg" alt="2" width="53px" style="min-width: 53px; max-height: 53px;">
-                <div>
-                    <p class="f-size-12px fw-700 primary-text pb-2">
-                        Lorem ipsum
-                    </p>
-                    <p class="f-size-12px l-height-1rem fw-500 secondary-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col col-12 col-lg-6 pb-4">
-            <div class="card-logged d-flex align-item-start justify-content-start p-3 gap-2">
-                <img src="/assets/icon/selos-ods/3.svg" alt="2" width="53px" style="min-width: 53px; max-height: 53px;">
-                <div>
-                    <p class="f-size-12px fw-700 primary-text pb-2">
-                        Lorem ipsum
-                    </p>
-                    <p class="f-size-12px l-height-1rem fw-500 secondary-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col col-12 col-lg-6 pb-4">
-            <div class="card-logged d-flex align-item-start justify-content-start p-3 gap-2">
-                <img src="/assets/icon/selos-ods/4.svg" alt="2" width="53px" style="min-width: 53px; max-height: 53px;">
-                <div>
-                    <p class="f-size-12px fw-700 primary-text pb-2">
-                        Lorem ipsum
-                    </p>
-                    <p class="f-size-12px l-height-1rem fw-500 secondary-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col col-12 col-lg-6 pb-4">
-            <div class="card-logged d-flex align-item-start justify-content-start p-3 gap-2">
-                <img src="/assets/icon/selos-ods/5.svg" alt="2" width="53px" style="min-width: 53px; max-height: 53px;">
-                <div>
-                    <p class="f-size-12px fw-700 primary-text pb-2">
-                        Lorem ipsum
-                    </p>
-                    <p class="f-size-12px l-height-1rem fw-500 secondary-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col col-12 col-lg-6 pb-4">
-            <div class="card-logged d-flex align-item-start justify-content-start p-3 gap-2">
-                <img src="/assets/icon/selos-ods/6.svg" alt="2" width="53px" style="min-width: 53px; max-height: 53px;">
-                <div>
-                    <p class="f-size-12px fw-700 primary-text pb-2">
-                        Lorem ipsum
-                    </p>
-                    <p class="f-size-12px l-height-1rem fw-500 secondary-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col col-12 col-lg-6 pb-4">
-            <div class="card-logged d-flex align-item-start justify-content-start p-3 gap-2">
-                <img src="/assets/icon/selos-ods/7.svg" alt="2" width="53px" style="min-width: 53px; max-height: 53px;">
-                <div>
-                    <p class="f-size-12px fw-700 primary-text pb-2">
-                        Lorem ipsum
-                    </p>
-                    <p class="f-size-12px l-height-1rem fw-500 secondary-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col col-12 col-lg-6 pb-4">
-            <div class="card-logged d-flex align-item-start justify-content-start p-3 gap-2">
-                <img src="/assets/icon/selos-ods/8.svg" alt="2" width="53px" style="min-width: 53px; max-height: 53px;">
-                <div>
-                    <p class="f-size-12px fw-700 primary-text pb-2">
-                        Lorem ipsum
-                    </p>
-                    <p class="f-size-12px l-height-1rem fw-500 secondary-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col col-12 col-lg-6 pb-4">
-            <div class="card-logged d-flex align-item-start justify-content-start p-3 gap-2">
-                <img src="/assets/icon/selos-ods/9.svg" alt="2" width="53px" style="min-width: 53px; max-height: 53px;">
-                <div>
-                    <p class="f-size-12px fw-700 primary-text pb-2">
-                        Lorem ipsum
-                    </p>
-                    <p class="f-size-12px l-height-1rem fw-500 secondary-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col col-12 col-lg-6 pb-4">
-            <div class="card-logged d-flex align-item-start justify-content-start p-3 gap-2">
-                <img src="/assets/icon/selos-ods/10.svg" alt="2" width="53px" style="min-width: 53px; max-height: 53px;">
-                <div>
-                    <p class="f-size-12px fw-700 primary-text pb-2">
-                        Lorem ipsum
-                    </p>
-                    <p class="f-size-12px l-height-1rem fw-500 secondary-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                        {{ "ODS." + i.number + "_DESCRIPTION" | translate }}
                     </p>
                 </div>
             </div>
@@ -184,99 +58,15 @@
     </div>
 
     <div class="row fade-in" *ngIf="seeMore">
-        <div class="col col-12 col-lg-6 pb-4">
+        <div *ngFor="let i of last7" class="col col-12 col-lg-6 pb-4">
             <div class="card-logged d-flex align-item-start justify-content-start p-3 gap-2">
-                <img src="/assets/icon/selos-ods/11.svg" alt="1" width="53px" style="min-width: 53px; max-height: 53px;">
+                <img src="/assets/icon/selos-ods/{{ i.number }}.svg" alt="1" width="53px" style="min-width: 53px; max-height: 53px;">
                 <div>
                     <p class="f-size-12px fw-700 primary-text pb-2">
-                        Lorem ipsum
+                        {{ "ODS." + i.number + "_TITLE" | translate }}
                     </p>
                     <p class="f-size-12px l-height-1rem fw-500 secondary-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col col-12 col-lg-6 pb-4">
-            <div class="card-logged d-flex align-item-start justify-content-start p-3 gap-2">
-                <img src="/assets/icon/selos-ods/12.svg" alt="2" width="53px" style="min-width: 53px; max-height: 53px;">
-                <div>
-                    <p class="f-size-12px fw-700 primary-text pb-2">
-                        Lorem ipsum
-                    </p>
-                    <p class="f-size-12px l-height-1rem fw-500 secondary-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col col-12 col-lg-6 pb-4">
-            <div class="card-logged d-flex align-item-start justify-content-start p-3 gap-2">
-                <img src="/assets/icon/selos-ods/13.svg" alt="2" width="53px" style="min-width: 53px; max-height: 53px;">
-                <div>
-                    <p class="f-size-12px fw-700 primary-text pb-2">
-                        Lorem ipsum
-                    </p>
-                    <p class="f-size-12px l-height-1rem fw-500 secondary-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col col-12 col-lg-6 pb-4">
-            <div class="card-logged d-flex align-item-start justify-content-start p-3 gap-2">
-                <img src="/assets/icon/selos-ods/14.svg" alt="2" width="53px" style="min-width: 53px; max-height: 53px;">
-                <div>
-                    <p class="f-size-12px fw-700 primary-text pb-2">
-                        Lorem ipsum
-                    </p>
-                    <p class="f-size-12px l-height-1rem fw-500 secondary-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col col-12 col-lg-6 pb-4">
-            <div class="card-logged d-flex align-item-start justify-content-start p-3 gap-2">
-                <img src="/assets/icon/selos-ods/15.svg" alt="2" width="53px" style="min-width: 53px; max-height: 53px;">
-                <div>
-                    <p class="f-size-12px fw-700 primary-text pb-2">
-                        Lorem ipsum
-                    </p>
-                    <p class="f-size-12px l-height-1rem fw-500 secondary-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col col-12 col-lg-6 pb-4">
-            <div class="card-logged d-flex align-item-start justify-content-start p-3 gap-2">
-                <img src="/assets/icon/selos-ods/16.svg" alt="2" width="53px" style="min-width: 53px; max-height: 53px;">
-                <div>
-                    <p class="f-size-12px fw-700 primary-text pb-2">
-                        Lorem ipsum
-                    </p>
-                    <p class="f-size-12px l-height-1rem fw-500 secondary-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col col-12 col-lg-6 pb-4">
-            <div class="card-logged d-flex align-item-start justify-content-start p-3 gap-2">
-                <img src="/assets/icon/selos-ods/17.svg" alt="2" width="53px" style="min-width: 53px; max-height: 53px;">
-                <div>
-                    <p class="f-size-12px fw-700 primary-text pb-2">
-                        Lorem ipsum
-                    </p>
-                    <p class="f-size-12px l-height-1rem fw-500 secondary-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                        {{ "ODS." + i.number + "_DESCRIPTION" | translate }}
                     </p>
                 </div>
             </div>

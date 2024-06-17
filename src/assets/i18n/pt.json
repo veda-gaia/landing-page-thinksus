@@ -488,5 +488,64 @@
         "BUY_VALUE": "Valor de compra anual",
         "CANCEL": "Cancelar",
         "ADD": "Adicionar"
+    },
+    "ODS": {
+        "PAGE_DESCRIPTION_PT_1": "Os 17 Objetivos de Desenvolvimento Sustentável da ONU é uma proposta de aceno global que aborda os principais desafios da sociedade contemporânea no Brasil e no mundo.",
+        "PAGE_DESCRIPTION_PT_2": "Essa proposição da ONU, que envolve seus países membros, é parte da Agenda 2030, que nada mais é que um esforço conjunto de países, empresas, instituições e sociedade civil para acabar com a pobreza, proteger o meio ambiente e o clima e garantir que as pessoas, em todos os lugares, possam desfrutar de paz e de prosperidade.",
+        "PAGE_DESCRIPTION_PT_3": "Nosso rating tem como matriz de aderência as 17 ODS da ONU, que determina os pontos fortes e os pontos a serem melhorados para que sua empresa e seus negócios estejam dentro dos padrões de práticas sustentáveis...",
+
+        "PAGE_TITLE": "Aderência ODS ao seu perfil",
+        "PAGE_SUBTITLE": "Objetivos voltados a área de atuação de sua empresa",
+
+        "1_TITLE": "Erradicação da pobreza",
+        "1_DESCRIPTION": "Erradicação da pobreza",
+
+        "2_TITLE": "Fome zero e agricultura sustentável",
+        "2_DESCRIPTION": "Erradicar a fome, alcançar a segurança alimentar, melhorar a nutrição e promover a agricultura sustentável",
+
+        "3_TITLE": "Saúde e Bem-Estar",
+        "3_DESCRIPTION": "Garantir o acesso à saúde de qualidade e promover o bem-estar para todos, em todas as idades",
+
+        "4_TITLE": "Educação de qualidade",
+        "4_DESCRIPTION": "Garantir o acesso à educação inclusiva, de qualidade e equitativa, e promover oportunidades de aprendizagem ao longo da vida para todos",
+
+        "5_TITLE": "Igualdade de gênero",
+        "5_DESCRIPTION": "Alcançar a igualdade de gênero e empoderar todas as mulheres e meninas",
+
+        "6_TITLE": "Água potável e saneamento",
+        "6_DESCRIPTION": "Garantir a disponibilidade e a gestão sustentável da água potável e do saneamento para todos",
+
+        "7_TITLE": "Energia limpa e acessível",
+        "7_DESCRIPTION": "Garantir o acesso a fontes de energia fiáveis, sustentáveis e modernas para todos",
+
+        "8_TITLE": "Trabalho decente e crescimento econômico",
+        "8_DESCRIPTION": "Promover o crescimento econômico inclusivo e sustentável, o emprego pleno e produtivo e o trabalho digno para todos",
+
+        "9_TITLE": "Indústria, inovação e infraestrutura",
+        "9_DESCRIPTION": "Construir infraestruturas resilientes, promover a industrialização inclusiva e sustentável e fomentar a inovação",
+
+        "10_TITLE": "Redução das desigualdades",
+        "10_DESCRIPTION": "Reduzir as desigualdades no interior dos países e entre países",
+
+        "11_TITLE": "Cidades e comunidades sustentáveis",
+        "11_DESCRIPTION": "Tornar as cidades e comunidades mais inclusivas, seguras, resilientes e sustentáveis",
+
+        "12_TITLE": "Consumo e produção responsáveis",
+        "12_DESCRIPTION": "Garantir padrões de consumo e de produção sustentáveis",
+
+        "13_TITLE": "Ação contra a mudança global do clima",
+        "13_DESCRIPTION": "Adotar medidas urgentes para combater as alterações climáticas e os seus impactos",
+
+        "14_TITLE": "Vida na água",
+        "14_DESCRIPTION": "Conservar e usar de forma sustentável os oceanos, mares e os recursos marinhos para o desenvolvimento sustentável",
+
+        "15_TITLE": "Vida terrestre",
+        "15_DESCRIPTION": "Proteger, restaurar e promover o uso sustentável dos ecossistemas terrestres, gerir de forma sustentável as florestas, combater a desertificação, travar e reverter a degradação dos solos e travar a perda da biodiversidade",
+
+        "16_TITLE": "Paz, Justiça e Instituições Eficazes",
+        "16_DESCRIPTION": "Promover sociedades pacíficas e inclusivas para o desenvolvimento sustentável, proporcionar o acesso à justiça para todos e construir instituições eficazes, responsáveis e inclusivas a todos os níveis",
+
+        "17_TITLE": "Parcerias e meios de implementação",
+        "17_DESCRIPTION": "Reforçar os meios de implementação e revitalizar a parceria global para o desenvolvimento sustentável"
     }
 }

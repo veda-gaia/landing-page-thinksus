@@ -2,11 +2,11 @@
     <div class="row pb-4 pt-4">
         <div class="col d-flex flex-column flex-md-row align-item-center justify-content-between gap-3 pb-4">
             <h3 class="alpha-800-text f-size-1-5rem fw-800">
-                Lista de fornecedores
+                {{ "SUPPLIERS.LIST_TITLE" | translate }}
             </h3>
 
             <button class="brand-btn px-3" (click)="openAddSupplier()">
-                Adicionar fornecedor
+                {{ "SUPPLIERS.ADD_SUPPLIER" | translate }}
             </button>
         </div>
     </div>
@@ -14,14 +14,14 @@
     <div class="row pb-4">
         <form [formGroup]="form" class="col pb-4 d-flex flex-column flex-sm-row align-item-center justify-content-between gap-3">
             <div class="input-container" style="max-height: 53px;">
-                <input type="text" class="white-bg" formControlName="search" placeholder="Pesquise" name="search" id="search">
+                <input type="text" class="white-bg" formControlName="search" placeholder="{{ 'SUPPLIERS.SEARCH' | translate }}" name="search" id="search">
                 <img src="/assets/icon/search.svg" class="input-icon" alt="Pesquisar" width="20px">
             </div>
 
             <select name="orderBy" id="orderBy" formControlName="orderBy" class="d-block white-bg">
-                <option value="" disabled>Ordenar por</option>
-                <option value="seal">Selo</option>
-                <option value="alphabetical">Ordem alfabética</option>
+                <option value="" disabled>{{ "SUPPLIERS.ORDER_BY" | translate }}</option>
+                <option value="seal">{{ "SUPPLIERS.SEAL" | translate }}</option>
+                <option value="alphabetical">{{ "SUPPLIERS.LETTER_ORDER" | translate }}</option>
             </select>
         </form>
     </div>
@@ -32,12 +32,12 @@
                 <div class="table-container-real">
                     <table class="white-bg border-radius-10 pt-2">
                         <tr class="header-row-tr">
-                            <th>Selo</th>
-                            <th>Fornecedor</th>
-                            <th>Valor de compra</th>
-                            <th>ThinkSus Score</th>
-                            <th>CNPJ</th>
-                            <th>Ações</th>
+                            <th>{{ "SUPPLIERS.SEAL" | translate }}</th>
+                            <th>{{ "SUPPLIERS.SUPPLIER" | translate }}</th>
+                            <th>{{ "SUPPLIERS.BUY_VALUE" | translate }}</th>
+                            <th>{{ "SUPPLIERS.SCORE" | translate }}</th>
+                            <th>{{ "SUPPLIERS.CNPJ" | translate }}</th>
+                            <th>{{ "SUPPLIERS.ACTIONS" | translate }}</th>
                         </tr>
                         <tr *ngFor="let item of filteredList" class="body-row-tr">
                             <td class="">
@@ -68,10 +68,7 @@
                 </div>
 
                 <p *ngIf="!filteredList.length" class="w-100 text-center py-4 py-xl-5 color-app-300 font-s-09rem d-flex align-items-center justify-content-center gap-2">
-                    <span class="material-symbols-rounded color-app-300 font-s-09rem">
-                        page_info
-                    </span>
-                    Sem resultados
+                    {{ "SUPPLIERS.NO_RESULTS" | translate }}
                 </p>
             </div>
         </div>

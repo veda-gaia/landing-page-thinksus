@@ -464,5 +464,28 @@
         "GENERATED_AT_TABLE": "Generated in",
         "ACTIONS": "Actions",
         "NO_RESULTS": "No results"
+    },
+    "SUPPLIERS": {
+        "LIST_TITLE": "Supplier list",
+        "ADD_SUPPLIER": "Add supplier",
+        "SEARCH": "Search",
+        "ORDER_BY": "Order by",
+        "SEAL": "Seal",
+        "LETTER_ORDER": "Alphabetical order",
+        "SUPPLIER": "Supplier",
+        "BUY_VALUE": "Purchase price",
+        "SCORE": "ThinkSus Score",
+        "CNPJ": "Document",
+        "ACTIONS": "Actions",
+        "NO_RESULTS": "No results"
+    },
+    "ADD_SUPPLIER": {
+        "TITLE": "Add supplier",
+        "NAME": "Enter the supplier name",
+        "NAME_EXAMPLE": "Example name supplier",
+        "CNPJ": "Document",
+        "BUY_VALUE": "Annual purchase value",
+        "CANCEL": "Cancel",
+        "ADD": "Add"
     }
 }

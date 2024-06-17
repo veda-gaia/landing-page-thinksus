@@ -464,5 +464,28 @@
         "GENERATED_AT_TABLE": "Gerada em",
         "ACTIONS": "Ações",
         "NO_RESULTS": "Sem resultados"
+    },
+    "SUPPLIERS": {
+        "LIST_TITLE": "Lista de fornecedores",
+        "ADD_SUPPLIER": "Adicionar fornecedor",
+        "SEARCH": "Pesquise",
+        "ORDER_BY": "Ordenar por",
+        "SEAL": "Selo",
+        "LETTER_ORDER": "Ordem alfabética",
+        "SUPPLIER": "Fornecedor",
+        "BUY_VALUE": "Valor de compra",
+        "SCORE": "ThinkSus Score",
+        "CNPJ": "CNPJ",
+        "ACTIONS": "Ações",
+        "NO_RESULTS": "Sem resultados"
+    },
+    "ADD_SUPPLIER": {
+        "TITLE": "Adicionar fornecedor",
+        "NAME": "Digite o nome do fornecedor",
+        "NAME_EXAMPLE": "Fornecedor exemplo",
+        "CNPJ": "CNPJ",
+        "BUY_VALUE": "Valor de compra anual",
+        "CANCEL": "Cancelar",
+        "ADD": "Adicionar"
     }
 }

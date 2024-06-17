@@ -5,7 +5,7 @@
                 <!-- <div class="ps-3 pe-2 py-2 d-block"></div> -->
 
                 <h4 class="teal-900-text f-size-1-5rem fw-700 text-center">
-                    Adicionar fornecedor
+                    {{ "ADD_SUPPLIER.TITLE" | translate }}
                 </h4>
 
                 <button class="no-bg-btn bg-transparent p-0" (click)="exit()" title="fechar">
@@ -13,21 +13,21 @@
                 </button>
             </div>
 
-            <label for="name" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Digite o nome do fornecedor</label>
-            <input type="text" class="w-100 mb-4" formControlName="name" placeholder="Fornecedor exemplo" autocomplete="off" id="name" name="name"> 
+            <label for="name" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "ADD_SUPPLIER.NAME" | translate }}</label>
+            <input type="text" class="w-100 mb-4" formControlName="name" placeholder="{{ 'ADD_SUPPLIER.NAME_EXAMPLE' | translate }}" autocomplete="off" id="name" name="name"> 
 
-            <label for="document" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">CNPJ</label>
+            <label for="document" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ 'ADD_SUPPLIER.CNPJ' | translate }}</label>
             <input type="tel" mask="000.000.000/00" class="w-100 mb-4" formControlName="document" placeholder="000.000.000/00" autocomplete="off" id="document" name="document"> 
 
             <label for="email" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "LOGIN.EMAIL" | translate }}</label>
             <input type="text" mask="A*@A*.SSS" [validation]="true" [dropSpecialCharacters]="false" class="w-100 mb-4" formControlName="email" placeholder="email@email.com" autocomplete="off" id="email" name="email">
 
-            <label for="buyValue" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Valor de compra anual</label>
+            <label for="buyValue" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ 'ADD_SUPPLIER.BUY_VALUE' | translate }}</label>
             <input type="tel" currencyMask [options]="{ prefix: 'R$ ' ,thousands: '.', decimal: ',', align: 'left' }" class="w-100 mb-4" formControlName="buyValue" placeholder="Fornecedor exemplo" autocomplete="off" id="buyValue" name="buyValue"> 
 
             <div class="d-flex align-items-center justify-content-between gap-4 pt-2">
-                <button class="brand-outline-btn w-75" (click)="exit()" title="Cancelar">Cancelar</button>
-                <button class="brand-btn w-100" [disabled]="form.invalid" title="Confirmar" type="submit">Adicionar</button>
+                <button class="brand-outline-btn w-75" (click)="exit()" title="Cancelar">{{ 'ADD_SUPPLIER.CANCEL' | translate }}</button>
+                <button class="brand-btn w-100" [disabled]="form.invalid" title="Confirmar" type="submit">{{ 'ADD_SUPPLIER.ADD' | translate }}</button>
             </div>
         </form>
     </div>

@@ -443,5 +443,26 @@
         "GOVERNAMENTAL": "Governança",
         "GOVERNAMENTAL_DESCRIPTION": "Como a empresa se comporta com a administração e gestão de seus negócios, funcionários, acionistas e clientes.",
         "GENERATE_RELATORY": "Gerar pontuação"
+    },
+    "SCORE": {
+        "TITLE": "Resultados",
+        "HISTORY": "Histórico de Avaliações",
+        "YOU_DONT_HAVE": "Você não tem nenhuma avaliação em andamento",
+        "MAKE_YOUR_FIRST": "Faça sua primeira avaliação para descobrir a Pontuação e o indicador geral da sua empresa",
+        "MAKE_BUTTON": "Fazer Avaliação",
+        "NEXT_AVALIABLE": "Próxima avaliação disponível em",
+        "MOST_RECENT": "Resultado mais recente",
+        "SCORE_TITLE": "Titulo da avaliação:",
+        "SCORE_GENERATED_AT": "Pontuação gerada em:",
+        "GENERATED_AT": "Pontuação gerada em:",
+        "THINKSUS_SCORE": "Pontuação ThinkSus",
+        "IMPROVEMENTS": "Melhorias",
+        "SCORE_HISTORY": "Histórico de pontuação",
+        "SEAL": "Selo",
+        "SCORE_NAME": "Titulo",
+        "SCORE_TABLE": "ThinkSus Score",
+        "GENERATED_AT_TABLE": "Gerada em",
+        "ACTIONS": "Ações",
+        "NO_RESULTS": "Sem resultados"
     }
 }

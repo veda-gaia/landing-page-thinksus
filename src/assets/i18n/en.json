@@ -443,5 +443,26 @@
         "GOVERNAMENTAL": "Governance",
         "GOVERNAMENTAL_DESCRIPTION": "How the company acts according to its management and administration related to business, employees, shareholders and clients",
         "GENERATE_RELATORY": "Generate result"
+    },
+    "SCORE": {
+        "TITLE": "Score",
+        "HISTORY": "Assesment history",
+        "YOU_DONT_HAVE": "You don't have any reviews in progress",
+        "MAKE_YOUR_FIRST": "Carry out your first assessment to discover your company's Score and general indicator",
+        "MAKE_BUTTON": "Make Assessment",
+        "NEXT_AVALIABLE": "Next review available at",
+        "MOST_RECENT": "Latest result",
+        "SCORE_TITLE": "Review title:",
+        "SCORE_GENERATED_AT": "Score generated in:",
+        "GENERATED_AT": "Score generated in:",
+        "THINKSUS_SCORE": "ThinkSus score",
+        "IMPROVEMENTS": "Improvements",
+        "SCORE_HISTORY": "Score history",
+        "SEAL": "Seal",
+        "SCORE_NAME": "Title",
+        "SCORE_TABLE": "ThinkSus Score",
+        "GENERATED_AT_TABLE": "Generated in",
+        "ACTIONS": "Actions",
+        "NO_RESULTS": "No results"
     }
 }

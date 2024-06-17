@@ -3,10 +3,10 @@
         <div class="row pb-4">
             <div class="col">
                 <h3 class="alpha-800-text f-size-1-5rem l-height-1-5rem pb-1 fw-800">
-                    Resultados
+                    {{ "SCORE.TITLE" | translate }}
                 </h3>
                 <p class="f-size-0-85rem alpha-700-text fw-500 l-height-1-25">
-                    Histórico de Avaliações
+                    {{ "SCORE.HISTORY" | translate }}
                 </p>
             </div>
         </div>
@@ -19,16 +19,16 @@
         
                         <div class="w-100 d-block">
                             <h4 class="f-size-1-25rem l-height-1-5 fw-700 brand-text pb-2">
-                                Você não tem nenhuma avaliação em andamento
+                                {{ "SCORE.YOU_DONT_HAVE" | translate }}
                             </h4>
                             <p class="f-size-0-85rem l-height-1-25 alpha-800-text fw-500" style="max-width: 480px;">
-                                Faça sua primeira avaliação para descobrir a Pontuação e o indicador geral da sua empresa
+                                {{ "SCORE.MAKE_YOUR_FIRST" | translate }}
                             </p>
                         </div>
                     </div>
         
                     <button class="d-flex brand-btn align-items-center justify-content-center gap-2">
-                        Fazer Avaliação
+                        {{ "SCORE.MAKE_BUTTON" | translate }}
                         <img src="/assets/icon/go-to.svg" alt="">
                     </button>
                 </div>
@@ -42,10 +42,10 @@
         <div class="row pb-4">
             <div class="col">
                 <h3 class="alpha-800-text f-size-1-5rem l-height-1-5rem pb-1 fw-800">
-                    Resultados
+                    {{ "SCORE.TITLE" | translate }}
                 </h3>
                 <p class="f-size-0-85rem alpha-700-text fw-500 l-height-1-25">
-                    Próxima avaliação disponível em 10/10/2024
+                    {{ "SCORE.NEXT_AVALIABLE" | translate }} 10/10/2024
                 </p>
             </div>
         </div>
@@ -56,22 +56,22 @@
                     <div class="d-flex flex-column flex-sm-row align-items-start justify-content-between w-100 pb-3">
                         <div>
                             <h4 class="primary-text d-flex align-item-start justify-content-start gap-2 f-size-1-5rem fw-700 pb-2 mb-1">
-                                Resultado mais recente
+                                {{ "SCORE.MOST_RECENT" | translate }}
                                 <img src="/assets/icon/green-info.svg" alt="Info" width="40px">
                             </h4>
             
                             <p class="secondary-text f-size-1rem fw-500 pb-2">
-                                Titulo da avaliação: <span class="fw-700 gray-text">Exemplo LTDA</span>
+                                {{ "SCORE.SCORE_TITLE" | translate }} <span class="fw-700 gray-text">Exemplo LTDA</span>
                             </p>
             
                             <p class="secondary-text f-size-1rem fw-500 pb-4">
-                                Pontuação gerada em: <span class="fw-700 gray-text">{{ recentResult.updatedAt | dateFormat }}</span>
+                                {{ "SCORE.SCORE_GENERATED_AT" | translate }} <span class="fw-700 gray-text">{{ recentResult.updatedAt | dateFormat }}</span>
                             </p>
                         </div>
 
                         <div class="pb-4 pb-sm-0">
                             <p class="text-end text-nowrap f-size-12px fw-800 l-height-1-25 secondary-text">
-                                Pontuação ThinkSus
+                                {{ "SCORE.THINKSUS_SCORE" | translate }}
                             </p>
 
                             <h4 class="text-end fw-800 system-success-text f-size-3rem l-height-3">
@@ -83,7 +83,7 @@
                     <div class="d-flex align-item-start justify-content-between w-100">
                         <a routerLink="improvements">
                             <button class="brand-btn px-3 px-md-5">
-                                Melhorias
+                                {{ "SCORE.IMPROVEMENTS" | translate }}
                             </button>
                         </a>
 
@@ -97,7 +97,7 @@
             <div class="col-12 col-xl-5 pt-4 pt-xl-0">
                 <div class="card-logged p-3 p-lg-4">
                     <h4 class="primary-text f-size-1-5rem fw-700 pb-3">
-                        Histórico de pontuação
+                        {{ "SCORE.SCORE_HISTORY" | translate }}
                     </h4>
             
                     <img src="/assets/img/graph-dash.svg" alt="Gráfico exemplo" class="w-100">
@@ -111,11 +111,11 @@
                     <div class="table-container-real">
                         <table class="white-bg border-radius-10 pt-2">
                             <tr class="header-row-tr">
-                                <th>Selo</th>
-                                <th>Titulo</th>
-                                <th>ThinkSus Score</th>
-                                <th>Gerada em</th>
-                                <th>Ações</th>
+                                <th>{{ "SCORE.SEAL" | translate }}</th>
+                                <th>{{ "SCORE.SCORE_NAME" | translate }}</th>
+                                <th>{{ "SCORE.SCORE_TABLE" | translate }}</th>
+                                <th>{{ "SCORE.GENERATED_AT_TABLE" | translate }}</th>
+                                <th>{{ "SCORE.ACTIONS" | translate }}</th>
                             </tr>
                             <tr *ngFor="let item of filteredList" class="body-row-tr">
                                 <td class="">
@@ -146,7 +146,7 @@
                     </div>
     
                     <p *ngIf="!filteredList.length" class="w-100 text-center py-4 py-xl-5 color-app-300 font-s-09rem d-flex align-items-center justify-content-center gap-2">
-                        Sem resultados
+                        {{ "SCORE.NO_RESULTS" | translate }}
                     </p>
                 </div>
             </div>

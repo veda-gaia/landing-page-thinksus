@@ -425,5 +425,23 @@
         "HIGH": "High",
         "INTERMEDIATE": "Intermediate",
         "LOW": "Low"
+    },
+    "ASSESMENT": {
+        "YOU_CAN": "You can perform a free assessment!",
+        "SIMULATE": "Simulate how our evaluation system works for free.",
+        "INIT_SIMULATION": "Start simulation",
+        "TITLE": "Assesment",
+        "ANSWER_QUESTIONARY": "Answer the questionnaires in the three areas below to receive your score",
+        "ASSESMENT_TITLE": "Assessment title",
+        "CONFIRM": "Confirm",
+        "ASSESMENT_PLACEHOLDER": "Assessment title",
+        "INIT_ASSESMENT": "Start assessment",
+        "AMBIENTAL": "Environmental",
+        "AMBIENTAL_DESCRIPTION": "How the company acts when it comes to environmental matters.",
+        "SOCIAL": "Social",
+        "SOCIAL_DESCRIPTION": "How the company acts when it comes to taking actions related to social matters intended to employees and suppliers.",
+        "GOVERNAMENTAL": "Governance",
+        "GOVERNAMENTAL_DESCRIPTION": "How the company acts according to its management and administration related to business, employees, shareholders and clients",
+        "GENERATE_RELATORY": "Generate result"
     }
 }

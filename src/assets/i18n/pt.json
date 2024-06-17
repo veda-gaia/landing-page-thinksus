@@ -425,5 +425,23 @@
         "HIGH": "Alto",
         "INTERMEDIATE": "Intermediário",
         "LOW": "Baixo"
+    },
+    "ASSESMENT": {
+        "YOU_CAN": "Você pode realizar uma avaliação gratuita!",
+        "SIMULATE": "Faça uma simulação de como funciona nosso sistema de avaliação de forma gratuita.",
+        "INIT_SIMULATION": "Iniciar simulação",
+        "TITLE": "Avaliação",
+        "ANSWER_QUESTIONARY": "Responda os questionarios das três áreas abaixo para receber sua pontuação",
+        "ASSESMENT_TITLE": "Título da Avaliação",
+        "CONFIRM": "Confirmar",
+        "ASSESMENT_PLACEHOLDER": "Informe um título",
+        "INIT_ASSESMENT": "Iniciar Avaliação",
+        "AMBIENTAL": "Ambiental",
+        "AMBIENTAL_DESCRIPTION": "Como a empresa se comporta com as ações voltadas ao meio ambiente.",
+        "SOCIAL": "Social",
+        "SOCIAL_DESCRIPTION": "Como a empresa se comporta com ações voltadas ao bem-estar e a questões sociais envolvendo seus funcionários",
+        "GOVERNAMENTAL": "Governança",
+        "GOVERNAMENTAL_DESCRIPTION": "Como a empresa se comporta com a administração e gestão de seus negócios, funcionários, acionistas e clientes.",
+        "GENERATE_RELATORY": "Gerar pontuação"
     }
 }

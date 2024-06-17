@@ -6,16 +6,16 @@
 
                 <div class="w-100 d-block">
                     <h4 class="f-size-1-25rem fw-700 brand-text">
-                        Você pode realizar uma avaliação gratuita!
+                        {{ "ASSESMENT.YOU_CAN" | translate }}
                     </h4>
                     <p class="f-size-0-85rem alpha-800-text fw-500">
-                        Faça uma simulação de como funciona nosso sistema de avaliação de forma gratuita.
+                        {{ "ASSESMENT.SIMULATE" | translate }}
                     </p>
                 </div>
             </div>
 
             <button class="d-flex brand-btn align-items-center justify-content-center gap-2">
-                Iniciar simulação
+                {{ "ASSESMENT.INIT_SIMULATION" | translate }}
                 <img src="/assets/icon/go-to.svg" alt="">
             </button>
         </div>
@@ -28,21 +28,21 @@
             <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between gap-3">
                 <div class="flex-grow-1">
                     <h4 class="f-size-1-5rem l-height-1-5rem fw-700 primary-text mb-2">
-                        Avaliação
+                        {{ "ASSESMENT.INIT_SIMULATION" | translate }}
                     </h4>
                     <p class="alpha-700-text f-size-0-85rem fw-500">
-                        Responda os questionarios das três áreas abaixo para receber sua pontuação
+                        {{ "ASSESMENT.ANSWER_QUESTIONARY" | translate }}
                     </p>
                 </div>
     
                 <div>
                     <p class="d-block w-100 text-start f-size-12px l-height-1rem fw-500 alpha-500-text pb-2">
-                        Título da Avaliação
+                        {{ "ASSESMENT.ASSESMENT_TITLE" | translate }}
                     </p>
                     <div class="d-flex align-items-center justify-content-start gap-2" style="min-width: 360px;">
-                        <input type="text" formControlName="title" class="w-100" placeholder="Informe um título" style="padding: 7.5px 12px !important;">
+                        <input type="text" formControlName="title" class="w-100" placeholder="{{ 'ASSESMENT.ASSESMENT_PLACEHOLDER' | translate }}" style="padding: 7.5px 12px !important;">
                         <button class="brand-outline-btn f-size-0-85rem" [disabled]="form.invalid" style="min-width: 93px; max-width: 93px;padding: 5px 12px !important;">
-                            Confirmar
+                            {{ "ASSESMENT.ASSESMENT_TITLE" | translate }}
                         </button>
                     </div>
                 </div>
@@ -58,12 +58,12 @@
                     <p class="brand-700-text fw-700 f-size-1-25rem">0%</p>
                 </div>
                 
-                <p class="brand-700-text fw-700 f-size-1-25rem pt-3 pb-2">Ambiental</p>
-                <p class="alpha-700-text fw-500 f-size-0-85rem l-height-1-25 mb-5 pb-3">Como a empresa se comporta com as ações voltadas ao meio ambiente.</p>
+                <p class="brand-700-text fw-700 f-size-1-25rem pt-3 pb-2">{{ "ASSESMENT.AMBIENTAL" | translate }}</p>
+                <p class="alpha-700-text fw-500 f-size-0-85rem l-height-1-25 mb-5 pb-3">{{ "ASSESMENT.AMBIENTAL_DESCRIPTION" | translate }}</p>
     
                 <a routerLink="/logged/assesment/e-agro" class="w-100">
                     <button class="w-100 brand-outline-btn d-flex align-items-center justify-content-between gap-3">
-                        Iniciar Avaliação
+                        {{ "ASSESMENT.INIT_ASSESMENT" | translate }}
                         <img src="/assets/icon/init.svg" alt="Iniciar">
                     </button>
                 </a>
@@ -75,12 +75,12 @@
                     <p class="brand-700-text fw-700 f-size-1-25rem">0%</p>
                 </div>
                 
-                <p class="brand-700-text fw-700 f-size-1-25rem pt-3 pb-2">Social</p>
-                <p class="alpha-700-text fw-500 f-size-0-85rem l-height-1-25 mb-5">Como a empresa se comporta com ações voltadas ao bem-estar e a questões sociais envolvendo seus funcionários</p>
+                <p class="brand-700-text fw-700 f-size-1-25rem pt-3 pb-2">{{ "ASSESMENT.SOCIAL" | translate }}</p>
+                <p class="alpha-700-text fw-500 f-size-0-85rem l-height-1-25 mb-5">{{ "ASSESMENT.SOCIAL" | translate }}</p>
     
                 <a routerLink="/logged/assesment/s-agro" class="w-100">
                     <button class="w-100 brand-outline-btn d-flex align-items-center justify-content-between gap-3">
-                        Iniciar Avaliação
+                        {{ "ASSESMENT.INIT_ASSESMENT" | translate }}
                         <img src="/assets/icon/init.svg" alt="Iniciar">
                     </button>
                 </a>
@@ -92,12 +92,12 @@
                     <p class="brand-700-text fw-700 f-size-1-25rem">0%</p>
                 </div>
                 
-                <p class="brand-700-text fw-700 f-size-1-25rem pt-3 pb-2">Governança</p>
-                <p class="alpha-700-text fw-500 f-size-0-85rem l-height-1-25 mb-5">Como a empresa se comporta com a administração e gestão de seus negócios, funcionários, acionistas e clientes.</p>
+                <p class="brand-700-text fw-700 f-size-1-25rem pt-3 pb-2">{{ "ASSESMENT.GOVERNAMENTAL" | translate }}</p>
+                <p class="alpha-700-text fw-500 f-size-0-85rem l-height-1-25 mb-5">{{ "ASSESMENT.GOVERNAMENTAL_DESCRIPTION" | translate }}</p>
     
                 <a routerLink="/logged/assesment/g-agro" class="w-100">
                     <button class="w-100 brand-outline-btn d-flex align-items-center justify-content-between gap-3">
-                        Iniciar Avaliação
+                        {{ "ASSESMENT.INIT_ASSESMENT" | translate }}
                         <img src="/assets/icon/init.svg" alt="Iniciar">
                     </button>
                 </a>
@@ -108,7 +108,7 @@
     <div class="fade-in row pt-4 pb-4">
         <div class="col d-flex align-items-start justify-content-end">
             <button class="brand-btn px-5" type="submit" [disabled]="(form.invalid) || true">
-                Gerar pontuação
+                {{ "ASSESMENT.GENERATE_RELATORY" | translate }}
             </button>
         </div>
     </div>

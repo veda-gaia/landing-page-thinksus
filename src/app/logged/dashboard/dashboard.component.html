@@ -45,29 +45,29 @@
               </p>
                 
               <div class="d-flex flex-column align-item-start justify-content-start pb-1">
-                <p class="gray-3-text f-size-1rem fw-600 l-height-1-5">
-                  0/15
+                <p class="f-size-1rem fw-600 l-height-1-5" [class.gray-3-text]="environmentalInfo.progress === 0" [class.alpha-700-text]="environmentalInfo.progress > 0">
+                  {{ environmentalInfo.progress }}/{{ environmentalQuestions }}
                 </p>
                 <div class="mini-progress-container">
-                  <div class="mini-progress" style="width: 0%;"></div>
+                  <div class="mini-progress" [class.aplha-700-bg]="environmentalInfo.progress > 0" [style]="'width: ' + ((100 / environmentalQuestions) * environmentalInfo.progress) + '%;'"></div>
                 </div>
               </div>
                 
               <div class="d-flex flex-column align-item-start justify-content-start pb-1">
-                <p class="gray-3-text f-size-1rem fw-600 l-height-1-5">
-                  0/15
+                <p class="f-size-1rem fw-600 l-height-1-5" [class.gray-3-text]="socialInfo.progress === 0" [class.alpha-700-text]="socialInfo.progress > 0">
+                  {{ socialInfo.progress }}/{{ socialQuestions }}
                 </p>
                 <div class="mini-progress-container">
-                  <div class="mini-progress" style="width: 0%;"></div>
+                  <div class="mini-progress" [class.aplha-700-bg]="socialInfo.progress > 0" [style]="'width: ' + ((100 / socialQuestions) * socialInfo.progress) + '%;'"></div>
                 </div>
               </div>
-                
+
               <div class="d-flex flex-column align-item-start justify-content-start pb-1">
-                <p class="gray-3-text f-size-1rem fw-600 l-height-1-5">
-                  0/15
+                <p class="f-size-1rem fw-600 l-height-1-5" [class.gray-3-text]="governanceInfo.progress === 0" [class.alpha-700-text]="governanceInfo.progress > 0">
+                  {{ governanceInfo.progress }}/{{ governanceQuestions }}
                 </p>
                 <div class="mini-progress-container">
-                  <div class="mini-progress" style="width: 0%;"></div>
+                  <div class="mini-progress" [class.aplha-700-bg]="governanceInfo.progress > 0" [style]="'width: ' + ((100 / governanceQuestions) * governanceInfo.progress) + '%;'"></div>
                 </div>
               </div>
             </div>
@@ -78,29 +78,29 @@
               </p>
                 
               <div class="d-flex flex-column align-item-start justify-content-start pb-1">
-                <p class="gray-3-text f-size-1rem fw-600 l-height-1-5">
-                  -
+                <p class="f-size-1rem fw-600 l-height-1-5" [class.gray-3-text]="environmentalInfo.score === 0" [class.danger-text]="environmentalInfo.score > 0">
+                  {{ environmentalInfo.score ? environmentalInfo.score : '-' }}
                 </p>
                 <div class="mini-progress-container">
-                  <div class="mini-progress" style="width: 0%;"></div>
+                  <div class="mini-progress" [class.danger-bg]="environmentalInfo.progress > 0" [style]="'width: ' + environmentalInfo.score + '%;'"></div>
                 </div>
               </div>
                 
               <div class="d-flex flex-column align-item-start justify-content-start pb-1">
-                <p class="gray-3-text f-size-1rem fw-600 l-height-1-5">
-                  -
+                <p class="f-size-1rem fw-600 l-height-1-5" [class.gray-3-text]="socialInfo.score === 0" [class.danger-text]="socialInfo.score > 0">
+                  {{ socialInfo.score ? socialInfo.score : '-' }}
                 </p>
                 <div class="mini-progress-container">
-                  <div class="mini-progress" style="width: 0%;"></div>
+                  <div class="mini-progress" [class.danger-bg]="socialInfo.progress > 0" [style]="'width: ' + socialInfo.score + '%;'"></div>
                 </div>
               </div>
                 
               <div class="d-flex flex-column align-item-start justify-content-start pb-1">
-                <p class="gray-3-text f-size-1rem fw-600 l-height-1-5">
-                  -
+                <p class="f-size-1rem fw-600 l-height-1-5" [class.gray-3-text]="governanceInfo.score === 0" [class.danger-text]="governanceInfo.score > 0">
+                  {{ governanceInfo.score ? governanceInfo.score : '-' }}
                 </p>
                 <div class="mini-progress-container">
-                  <div class="mini-progress" style="width: 0%;"></div>
+                  <div class="mini-progress" [class.danger-bg]="governanceInfo.progress > 0" [style]="'width: ' + governanceInfo.score + '%;'"></div>
                 </div>
               </div>
             </div>

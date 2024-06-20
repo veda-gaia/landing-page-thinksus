@@ -111,22 +111,37 @@
               </p>
                   
               <a routerLink="/logged/payment">
-                <button class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-center gap-2">
+                <button *ngIf="!environmentalInfo.progress" class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-center gap-2">
                   {{ "DASHBOARD.START" | translate }}
+                  <img src="/assets/icon/play.svg" alt="Iniciar">
+                </button>
+                
+                <button *ngIf="environmentalInfo.progress" class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-center gap-2">
+                  {{ "DASHBOARD.CONTINUE" | translate }}
                   <img src="/assets/icon/play.svg" alt="Iniciar">
                 </button>
               </a>
                   
               <a routerLink="/logged/payment">
-                <button class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-center gap-2">
+                <button *ngIf="!socialInfo.progress" class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-center gap-2">
                   {{ "DASHBOARD.START" | translate }}
+                  <img src="/assets/icon/play.svg" alt="Iniciar">
+                </button>
+                
+                <button *ngIf="socialInfo.progress" class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-center gap-2">
+                  {{ "DASHBOARD.CONTINUE" | translate }}
                   <img src="/assets/icon/play.svg" alt="Iniciar">
                 </button>
               </a>
                   
               <a routerLink="/logged/payment">
-                <button class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-center gap-2">
+                <button *ngIf="!governanceInfo.progress" class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-center gap-2">
                   {{ "DASHBOARD.START" | translate }}
+                  <img src="/assets/icon/play.svg" alt="Iniciar">
+                </button>
+                
+                <button *ngIf="governanceInfo.progress" class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-center gap-2">
+                  {{ "DASHBOARD.CONTINUE" | translate }}
                   <img src="/assets/icon/play.svg" alt="Iniciar">
                 </button>
               </a>

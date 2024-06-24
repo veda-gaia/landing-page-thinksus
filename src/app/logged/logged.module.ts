@@ -31,6 +31,8 @@ import { AddSupplierModalComponent } from './add-supplier-modal/add-supplier-mod
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { EsgRatingService } from '../services/esg-rating.service';
 import { DateFormatPipe } from '../pipes/date-format.pipe';
+import { NgxDocViewerModule } from 'ngx-doc-viewer';
+import { UseInstructionsComponent } from './use-instructions/use-instructions.component';
 
 
 @NgModule({
@@ -59,6 +61,7 @@ import { DateFormatPipe } from '../pipes/date-format.pipe';
     SuppliersComponent,
     AddSupplierModalComponent,
     DateFormatPipe,
+    UseInstructionsComponent,
   ],
   imports: [
     CommonModule,
@@ -68,7 +71,8 @@ import { DateFormatPipe } from '../pipes/date-format.pipe';
     NgxMaskPipe,
     TranslateModule,
     NgbModule,
-    CurrencyMaskModule
+    CurrencyMaskModule,
+    NgxDocViewerModule
   ],
   providers: [
     EsgRatingService,

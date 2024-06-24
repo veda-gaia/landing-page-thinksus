@@ -18,6 +18,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { ControlPanelComponent } from './control-panel/control-panel.component';
 import { SuppliersComponent } from './suppliers/suppliers.component';
 import { ImprovementsComponent } from './improvements/improvements.component';
+import { UseInstructionsComponent } from './use-instructions/use-instructions.component';
 
 
 const routes: Routes = [
@@ -49,6 +50,10 @@ const routes: Routes = [
       {
         path: 'suppliers',
         component: SuppliersComponent
+      },
+      {
+        path: 'use-instructions',
+        component: UseInstructionsComponent
       },
       {
         path: 'results',

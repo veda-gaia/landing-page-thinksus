@@ -220,9 +220,13 @@ $green-800: #22543D;
 
 $purple-100: #E9D8FD;
 $purple-500: #805AD5;
+$purple-600: #6b46c1;
+$purple-700: hsba(256, 61%, 60%, 1);
 
 $blue-100: #BEE3F8;
 $blue-400: #4299E1;
+$blue-600: #2b6cb0;
+$blue-800: hsba(211, 76%, 69%, 1);
 
 $linear-colorful: var(--Linear-Linear, linear-gradient(217deg, #CC94F6 16.01%, #0F6 97.05%));
 
@@ -539,6 +543,14 @@ body, html, .bg-1 {
 
 .green-600-text {
     color: $green-600;
+}
+
+.blue-600-text {
+    color: $blue-600;
+}
+
+.purple-600-text {
+    color: $purple-600;
 }
 
 .green-800-text {
@@ -1957,5 +1969,126 @@ td {
         .open-close-icon {
             transform: rotate(0deg);
         }
+    }
+}
+
+.custom-accordion-social {
+    &.active {
+        border: 1px solid $purple-600;
+    }
+}
+
+.custom-accordion-governmental {
+    &.active {
+        border: 1px solid $blue-600;
+    }
+}
+
+.improvement-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+
+    position: absolute;
+    z-index: 9;
+    
+    p {
+        width: 32px;
+        height: 32px;
+        border-radius: 50px;
+
+        box-shadow: 1px 1px 2px 0px hsba(0, 0%, 0%, 0.33);
+        line-height: 1.9rem;
+    }
+
+    // &.disabled {
+    //     // filter: grayscale(100%);
+    //     background-color: rgba(0, 0, 0, 0.6);
+    //     box-shadow: 0 0 50px 50px rgba(0, 0, 0, 0.6);
+    // }
+
+    &.number-1, &.number-2, &.number-3, &.number-4 {
+        p {
+            background-color: $green-100;
+            color: $green-600;
+        }
+    }
+
+    &.number-5, &.number-6, &.number-7, &.number-8 {
+        p {
+            background-color: $purple-100;
+            color: $purple-700;
+        }
+    }
+
+    &.number-9, &.number-10, &.number-11, &.number-12 {
+        p {
+            background-color: $blue-100;
+            color: $blue-800;
+        }
+    }
+
+    &.number-1 {
+        top: 3%;
+        right: 13%;
+    }
+
+    &.number-2 {
+        top: 18%;
+        right: 0%;
+    }
+
+    &.number-3 {
+        top: 7%;
+        right: 55%;
+    }
+
+    &.number-4 {
+        top: 12%;
+        right: 75%;
+    }
+
+    &.number-5 {
+        top: 52%;
+        right: 73%;
+    }
+
+    &.number-6 {
+        top: 61%;
+        right: 51%;
+    }
+
+    &.number-7 {
+        top: 82%;
+        right: 15%;
+    }
+
+    &.number-8 {
+        top: 63%;
+        right: 7%;
+    }
+
+    &.number-9 {
+        top: 32%;
+        right: 55%;
+    }
+
+    &.number-10 {
+        top: 25%;
+        right: 30%;
+    }
+
+    &.number-11 {
+        top: 40%;
+        right: 37%;
+    }
+
+    &.number-12 {
+        top: 33%;
+        right: 11%;
     }
 }

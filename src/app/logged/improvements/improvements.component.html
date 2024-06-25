@@ -48,14 +48,35 @@
 
     <div class="fade-in row">
         <div class="col-12 col-lg-8">
-            <img src="/assets/img/city-bg.webp" alt="Cidade" width="100%" class="d-block w-100" style="border-radius: 1rem;">
+            <div class="w-100 position-relative" style="overflow: hidden">
+                <img *ngIf="!selectedESG" src="/assets/img/city-bg.webp" alt="Cidade" width="100%" class="d-block w-100" style="border-radius: 1rem;">
+                <img *ngIf="selectedESG === 'environmental'" src="/assets/img/environmental-city.png" alt="environmental" width="100%" class="d-block w-100" style="border-radius: 1rem;">
+                <img *ngIf="selectedESG === 'social'" src="/assets/img/social-city.png" alt="social" width="100%" class="d-block w-100" style="border-radius: 1rem;">
+                <img *ngIf="selectedESG === 'governmental'" src="/assets/img/governmental-city.png" alt="governmental" width="100%" class="d-block w-100" style="border-radius: 1rem;">
+
+                <div *ngFor="let item of [].constructor(12); let i = index" class="cursor-pointer improvement-item {{ 'number-' + (i + 1) }}" (click)="changeSelectedESG( i + 1 )">
+                    <p class="f-size-1rem fw-700 d-flex align-item-center justify-content-center">
+                        {{ (i + 1) }}
+                    </p>
+                </div>
+            </div>
+
         </div>
 
-        <div class="col-12 col-lg-4">
-            <div *ngFor="let item of infoArray" class="card-logged custom-accordion p-4 mb-2" [class.active]="openAccordions.includes(item.number)">
-                <div class="cursor-pointer d-flex align-items-center justify-content-between" (click)="toggleAccordion(item.number)">
+        <div *ngIf="!selectedESG" class="col-12 col-lg-4 fade-in">
+            <div class="w-100 glossary-card p-4">
+                <p class="fw-700 d-inline f-size-1rem l-height-1-25">
+                    Selecione uma opção
+                    <span class="d-inline fw-500 l-height-1-25">ao lado para ler sobre esse ponto de melhoria.</span>
+                </p>
+            </div>
+        </div>
+
+        <div *ngIf="selectedESG === 'environmental'" class="col-12 col-lg-4 fade-in">
+            <div *ngFor="let item of [].constructor(4); let i = index" class="card-logged custom-accordion p-4 mb-2" [class.active]="openAccordions.includes(i + 1)">
+                <div class="cursor-pointer d-flex align-items-center justify-content-between" (click)="toggleAccordion(i + 1)">
                     <p class="d-flex align-items-end justify-content-start gap-2 fw-700 f-size-1-5rem l-height-1-5 green-600-text">
-                        {{ item.number }} <span class="fw-700 f-size-1-25rem l-height-1-25 green-600-text">{{ item.title }}</span>
+                        {{ (i + 1) }} <span class="fw-700 f-size-1-25rem l-height-1-25 green-600-text">{{ "IMPROVEMENTS.ENVIRONMENTAL_TITLE_" + (i + 1) | translate }}</span>
                     </p>
 
                     <img src="/assets/icon/open-close.svg" alt="Icon" class="open-close-icon">
@@ -63,7 +84,43 @@
 
                 <div class="content-custom-accordion">
                     <p class="f-size-0-85rem fw-500 alpha-800-text l-height-1-25 w-100">
-                        {{ item.description }}
+                        {{ "IMPROVEMENTS.ENVIRONMENTAL_DESCRIPTION_" + (i + 1) | translate }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="selectedESG === 'social'" class="col-12 col-lg-4 fade-in">
+            <div *ngFor="let item of [].constructor(4); let i = index" class="card-logged custom-accordion custom-accordion-social p-4 mb-2" [class.active]="openAccordions.includes(i + 5)">
+                <div class="cursor-pointer d-flex align-items-center justify-content-between" (click)="toggleAccordion(i + 5)">
+                    <p class="d-flex align-items-end justify-content-start gap-2 fw-700 f-size-1-5rem l-height-1-5 purple-600-text">
+                        {{ (i + 5) }} <span class="fw-700 f-size-1-25rem l-height-1-25 purple-600-text">{{ "IMPROVEMENTS.SOCIAL_TITLE_" + (i + 5) | translate }}</span>
+                    </p>
+
+                    <img src="/assets/icon/open-close-purple.svg" alt="Icon" class="open-close-icon">
+                </div>
+
+                <div class="content-custom-accordion">
+                    <p class="f-size-0-85rem fw-500 alpha-800-text l-height-1-25 w-100">
+                        {{ "IMPROVEMENTS.SOCIAL_DESCRIPTION_" + (i + 5) | translate }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="selectedESG === 'governmental'" class="col-12 col-lg-4 fade-in">
+            <div *ngFor="let item of [].constructor(4); let i = index" class="card-logged custom-accordion custom-accordion-governmental p-4 mb-2" [class.active]="openAccordions.includes(i + 9)">
+                <div class="cursor-pointer d-flex align-items-center justify-content-between" (click)="toggleAccordion(i + 9)">
+                    <p class="d-flex align-items-end justify-content-start gap-2 fw-700 f-size-1-5rem l-height-1-5 blue-600-text">
+                        {{ (i + 9) }} <span class="fw-700 f-size-1-25rem l-height-1-25 blue-600-text">{{ "IMPROVEMENTS.GOVERNMENTAL_TITLE_" + (i + 9) | translate }}</span>
+                    </p>
+
+                    <img src="/assets/icon/open-close-blue.svg" alt="Icon" class="open-close-icon">
+                </div>
+
+                <div class="content-custom-accordion">
+                    <p class="f-size-0-85rem fw-500 alpha-800-text l-height-1-25 w-100">
+                        {{ "IMPROVEMENTS.GOVERNMENTAL_DESCRIPTION_" + (i + 9) | translate }}
                     </p>
                 </div>
             </div>

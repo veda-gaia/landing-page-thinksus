@@ -46,7 +46,7 @@
         </div>
     </div>
 
-    <div class="fade-in row">
+    <div class="fade-in row" [class.pb-4]="!selectedESG">
         <div class="col-12 col-lg-8 pb-4 pb-lg-0">
             <div class="w-100 position-relative" style="overflow: hidden">
                 <img *ngIf="!selectedESG" src="/assets/img/city-bg.webp" alt="Cidade" width="100%" class="d-block w-100" style="border-radius: 1rem;">
@@ -127,11 +127,19 @@
         </div>
     </div>
 
-    <div class="fade-in row py-4">
+    <div *ngIf="selectedESG" class="fade-in row py-4">
         <div class="col">
             <div class="pb-3">
-                <h4 class="primary-text f-size-1-5rem fw-700 pb-1">
+                <h4 *ngIf="selectedESG === 'environmental'" class="primary-text f-size-1-5rem fw-700 pb-1">
                     Aderência aos ODS  voltados para área Ambiental
+                </h4>
+                
+                <h4 *ngIf="selectedESG === 'social'" class="primary-text f-size-1-5rem fw-700 pb-1">
+                    Aderência aos ODS  voltados para área Social
+                </h4>
+
+                <h4 *ngIf="selectedESG === 'governmental'" class="primary-text f-size-1-5rem fw-700 pb-1">
+                    Aderência aos ODS  voltados para área Governamental
                 </h4>
 
                 <p class="alpha-700-text f-size-0-85rem fw-500">
@@ -140,13 +148,40 @@
             </div>
     
             <div class="card-logged rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2 mb-2">
-                <div class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
+                <div *ngIf="selectedESG === 'environmental'" class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
+                    <img src="/assets/icon/selos-ods/6.svg" alt="6" title="6">
+                    <img src="/assets/icon/selos-ods/7.svg" alt="7" title="7">
+                    <img src="/assets/icon/selos-ods/9.svg" alt="9" title="9">
+                    <img src="/assets/icon/selos-ods/11.svg" alt="11" title="11">
+                    <img src="/assets/icon/selos-ods/12.svg" alt="12" title="12">
+                    <img src="/assets/icon/selos-ods/13.svg" alt="13" title="13">
+                    <img src="/assets/icon/selos-ods/14.svg" alt="14" title="14">
+                    <img src="/assets/icon/selos-ods/15.svg" alt="15" title="15">
+                </div>
+                
+                <div *ngIf="selectedESG === 'social'" class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
                     <img src="/assets/icon/selos-ods/1.svg" alt="1" title="1">
                     <img src="/assets/icon/selos-ods/2.svg" alt="2" title="2">
                     <img src="/assets/icon/selos-ods/3.svg" alt="3" title="3">
                     <img src="/assets/icon/selos-ods/4.svg" alt="4" title="4">
                     <img src="/assets/icon/selos-ods/5.svg" alt="5" title="5">
                     <img src="/assets/icon/selos-ods/6.svg" alt="6" title="6">
+                    <img src="/assets/icon/selos-ods/8.svg" alt="8" title="8">
+                    <img src="/assets/icon/selos-ods/9.svg" alt="9" title="9">
+                    <img src="/assets/icon/selos-ods/10.svg" alt="10" title="10">
+                    <img src="/assets/icon/selos-ods/12.svg" alt="12" title="12">
+                    <img src="/assets/icon/selos-ods/16.svg" alt="16" title="16">
+                </div>
+
+                <div *ngIf="selectedESG === 'governmental'" class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
+                    <img src="/assets/icon/selos-ods/5.svg" alt="5" title="5">
+                    <img src="/assets/icon/selos-ods/8.svg" alt="8" title="8">
+                    <img src="/assets/icon/selos-ods/9.svg" alt="9" title="9">
+                    <img src="/assets/icon/selos-ods/11.svg" alt="11" title="11">
+                    <img src="/assets/icon/selos-ods/12.svg" alt="12" title="12">
+                    <img src="/assets/icon/selos-ods/13.svg" alt="13" title="13">
+                    <img src="/assets/icon/selos-ods/16.svg" alt="16" title="16">
+                    <img src="/assets/icon/selos-ods/17.svg" alt="17" title="17">
                 </div>
             </div>
         </div>

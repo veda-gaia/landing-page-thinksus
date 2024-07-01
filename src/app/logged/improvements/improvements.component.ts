@@ -19,6 +19,8 @@ export class ImprovementsComponent {
     if(number <= 4) this.selectedESG = "environmental"
     if(number > 4 && number <= 8) this.selectedESG = "social"
     if(number > 8 && number <= 12) this.selectedESG = "governmental"
+
+    this.toggleAccordion(number)
   }
 
   toggleAccordion(number: number) {

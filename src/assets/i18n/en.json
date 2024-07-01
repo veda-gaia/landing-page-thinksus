@@ -418,6 +418,7 @@
         "GOVERNANCE": "Governance",
         "START": "Start",
         "CONTINUE": "Continue",
+        "FINISHED": "Finished",
         "INDICATOR": "Overall Indicator",
         "YOU_DONT_HAVE": "You do not yet have an indicator",
         "TAKE_ASSESMENT": "Take an assessment to learn your overall score",

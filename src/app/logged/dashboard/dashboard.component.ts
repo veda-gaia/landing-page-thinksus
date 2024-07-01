@@ -11,6 +11,8 @@ import { EsgRatingService } from 'src/app/services/esg-rating.service';
 export class DashboardComponent {
   avaliationStatus = ''
   userName = ''
+  companySection = 'agro'
+  loading = true
 
   environmentalQuestions = 0
   socialQuestions = 0
@@ -37,25 +39,30 @@ export class DashboardComponent {
 
     this.CompanyService.getByUser().subscribe({
       next: (data) => {
-        console.log(data)
         this.userName = data.user.name
         
         if(data.section === 'Agribusiness') {
           this.environmentalQuestions = 13
           this.socialQuestions = 15
           this.governanceQuestions = 14
+
+          this.companySection = 'agro'
         }
 
         if(data.section === 'Industry') {
           this.environmentalQuestions = 12
           this.socialQuestions = 15
           this.governanceQuestions = 14
+
+          this.companySection = 'industry'
         }
 
         if(data.section === 'Services') {
           this.environmentalQuestions = 13
           this.socialQuestions = 15
           this.governanceQuestions = 14
+
+          this.companySection = 'service'
         }
         
         this.handleInfo(data._id, data.section)
@@ -69,44 +76,49 @@ export class DashboardComponent {
   handleInfo(companyId: string, section: string) {
     this.EsgRatingService.list().subscribe({
       next: (data) => {
-        console.log(data)
-        let list = data.filter(item => {
+        // Pega o item que pertence a minha empresa
+        let myCompanyInfo = data.filter(item => {
           return item.company._id === companyId
-        })
-        
-        const environmental = list.find((i: any) => {
-          return i.answers[0].questionNumber.startsWith("E")
-        })
-        
-        const social = list.find((i: any) => {
-          return i.answers[0].questionNumber.startsWith("S")
-        })
-        
-        const governance = list.find((i: any) => {
-          return i.answers[0].questionNumber.startsWith("G")
-        })
+        })[0]
 
-        if(environmental) {
-          this.environmentalInfo = {
-            progress: environmental.answers.length,
-            score: environmental.environmentalScore
-          }
-        }
+        console.log(myCompanyInfo)
         
-        if(social) {
-          this.environmentalInfo = {
-            progress: social.answers.length,
-            score: social.socialScore
+        if(myCompanyInfo) {
+          const environmentalAnswers = myCompanyInfo.answers.filter((i: any) => {
+            return i.questionNumber.startsWith("E")
+          })
+          
+          const socialAnswers = myCompanyInfo.answers.filter((i: any) => {
+            return i.questionNumber.startsWith("S")
+          })
+          
+          const governanceAnswers = myCompanyInfo.answers.filter((i: any) => {
+            return i.questionNumber.startsWith("G")
+          })
+
+          if(environmentalAnswers.length) {
+            this.environmentalInfo = {
+              progress: environmentalAnswers.length,
+              score: myCompanyInfo.environmentalScore.toFixed(0)
+            }
           }
-        }
-        
-        if(governance) {
-          this.environmentalInfo = {
-            progress: governance.answers.length,
-            score: governance.governanceScore
+          
+          if(socialAnswers.length) {
+            this.socialInfo = {
+              progress: socialAnswers.length,
+              score: myCompanyInfo.socialScore.toFixed(0)
+            }
+          }
+          
+          if(governanceAnswers.length) {
+            this.governanceInfo = {
+              progress: governanceAnswers.length,
+              score: myCompanyInfo.governanceScore.toFixed(0)
+            }
           }
         }
 
+        this.loading = false
         // if(!data.length) {
         //   this.avaliationStatus = 'pre-avaliation'
         //   return

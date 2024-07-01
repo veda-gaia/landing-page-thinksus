@@ -1637,7 +1637,6 @@ div.both-container:has(aside.active) {
 
 // Dashboard
 .dashboard-score-pre-container {
-    width: 95%;
 
     .indicator-card {
         background-color: $brand-white;
@@ -1646,17 +1645,7 @@ div.both-container:has(aside.active) {
 
         box-shadow: 0px 25px 50px -12px #00000040;
 
-        transform: translateX(70px);
-    }
-}
-
-@media screen and (max-width: 1199px) {
-    .dashboard-score-pre-container {
-        width: 100%;
-    
-        .indicator-card {
-            transform: translateX(0);
-        }
+        // transform: translateX(70px);
     }
 }
 
@@ -2090,5 +2079,34 @@ td {
     &.number-12 {
         top: 33%;
         right: 11%;
+    }
+}
+
+.dropdown-custom {
+    position: relative;
+    z-index: 9999999;
+
+    .dropdown-menu-custom {
+        position: absolute;
+        display: block;
+        top: 100%;
+        right: 50%;
+        transform: translateX(50%);
+        z-index: 99999;
+
+        background-color: white;
+        border: 1px solid $demi-gray;
+        border-radius: .5rem;
+
+        min-width: 140px;
+        padding-top: .2rem;
+        padding-bottom: .2rem;
+
+        .dropdown-item-custom {
+            padding: .3rem .5rem;
+            &:hover {
+                background-color: $alpha-50;
+            }
+        }
     }
 }

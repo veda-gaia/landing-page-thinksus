@@ -441,6 +441,7 @@
         "CONFIRM": "Confirm",
         "ASSESMENT_PLACEHOLDER": "Assessment title",
         "INIT_ASSESMENT": "Start assessment",
+        "FINISHED_ASSESMENT": "Finished assessment",
         "AMBIENTAL": "Environmental",
         "AMBIENTAL_DESCRIPTION": "How the company acts when it comes to environmental matters.",
         "SOCIAL": "Social",

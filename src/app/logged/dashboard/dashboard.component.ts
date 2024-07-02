@@ -31,6 +31,8 @@ export class DashboardComponent {
     score: 0,
   }
 
+  odsScoreArray: any[] = []
+
   constructor(
     private EsgRatingService: EsgRatingService,
     private CompanyService: CompanyService,
@@ -39,6 +41,7 @@ export class DashboardComponent {
 
     this.CompanyService.getByUser().subscribe({
       next: (data) => {
+        console.log(data)
         this.userName = data.user.name
         
         if(data.section === 'Agribusiness') {
@@ -116,6 +119,8 @@ export class DashboardComponent {
               score: myCompanyInfo.governanceScore.toFixed(0)
             }
           }
+
+          this.odsScoreArray = myCompanyInfo.odsScore
         }
 
         this.loading = false

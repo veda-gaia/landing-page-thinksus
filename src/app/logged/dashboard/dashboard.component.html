@@ -227,8 +227,8 @@
     
           <div class="intermediate-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2 mb-2" style="min-height: 50px;">
             <div class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
-              <div *ngFor="let ods of odsScoreArray" [class.d-none]="!(ods.score > 35)">
-                <img *ngIf="ods.score > 35" src="/assets/icon/selos-ods/{{ ods.ods }}.svg" alt="{{ ods.ods }}" title="{{ ods.ods }}">
+              <div *ngFor="let ods of odsScoreArray" [class.d-none]="!(ods.score <= 70)">
+                <img *ngIf="ods.score <= 70" src="/assets/icon/selos-ods/{{ ods.ods }}.svg" alt="{{ ods.ods }}" title="{{ ods.ods }}">
               </div>
             </div>
             <p class="f-size-12px fw-500 pb-1">{{ "DASHBOARD.INTERMEDIATE" | translate }}</p>

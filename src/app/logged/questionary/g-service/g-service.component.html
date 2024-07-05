@@ -200,7 +200,7 @@
         <ul>
             <li *ngFor="let control of formArrayDocuments.controls; let index = index" class="pb-5">
                 <p class="d-block w-100 f-size-1rem l-height-1-5rem alpha-700-text fw-700 pb-2">
-                    {{ index + 1 }}. {{ "QUESTIONS." + questionaryData[index] + "_TITLE" | translate }}
+                    {{ index + 1 }}. {{ "QUESTIONS." + questionaryData[index].id + "_TITLE" | translate }}
                 </p>
                 <p class="d-flex w-100 f-size-1rem l-height-1-25rem alpha-700-text fw-400 gap-1">
                     resposta: &shy;

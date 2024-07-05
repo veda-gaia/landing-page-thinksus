@@ -125,7 +125,7 @@
                                     <img *ngIf="item.esgScore >= 90" src="/assets/icon/seal-gold.svg" alt="Selo de Ouro" title="Selo de Ouro" width="20px">
                                 </td>
                                 <td class="">
-                                    {{ 'Exemplo LTDA' }}
+                                    {{ item.title ? item.title : ( "UNTITLED" | translate ) }}
                                 </td>
                                 <td class="">
                                     {{ item.esgScore.toFixed() }}

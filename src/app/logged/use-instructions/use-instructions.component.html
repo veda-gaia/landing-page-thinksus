@@ -1,0 +1,13 @@
+<div class="pt-2">
+    <a [href]="'USE_INSTRUCTIONS_DOC' | translate" target="_blank" class="brand-btn">
+        {{ "DOWNLOAD_DOCUMENT" | translate }}
+    </a>
+</div>
+
+<div class="w-100 h-100 pt-5">
+    <ngx-doc-viewer
+        [url]="'USE_INSTRUCTIONS_LINK' | translate"
+        viewer="url"
+        style="width:100%;height:75vh;"
+    ></ngx-doc-viewer>
+</div>

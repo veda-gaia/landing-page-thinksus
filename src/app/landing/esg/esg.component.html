@@ -1,0 +1,188 @@
+<!-- Sub Hero -->
+<section class="sub-hero-1 d-flex align-items-center justify-content-center py-5 w-100">
+    <div class="container pb-5 pt-3 pt-md-5">
+        <div class="row py-5">
+            <div class="col content">
+                <h4 class="text-white fade-in">{{ 'ESG.SUBTITLE' | translate }}</h4>
+                <h1 class="text-white fade-in">{{ 'ESG.TITLE' | translate }}</h1>
+                <h5 class="fw-500 text-white pt-4 pt-md-3 fade-in-left" style="max-width: 860px;">
+                    {{ 'ESG.RAW' | translate }}
+                </h5>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Vantagens e Benefícios -->
+<section class="container py-5">
+    <div class="row py-5">
+        <div class="col pb-lg-5 pt-lg-4">
+            <div class="d-flex flex-column flex-xl-row align-items-start justify-content-between gap-5 pt-3 pb-5">
+                <div class="d-flex flex-column gap-2 w-100">
+                    <div class="w-100">
+                        <img src="/assets/img/ambiental.svg" alt="{{ 'ESG.ENVIRONMENTAL' | translate }}" width="70px" class="d-block mx-auto mx-md-0">
+                    </div>
+
+                    <h6 class="primary-text pt-2">
+                        {{ 'ESG.ENVIRONMENTAL' | translate }}
+                    </h6>
+
+                    <p class="body-1 secondary-text">
+                        {{ 'ESG.ENVIRONMENTAL_BODY' | translate }}
+                    </p>
+                </div>
+                
+                <div class="d-flex flex-column gap-2 w-100 mx-xl-3">
+                    <div class="w-100">
+                        <img src="/assets/img/social.svg" alt="{{ 'ESG.SOCIAL' | translate }}" width="64px" class="d-block mx-auto mx-md-0">
+                    </div>
+
+                    <h6 class="primary-text pt-2">
+                        {{ 'ESG.SOCIAL' | translate }}
+                    </h6>
+ 
+                    <p class="body-1 secondary-text">
+                        {{ 'ESG.SOCIAL_BODY' | translate }}
+                    </p>
+                </div>
+
+                <div class="d-flex flex-column gap-2 w-100">
+                    <div class="w-100">
+                        <img src="/assets/img/governance.svg" alt="{{ 'ESG.GOVERNANCE' | translate }}" width="70px" class="d-block mx-auto mx-md-0">
+                    </div>
+
+                    <h6 class="primary-text pt-2">
+                        {{ 'ESG.GOVERNANCE' | translate }}
+                    </h6>
+
+                    <p class="body-1 secondary-text">
+                        {{ 'ESG.GOVERNANCE_BODY' | translate }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sistema de avaliação -->
+<section class="avaliation-system-container py-5">
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="col-12 col-xl-7 col-xxl-7 pb-lg-5 pt-lg-4">
+                <!-- <h6 class="text-white fw-400">Avalie a maturidade do ESG de sua empresa de forma rápida e fácil!</h6> -->
+                <h3 class="text-white fw-400 l-spacing-minus-1" style="max-width: 731px; line-height: 61px;">{{ 'ESG.SYSTEM' | translate }}</h3>
+
+                <h6 class="text-white fw-400 py-3 l-height-31" style="max-width: 694px;">
+                    {{ 'ESG.WE_DEVELOPED' | translate }}
+                </h6>
+                
+                <ul>
+                    <li class="d-flex align-items-center justify-content-start gap-2 text-white mb-1">
+                        <img src="/assets/icon/check.svg" alt="Check">
+                        <h6 class="fw-600 l-height-31">ENVISION <span class="fw-400">{{ 'ESG.HARVARD' | translate }}</span></h6>
+                    </li>
+
+                    <li class="d-flex align-items-center justify-content-start gap-2 text-white">
+                        <img src="/assets/icon/check.svg" alt="Check">
+                        <h6 class="fw-600 l-height-31">ISE <span class="fw-400">{{ 'ESG.ISE' | translate }}</span></h6>
+                    </li>
+                    
+                    <li class="d-flex align-items-center justify-content-start gap-2 text-white">
+                        <img src="/assets/icon/check.svg" alt="Check">
+                        <h6 class="fw-600 l-height-31">GRI <span class="fw-400">(Global Reporting Initiative)</span></h6>
+                    </li>
+
+                    <li class="d-flex align-items-center justify-content-start gap-2 text-white">
+                        <img src="/assets/icon/check.svg" alt="Check">
+                        <h6 class="fw-600 l-height-31">SASB <span class="fw-400">(Sustainability Accounting Standard Board)</span></h6>
+                    </li>
+
+                    <li class="d-flex align-items-center justify-content-start gap-2 text-white">
+                        <img src="/assets/icon/check.svg" alt="Check">
+                        <h6 class="fw-600 l-height-31">{{ 'ESG.ODS' | translate }} <span class="fw-400">{{ 'ESG.ODS_BODY' | translate }}</span></h6>
+                    </li>
+
+                    <li class="d-flex align-items-center justify-content-start gap-2 text-white">
+                        <img src="/assets/icon/check.svg" alt="Check">
+                        <h6 class="fw-400 l-height-31">{{ 'ESG.OTHERS' | translate }}</h6>
+                    </li>
+                </ul>
+
+                <h6 class="text-white fw-400 py-3 l-height-31" style="max-width:  694px;">
+                    {{ 'ESG.EVALUATION' | translate }}
+                </h6>
+
+                <div class="w-100 pt-3">
+                    <a routerLink="/free-test" (click)="scrollToTop()" class="d-block mx-auto mt-5">
+                        <button class="secondary-brand-btn px-lg-5 d-block mx-auto">
+                            {{ 'ESG.FREE_AVALUATION' | translate }}
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Futuro sustentável -->
+<section class="w-100 py-5 pb-lg-0">
+    <div class="container pb-5">
+        <div class="row py-5 pb-lg-0">
+            <div class="col d-flex flex-column flex-lg-row align-items-center justify-content-between gap-5">
+                <div>
+                    <h3 class="brand-text l-spacing-minus-1 pb-4">
+                        {{ 'ESG.BADGE' | translate }}
+                    </h3>
+
+                    <p class="body-2 secondary-text pb-4" style="max-width: 731px;">
+                        {{ 'ESG.BADGE_BODY' | translate }}
+                        
+                    </p>
+
+                    <p class="body-2 secondary-text" style="max-width: 731px;">
+                        {{ 'ESG.BADGE_BODY_2' | translate }}
+                    </p>
+                </div>
+
+                <img src="/assets/img/selos.svg" alt="{{ 'ESG.BADGE' | translate }}">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tecnologia Blockchain -->
+<section class="w-100 pb-5">
+    <div class="container pb-5">
+        <div class="blockchain-technology-bg row py-0 py-xl-5">
+            <div class="col py-0 py-xl-5 d-flex align-items-center justify-content-xl-end justify-content-xxl-end">
+                <div class="pt-5 first-part-text px-3">
+                    <h3 class="brand-text l-spacing-minus-1 pb-4">
+                        {{ 'ESG.BLOCKCHAIN_TITLE' | translate }}
+                    </h3>
+    
+                    <p class="body-2 secondary-text pb-4" style="max-width: 705px;">
+                        {{ 'ESG.BLOCKCHAIN_BODY_1' | translate }}
+                    </p>
+    
+                    <p class="body-2 secondary-text" style="max-width: 705px;">
+                        {{ 'ESG.BLOCKCHAIN_BODY_2' | translate }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row pt-4 pt-xl-0 bg-white" style="border-radius: 0 0 20px 20px;">
+            <div class="col">
+                <div class="px-3 pb-5">
+                    <p class="body-2 secondary-text pb-4" style="max-width: 1136px;">
+                        {{ 'ESG.BLOCKCHAIN_BODY_3' | translate }}
+                    </p>
+    
+                    <p class="body-2 secondary-text" style="max-width: 1136px;">
+                        {{ 'ESG.BLOCKCHAIN_BODY_4' | translate }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

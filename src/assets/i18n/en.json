@@ -1,8 +1,78 @@
 {
     "TERMS_LINK": "https://drive.google.com/file/d/1kQFs-9lpGh_mRSaYXB3g4-bXSkZtL6kO/view",
     "PRIVACY_LINK": "https://docs.google.com/document/d/1NE0XrXsl50QHPj1XweECKPJ65BWSKpsJ/edit",
+    "USE_INSTRUCTIONS_LINK": "https://docs.google.com/document/d/1WD0nK0d4c772gF8hGbOXHCgT38SzPkoo",
+    "USE_INSTRUCTIONS_DOC": "/assets/docs/use-instructions-pt.docx",
+    "DOWNLOAD_DOCUMENT": "Download document",
+    "UNTITLED": "Untitled",
+    "HEADER": {
+        "PLANS": "Plans",
+        "ABOUT": "About Us",
+        "SIGN_UP": "Sign Up",
+        "SIGN_IN": "Sign In"
+    },
+    "FOOTER": {
+        "TALK_TO": "ThinkSus wants to hear from you!",
+        "NAME_PLACEHOLDER": "Your full name",
+        "SUBJECT_PLACEHOLDER": "Subject",
+        "MESSAGE_PLACEHOLDER": "Leave us a message in case you have any doubts about our products, subscription plans, suggestions or any complaints that soon we will get back to you!",
+        "SEND_BTN": "Send",
+        "WELCOME": "Welcome to ThinkSus! Your ESG digital partner to a greener world.",
+        "RESERVED": "All rights reserved",
+        "PRIVACY_TERMS": "Privacy terms"
+    },
     "HOME": {
-        "TITLE": "Sustainable Future"
+        "SUBTITLE": "Lidearship to a",
+        "TITLE": "Sustainable Future",
+        "RAW": "ThinkSus sets the benchmark for applied sustainability, design and business management",
+        "PLAN_TITLE": "ESGers ThinkSus Plans: advantages and benefits",
+        "AVALIATION_TITLE": "ESG performance evaluation",
+        "AVALIATION_BODY": "By simulating your ESG performance on our platform, you and your company will gain more clarity on material aspects such as social and environmental risks and governance of your operation.",
+        "ADERENCE_TITLE": "SDG Adherence",
+        "ADERENCE_BODY": "It is a tool for the transparency and social and environmental responsibility of your company, indicating how your operation contributes most to UN's SDG",
+        "BLOCKCHAIN_TITLE": "Blockchain validation",
+        "BLOCKCHAIN_BODY": "We provide an ESG management tool and data tracking for large supply chains. Ensure your competitiveness and business continuity by making the verification of impacts transparent. Our certification attests, with evidence, compliance with ESG standards",
+        "CHOOSE_BTN": "Choose the best option: Learn more about our plans",
+        "FUTURE": "The green future is now!",
+        "INOVATION": "The ThinkSus ESG rating fosters innovation and encourages performance improvement in every aspect of your operations.",
+        "BALANCE": "Balance",
+        "KNOW_WHAT": "Find out the current ESG scenario in your business and how to fit into the latest market trends",
+        "POSITIONING": "Positioning",
+        "HAVE_A": "Have a sustainable positioning and learn its impacts on society",
+        "EVOLUTION": "Evolution",
+        "BUILD": "Build a healthy relationship with your stakeholders with a sustainable purpose for the future",
+        "EXAMPLE_1": "Noticias populares",
+        "EXAMPLE_2": "Lorem ipsum dolor sit amet, consecteturadipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris nisi utaliquip ex ea commodo consequat. Duisaute irure dolor in reprehenderit involuptate velit esse cillum dolore eufugiat nulla pariatur. Excepteur sintoccaecat cupidatat non proident,sunt in culpa qui ofcia deseruntmollit anim id est laborum.",
+        "EXAMPLE_3": "Saiba mais",
+        "EXAMPLE_4": "Lorem ipsum dolor sit amet, consectetur"
+    },
+    "ESG": {
+        "SUBTITLE": "A commitment to sustainable practices",
+        "TITLE": "ESG and SDG",
+        "RAW": "ESG practices are related to environmental, social, and corporate governance, which constitute the three pillars for collectively assessing consciousness and promoting greater sustainability in your business",
+        "ENVIRONMENTAL": "Environmental",
+        "ENVIRONMENTAL_BODY": "The awareness of companies about the need to preserve the environment sheds light on various aspects of environmental management, including waste disposal, deforestation, climate change mitigation, biodiversity conservation, reduction of carbon footprint, sustainable extraction of natural resources, and more.",
+        "SOCIAL": "Social",
+        "SOCIAL_BODY": "It is of utmost importance for companies to fully grasp their role in promoting the well-being of their employees, as well as fostering positive relationships with their suppliers and the surrounding community. Ensuring the protection of human rights, fair compensation, combatting child and forced labor, prioritizing safety, and embracing inclusivity and diversity are key elements that contribute to a company's sustainability",
+        "GOVERNANCE": "Governance",
+        "GOVERNANCE_BODY": "ESG Governance pertains to corporate management and emphasizes performance improvement. Does governance support the interests of employees, clients, and shareholders? Additionally, management must uphold financial and accounting transparency, provide comprehensive reports, adhere to ethical values, and combat corruption in accordance with compliance rules.",
+        "SYSTEM": "ThinkSus Business Evaluation System",
+        "WE_DEVELOPED": "We have developed our own evaluation method that reflects the demands and complexities of the main global rankings",
+        "HARVARD": "(Harvard/USA)",
+        "ISE": "(Brazilian Stock Exchange)",
+        "ODS": "SDG",
+        "ODS_BODY": "(Sustainable Development Goals)",
+        "OTHERS": "And other adherent indexes.",
+        "EVALUATION": "This evaluation uses more realistic scores and weights for medium and small-sized companies, in a more intuitive language that allows you to assess your ESG practices, aligning them with the UN SDGs.",
+        "FREE_AVALUATION": "Take a free assessment right now!",
+        "BADGE": "ThinkSus ESG Badge",
+        "BADGE_BODY": "ThinkSus offers various options for adapting to a sustainable operation for your businesses. In addition to simulation and certification, you can become eligible to obtain a ThinkSus ESG Badge, included in the ESG Solution plan (not available in the ESG Simulation plan), starting from a 60% adherence score and verification of supporting documentation for your practices.",
+        "BADGE_BODY_2": "whose status confirms your open commitment and responsibility in seeking a positive impact on your relationship with stakeholders and the community in your ESG journey.",
+        "BLOCKCHAIN_TITLE": "Blockchain Technology",
+        "BLOCKCHAIN_BODY_1": "Transparency is the cornerstone of any certification process that involves criteria related to validation, accuracy, and accountability. In line with this, we prioritize these essential requirements by evaluating the segmentation of information blocks, the components that constitute the criteria, and the maturity levels of companies concerning ESG pillars. These pillars encompass environmental, social, and governance commitments in sustainability.",
+        "BLOCKCHAIN_BODY_2": "Blockchain technology provides information tokens through integrators, verified with both public and private data on a high-reliability basis. The aim is to ensure information consistency, as indicated by the companies evaluated on our Enterprise Rating System platform.",
+        "BLOCKCHAIN_BODY_3": "We can contribute to the overall supply chain control. Companies seeking suppliers with sustainable maturity can connect to the ThinkSus Blockchain to validate their information and establish standards for their sourcing options. In this self-sufficiency network, a liability coefficient is generated, highlighting suppliers with a higher rank in terms of ESG practices and enhancing results.",
+        "BLOCKCHAIN_BODY_4": "Based on publicly available data, private data validated within the ThinkSus network, and government information accessible through each country's legislation promoting sustainability, additional information is included to verify the accuracy of the data submitted by companies within the system. This ensures the precision of the indicators within the context of technological cognitive intelligence."
     },
     "REGISTER": {
         "PART": "Parte",
@@ -15,7 +85,7 @@
         "SUBTITLE_3": "Please check your e-mail",
         "SUBTITLE_4": "Thank you for you registration,",
         "NAME": "Full name",
-        "NAME_PLACEHOLDER": "You full name",
+        "NAME_PLACEHOLDER": "Your full name",
         "EMAIL": "E-mail",
         "PHONE": "Phone number",
         "ROLE": "Position",
@@ -29,12 +99,16 @@
 
         "ENTERPRISE_NAME": "Business name",
         "ENTERPRISE_NAME_PLACEHOLDER": "Set the Business Name",
+        "CODE_PLACEHOLDER": "Set the Code",
+        "CODE": "Verification Code",
         "ZIPCODE": "Zip Code",
         "DOCUMENT": "Brazilian Tax ID Number",
         "COUNTRY": "Country",
         "STATE": "State",
         "STATE_PLACEHOLDER": "Set the State",
+        "STATE_OPTIONAL": "State (optional)",
         "CITY": "City",
+        "CITY_OPTIONAL": "City (optional)",
         "CITY_PLACEHOLDER": "Set the City",
         "FIELD": "Economic Sector",
         "FIELD_PLACEHOLDER": "Select the Economic Sector",
@@ -42,23 +116,442 @@
         "SEGMENT_PLACEHOLDER": "Select the Segment",
         "BACK": "Back",
                 
-        "COLLABORATORS_AMMOUNT": "Number of employees",
-        "AMMOUNT_1": "From 1 to 100",
-        "AMMOUNT_2": "From 100 to 1.000",
-        "AMMOUNT_3": "From 1.000 to 5.000",
-        "AMMOUNT_4": "From 5.000 to 50.000",
-        "AMMOUNT_5": "Above 50.000",
+        "COLLABORATORS_AMMOUNT": "Number of employees (optional)",
+        "AMMOUNT_1": "1 - 20 employees",
+        "AMMOUNT_2": "21 - 50 employees",
+        "AMMOUNT_3": "51 - 200 employees",
+        "AMMOUNT_4": "201 - 500 employees",
+        "AMMOUNT_5": "501 - 2000 employees",
+        "AMMOUNT_6": "> 2001 employees",
         "INVOICING": "Company revenue",
-        "INVOICING_1": "Above $10,000",
-        "INVOICING_2": "Above $50,000",
-        "INVOICING_3": "Above $100,000",
-        "INVOICING_4": "Above $1,000,000",
+        "BRL_INVOICING_1": "< BRL 360 thousand",
+        "BRL_INVOICING_2": "BRL 360 mil - BRL 4,8 milhões",
+        "BRL_INVOICING_3": "BRL 4,8 milhões - BRL 20 milhões",
+        "BRL_INVOICING_4": "> BRL 20 milhões",
+        "USD_INVOICING_1": "< USD 360 thousand",
+        "USD_INVOICING_2": "USD 360 mil - USD 4,8 milhões",
+        "USD_INVOICING_3": "USD 4,8 milhões - USD 20 milhões",
+        "USD_INVOICING_4": "> USD 20 milhões",
         
-        "CLICK_LINK": "Click on the link we have sent to:",
+        "CLICK_LINK": "Enter the code we sent to:",
         "POST_CONFIRMATION": "Ater confirming, click on Continue to proceed with your registration",
 
         "ENJOY": "Enjoy the ThinkSus Panel",
         "CLICK_BUTTON": "Ater confirming, click on Continue to proceed with your registration",
-        "GO_TO_PANEL": "Go to ThinkSus Panel"
+        "GO_TO_PANEL": "Go to ThinkSus Panel",
+
+        "SELECT": "Select"
+    },
+    "LOGIN": {
+        "TITLE": "Login",
+        "SUBTITLE": "Login to access ThinkSus panel",
+        "EMAIL": "E-mail",
+        "PASSWORD": "Password",
+        "INSERT_PASSWORD": "Your password",
+        "NEXT": "Next",
+        "REGISTER": "New here? Create an account!"
+    },
+    "PLANS": {
+        "TITLE": "Learn more about our plans",
+        "SUBTITLE": "By choosing a ThinkSus plan, you will undergo an assessment and receive a detailed report that will identify the strengths and areas for improvement in your ESG journey. Depending on the level of maturity achieved, your company may become eligible for ThinkSus ESG certification, which uses cutting-edge technology to grant the ThinkSus Seal, bringing credibility, transparency, and traceability to your business.",
+        "SIMPLE_FAST": "Simple, fast and complete",
+        "OUR_PANEL": "With our dashboard, you will have not only the score but also the monitoring of your company's ESG practices and the evaluation of each pillar",
+        "BENEFITS": "Features",
+        "SIMULATION": "Rating simulation",
+        "INDICATORS": "(with index report)",
+        "ODS_INDICATOR": "SDG matrix of adherence",
+        "THINKSUS": "ThinkSus Seal",
+        "SCORES": "for adherence score above 60%",
+        "INDICATORS_PLATFORM": "Index platform and dashboards",
+        "PACKAGE": "Complete package of recommendations",
+        "RELATORY": "(indicator report)",
+        "ACTIVE_PROFILE": "Active profile on dashboard",
+        "AVALIATION": "Supplier assessment and control",
+        "ESG_CONTROL": "ESG evaluation and control of all suppliers",
+        "REGISTER_BLOCKCHAIN": "Blockchain registry for global transparency",
+        "CERTIFICATION": "Supply chain certification",
+        "FRAMEWORKS": "Frameworks of analysis (GRI, SASB, TCFD) ",
+        "GRI": "Adherent to your operation and value chain",
+        "SIMULATION_TITLE": "Simulation",
+        "SOLUTION_TITLE": "Solution",
+        "SUPLEMENT_TITLE": "Supply Chain",
+        "FREE_TEST": "Try it now!",
+        "GET_YOURS": "Get your plan"
+    },
+    "ABOUT_US": {
+        "TITLE": "About ThinkSus",
+        "BODY_1": "Sustainability goes beyond ESG reports, supply chain control, or reporting corporate risks. It entails caring for the world we live in, our community, and our daily activities. ThinkSus stems from this ethos.",
+        "BODY_2": "We firmly believe that sustainability should be accessible, efficient, and attainable for everyone, including small and medium-sized businesses.",
+        "BODY_3": "Numerous diverse narratives form the corporate foundation of this e-ESG: a consulting service that harmonizes a straightforward and innovative approach, intuitive design, and cutting-edge technology, resulting in an accessible product for the end customer.",
+        "TEAM_TITLE": "ThinkSus Team",
+        "TEAM_BODY": "ThinkSus was conceived with the ambition of contributing to a positive legacy for society by its three co-founders. Collectively, they bring more than 10 years of experience in sustainable development, finance, and corporate governance.",
+        "TEAM_COF_1": "/assets/img/abner-en.png",
+        "TEAM_COF_2": "/assets/img/carrijo-en.png",
+        "TEAM_COF_3": "/assets/img/prestes-en.png"
+    },
+    "SIDEBAR": {
+        "TAKE_ASSESMENT": "Take an assessment to learn your ESG status",
+        "HOME": "Home",
+        "AVALIATION": "Assessment",
+        "RESULTS": "Score",
+        "ODS": "SDG",
+        "CONTROL_PANEL": "Control Panel",
+        "SUPPLIERS": "Suppliers",
+        "INSTRUCTIONS": "Instructions for use",
+        "WANT_MORE": "Want more?",
+        "HAVE_ACCESS": "Get more information in our platform",
+        "SEE_PLANS": "Check plans",
+        "LOGOUT": "Logout"
+    },
+    "FOOTER_LOGGED": {
+        "RIGHTS": "@ 2023, ThinkSus, All rights reserved",
+        "ABOUT": "About ESG",
+        "SUBSCRIPTION": "Subscription",
+        "HELP": "Help"
+    },
+    "QUESTIONARY": {
+        "GOVERNAMENTAL_TITLE": "Governmental Assessment",
+        "ENVIRONMENTAL_TITLE": "Environmental Assessment",
+        "SOCIAL_TITLE": "Social Assessment",
+        "QUESTION": "Question",
+        "30_PERCENT": "Important: To ensure the accuracy of your answers, there is a 30% limit for selections marked as 'does not apply'. If this limit is exceeded, you will receive a notification to review your answers.",
+        "YES": "Yes",
+        "NO": "No",
+        "DOESNT_APPLY": "Does not apply",
+        "NEXT": "Next",
+        "CONTINUE_LATER": "Continue later",
+        "BACK": "Back",
+        "GLOSSARY": "Glossary",
+        "EXPAND": "Read more",
+        "LIMIT_EXCEDED": "Attention: \"Does not apply\" limit exceeded",
+        "DOCUMENT_NEEDED": "Important: Proof of document required",
+        "ANSWER_SUMMARY": "Answer summary",
+        "CANNOT_CHANGE": "Important: Once the questionnaire is finalized, you will not be able to change your answers.",
+        "REVIEW": "Review questions",
+        "DOCUMENT_SEND": "Document submission"
+    },
+    "QUESTIONS": {
+        "E1_TITLE": "The quantity of deforestation caused by the company is within the acceptable limits within the extend permitted by law",
+        "E1_DESCRIPTION": "The quantity of deforestation caused by the company is within the acceptable limits within the extend permitted by law",
+
+        "E2_TITLE": "Is there any policy and practice of animal welfare ?",
+        "E2_DESCRIPTION": "Rules and guidelines that the company show follow for the animal welfare",
+
+        "E3_TITLE": "Is there any carbon footprint control and mitigation actions?",
+        "E3_DESCRIPTION": "Carbon footprint is when raw material and pollutants production are originated from the production process. There is some  calculation involving each consumed resource (such as liters of car fuel, electric energy, raw material quantity etc.). The calculation quantifies the amount of carbon in every operation, resulting in carbon footprint to be reported. ",
+
+        "E4_TITLE": "Is there any disclosure of environmental responsibility compliance ?",
+        "E4_DESCRIPTION": "Compliance are rules and guidelines of individual and collective responsibility of the company, in terms of actions that impact the environment ( such as material recycling, consumption reduction). These guidelines must be communicated to all the employees from time to time. ",
+
+        "E5_TITLE": "Does the energy source is provided by renewable energy sources? (solar, wind energy)",
+        "E5_DESCRIPTION": "Energy sources are the ones that supply energy to machines, buildings and operations. In general the energy sources are water and city lights. Alternative sources would be the water collection and treatment, electric energy from solar panel or wind energy. ",
+
+        "E6_TITLE": "Is there a reuse water collection system?",
+        "E6_DESCRIPTION": "Forms and methods of rain water collection that, after going through proper treatment, enables the reuse. It provides a reduction of the water use that comes from the city system. ",
+
+        "E7_TITLE": "Do vehicles use fossil fuel?",
+        "E7_DESCRIPTION": " Fossil fuel are: petroleum, coal and natural gas, derived from the decomposition of living beings. The most common fuels are gasoline and diesel, resulted from petroleum. The alternative would be the use of electric vehicles ",
+
+        "E8_TITLE": "Is there any monitoring of natural resources monthly consumption and reduction targets?",
+        "E8_DESCRIPTION": "Natural resources as elements that are removed from nature to meet the men needs (e.g. solar energy, wood, soil, water, wind, animals, vegetables )",
+
+        "E9_TITLE": "Are all operation waste treated before disposal? (sewage, waste, effluents)",
+        "E9_DESCRIPTION": "Waste (material consumed for the operation ) present pollution risks to the environment in case of not handled and treated properly. The materials used in the production must be correctly recycled, the sewage treated and any other material left must be properly disposed.",
+
+        "E10_TITLE": "Is there a management waste monthly report?",
+        "E10_DESCRIPTION": "A detailed report, that is documented and registered ( some kind of monthly report ) regarding how the wastes are treated and controlled in the company.",
+
+        "E11_TITLE": "Are there any current alternatives in course to reduce pollution?",
+        "E11_DESCRIPTION": "Protocols, regulation and methods to reduce the pollution in course. An alternative would be a program to bring awareness regarding water consumption, material recycling and a mindful energy consumption.",
+
+        "E12_TITLE": "Does the company make use of pesticide that may infect the water table ?",
+        "E12_DESCRIPTION": "The use of pesticides ( chemical agents for pest and insects control) is common in the production",
+
+        "E13_TITLE": "Does your final product make use of disposable packaging?",
+        "E13_DESCRIPTION": "Disposable packages that are made from recycled materials, that can be reused, diminishing negative aspects in the environment",
+
+        "E14_TITLE": "Is there a climate change mitigation program?",
+        "E14_DESCRIPTION": "Use of protocols to reduce negative impacts that may affect climate changes",
+
+        "E15_TITLE": "Can climate change severely affect the operation  ( such as tornados, drought, wildfire, snowstorm)? ",
+        "E15_DESCRIPTION": "The activities of the company can go through changes on its production and in its activities in general due to climate change, such as flooding, drought, hurricanes, burnings.",
+
+        "S1_TITLE": "Is there an Intern Compliance of social Role in the company? ",
+        "S1_DESCRIPTION": "Intern Compliance of Social Role are rules and guidelines of collective and individual responsibilities of the company that contemplates spheres of society such as job creation, tax payment, wealth generation, contribution to economic, social and cultural growth, use of sustainable practice related to consumer rights.",
+
+        "S2_TITLE": "Are all the workers registered, with social taxes collected correctly on a monthly basis, and with a salary consistent with their role?",
+        "S2_DESCRIPTION": "The company follows the country's labor law to hiring, collect all taxation related to this employement, with payment on time ?",
+
+        "S3_TITLE": "Are all the workers registered, with social taxes collected correctly on a monthly basis, and with a salary consistent with their role?",
+        "S3_DESCRIPTION": "The company follows the country's labor law to hiring, collect all taxation related to this employement, with payment on time ?",
+
+        "S4_TITLE": "Is the selection process for every vacant position a fair manner , with no distinction or discrimination  of color, race, sexual or beliefs?  ",
+        "S4_DESCRIPTION": "The recruiting process for new candidates respects diversity, with no eliminatory classification related to their choice of beliefs, skin color, ethnicity and sexual orientation, considering only their professional skills and their ability to develop the work they are being evaluated to. ",
+
+        "S5_TITLE": "Has any occupational accident with injuries occurred over the last 24 months?",
+        "S5_DESCRIPTION": "Occurrence of accident at work with employees while performing their duties, with or without loss of working time, prior 24 months from the event of answering this survey.",
+
+        "S6_TITLE": "Is there any conviction in first instance on Labor Justice over the last 5 years?",
+        "S6_DESCRIPTION": "The company has been judicially sued and punished for not complying with the Labors Law",
+
+        "S7_TITLE": "Is there any interaction with social and political organizations in the city of business?",
+        "S7_DESCRIPTION": "The company has political/ social connections in the city where it operates.",
+
+        "S8_TITLE": "Are social engagements consistently reported (within the last 48 months)?",
+        "S8_DESCRIPTION": "The reports are documents describing every social commitment ( creation, development and support to programs directed to the community, life quality and environment)",
+
+        "S9_TITLE": "Is there any control for confidential information  according to General Data Protection Law?",
+        "S9_DESCRIPTION": "The confidential information is kept in private by the control and guidelines according to the General Data Protection Law ?",
+
+        "S10_TITLE": "Is there a communication channel between customers and suppliers?",
+        "S10_DESCRIPTION": "Tools that enable the communication between clients and suppliers",
+
+        "S11_TITLE": "Is there an anonymous report channel? If positive, are all cases investigated and reported to all employees?",
+        "S11_DESCRIPTION": "Anonymous report channel where the complainant is never disclosed and their confidentiality is kept. If positive, the people in charge of managing this channel will analyze it and take actions to deal with it.",
+
+        "S12_TITLE": "Is the Internal Code to fight corruption clear and available to all employees?",
+        "S12_DESCRIPTION": "The Intern Code to Fight Corruption is clear and legible for an easy understanding",
+
+        "S13_TITLE": "Does the company have a pricing policy that is used to manipulate the market free competition?",
+        "S13_DESCRIPTION": "The pricing of the products is made fairly and lawful for the market free competition",
+
+        "S14_TITLE": "Is there a term of social behavior for suppliers? If positive, is it in agreement with the Intern Compliance values ?",
+        "S14_DESCRIPTION": "The term of social behavior for suppliers demonstrate the way to classify these suppliers must be in accordance with the intern compliance of the company",
+
+        "S15_TITLE": "Is there any open report, internal or external, regarding customers inquiry from the last 48 months?",
+        "S15_DESCRIPTION": "The clients inquiries are reported without any kind of censorship",
+
+        "S16_TITLE": "Does the company provide any benefits to employees for education/ culture/other type of training, not related to the job function/business?",
+        "S16_DESCRIPTION": "Benefits may include discount partnerships for extra-curricular or continuing education courses, in-house training and study programs or financial incentives to be spent on education.",
+
+        "G1_TITLE": "Does your product present risk to the consumer's health if consumed to excess ?",
+        "G1_DESCRIPTION": "The product may be hazardous to consumer's health in case of excessive consumption beyond recommendation",
+
+        "G2_TITLE": "Does your product present risk to society in general if consumed or used incorrectly?",
+        "G2_DESCRIPTION": "The product may be hazardous to consumer's health in case of consuming it differently from recommended",
+
+        "G3_TITLE": "Is there any political, national or international risk that can affect the product market ?",
+        "G3_DESCRIPTION": "Are there any internal and external political elements  to national territory that may affect the way the product is marketed ?",
+
+        "G4_TITLE": "Is your market of operation regulated by corporate/ class institutions ?",
+        "G4_DESCRIPTION": "Should the market where your product operates follow guidelines to some kind of institution so it can be commercialized ?",
+
+        "G5_TITLE": "Is there a contingency plan against corporate risks ?",
+        "G5_DESCRIPTION": "A plan to control and reduce any possible risky situation inside the company; situations that are beyond the scope of the company's internal compliance.",
+
+        "G6_TITLE": "Does the company go through some type of auditing ( quality/ finances)?",
+        "G6_DESCRIPTION": "Auditing is a thorough analysis of the activities that are developed in specific organizations whose purpose is to investigate if they are in accordance with previous planning and if they were efficiently applied to the previous intentions.",
+
+        "G7_TITLE": "Is there any division between the ones who manages the business day-to day and the owner of the company ?",
+        "G7_DESCRIPTION": "The company has specific employees for every department to maintain its proper functioning  who is not  its owner",
+
+        "G8_TITLE": "Is there a economic/commercial connection with other subsidiaries under the same management ?",
+        "G8_DESCRIPTION": "Commercial and economical relations with other company's subsidiaries under the same management",
+
+        "G9_TITLE": "Is there an intern code related to conflict of interests ?",
+        "G9_DESCRIPTION": "A guideline with rules regarding conflict of interests",
+
+        "G10_TITLE": "Is there a public publication of your product's ingredients ?",
+        "G10_DESCRIPTION": "Public documents released through media outlets describing the ingredients that are used in the company's products",
+
+        "G11_TITLE": "Has the company been judicially penalized over the last three years for misconduct against free competition ?",
+        "G11_DESCRIPTION": "The company has been judicially noticed for practicing dishonest misconduct against free competition",
+
+        "G14_TITLE": "Is there a monthly/ annual financial report for all employees ?",
+        "G14_DESCRIPTION": "All employees have access to documents reporting the company's financial performance",
+
+        "G15_TITLE": "Is the company's profitability over the last three years on a satisfactory level, on average or above the market level?",
+        "G15_DESCRIPTION": "Does the company's profitability maintains satisfactory levels, on average compared to the market indexes ?",
+
+        "G16_TITLE": "The current business  structure support and operational growth and future market trends, without great costs of additional investment ?",
+        "G16_DESCRIPTION": "Does the company have the ability to invest in operational growth according to its income, with no need of external additional investment?"
+    },
+    "PAYMENT": {
+        "TITLE": "Payment",
+        "SUBTITLE": "All transactions are secure and encrypted.",
+        "PATH_1": "Plans",
+        "PATH_2": "Personal information",
+        "PATH_3": "Payment",
+        "ADDRESS_TITLE": "Billing address",
+        "FINISH_PAYMENT": "Finalize Payment",
+        "BACK": "Back",
+        "CREDIT_CARD": "Credit card",
+        "AND_MORE": "and more...",
+        "CARD_NUMBER": "Card number",
+        "CARD_NAME": "Name on card",
+        "YOUR_NAME": "Your name",
+        "NAME": "Name",
+        "COMPLETE_NAME": "Full name",
+        "DEADLINE": "Deadline",
+        "DEADLINE_PLACEHOLDER": "MM/YY",
+        "SECURITY_CODE": "Security code",
+        "ADDRESS": "Address",
+        "YOUR_ADDRESS": "Your adress",
+        "ZIP_CODE": "Postal Code",
+        "CITY": "City",
+        "DIGIT_CITY": "Enter the city",
+        "STATE": "State",
+        "DIGIT_STATE": "Enter the state",
+        "COUNTRY": "Country",
+        "DIGIT_COUNTRY": "Enter the country",
+        "SAME_ADDRESS": "Same as registration",
+        "ANOTHER_ADDRESS": "Use another billing address",
+        "VALUE_PER_SIMULATION": "*Value per simulation performed",
+        "VALUE_OF_SIMULATION": "R$ 99,00",
+        "VALUE_OF_SOLUTION": "R$ 999,00",
+        "VALUE_OF_SUPPLY": "R$ 4.999,00",
+        "CHANGE_PLAN": "Change plan",
+        "SIMULATION": "Simulation",
+        "SOLUTION": "Solution",
+        "SUPPLY": "Supply chain",
+        "SIMULATION_PLAN" : "Simulation Plan"
+    },
+    "DASHBOARD": {
+        "YOUR_SCORE": "Your ThinkSus Score",
+        "HI": "Hi,",
+        "THATS": ", this is your current score",
+        "TYPE": "Type",
+        "PROGRESS": "Progress",
+        "SCORE_PER_SEGMENT": "Score per segment",
+        "STATUS": "Status",
+        "ENVIRONMENTAL": "Environmental",
+        "SOCIAL": "Social",
+        "GOVERNANCE": "Governance",
+        "START": "Start",
+        "CONTINUE": "Continue",
+        "FINISHED": "Finished",
+        "INDICATOR": "Overall Indicator",
+        "YOU_DONT_HAVE": "You do not yet have an indicator",
+        "TAKE_ASSESMENT": "Take an assessment to learn your overall score",
+        "START_ASSESMENT": "Assessment",
+        "ASSESMENT_HISTORY": "Score history",
+        "ADERENCE_LEVEL": "Actual aderence level",
+        "17_OBJECTIVES": "17 ODS objectives",
+        "GENERATE_RELATORY": "Generate relatory",
+        "HIGH": "High",
+        "INTERMEDIATE": "Intermediate",
+        "LOW": "Low"
+    },
+    "ASSESMENT": {
+        "YOU_CAN": "You can perform a free assessment!",
+        "SIMULATE": "Simulate how our evaluation system works for free.",
+        "INIT_SIMULATION": "Start simulation",
+        "TITLE": "Assesment",
+        "ANSWER_QUESTIONARY": "Answer the questionnaires in the three areas below to receive your score",
+        "ASSESMENT_TITLE": "Assessment title",
+        "CONFIRM": "Confirm",
+        "ASSESMENT_PLACEHOLDER": "Assessment title",
+        "INIT_ASSESMENT": "Start assessment",
+        "FINISHED_ASSESMENT": "Finished assessment",
+        "AMBIENTAL": "Environmental",
+        "AMBIENTAL_DESCRIPTION": "How the company acts when it comes to environmental matters.",
+        "SOCIAL": "Social",
+        "SOCIAL_DESCRIPTION": "How the company acts when it comes to taking actions related to social matters intended to employees and suppliers.",
+        "GOVERNAMENTAL": "Governance",
+        "GOVERNAMENTAL_DESCRIPTION": "How the company acts according to its management and administration related to business, employees, shareholders and clients",
+        "GENERATE_RELATORY": "Generate result"
+    },
+    "SCORE": {
+        "TITLE": "Score",
+        "HISTORY": "Assesment history",
+        "YOU_DONT_HAVE": "You don't have any reviews in progress",
+        "MAKE_YOUR_FIRST": "Carry out your first assessment to discover your company's Score and general indicator",
+        "MAKE_BUTTON": "Make Assessment",
+        "NEXT_AVALIABLE": "Next review available at",
+        "MOST_RECENT": "Latest result",
+        "SCORE_TITLE": "Review title:",
+        "SCORE_GENERATED_AT": "Score generated in:",
+        "GENERATED_AT": "Score generated in:",
+        "THINKSUS_SCORE": "ThinkSus score",
+        "IMPROVEMENTS": "Improvements",
+        "SCORE_HISTORY": "Score history",
+        "SEAL": "Seal",
+        "SCORE_NAME": "Title",
+        "SCORE_TABLE": "ThinkSus Score",
+        "GENERATED_AT_TABLE": "Generated in",
+        "ACTIONS": "Actions",
+        "NO_RESULTS": "No results"
+    },
+    "SUPPLIERS": {
+        "LIST_TITLE": "Supplier list",
+        "ADD_SUPPLIER": "Add supplier",
+        "SEARCH": "Search",
+        "ORDER_BY": "Order by",
+        "SEAL": "Seal",
+        "LETTER_ORDER": "Alphabetical order",
+        "SUPPLIER": "Supplier",
+        "BUY_VALUE": "Purchase price",
+        "SCORE": "ThinkSus Score",
+        "CNPJ": "Document",
+        "ACTIONS": "Actions",
+        "NO_RESULTS": "No results"
+    },
+    "ADD_SUPPLIER": {
+        "TITLE": "Add supplier",
+        "NAME": "Enter the supplier name",
+        "NAME_EXAMPLE": "Example name supplier",
+        "CNPJ": "Document",
+        "BUY_VALUE": "Annual purchase value",
+        "CANCEL": "Cancel",
+        "ADD": "Add"
+    },
+    "ODS": {
+        "PAGE_DESCRIPTION_PT_1": "The 17 UN Sustainable Development Goals are a global proposal that addresses the main challenges of contemporary society in Brazil and around the world.",
+        "PAGE_DESCRIPTION_PT_2": "This UN proposition, which involves its member countries, is part of the 2030 Agenda, which is nothing more than a joint effort by countries, companies, institutions and civil society to end poverty, protect the environment and climate and ensure that people everywhere can enjoy peace and prosperity.",
+        "PAGE_DESCRIPTION_PT_3": "Our rating is based on the 17 UN SDGs as an adherence matrix, which determines the strengths and points to be improved so that your company and its business are within the standards of sustainable practices...",
+
+        "PAGE_TITLE": "ODS adherence to your profile",
+        "PAGE_SUBTITLE": "Objectives related to your company’s area of ​​activity",
+
+        "1_TITLE": "No Poverty",
+        "1_DESCRIPTION": "End poverty in all its forms, everywhere.",
+        
+        "2_TITLE": "Zero Hunger",
+        "2_DESCRIPTION": "End hunger, achieve food security and improved nutrition, and promote sustainable agriculture.",
+        
+        "3_TITLE": "Good Health and Wellbeing",
+        "3_DESCRIPTION": "Ensure healthy lives and promote well-being for all, at all ages.",
+        
+        "4_TITLE": "Quality Education",
+        "4_DESCRIPTION": "Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all.",
+        
+        "5_TITLE": "Gender Equality",
+        "5_DESCRIPTION": "Achieve gender equality and empower all women and girls.",
+        
+        "6_TITLE": "Clean Water and Sanitation",
+        "6_DESCRIPTION": "Ensure availability and sustainable management of water and sanitation for all.",
+        
+        "7_TITLE": "Affordable and Clean Energy",
+        "7_DESCRIPTION": "Ensure access to affordable, reliable, sustainable, and modern energy for all.",
+        
+        "8_TITLE": "Decent Work and Economic Growth",
+        "8_DESCRIPTION": "Promote sustained, inclusive, and sustainable economic growth, full and productive employment, and decent work for all.",
+        
+        "9_TITLE": "Industry, Innovation and Infrastructure",
+        "9_DESCRIPTION": "Build resilient infrastructure, promote inclusive and sustainable industrialization, and foster innovation.",
+        
+        "10_TITLE": "Reduced Inequalities",
+        "10_DESCRIPTION": "Reduce inequality within and among countries.",
+        
+        "11_TITLE": "Sustainable Cities and Communities",
+        "11_DESCRIPTION": "Make cities and human settlements inclusive, safe, resilient, and sustainable.",
+        
+        "12_TITLE": "Responsible Consumption and Production",
+        "12_DESCRIPTION": "Ensure sustainable consumption and production patterns.",
+        
+        "13_TITLE": "Climate Action",
+        "13_DESCRIPTION": "Take urgent action to combat climate change and its impacts.",
+        
+        "14_TITLE": "Life Below Water",
+        "14_DESCRIPTION": "Conserve and sustainably use the oceans, seas, and marine resources for sustainable development.",
+        
+        "15_TITLE": "Life on Land",
+        "15_DESCRIPTION": "Protect, restore, and promote sustainable use of terrestrial ecosystems, manage forests, combat desertification and biodiversity loss, and halt and reverse land degradation.",
+        
+        "16_TITLE": "Peace, Justice and Strong Institutions",
+        "16_DESCRIPTION": "Promote peaceful and inclusive societies for sustainable development, provide access to justice for all, and build effective, accountable, and inclusive institutions.",
+        
+        "17_TITLE": "Partnerships",
+        "17_DESCRIPTION": "Strengthen the means of implementation and revitalize the global partnership for sustainable development."
     }
 }

@@ -1,0 +1,292 @@
+<form [formGroup]="form" (submit)="onSubmit()" class="container-fluid">
+    <div class="row flex-column-reverse flex-lg-row justify-content-center justify-content-lg-between">
+        <div class="col-12 col-lg-8 pb-lg-5 pt-lg-4 d-flex flex-column align-items-center justify-content-center pb-5 pb-lg-0">
+            <div class="fade-in py-5 pb-lg-5 pt-lg-4 w-100 max-width-572">
+                <div class="w-100 d-none d-lg-block">
+                    <h4 class="brand-text fw-700 pb-2">
+                        ThinkSus
+                    </h4>
+    
+                    <p class="alpha-500-text flex-wrap fw-600 pb-4 l-height-1-5rem mb-4 d-flex align-items-center justify-content-start">
+                        {{ "PAYMENT.PATH_1" | translate }}
+                        <img src="/assets/icon/chevron-right.svg" alt="chevron">
+                        {{ "PAYMENT.PATH_2" | translate }}
+                        <img src="/assets/icon/chevron-right.svg" alt="chevron">
+                        <span class="fw-700 alpha-700-text">
+                            {{ "PAYMENT.PATH_3" | translate }}
+                        </span>
+                    </p>
+                </div>
+
+                <h5 class="gray-text fw-700 f-size-1rem l-height-1-5rem pb-1">
+                    {{ "PAYMENT.TITLE" | translate }}
+                </h5>
+                <p class="fw-600 alpha-700-text f-size-12px pb-3">
+                    {{ "PAYMENT.SUBTITLE" | translate }}
+                </p>
+
+                <div class="accordion-select-group">
+                    <div class="accordion-select-item">
+                        <div class="accordion-select-header">
+                            <div class="selector" [class.active]="paymentMethod === 'credit'"></div>
+
+                            <p class="fw-600 flex-grow-1 alpha-700-text f-size-0-85rem l-height-1-5rem m-0">
+                                {{ "PAYMENT.CREDIT_CARD" | translate }}
+                            </p>
+
+                            <div class="d-flex align-items-center justify-content-end gap-1">
+                                <img src="/assets/icon/visa.svg" alt="Visa">
+                                <img src="/assets/icon/mastercard.svg" alt="Mastercard">
+                                <p class="m-0 f-size-0-85rem l-height-1-5rem fw-500 alpha-700-text ps-1">{{ "PAYMENT.AND_MORE" | translate }}</p>
+                            </div>
+                        </div>
+                        <div class="accordion-select-body" [class.active]="paymentMethod === 'credit'">
+                            <label for="cardNumber" class="pb-1 fw-600 f-size-12px">{{ "PAYMENT.CARD_NUMBER" | translate }}</label>
+                            <input type="tel" mask="0000 0000 0000 0000" class="w-100 mb-3 f-size-0-85rem" formControlName="cardNumber" placeholder="0000 0000 0000 0000" autocomplete="off" id="cardNumber" name="cardNumber">
+                            
+                            <label for="name" class="pb-1 fw-600 f-size-12px">{{ "PAYMENT.CARD_NAME" | translate }}</label>
+                            <input type="text" class="w-100 mb-3 f-size-0-85rem" formControlName="name" placeholder="{{ 'PAYMENT.YOUR_NAME' | translate }}" autocomplete="off" id="name" name="name">
+
+                            <div class="d-flex align-items-start justify-content-start gap-3 pb-3">
+                                <div class="flex-grow-1 w-100">
+                                    <label for="deadLine" class="pb-1 fw-600 f-size-12px">{{ "PAYMENT.DEADLINE" | translate }}</label>
+                                    <input type="tel" mask="00/00" class="w-100 f-size-0-85rem" formControlName="deadLine" placeholder="{{ 'PAYMENT.DEADLINE_PLACEHOLDER' | translate }}" autocomplete="off" id="deadLine" name="deadLine">
+                                </div>
+
+                                <div class="flex-grow-1 w-100">
+                                    <label for="securityCode" class="pb-1 fw-600 f-size-12px">{{ "PAYMENT.SECURITY_CODE" | translate }}</label>
+                                    <input type="tel" mask="000" class="w-100 f-size-0-85rem" formControlName="securityCode" placeholder="000" autocomplete="off" id="securityCode" name="securityCode">
+                                </div>
+                            </div>
+
+                            <div class="d-flex flex-column flex-md-row align-items-start justify-content-start gap-3 pb-3">
+                                <div class="flex-grow-1 w-100">
+                                    <label for="address" class="pb-1 fw-600 f-size-12px">{{ "PAYMENT.ADDRESS" | translate }}</label>
+                                    <input type="text" class="w-100 f-size-0-85rem" formControlName="address" placeholder="{{ 'PAYMENT.YOUR_ADDRESS' | translate }}" autocomplete="off" id="address" name="address">
+                                </div>
+
+                                <div class="flex-grow-0 w-100">
+                                    <label for="postalCode" class="pb-1 fw-600 f-size-12px">{{ "PAYMENT.ZIP_CODE" | translate }}</label>
+                                    <input type="tel" mask="00000-000" class="w-100 f-size-0-85rem" formControlName="postalCode" placeholder="00000-000" autocomplete="off" id="postalCode" name="postalCode">
+                                </div>
+                            </div>
+
+                            <div class="d-flex flex-column flex-md-row align-items-start justify-content-start gap-3 pb-3">
+                                <div class="flex-grow-1 w-100">
+                                    <label for="city" class="pb-1 fw-600 f-size-12px">{{ "PAYMENT.CITY" | translate }}</label>
+                                    <input type="text" class="w-100 f-size-0-85rem" formControlName="city" placeholder="{{ 'PAYMENT.DIGIT_CITY' | translate }}" autocomplete="off" id="city" name="city">
+                                </div>
+
+                                <div class="flex-grow-1 w-100">
+                                    <label for="state" class="pb-1 fw-600 f-size-12px">{{ "PAYMENT.STATE" | translate }}</label>
+                                    <input type="text" class="w-100 f-size-0-85rem" formControlName="state" placeholder="{{ 'PAYMENT.DIGIT_STATE' | translate }}" autocomplete="off" id="state" name="state">
+                                </div>
+
+                                <div class="flex-grow-1 w-100">
+                                    <label for="country" class="pb-1 fw-600 f-size-12px">{{ "PAYMENT.COUNTRY" | translate }}</label>
+                                    <input type="text" class="w-100 f-size-0-85rem" formControlName="country" placeholder="{{ 'PAYMENT.DIGIT_COUNTRY' | translate }}" autocomplete="off" id="country" name="country">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h5 class="gray-text fw-700 f-size-1rem l-height-1-5rem pt-5 pb-3">
+                    {{ "PAYMENT.ADDRESS_TITLE" | translate }}
+                </h5>
+
+                <div class="accordion-select-group">
+                    <div class="accordion-select-item" (click)="changeSelectedAddress('same')">
+                        <div class="accordion-select-header">
+                            <div class="selector" [class.active]="selectedAddress === 'same'"></div>
+
+                            <p class="fw-600 flex-grow-1 alpha-700-text f-size-0-85rem l-height-1-5rem m-0">
+                                {{ "PAYMENT.SAME_ADDRESS" | translate }}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-select-item" (click)="changeSelectedAddress('another')">
+                        <div class="accordion-select-header">
+                            <div class="selector" [class.active]="selectedAddress === 'another'"></div>
+
+                            <p class="fw-600 flex-grow-1 alpha-700-text f-size-0-85rem l-height-1-5rem m-0">
+                                {{ "PAYMENT.ANOTHER_ADDRESS" | translate }}
+                            </p>
+                        </div>
+                        <form [formGroup]="addressForm" class="accordion-select-body" [class.active]="selectedAddress === 'another'">
+                            <label for="name" class="pb-1 fw-600 f-size-12px">{{ "PAYMENT.NAME" | translate }}</label>
+                            <input type="text" class="w-100 f-size-0-85rem mb-3" formControlName="name" placeholder="{{ 'PAYMENT.COMPLETE_NAME' | translate }}" autocomplete="off" id="name" name="name">
+
+                            <div class="d-flex flex-column flex-md-row align-items-start justify-content-start gap-3 pb-3">
+                                
+                                <div class="flex-grow-1 w-100">
+                                    <label for="address" class="pb-1 fw-600 f-size-12px">{{ "PAYMENT.ADDRESS" | translate }}</label>
+                                    <input type="text" class="w-100 f-size-0-85rem" formControlName="address" placeholder="{{ 'PAYMENT.YOUR_ADDRESS' | translate }}" autocomplete="off" id="address" name="address">
+                                </div>
+
+                                <div class="flex-grow-0 w-100">
+                                    <label for="postalCode" class="pb-1 fw-600 f-size-12px">{{ "PAYMENT.ZIP_CODE" | translate }}</label>
+                                    <input type="tel" mask="00000-000" class="w-100 f-size-0-85rem" formControlName="postalCode" placeholder="00000-000" autocomplete="off" id="postalCode" name="postalCode">
+                                </div>
+                            </div>
+
+                            <div class="d-flex flex-column flex-md-row align-items-start justify-content-start gap-3 pb-3">
+                                <div class="flex-grow-1 w-100">
+                                    <label for="city" class="pb-1 fw-600 f-size-12px">{{ "PAYMENT.CITY" | translate }}</label>
+                                    <input type="text" class="w-100 f-size-0-85rem" formControlName="city" placeholder="{{ 'PAYMENT.DIGIT_CITY' | translate }}" autocomplete="off" id="city" name="city">
+                                </div>
+
+                                <div class="flex-grow-1 w-100">
+                                    <label for="state" class="pb-1 fw-600 f-size-12px">{{ "PAYMENT.STATE" | translate }}</label>
+                                    <input type="text" class="w-100 f-size-0-85rem" formControlName="state" placeholder="{{ 'PAYMENT.DIGIT_STATE' | translate }}" autocomplete="off" id="state" name="state">
+                                </div>
+
+                                <div class="flex-grow-1 w-100">
+                                    <label for="country" class="pb-1 fw-600 f-size-12px">{{ "PAYMENT.COUNTRY" | translate }}</label>
+                                    <input type="text" class="w-100 f-size-0-85rem" formControlName="country" placeholder="{{ 'PAYMENT.DIGIT_COUNTRY' | translate }}" autocomplete="off" id="country" name="country">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="d-flex flex-column flex-md-row-reverse align-items-center justify-content-between gap-3 pt-5 mt-3">
+                    <button class="secondary-brand-btn px-lg-5 d-block" [disabled]="invalidPaymentForm || invalidAnotherAddress" type="submit">
+                        {{ 'PAYMENT.FINISH_PAYMENT' | translate }}
+                    </button>
+
+                    <a routerLink="/logged/dashboard">
+                        <button class="no-bg-btn bg-transparent fw-600 px-lg-5 d-block w-100 mt-3 alpha-700-text">
+                            {{ 'PAYMENT.BACK' | translate }}
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="brand-white-bg col-12 col-lg-4 pb-lg-5 pt-5 px-3 d-flex flex-column align-items-center justify-content-start pb-5 pb-lg-0">
+            <div class="w-100 max-w-lg max-width-572">
+                <div *ngIf="plan === 'simulation'" class="w-100">
+                    <div class="d-flex align-items-start justify-content-between gap-2 pb-3">
+                        <p class="flex-grow-1 w-100 f-size-0-85rem l-height-1-5rem fw-600 gray-text">
+                            {{ "PAYMENT.SIMULATION_PLAN" | translate }}
+                        </p>
+                        
+                        <p class="text-nowrap fw-700">{{ "PAYMENT.VALUE_OF_SIMULATION" | translate }}</p>
+                    </div>
+    
+                    <p class="w-100 f-size-12px fw-500 l-height-1-5rem alpha-700-text text-end">
+                        {{ "PAYMENT.VALUE_PER_SIMULATION" | translate }}
+                    </p>
+                </div>
+    
+                <div *ngIf="plan === 'solution'" class="d-flex align-items-start justify-content-between gap-2 pb-3">
+                    <p class="flex-grow-1 w-100 f-size-0-85rem l-height-1-5rem fw-600 gray-text">
+                        Plano Solução
+                    </p>
+                    
+                    <p class="text-nowrap fw-700">{{ "PAYMENT.VALUE_OF_SOLUTION" | translate }}</p>
+                </div>
+    
+                <div *ngIf="plan === 'supply'" class="d-flex align-items-start justify-content-between gap-2 pb-3">
+                    <p class="flex-grow-1 w-100 f-size-0-85rem l-height-1-5rem fw-600 gray-text">
+                        Plano Cadeia de Suprimento
+                    </p>
+                    
+                    <p class="text-nowrap fw-700">{{ "PAYMENT.VALUE_OF_SUPPLY" | translate }}</p>
+                </div>
+
+                <div class="separator-opacity mt-3"></div>
+
+                <div  class="d-flex align-items-start justify-content-between gap-2 py-3">
+                    <p class="flex-grow-1 w-100 f-size-1rem l-height-1-5rem brand-text fw-700">
+                        Total
+                    </p>
+                    
+                    <p *ngIf="plan === 'simulation'" class="text-nowrap fw-600 f-size-1-25rem l-height-1-5rem brand-text">
+                        {{ "PAYMENT.VALUE_OF_SIMULATION" | translate }}
+                    </p>
+                    
+                    <p *ngIf="plan === 'solution'" class="text-nowrap fw-600 f-size-1-25rem l-height-1-5rem brand-text">
+                        {{ "PAYMENT.VALUE_OF_SOLUTION" | translate }}
+                    </p>
+                    
+                    <p *ngIf="plan === 'supply'" class="text-nowrap fw-600 f-size-1-25rem l-height-1-5rem brand-text">
+                        {{ "PAYMENT.VALUE_OF_SUPPLY" | translate }}
+                    </p>
+                </div>
+                
+                <div class="separator-opacity"></div>
+
+                <p class="w-100 f-size-0-85rem l-height-1-5rem fw-500 alpha-700-text pt-4 pb-4">
+                    {{ "PAYMENT.CHANGE_PLAN" | translate }}
+                </p>
+
+                <div class="accordion-select-group">
+                    <div class="accordion-select-item">
+                        <div class="accordion-select-header bg-white" [class.brand-400-bg]="plan === 'simulation'" (click)="changeSelectedPlan('simulation')">
+                            <div class="selector" [class.active]="plan === 'simulation'"></div>
+
+                            <div class="flex-grow-1 w-100 d-flex align-items-center justify-content-between gap-2">
+                                <p class="fw-600 gray-text f-size-0-85rem l-height-1-5rem m-0">
+                                    {{ "PAYMENT.SIMULATION" | translate }}
+                                </p>
+
+                                <p class="f-size-0-85rem l-height-1-5rem fw-700 gray-text sans-font">
+                                    {{ "PAYMENT.VALUE_OF_SIMULATION" | translate }}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-select-header bg-white" [class.brand-400-bg]="plan === 'solution'" (click)="changeSelectedPlan('solution')">
+                            <div class="selector" [class.active]="plan === 'solution'"></div>
+
+                            <div class="flex-grow-1 w-100 d-flex align-items-center justify-content-between gap-2">
+                                <p class="fw-600 gray-text f-size-0-85rem l-height-1-5rem m-0">
+                                    {{ "PAYMENT.SOLUTION" | translate }}
+                                </p>
+
+                                <p class="f-size-0-85rem l-height-1-5rem fw-700 gray-text sans-font">
+                                    {{ "PAYMENT.VALUE_OF_SOLUTION" | translate }}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-select-header bg-white" [class.brand-400-bg]="plan === 'supply'" (click)="changeSelectedPlan('supply')">
+                            <div class="selector" [class.active]="plan === 'supply'"></div>
+
+                            <div class="flex-grow-1 w-100 d-flex align-items-center justify-content-between gap-2">
+                                <p class="fw-600 gray-text f-size-0-85rem l-height-1-5rem m-0">
+                                    {{ "PAYMENT.SUPPLY" | translate }}
+                                </p>
+
+                                <p class="f-size-0-85rem l-height-1-5rem fw-600 gray-text sans-font">
+                                    {{ "PAYMENT.VALUE_OF_SUPPLY" | translate }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 w-100 d-block d-lg-none">
+            <div class="d-block mx-auto w-100 max-width-572">
+                <h4 class="brand-text fw-700 pb-2">
+                    ThinkSus
+                </h4>
+    
+                <p class="alpha-500-text flex-wrap fw-600 pb-4 l-height-1-5rem mb-4 d-flex align-items-center justify-content-start">
+                    {{ "PAYMENT.PATH_1" | translate }}
+                    <img src="/assets/icon/chevron-right.svg" alt="chevron">
+                    {{ "PAYMENT.PATH_2" | translate }}
+                    <img src="/assets/icon/chevron-right.svg" alt="chevron">
+                    <span class="fw-700 alpha-700-text">
+                        {{ "PAYMENT.PATH_3" | translate }}
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</form>

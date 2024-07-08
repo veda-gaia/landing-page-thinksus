@@ -1,8 +1,78 @@
 {
     "TERMS_LINK": "https://drive.google.com/file/d/1nsHyn87E0AVplsPGq5p3jpc7vpoGw2g_/view",
     "PRIVACY_LINK": "https://docs.google.com/document/d/1L3ldyG-MrOsMjvNWjg5CCCJjTLoBO5lc/edit#heading=h.gjdgxs",
+    "USE_INSTRUCTIONS_LINK": "https://docs.google.com/document/d/1WD0nK0d4c772gF8hGbOXHCgT38SzPkoo",
+    "USE_INSTRUCTIONS_DOC": "/assets/docs/use-instructions-pt.docx",
+    "DOWNLOAD_DOCUMENT": "Baixar documento",
+    "UNTITLED": "Sem título",
+    "HEADER": {
+        "PLANS": "Planos",
+        "ABOUT": "Sobre nós",
+        "SIGN_UP": "Criar conta",
+        "SIGN_IN": "Entrar"
+    },
+    "FOOTER": {
+        "TALK_TO": "Fale com a ThinkSus!",
+        "NAME_PLACEHOLDER": "Nome completo",
+        "SUBJECT_PLACEHOLDER": "Assunto da mensagem",
+        "MESSAGE_PLACEHOLDER": "Deixe aqui sua mensagem se tiver dúvidas sobre nossos produtos e planos, sugestões de melhorias, ou reclamações sobre nossos serviços que logo retornaremos seu contato.",
+        "SEND_BTN": "Enviar mensagem",
+        "WELCOME": "Seja bem-vindo à ThinkSus! O seu parceiro digital ESG para um mundo mais sustentável.",
+        "RESERVED": "Copyright ©2024 Todos os direitos reservados",
+        "PRIVACY_TERMS": "Termos de privacidade"
+    },
     "HOME": {
-        "TITLE": "Futuro sustentável"
+        "SUBTITLE": "Liderança de um",
+        "TITLE": "Futuro sustentável",
+        "RAW": "A ThinkSus é referência em sustentabilidade aplicada, design e gestão de negócios.",
+        "PLAN_TITLE": "Planos ThinkSus: vantagens e benefícios",
+        "AVALIATION_TITLE": "Avaliação de performance ESG",
+        "AVALIATION_BODY": "Ao simular sua performance ESG em nossa plataforma você e sua empresa terão mais clareza sobre os aspectos materiais como riscos socioambientais e de governança da sua operação",
+        "ADERENCE_TITLE": "Avaliação de performance ESG",
+        "ADERENCE_BODY": "A plataforma ESGers é uma ferramenta para a transparência e responsabilidade socioambiental de sua empresa, indicando como sua operação mais contribui com os Objetivos do Desenvolvimento Sustentável da ONU (ODS)",
+        "BLOCKCHAIN_TITLE": "Validação em Blockchain",
+        "BLOCKCHAIN_BODY": "Disponibilizamos ferramenta de gestão ESG e rastreio de dados para grandes cadeias de suprimentos. Garanta sua competitividade e continuidade dos negócios deixando transparente a verificação de impactos. Nossa certificação atesta, mediante evidências, a conformidade com as normas ESG",
+        "CHOOSE_BTN": "Escolha a melhor opção: conheça nossos planos",
+        "FUTURE": "Futuro sustentável é agora!",
+        "INOVATION": "A ThinkSus traz inovações com a pontuação ESG e promove melhorias de desempenho em todos os setores de suas operações.",
+        "BALANCE": "Equilíbrio",
+        "KNOW_WHAT": "Saiba qual é o cenário ESG atual de seus negócios e como adequá-los às práticas atuais de mercado.",
+        "POSITIONING": "Posicionamento",
+        "HAVE_A": "Tenha um posicionamento sustentável e entenda seus impactos na sociedade.",
+        "EVOLUTION": "Evolução",
+        "BUILD": "Construa uma relação saudável com seus stakeholders, e estabeleça métricas de um propósito sustentável ",
+        "EXAMPLE_1": "Noticias populares",
+        "EXAMPLE_2": "Lorem ipsum dolor sit amet, consecteturadipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris nisi utaliquip ex ea commodo consequat. Duisaute irure dolor in reprehenderit involuptate velit esse cillum dolore eufugiat nulla pariatur. Excepteur sintoccaecat cupidatat non proident,sunt in culpa qui ofcia deseruntmollit anim id est laborum.",
+        "EXAMPLE_3": "Saiba mais",
+        "EXAMPLE_4": "Lorem ipsum dolor sit amet, consectetur"
+    },
+    "ESG": {
+        "SUBTITLE": "Um compromisso de práticas sustentáveis:",
+        "TITLE": "ESG e os ODS",
+        "RAW": "A prática ESG está relacionada à governança ambiental, social e corporativa e são pilares para uma avaliação de consciência coletiva de uma empresa para trazer sustentabilidade aos seus negócios",
+        "ENVIRONMENTAL": "Ambiental",
+        "ENVIRONMENTAL_BODY": "Quando as empresas se preocupam em preservar o meio ambiente, estão atentas à gestão responsável de resíduos e efluentes, adotam práticas adequadas para o descarte de lixo, têm políticas que abordam o desmatamento e respondem de maneira adequada às mudanças climáticas, demonstrando se são resilientes ou vulneráveis. Elas também se empenham em melhorar e proteger a biodiversidade, controlar as emissões de carbono e limitar a extração de recursos naturais, entre outras medidas ambientalmente conscientes.",
+        "SOCIAL": "Social",
+        "SOCIAL_BODY": "É crucial que as empresas compreendam o seu papel no cuidado com o bem-estar de seus funcionários, assim como no relacionamento com fornecedores e comunidades onde atuam. Isso envolve garantir direitos humanos, oferecer salários justos, combater o trabalho infantil e escravo, promover segurança e saúde, apoiar a diversidade e inclusão, além de investir no desenvolvimento da comunidade. Esses são alguns dos elementos que contribuem para a sustentabilidade social de uma empresa.",
+        "GOVERNANCE": "Governança",
+        "GOVERNANCE_BODY": "Este aspecto se concentra na gestão executiva e visa aprimorar o desempenho da empresa. A governança corporativa é capaz de atender aos interesses dos funcionários, acionistas e clientes? Além disso, é fundamental que sua administração seja transparente, especialmente nas áreas fnanceira e contábil, fornecendo relatórios precisos e abrangentes. A empresa deve respeitar seus valores éticos e combater a corrupção, seguindo as regras de conformidade.",
+        "SYSTEM": "Sistema de avaliação empresarial ThinkSus",
+        "WE_DEVELOPED": "Desenvolvemos um método de avaliação próprio que reflete as demandas e complexidades dos principais rankings globais:",
+        "HARVARD": "(Harvard/EUA)",
+        "ISE": "(Bolsa de Valores/Brasil)",
+        "ODS": "ODS",
+        "ODS_BODY": "(Desenvolvimento Sustentável/BR)",
+        "OTHERS": "E outros standards aderentes",
+        "EVALUATION": "Essa avaliação utiliza notas e pesos mais realistas para empresas de médio e pequeno porte, em uma linguagem mais intuitiva, que permite avaliar suas práticas ESG, alinhando-as com as ODS da ONU.",
+        "FREE_AVALUATION": "Faça uma avaliação gratuita agora mesmo!",
+        "BADGE": "Selo ThinkSus ESG",
+        "BADGE_BODY": "A ThinkSus oferece várias opções para tornar sua operação mais sustentável. Além de simulação e certificação, você pode se qualificar para obter o Selo ThinkSus ESG com o plano ESG Solution (indisponível no plano ESG Simulation), alcançando um score de 60% de aderência e fornecendo documentação comprobatória de suas práticas.",
+        "BADGE_BODY_2": "Esse selo confirma seu compromisso e responsabilidade em buscar um impacto positivo nas relações com os stakeholders e a comunidade durante sua jornada ESG.",
+        "BLOCKCHAIN_TITLE": "Tecnologia Blockchain",
+        "BLOCKCHAIN_BODY_1": "A transparência é elemento chave em qualquer processo de certificação, que tenha como princípios a validação, a veracidade e a confiabilidade. Dessa forma, atendemos a esses requisitos importantes ao considerar a tokenização dos blocos de informação.",
+        "BLOCKCHAIN_BODY_2": "Com a tecnologia blockchain, os tokens de informações são disponibilizados através de integradores, validados com dados públicos e privados, em bases de alta confiabilidade, visando a garantia de consistência e veracidade das informações indicadas pelas empresas avaliadas dentro do ecossistema da solução, a plataforma Enterprise Rating System ®.",
+        "BLOCKCHAIN_BODY_3": "Podemos contribuir para o controle da cadeia de fornecedores como um todo. Empresas que buscam fornecedores com maturidade em sustentabilidade se conectam à blockchain da ThinkSus, validam as informações e passam a estabelecer sobre estes critérios as suas opções de fornecimento. Esta rede, por sua vez, auto alimentada, gera os coefcientes de confabilidade, exaltando de forma construtiva os resultados e o destaque necessário para fornecedores com maior grau de responsabilidade no que tange aos princípios de ESG.",
+        "BLOCKCHAIN_BODY_4": "Além disso, utilizando dados públicos e informações privadas validadas pela rede ThinkSus, também incorporamos dados governamentais provenientes das leis de cada país que promovem a sustentabilidade. Essas informações adicionais complementam e validam os dados fornecidos pelas empresas no ecossistema, garantindo uma melhoria gradual na precisão dos indicadores."
     },
     "REGISTER": {
         "PART": "Parte",
@@ -29,12 +99,16 @@
         
         "ENTERPRISE_NAME": "Nome da empresa",
         "ENTERPRISE_NAME_PLACEHOLDER": "Digite o nome da empresa",
+        "CODE_PLACEHOLDER": "Digite o código de verificação",
+        "CODE": "Código de verificação",
         "ZIPCODE": "CEP",
         "DOCUMENT": "CNPJ",
         "COUNTRY": "País",
         "STATE": "Estado Sede",
         "STATE_PLACEHOLDER": "Digite o Estado",
+        "STATE_OPTIONAL": "Estado (opcional)",
         "CITY": "Cidade Sede",
+        "CITY_OPTIONAL": "Cidade (opcional)",
         "CITY_PLACEHOLDER": "Digite a Cidade",
         "FIELD": "Setor",
         "FIELD_PLACEHOLDER": "Selecione o Setor",
@@ -42,23 +116,481 @@
         "SEGMENT_PLACEHOLDER": "Selecione o Segmento",
         "BACK": "Voltar",
         
-        "COLLABORATORS_AMMOUNT": "Número de colaboradores na empresa",
-        "AMMOUNT_1": "De 1 a 100",
-        "AMMOUNT_2": "De 100 a 1.000",
-        "AMMOUNT_3": "De 1.000 a 5.000",
-        "AMMOUNT_4": "De 5.000 a 50.000",
-        "AMMOUNT_5": "Mais de 50.000",
+        "COLLABORATORS_AMMOUNT": "Número de colaboradores na empresa (opcional)",
+        "AMMOUNT_1": "1 - 20",
+        "AMMOUNT_2": "21 - 50",
+        "AMMOUNT_3": "51 - 200",
+        "AMMOUNT_4": "201 - 500",
+        "AMMOUNT_5": "501 - 2000",
+        "AMMOUNT_6": "> 2001 funcionários",
         "INVOICING": "Faturamento da empresa",
-        "INVOICING_1": "Acima de R$10.000,00",
-        "INVOICING_2": "Acima de R$50.000,00",
-        "INVOICING_3": "Acima de R$100.000,00",
-        "INVOICING_4": "Acima de R$1.000.000,00",
-        
-        "CLICK_LINK": "Clique no link que enviamos para:",
-        "POST_CONFIRMATION": "Após a confirmação, clique em continuar para prosseguir com o cadastro",
+        "BRL_INVOICING_1": "< R$ 360 mil",
+        "BRL_INVOICING_2": "R$ 360 mil - R$ 4,8 milhões",
+        "BRL_INVOICING_3": "R$ 4,8 milhões - R$ 20 milhões",
+        "BRL_INVOICING_4": "> R$ 20 milhões",
 
+        "USD_INVOICING_1": "< USD 360 mil",
+        "USD_INVOICING_2": "USD 360 mil - USD 4,8 milhões",
+        "USD_INVOICING_3": "USD 4,8 milhões - USD 20 milhões",
+        "USD_INVOICING_4": "> USD 20 milhões",
+        
+        "CLICK_LINK": "Digite o código que enviamos para:",
+        "POST_CONFIRMATION": "Após a confirmação, clique em continuar para prosseguir com o cadastro",
         "ENJOY": "Aproveite o Painel ThinkSus",
         "CLICK_BUTTON": "Você pode clicar no botão abaixo para entrar na aplicação",
-        "GO_TO_PANEL": "Ir Para o Painel"
+        "GO_TO_PANEL": "Ir Para o Painel",
+
+        "SELECT": "Selecione"
+    },
+    "LOGIN": {
+        "TITLE": "Login",
+        "SUBTITLE": "Faça seu login para acessar o painel ThinkSus",
+        "EMAIL": "Email",
+        "PASSWORD": "Senha",
+        "INSERT_PASSWORD": "Digite sua senha",
+        "NEXT": "Avançar",
+        "REGISTER": "Não Tem Cadastro? Crie Uma Conta!"
+    },
+    "PLANS": {
+        "TITLE": "Conheça nossos planos",
+        "SUBTITLE": "Ao escolher um plano ThinkSus, voce passará por uma avaliação e receberá um relatório criterioso que apontará os pontos fortes e pontos de melhoria em sua jornada ESG. De acordo com o grau de maturidade alcançado, sua empresa pode se tornar elegível para certificação ThinkSus ESG, que utiliza tecnologia de ponta para concessão do Selo ThinkSus, trazendo credibilidade, transparência e rastreabilidade para seus negócios.",
+        "SIMPLE_FAST": "Simples, rápido e completo",
+        "OUR_PANEL": "Com o nosso painel você terá, além da pontuação, o acompanhamento das práticas ESG da sua empresa e a avaliação de cada pilar.",
+        "BENEFITS": "Benefícios",
+        "SIMULATION": "Simulação de rating",
+        "INDICATORS": "(relatório de indicadores)",
+        "ODS_INDICATOR": "Indicador de aderência ODS",
+        "THINKSUS": "Selo ThinkSus",
+        "SCORES": "Para scores de aderência acima de 60%",
+        "INDICATORS_PLATFORM": "Plataforma de indicadores e dashboard",
+        "PACKAGE": "Pacote completo de recomendações",
+        "RELATORY": "(relatório de indicadores)",
+        "ACTIVE_PROFILE": "Perfil ativo em dashboard",
+        "AVALIATION": "Avaliação e controle de fornecedores",
+        "ESG_CONTROL": "Controle ESG dos fornecedores",
+        "REGISTER_BLOCKCHAIN": "Registro e validação da Blockchain",
+        "CERTIFICATION": "Certifcação de cadeia de suprimentos",
+        "FRAMEWORKS": "Frameworks de análise aderentes a sua operação e cadeia de valor",
+        "GRI": "(GRI, SASB, TCFD e demais)",
+        "SIMULATION_TITLE": "Simulação",
+        "SOLUTION_TITLE": "Solução",
+        "SUPLEMENT_TITLE": "Cadeia de Suprimento",
+        "FREE_TEST": "Teste agora!",
+        "GET_YOURS": "Adquira seu plano"
+    },
+    "ABOUT_US": {
+        "TITLE": "Sobre a ThinkSus",
+        "BODY_1": "Sustentabilidade vai muito além de métricas ESG, relatórios, controle de cadeia de fornecedores ou reportar riscos corporativos.",
+        "BODY_2": "É se importar com o mundo em que vivemos, a comunidade que estamos inseridos, e nossas práticas diárias. Foi a partir disso que a ThinkSus surgiu - pois acreditamos que sustentabilidade tem que ser acessível, efetiva, disponível para todos, inclusive para os pequenos e médios negócios.",
+        "BODY_3": "São diferentes histórias de fundo corporativo que fazem parte da construção dessa e-ESG; uma consultoria que alinha metodologia inovadora, design intuitivo, tecnologia de ponta, simplicidade metodológica, e que resulta também em acessibilidade para o cliente final.",
+        "TEAM_TITLE": "Quem somos",
+        "TEAM_BODY": "ThinkSus foi idealizada a partir do desejo de contribuição para um legado positivo na sociedade de seus três sócios fundadores, que somados, têm mais de 10 anos de experiência em ciência do desenvolvimento sustentável, finanças empresarial e governança corporativa.",
+        "TEAM_COF_1": "/assets/img/abner.png",
+        "TEAM_COF_2": "/assets/img/carrijo.png",
+        "TEAM_COF_3": "/assets/img/prestes.png"
+    },
+    "SIDEBAR": {
+        "TAKE_ASSESMENT": "Realize uma Avaliação para saber o seu Status ESG:",
+        "HOME": "Home",
+        "AVALIATION": "Avaliação",
+        "RESULTS": "Resultados",
+        "ODS": "ODS",
+        "CONTROL_PANEL": "Painel de controle",
+        "SUPPLIERS": "Fornecedores",
+        "INSTRUCTIONS": "Instruções de uso",
+        "WANT_MORE": "Quer mais?",
+        "HAVE_ACCESS": "Tenha acesso a mais dados em nossa plataforma.",
+        "SEE_PLANS": "Ver Planos",
+        "LOGOUT": "Sair"
+    },
+    "FOOTER_LOGGED": {
+        "RIGHTS": "@ 2023, ThinkSus, todos os direitos reservados",
+        "ABOUT": "Sobre ESG",
+        "SUBSCRIPTION": "Assinatura",
+        "HELP": "Ajuda"
+    },
+    "QUESTIONARY": {
+        "GOVERNAMENTAL_TITLE": "Avaliação Governamental",
+        "ENVIRONMENTAL_TITLE": "Avaliação Ambiental",
+        "SOCIAL_TITLE": "Avaliação Social",
+        "QUESTION": "Questão",
+        "30_PERCENT": "Importante: Para garantir a precisão das suas respostas, há um limite de 30% para seleções marcadas como 'não se aplica'. Se esse limite for excedido, você receberá uma notificação para revisar suas respostas.",
+        "YES": "Sim",
+        "NO": "Não",
+        "DOESNT_APPLY": "Não se aplica",
+        "NEXT": "Próximo",
+        "CONTINUE_LATER": "Continuar depois",
+        "BACK": "Voltar",
+        "GLOSSARY": "Glossário",
+        "EXPAND": "Continuar lendo",
+        "LIMIT_EXCEDED": "Atenção: Limite de \"Não se aplica\" excedido",
+        "DOCUMENT_NEEDED": "Importante: Necessário envio de documento comprobatório",
+        "ANSWER_SUMMARY": "Resumo das respostas",
+        "CANNOT_CHANGE": "Importante: Ao finalizar o questionário, você não poderá alterar as respostas.",
+        "REVIEW": "Revisar questões",
+        "DOCUMENT_SEND": "Envio de documentos"
+    },
+    "QUESTIONS": {
+        "E1_TITLE": "O nível atual de desmatamento está dentro do permitido legalmente?",
+        "E1_DESCRIPTION": "A quantidade de desmatamento que a empresa causa está dentro dos limites aceitáveis dentro das leis ambientais ",
+
+        "E2_TITLE": "Existe Política e práticas de bem estar animal?",
+        "E2_DESCRIPTION": "Regras e normas que a empresa deve seguir para o bem estar animal",
+
+        "E3_TITLE": "Existe controle da pegada de carbono e ações para mitigação?",
+        "E3_DESCRIPTION": "Pegada de carbono são quanto de matéria prima e produção de poluentes são criados durante o processo produtivo. Cálculos envolvem cada recurso natural consumido (como litros de gasolina, kgw de energia, quantidade de matéria prima, etc.). O cálculo quantifica por quantidade de carbono toda a operação, gerando uma pegada de carbono para ser reportada ao final",
+
+        "E4_TITLE": "Existe um compliance de responsabilidade ambiental divulgado para todos?",
+        "E4_DESCRIPTION": "Compliance são regras e orientações de responsabilidade individual e coletiva da empresa, em termos de ações que impactam o meio ambiente (como reciclar materiais, reduzir consumo). E essas regras devem ser comunicadas e relembradas para todos os funcionários da empresa periodicamente.",
+
+        "E5_TITLE": "Fonte de energia é através de fontes renováveis? (solar, eólica, outra)",
+        "E5_DESCRIPTION": "Fontes de energias são o que alimenta as máquinas, prédios e operações. Em geral são água e luz da cidade. Fontes alternativas seriam captar e tratar água da chuva, ter geração de energia elétrica por painel solar ou de fonte eólica (ventos e turbinas)",
+
+        "E6_TITLE": "Existe captação de água da chuva para reuso?",
+        "E6_DESCRIPTION": "Formas e técnicas de captação de água da chuva que, após tratamentos, permitem a reutilização para reaproveitamento. Isso diminuiria a utilização da água proveniente da rede municipal regular",
+
+        "E7_TITLE": "Os veículos utilizam combustível fóssil?",
+        "E7_DESCRIPTION": "Combustíveis fósseis são: petróleo, carvão mineral e gás natural, provenientes da decomposição de seres vivos. No caso em geral gasolina e diesel são combustíveis fóssil. A alternativa seria veículos elétricos.",
+
+        "E8_TITLE": "Existe acompanhamento de consumo de recursos naturais mensal e metas para redução?",
+        "E8_DESCRIPTION": "Recursos naturais são elementos da natureza que são retirados para atender a demanda do homem (Ex.: energia solar, madeira, solo, água, vento, animais, vegetais).",
+
+        "E9_TITLE": "Todos os dejetos da operação são tratados antes de descarte? (esgoto, material de descarte, tratamento de afluentes)",
+        "E9_DESCRIPTION": "Dejetos apresentam riscos de poluição ao meio ambiente caso não sejam manejados e tratados corretamente. Materiais utilizados na produção precisam ser reciclados corretamente, esgoto tratado e qualquer outro material que resta descartado corretamente ",
+
+        "E10_TITLE": "Existe um reporte mensal da gestão dos resíduos?",
+        "E10_DESCRIPTION": "Detalhamento documentado sobre como os resíduos são tratados e geridos na empresa. Nesse caso a questão é se existe uma comunicação mensal/periodica para os funcionários em geral.",
+
+        "E11_TITLE": "Existem alternativas atuais em execução para minimizar poluição?",
+        "E11_DESCRIPTION": "Protocolos, regras e técnicas para a diminuição de poluição que estejam em curso. Um exemplo seria programa de conciencização de consumo de água, reciclagem de materiais e consumo consciente de energia elétrica.",
+
+        "E12_TITLE": "Ocorre na atividade econômica o Uso de pesticida no solo e/ou contaminação do lençol freático?",
+        "E12_DESCRIPTION": "O uso de pesticidas (substâncias químicas para controle de pragas e insetos) é presente no processo",
+
+        "E13_TITLE": "O seu produto final possui uma embalagem descartável?",
+        "E13_DESCRIPTION": "Embalagens descartáveis são feitas de materiais recicláveis, que podem ser reutilizadas e/ou reaproveitadas, diminuindo impactos negativos no meio ambiente",
+
+        "E14_TITLE": "Existe atualmente um Programa de Mitigação de mudanças climáticas?",
+        "E14_DESCRIPTION": "Adoção de protocolos que diminuam impactos negativos que afetem mudanças climáticas.",
+
+        "E15_TITLE": "Operação pode ser duramente afetada por mudanças climáticas? (secas, queimadas, tornados, etc.)",
+        "E15_DESCRIPTION": "As atividades da empresa podem sofrer mudanças em sua produção por conta das mudanças climáticas, como chuvas acima do nível normal (alagamento), secas excessivas, local sujeito a furacão.",
+
+        "S1_TITLE": "Empresa possui Compliance Interno de Função Social?",
+        "S1_DESCRIPTION": "Compliance interno de função social são regras e orientações de responsabilidade individual e coletiva da empresa que contemplam esferas da sociedade, como criação de empregos, pagamento de tributos, geração de riqueza, contribuição para o desenvolvimento econômico, social e cultural do entorno, adoção de práticas sustentáveis e respeito aos direitos dos consumidores.",
+
+        "S2_TITLE": "Todos os Trabalhadores estão registrados, com benefícios sociais recolhidos corretamente mensalmente, com salário condizente com a função?",
+        "S2_DESCRIPTION": "A empresa segue a CLT para contratação de funcionários, recolhe INSS e FGTS regularmente (sem atraso), com salários compatíveis com o mercado, respeitando ao menos o mínimo estabelicido pela convenção coletiva da categoria.",
+
+        "S3_TITLE": "Todos os Trabalhadores estão registrados, com salário condizente com a função?",
+        "S3_DESCRIPTION": "A empresa segue a CLT para contratação de funcionários, com salários compatíveis com o mercado.",
+
+        "S4_TITLE": "Processo seletivo para todas as vagas em aberto é feito de forma justa, sem diferenciação de credo, cor, raça ou opção sexual?",
+        "S4_DESCRIPTION": "O processo de seleção de novos funcionários respeita a diversidade, sem classifica-los como forma eliminatória suas escolhas de religião, cor da pele, etnia e opção sexual, levando apenas em conta suas aptidões profissionais e capacidade de desenvolver o trabalho para que está sendo avaliado.",
+
+        "S5_TITLE": "Houve algum acidente de trabalho com ferimento nos últimos 24 meses?",
+        "S5_DESCRIPTION": "Ocorrência de acidentes de trabalho com funcionários durante o exercício de sua função, com ou sem perca de tempo de trabalho, no período anterior de 24 meses da data de respostas desse questionário.",
+
+        "S6_TITLE": "Houve condenação em primeira instância na Justiça do Trabalho nos últimos 5 anos?",
+        "S6_DESCRIPTION": "A empresa foi acionada e punida judicialmente por não cumprir com as leis de bases e diretrizes de trabalho.",
+
+        "S7_TITLE": "Existe interação com outras organizações sociais/políticas na cidade do negócio?",
+        "S7_DESCRIPTION": "A empresa possui vínculos com organizações sociais/ políticas na cidade que atua.",
+
+        "S8_TITLE": "Compromissos sociais são reportados de forma consistente (últimos 48 meses)?",
+        "S8_DESCRIPTION": "São documentados/relatados todos os compromissos sociais (criação, desenvolvimento e apoio e à  programas voltados para a comunidade, qualidade de vida e meio ambiente.)",
+
+        "S9_TITLE": "Existe controle de informação sigilosa, de acordo com a Lei de Proteção de Dados?",
+        "S9_DESCRIPTION": "As informações sigilosas são mantidas em segredo por meio de controles e diretrizes de acordo com a Lei Geral de Proteção de Dados",
+
+        "S10_TITLE": "Existe Canal de Comunicação com clientes e fornecedores?",
+        "S10_DESCRIPTION": "Ferramentas que viabilizam formas de comunicação entre clientes e fornecedores",
+
+        "S11_TITLE": "Existe forma de denúncia anônima? Se sim, os casos são investigados e reportados com todos os funcionários ?",
+        "S11_DESCRIPTION": "Canais para denúncia anônima, onde quem denuncia não será identificado, será mantido sigilo sobre quem fez a denúncia. Em caso afirmativo, o setor responsável por receber as denúncias analisa e toma medidas e providências com funcionários para sanar a questão. ",
+
+        "S12_TITLE": "Código Interno de Combate a Corrupção é claro e comunicado para todos os funcionários?",
+        "S12_DESCRIPTION": "O código interno de Combate à Corrupção foi escrito de forma clara, com informações objetivas, usando palavras de fácil compreensão.",
+
+        "S13_TITLE": "A empresa pratica política de preços de forma a manipular a livre concorrência do mercado?",
+        "S13_DESCRIPTION": "A forma de precificação dos produtos da empresa é feita de forma justa e leal para a livre concorrência do mercado.",
+
+        "S14_TITLE": "Existe termo de conduta Social dos Fornecedores? Se sim, ele está de acordo com os valores de Compliances internos?",
+        "S14_DESCRIPTION": "O manual de normas e condutas de como os fornecedores devem se comportar para se classificar fornecedor para a empresa está em conformidade  com as regras de normas e condutas da empresa que este estabeleceu relação comercial?  ",
+
+        "S15_TITLE": "Existe report interno ou externo com os questionamentos dos clientes, de forma transparente, nos últimos 48 meses?",
+        "S15_DESCRIPTION": "Todos os questionamentos vindos de clientes são relatados em documentos sem que haja censura.",
+
+        "S16_TITLE": "Entre os benefícios oferecidos aos funcionários, existe algum incentivo à educação, cultura e/ou treinamento extra (além da função específica)?",
+        "S16_DESCRIPTION": "Entre os benefícios podem ser parcerias de desconto para cursos extra-curriculares ou de educação continuada, programa de treinamento e estudo na própria empresa ou incentivo financeiro para ser gasto com educação",
+
+        "G1_TITLE": "Seu produto apresenta risco à saúde do consumidor se consumido em excesso?",
+        "G1_DESCRIPTION": "O produto pode apresentar danos e riscos à saúde de quem o consome caso ele seja consumido em quantidades excessivas, além das recomendadas ",
+
+        "G2_TITLE": "Seu produto apresenta riscos a sociedade em geral se consumido ou usado de forma equivocada?",
+        "G2_DESCRIPTION": "O produto pode apresentar danos e riscos à saúde de quem o consome caso ele seja consumido de forma diferente a que a empresa sugere",
+
+        "G3_TITLE": "Existe risco político, nacional ou internacional, que pode afetar o mercado do seu produto?",
+        "G3_DESCRIPTION": "Há fatores políticos, internos ou externos aos território nacional que possam afetar a forma que seu produto é comercializado ?",
+
+        "G4_TITLE": "Seu mercado de atuação é regulado através de instituições de classes e/ou corporativas?",
+        "G4_DESCRIPTION": "O mercado o qual seu produto atua deve seguir leis e regras de algum tipo de instituição para que possa ser comercializado ?",
+
+        "G5_TITLE": "Existe plano de mitigação/contingência contra riscos corporativos?",
+        "G5_DESCRIPTION": "Planos para redução ou controle contra qualquer situação de risco dentro da empresa; situações que fogem aos escopo dos manuais de normas e condutas impostos pela empresa",
+
+        "G6_TITLE": "A empresa passa anualmente por algum tipo de auditoria? (financeira e/ou qualidade)",
+        "G6_DESCRIPTION": "Auditoria é uma análise cuidadosa, detalhada e sistemática das atividades desenvolvidas em determinada organização, cujo objetivo é averiguar se elas estão de acordo com as planejadas e/ou estabelecidas previamente, se foram implementadas com eficácia e adequadas (em conformidade) à consecução dos objetivos.",
+
+        "G7_TITLE": "Existe separação entre quem toca o dia-a-dia do negócio e o Proprietário (a) da empresa?",
+        "G7_DESCRIPTION": "Há funcionários específicos para o bom funcionamento da empresa que não seja a mesma pessoa que é a proprietária da empresa",
+
+        "G8_TITLE": "Existe relação econômica/comercial com outras subsidiárias de mesma gestão?",
+        "G8_DESCRIPTION": "Relações econômicas e comerciais com outras unidades da mesma empresa sob a mesma administração",
+
+        "G9_TITLE": "Existe código interno sobre Conflito de Interesses?",
+        "G9_DESCRIPTION": "Manual com regras e diretrizes relacionado a divergências de interesses",
+
+        "G10_TITLE": "Existe publicação pública dos ingredientes do seu produto?",
+        "G10_DESCRIPTION": "Publicação em meios de comunicação públicos dos ingredientes usados na composição dos produtos que a empresa oferece no mercado",
+
+        "G11_TITLE": "A empresa já foi sancionada judicialmente nos últimos 3 anos por práticas contra a livre concorrência?",
+        "G11_DESCRIPTION": "A empresa já foi acionada de forma judicial por ter praticado de forma desonesta e injusta contra a livre concorrência",
+
+        "G14_TITLE": "Existe report mensal/anual financeiro para todos os funcionários?",
+        "G14_DESCRIPTION": "Todos os funcionários têm acesso à documentos que relatam o desempenho financeiro da empresa",
+
+        "G15_TITLE": "A lucratividade do negócio nos últimos 3 anos esteve em níveis saudáveis e na média ou acima do mercado?",
+        "G15_DESCRIPTION": "Os lucros obtidos pela empresa esteve em níveis considerados aceitáveis, como positivos e dentro da média  comparado com os indicadores do mercado ?",
+
+        "G16_TITLE": "A estrutura atual do negócio suporta um crescimento operacional e tendências de mercado futura, sem grande dispêndio de investimento adicional?",
+        "G16_DESCRIPTION": "A empresa tem capacidade de investimentos para crescimento operacional, de acordo com seu faturamento, sem que haja necessidade de investimentos adicionais externos?"
+    },
+    "PAYMENT": {
+        "TITLE": "Pagamento",
+        "SUBTITLE": "Todas as transações são seguras e encripitadas.",
+        "PATH_1": "Planos",
+        "PATH_2": "Informações Pessoais",
+        "PATH_3": "Pagamento",
+        "ADDRESS_TITLE": "Endereço de cobrança",
+        "FINISH_PAYMENT": "Finalizar Pagamento",
+        "BACK": "Voltar",
+        "CREDIT_CARD": "Cartão de Crédito",
+        "AND_MORE": "e mais...",
+        "CARD_NUMBER": "Número do Cartão",
+        "CARD_NAME": "Nome no cartão",
+        "YOUR_NAME": "Seu nome",
+        "NAME": "Nome",
+        "COMPLETE_NAME": "Nome completo",
+        "DEADLINE": "Vencimento",
+        "DEADLINE_PLACEHOLDER": "MM/AA",
+        "SECURITY_CODE": "Código de Segurança",
+        "ADDRESS": "Endereço",
+        "YOUR_ADDRESS": "Seu endereço",
+        "ZIP_CODE": "Código postal",
+        "CITY": "Cidade",
+        "DIGIT_CITY": "Digite a cidade",
+        "STATE": "Estado",
+        "DIGIT_STATE": "Digite o estado",
+        "COUNTRY": "País",
+        "DIGIT_COUNTRY": "Digite o país",
+        "SAME_ADDRESS": "O mesmo do cadastro",
+        "ANOTHER_ADDRESS": "Usar outro endereço de cobrança",
+        "VALUE_PER_SIMULATION": "*Valor por simulação realizada",
+        "VALUE_OF_SIMULATION": "R$ 99,00",
+        "VALUE_OF_SOLUTION": "R$ 999,00",
+        "VALUE_OF_SUPPLY": "R$ 4.999,00",
+        "CHANGE_PLAN": "Alterar plano",
+        "SIMULATION": "Simulação",
+        "SOLUTION": "Solução",
+        "SUPPLY": "Cadeia de Suprimento",
+        "SIMULATION_PLAN" : "Plano Simulação"
+    },
+    "DASHBOARD": {
+        "YOUR_SCORE": "Pontuação ThinkSus",
+        "HI": "Olá,",
+        "THATS": "No momento, você não possui um score.",
+        "TYPE": "Tipo",
+        "PROGRESS": "Progresso",
+        "SCORE_PER_SEGMENT": "Score por segmento",
+        "STATUS": "Status",
+        "ENVIRONMENTAL": "Ambiental",
+        "SOCIAL": "Social",
+        "GOVERNANCE": "Governança",
+        "START": "Iniciar",
+        "CONTINUE": "Continuar",
+        "FINISHED": "Realizada",
+        "INDICATOR": "Indicador Geral",
+        "YOU_DONT_HAVE": "Você ainda não possui um indicador.",
+        "TAKE_ASSESMENT": "Faça a avaliação para saber o seu rank geral.",
+        "START_ASSESMENT": "Fazer Avaliação",
+        "ASSESMENT_HISTORY": "Histórico de pontuação",
+        "ADERENCE_LEVEL": "Nível de aderência atual",
+        "17_OBJECTIVES": "17 objetivos das ODS",
+        "GENERATE_RELATORY": "Gerar relatório",
+        "HIGH": "Alto",
+        "INTERMEDIATE": "Intermediário",
+        "LOW": "Baixo"
+    },
+    "ASSESMENT": {
+        "YOU_CAN": "Você pode realizar uma avaliação gratuita!",
+        "SIMULATE": "Faça uma simulação de como funciona nosso sistema de avaliação de forma gratuita.",
+        "INIT_SIMULATION": "Iniciar simulação",
+        "TITLE": "Avaliação",
+        "ANSWER_QUESTIONARY": "Responda os questionarios das três áreas abaixo para receber sua pontuação",
+        "ASSESMENT_TITLE": "Título da Avaliação",
+        "CONFIRM": "Confirmar",
+        "ASSESMENT_PLACEHOLDER": "Informe um título",
+        "INIT_ASSESMENT": "Iniciar Avaliação",
+        "FINISHED_ASSESMENT": "Avaliação Realizada",
+        "AMBIENTAL": "Ambiental",
+        "AMBIENTAL_DESCRIPTION": "Como a empresa se comporta com as ações voltadas ao meio ambiente.",
+        "SOCIAL": "Social",
+        "SOCIAL_DESCRIPTION": "Como a empresa se comporta com ações voltadas ao bem-estar e a questões sociais envolvendo seus funcionários",
+        "GOVERNAMENTAL": "Governança",
+        "GOVERNAMENTAL_DESCRIPTION": "Como a empresa se comporta com a administração e gestão de seus negócios, funcionários, acionistas e clientes.",
+        "GENERATE_RELATORY": "Gerar pontuação"
+    },
+    "SCORE": {
+        "TITLE": "Resultados",
+        "HISTORY": "Histórico de Avaliações",
+        "YOU_DONT_HAVE": "Você não tem nenhuma avaliação em andamento",
+        "MAKE_YOUR_FIRST": "Faça sua primeira avaliação para descobrir a Pontuação e o indicador geral da sua empresa",
+        "MAKE_BUTTON": "Fazer Avaliação",
+        "NEXT_AVALIABLE": "Próxima avaliação disponível em",
+        "MOST_RECENT": "Resultado mais recente",
+        "SCORE_TITLE": "Titulo da avaliação:",
+        "SCORE_GENERATED_AT": "Pontuação gerada em:",
+        "GENERATED_AT": "Pontuação gerada em:",
+        "THINKSUS_SCORE": "Pontuação ThinkSus",
+        "IMPROVEMENTS": "Melhorias",
+        "SCORE_HISTORY": "Histórico de pontuação",
+        "SEAL": "Selo",
+        "SCORE_NAME": "Titulo",
+        "SCORE_TABLE": "ThinkSus Score",
+        "GENERATED_AT_TABLE": "Gerada em",
+        "ACTIONS": "Ações",
+        "NO_RESULTS": "Sem resultados"
+    },
+    "SUPPLIERS": {
+        "LIST_TITLE": "Lista de fornecedores",
+        "ADD_SUPPLIER": "Adicionar fornecedor",
+        "SEARCH": "Pesquise",
+        "ORDER_BY": "Ordenar por",
+        "SEAL": "Selo",
+        "LETTER_ORDER": "Ordem alfabética",
+        "SUPPLIER": "Fornecedor",
+        "BUY_VALUE": "Valor de compra",
+        "SCORE": "ThinkSus Score",
+        "CNPJ": "CNPJ",
+        "ACTIONS": "Ações",
+        "NO_RESULTS": "Sem resultados"
+    },
+    "ADD_SUPPLIER": {
+        "TITLE": "Adicionar fornecedor",
+        "NAME": "Digite o nome do fornecedor",
+        "NAME_EXAMPLE": "Fornecedor exemplo",
+        "CNPJ": "CNPJ",
+        "BUY_VALUE": "Valor de compra anual",
+        "CANCEL": "Cancelar",
+        "ADD": "Adicionar"
+    },
+    "ODS": {
+        "PAGE_DESCRIPTION_PT_1": "Os 17 Objetivos de Desenvolvimento Sustentável da ONU é uma proposta de aceno global que aborda os principais desafios da sociedade contemporânea no Brasil e no mundo.",
+        "PAGE_DESCRIPTION_PT_2": "Essa proposição da ONU, que envolve seus países membros, é parte da Agenda 2030, que nada mais é que um esforço conjunto de países, empresas, instituições e sociedade civil para acabar com a pobreza, proteger o meio ambiente e o clima e garantir que as pessoas, em todos os lugares, possam desfrutar de paz e de prosperidade.",
+        "PAGE_DESCRIPTION_PT_3": "Nosso rating tem como matriz de aderência as 17 ODS da ONU, que determina os pontos fortes e os pontos a serem melhorados para que sua empresa e seus negócios estejam dentro dos padrões de práticas sustentáveis...",
+
+        "PAGE_TITLE": "Aderência ODS ao seu perfil",
+        "PAGE_SUBTITLE": "Objetivos voltados a área de atuação de sua empresa",
+
+        "1_TITLE": "Erradicação da pobreza",
+        "1_DESCRIPTION": "Erradicar a pobreza em todas as formas e em todos os lugares",
+
+        "2_TITLE": "Fome zero e agricultura sustentável",
+        "2_DESCRIPTION": "Erradicar a fome, alcançar a segurança alimentar, melhorar a nutrição e promover a agricultura sustentável",
+
+        "3_TITLE": "Saúde e Bem-Estar",
+        "3_DESCRIPTION": "Garantir o acesso à saúde de qualidade e promover o bem-estar para todos, em todas as idades",
+
+        "4_TITLE": "Educação de qualidade",
+        "4_DESCRIPTION": "Garantir o acesso à educação inclusiva, de qualidade e equitativa, e promover oportunidades de aprendizagem ao longo da vida para todos",
+
+        "5_TITLE": "Igualdade de gênero",
+        "5_DESCRIPTION": "Alcançar a igualdade de gênero e empoderar todas as mulheres e meninas",
+
+        "6_TITLE": "Água potável e saneamento",
+        "6_DESCRIPTION": "Garantir a disponibilidade e a gestão sustentável da água potável e do saneamento para todos",
+
+        "7_TITLE": "Energia limpa e acessível",
+        "7_DESCRIPTION": "Garantir o acesso a fontes de energia fiáveis, sustentáveis e modernas para todos",
+
+        "8_TITLE": "Trabalho decente e crescimento econômico",
+        "8_DESCRIPTION": "Promover o crescimento econômico inclusivo e sustentável, o emprego pleno e produtivo e o trabalho digno para todos",
+
+        "9_TITLE": "Indústria, inovação e infraestrutura",
+        "9_DESCRIPTION": "Construir infraestruturas resilientes, promover a industrialização inclusiva e sustentável e fomentar a inovação",
+
+        "10_TITLE": "Redução das desigualdades",
+        "10_DESCRIPTION": "Reduzir as desigualdades no interior dos países e entre países",
+
+        "11_TITLE": "Cidades e comunidades sustentáveis",
+        "11_DESCRIPTION": "Tornar as cidades e comunidades mais inclusivas, seguras, resilientes e sustentáveis",
+
+        "12_TITLE": "Consumo e produção responsáveis",
+        "12_DESCRIPTION": "Garantir padrões de consumo e de produção sustentáveis",
+
+        "13_TITLE": "Ação contra a mudança global do clima",
+        "13_DESCRIPTION": "Adotar medidas urgentes para combater as alterações climáticas e os seus impactos",
+
+        "14_TITLE": "Vida na água",
+        "14_DESCRIPTION": "Conservar e usar de forma sustentável os oceanos, mares e os recursos marinhos para o desenvolvimento sustentável",
+
+        "15_TITLE": "Vida terrestre",
+        "15_DESCRIPTION": "Proteger, restaurar e promover o uso sustentável dos ecossistemas terrestres, gerir de forma sustentável as florestas, combater a desertificação, travar e reverter a degradação dos solos e travar a perda da biodiversidade",
+
+        "16_TITLE": "Paz, Justiça e Instituições Eficazes",
+        "16_DESCRIPTION": "Promover sociedades pacíficas e inclusivas para o desenvolvimento sustentável, proporcionar o acesso à justiça para todos e construir instituições eficazes, responsáveis e inclusivas a todos os níveis",
+
+        "17_TITLE": "Parcerias e meios de implementação",
+        "17_DESCRIPTION": "Reforçar os meios de implementação e revitalizar a parceria global para o desenvolvimento sustentável"
+    },
+    "IMPROVEMENTS": {
+        "ENVIRONMENTAL_TITLE_1": "Natureza",
+        "ENVIRONMENTAL_DESCRIPTION_1": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+        
+        "ENVIRONMENTAL_TITLE_2": "Recursos naturais",
+        "ENVIRONMENTAL_DESCRIPTION_2": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+        
+        "ENVIRONMENTAL_TITLE_3": "Clima e risco",
+        "ENVIRONMENTAL_DESCRIPTION_3": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+
+        "ENVIRONMENTAL_TITLE_4": "Gestão de resíduos",
+        "ENVIRONMENTAL_DESCRIPTION_4": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+        
+
+        "SOCIAL_TITLE_5": "Trabalho justo",
+        "SOCIAL_DESCRIPTION_5": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+        
+        "SOCIAL_TITLE_6": "Comunidade",
+        "SOCIAL_DESCRIPTION_6": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+        
+        "SOCIAL_TITLE_7": "Sociedade",
+        "SOCIAL_DESCRIPTION_7": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+
+        "SOCIAL_TITLE_8": "Cadeia de valor",
+        "SOCIAL_DESCRIPTION_8": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+        
+
+        "GOVERNMENTAL_TITLE_9": "Risco",
+        "GOVERNMENTAL_DESCRIPTION_9": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+        
+        "GOVERNMENTAL_TITLE_10": "Econômica",
+        "GOVERNMENTAL_DESCRIPTION_10": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+        
+        "GOVERNMENTAL_TITLE_11": "Gestão",
+        "GOVERNMENTAL_DESCRIPTION_11": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+
+        "GOVERNMENTAL_TITLE_12": "Transparência",
+        "GOVERNMENTAL_DESCRIPTION_12": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'"
     }
 }

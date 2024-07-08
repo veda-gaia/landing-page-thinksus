@@ -1,0 +1,136 @@
+<header class="fade-in container">
+    <div class="row">
+        <div class="col d-flex align-items-center justify-content-between gap-2">
+            <a href="" class="flex-grow-0 pe-5" routerLink="/logged/dashboard" (click)="scrollToTop()">
+                <img src="/assets/logo/logo-dark.svg" alt="" class="header-logo" width="130px">
+            </a>
+
+            <nav class="fade-in d-none d-sm-block">
+                <ul class="d-flex align-items-center justify-content-center gap-3">
+                    <li class="dropdown">
+                        <button class="bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2 px-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img *ngIf="selectedLanguage === 'pt'" class="fade-in" src="/assets/icon/brasil.png" width="24px" alt="Português do Brasil">
+                            <img *ngIf="selectedLanguage === 'en'" class="fade-in" src="/assets/icon/usa.png" width="24px" alt="USA English">
+
+                            <p *ngIf="selectedLanguage === 'pt'" class="fade-in fw-600 brand-text f-size-0-85rem">
+                                PT/BR
+                            </p>
+                            <p *ngIf="selectedLanguage === 'en'" class="fade-in fw-600 brand-text f-size-0-85rem">
+                                EN/USA
+                            </p>
+
+                            <img src="/assets/icon/arrow-down.svg" alt="Abrir/Fechar">
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li class="dropdown-item d-flex align-items-center justify-content-start gap-2 cursor-pointer" (click)="changeLanguage('pt')">
+                                <img src="/assets/icon/brasil.png" width="24px" alt="Português do Brasil">
+                                <p class="fw-600 brand-text f-size-0-85rem">
+                                    PT/BR
+                                </p>
+                            </li>
+                            <li class="dropdown-item d-flex align-items-center justify-content-start gap-2 cursor-pointer" (click)="changeLanguage('en')">
+                                <img src="/assets/icon/usa.png" width="24px" alt="USA English">
+                                <p class="fw-600 brand-text f-size-0-85rem">
+                                    EN/US
+                                </p>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- <li>
+                        <a routerLink="/login" class="d-flex align-items-center justify-content-end gap-3">
+                        </a>
+                    </li> -->
+                    <li class="d-flex align-items-center justify-content-end gap-3 ps-3">
+                        <div>
+                            <p class="primary-text f-size-0-85rem fw-400 m-0">
+                                {{ user ? user.name.slice(0, 18) : '' }}
+                            </p>
+                            <p class="fw-700 brand-text l-height-1-5rem f-size-1rem m-0 text-end">
+                                {{ company ? company.slice(0, 13) : '' }}
+                            </p>
+                        </div>
+                        <div class="profile-container">
+                            <!-- <img src="/assets/img/profile.jpg" alt="profile"> -->
+                            <img src="/assets/icon/default-profile.svg" alt="profile" width="32px">
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Mobile btn -->
+            <button class="d-block d-sm-none bg-transparent mobile-btn" (click)="toggleMenuMobile()">
+                <img src="/assets/icon/menu-toggler.svg" alt="" width="30px" height="30px">
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Menu Mobile -->
+<div class="menu-mobile-backdrop" (click)="toggleMenuMobile()" [class.active]="menuMobileOpen"></div>
+
+<aside class="menu-mobile menu-mobile-logged d-block d-lg-none position-fixed m-0 px-5 pt-3" [class.active]="menuMobileOpen">
+    <div class="py-3 d-flex align-items-center justify-content-between cursor-pointer" (click)="toggleMenuMobile()">
+        <h4 class="dark-text f-size-1-5rem fw-500">Menu</h4>
+        <button class="border-0 bg-transparent">
+            <img src="/assets/icon/close-menu-dark.svg" alt="Fechar menu" width="20px" height="20px">
+        </button>
+    </div>
+ 
+    <nav class="py-5">
+        <ul class="d-flex flex-column align-items-center justify-content-center gap-4">
+            <li class="d-flex align-items-center justify-content-end gap-3 ps-3 mb-2">
+                <div>
+                    <p class="primary-text f-size-0-85rem fw-400 m-0">
+                        {{ user ? user.name.slice(0, 18) : '' }}
+                    </p>
+                    <p class="fw-700 brand-text l-height-1-5rem f-size-1rem m-0 text-end">
+                        {{ company ? company.slice(0, 13) : '' }}
+                    </p>
+                </div>
+                <div class="profile-container">
+                    <!-- <img src="/assets/img/profile.jpg" alt="profile"> -->
+                    <img src="/assets/icon/default-profile.svg" alt="profile" width="32px">
+                </div>
+            </li>
+            <li class="dropdown">
+                <button class="bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2 px-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <img *ngIf="selectedLanguage === 'pt'" class="fade-in" src="/assets/icon/brasil.png" width="24px" alt="Português do Brasil">
+                    <img *ngIf="selectedLanguage === 'en'" class="fade-in" src="/assets/icon/usa.png" width="24px" alt="USA English">
+
+                    <p *ngIf="selectedLanguage === 'pt'" class="fade-in fw-600 brand-text f-size-0-85rem">
+                        PT/BR
+                    </p>
+                    <p *ngIf="selectedLanguage === 'en'" class="fade-in fw-600 brand-text f-size-0-85rem">
+                        EN/USA
+                    </p>
+
+                    <img src="/assets/icon/arrow-down.svg" alt="Abrir/Fechar">
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li class="dropdown-item d-flex align-items-center justify-content-start gap-2 cursor-pointer" (click)="changeLanguage('pt')">
+                        <img src="/assets/icon/brasil.png" width="24px" alt="Português do Brasil">
+                        <p class="fw-600 brand-text f-size-0-85rem">
+                            PT/BR
+                        </p>
+                    </li>
+                    <li class="dropdown-item d-flex align-items-center justify-content-start gap-2 cursor-pointer" (click)="changeLanguage('en')">
+                        <img src="/assets/icon/usa.png" width="24px" alt="Português do Brasil">
+                        <p class="fw-600 brand-text f-size-0-85rem">
+                            EN/US
+                        </p>
+                    </li>
+                </ul>
+            </li>
+            <li class="w-100">
+                <a (click)="logout()" class="w-100 cursor-pointer">
+                    <button class="no-bg-btn bg-transparent primary-text d-flex fw-700 gap-2 align-items-center justify-content-center w-100 pt-3">
+                        <img src="/assets/icon/logout-dark.svg" alt="Sair">
+                        {{ 'SIDEBAR.LOGOUT' | translate }}
+                    </button>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</aside>

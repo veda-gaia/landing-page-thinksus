@@ -87,18 +87,6 @@ export class GIndustryComponent {
     private CompanyService: CompanyService,
     private toastr: ToastrService
   ) {
-    this.CompanyService.getByUser().subscribe({
-      next: (data) => {
-        if(data.section !== 'Industry') {
-                    this.toastr.error('Esta avaliação não corresponde ao setor da sua empresa', 'Erro', {progressBar: true});
-          this.router.navigate(['/logged/dashboard'])
-        }
-      },
-      error: (err) => {
-        console.log(err)
-      }
-    })
-
     this.formArray = this.fb.array([])
     this.formArrayDocuments = this.fb.array([])
 
@@ -111,8 +99,50 @@ export class GIndustryComponent {
         this.checkDoesntApply()
       }
     })
+
+    this.CompanyService.getByUser().subscribe({
+      next: (data) => {
+        if(data.section !== 'Industry') {
+          this.toastr.error('Esta avaliação não corresponde ao setor da sua empresa', 'Erro', {progressBar: true});
+          this.router.navigate(['/logged/dashboard'])
+        }
+                
+        this.getAnswersAndFill(data._id)
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
   }
 
+  getAnswersAndFill(companyId: string) {
+    this.esgRatingService.list().subscribe({
+      next: (data) => {
+        // Pega o item que pertence a minha empresa
+        let myCompanyInfo = data.filter(item => {
+          return item.company._id === companyId
+        })[0]
+          
+        const questionaryAnswers = myCompanyInfo.answers.filter((i: any) => {
+          return i.questionNumber.startsWith("G")
+        })
+
+        console.log(questionaryAnswers)
+
+        if(questionaryAnswers.length) {
+          questionaryAnswers.forEach((answer: any, index: number) => {
+            this.formArray.at(index).setValue(answer.answer)
+          });
+
+          this.actualStep = questionaryAnswers.length + 1
+        }
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
+  }
+  
   ngOnInit() {
     this.scrollToTop()
   }

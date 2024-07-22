@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component';
 import { EsgRatingService } from 'src/app/services/esg-rating.service';
+import { CompanyService } from 'src/app/services/company.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-s-industry',
@@ -86,7 +88,21 @@ export class SIndustryComponent {
     private router: Router,
     private modalService: NgbModal,
     private esgRatingService: EsgRatingService,
+    private CompanyService: CompanyService,
+    private toastr: ToastrService
   ) {
+    this.CompanyService.getByUser().subscribe({
+      next: (data) => {
+        if(data.section !== 'Industry') {
+          this.toastr.error('Esta avaliação não corresponde ao setor da sua empresa', 'Erro', {progressBar: true});
+          this.router.navigate(['/logged/dashboard'])
+        }
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
+
     this.formArray = this.fb.array([])
     this.formArrayDocuments = this.fb.array([])
 
@@ -178,7 +194,33 @@ export class SIndustryComponent {
   }
 
   continueLater() {
-    this.router.navigate(['/logged/assesment'])
+    // Preenche o dto com o formArray
+    const dto: any = {
+      answers: this.formArray.controls.map((control, index) => {
+        if(control.value) {{
+          return {
+            esgNumber: this.questionaryData[index].id,
+            answer: control.value,
+          }
+        }}
+        else return false
+      })
+    }
+    
+    // Filtra as que tem resposta 
+    dto.answers = dto.answers.filter((item: any) => {
+      if(!item) return false
+      else return true
+    })
+    
+    this.esgRatingService.register(dto).subscribe({
+      next: (data) => {
+        this.router.navigate(['/logged/assesment'])
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
   }
 
   scrollToTop() {

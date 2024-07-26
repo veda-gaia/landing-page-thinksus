@@ -593,5 +593,18 @@
 
         "GOVERNMENTAL_TITLE_12": "Transparência",
         "GOVERNMENTAL_DESCRIPTION_12": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'"
+    },
+    "CONTROL_PANEL": {
+        "TITLE": "Painel de controle",
+        "PERFORMANCE_TITLE": "Performance agregada dos fornecedores",
+        "HISTORY_TITLE": "Performance agregada dos fornecedores",
+        "ADERENCE_TITLE": "Performance agregada dos fornecedores",
+        "SUPPLIER_AVALIATION_TITLE": "Performance agregada dos fornecedores",
+        "AVERAGE_AVALIATION_TITLE": "Média ponderada de avaliações",
+        "AVERAGE_AVALIATION_SUBTITLE": "em função do volume de transações.",
+        "ENVIRONMENTAL": "Ambiental",
+        "SOCIAL": "Social",
+        "GOVERNANCE": "Governança",
+        "FILTER_BY_SUPPLIER": "Filtrar por Fornecedor"
     }
 }

@@ -2166,3 +2166,7 @@ td {
     position: relative;
     clip-path: circle();
 }
+
+.js-plotly-plot .plotly .user-select-none {
+    height: 400px !important;
+}

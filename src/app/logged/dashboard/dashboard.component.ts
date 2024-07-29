@@ -14,6 +14,14 @@ export class DashboardComponent {
   companySection = 'agro'
   loading = true
 
+  graphData: any = []
+  graphConfig: any = { 
+    displayModeBar: false,
+    responsive: true,
+    scrollZoom: false,
+    staticPlot: true
+  }
+
   environmentalQuestions = 0
   socialQuestions = 0
   governanceQuestions = 0
@@ -69,6 +77,32 @@ export class DashboardComponent {
         }
         
         this.handleInfo(data._id, data.section)
+
+        const graphEnvironmental = {
+          x: [1, 2, 3, 4],
+          y: [64, 79, 80, 78],
+          mode: 'lines+markers',
+          type: 'scatter',
+          name: 'Governança'
+        };
+        const graphGovernmental = {
+          x: [1, 2, 3, 4],
+          y: [71, 89, 90, 99],
+          mode: 'lines+markers',
+          type: 'scatter',
+          name: 'Social'
+        };
+        const graphSocial = {
+          x: [1, 2, 3, 4],
+          y: [50, 55, 54, 60],
+          mode: 'lines+markers',
+          type: 'scatter',
+          name: 'Ambiental'
+        };
+    
+        this.graphData.push(graphEnvironmental)
+        this.graphData.push(graphGovernmental)
+        this.graphData.push(graphSocial)
       },
       error: (err) => {
         console.log(err)

@@ -2,7 +2,7 @@ export const environment = {
     production: false,
 
     api: {
-        path: 'http://ec2-54-200-130-21.us-west-2.compute.amazonaws.com:3001',
+        path: 'https://thinksus-api.com',
     },
  
     encrypt_key: '5e99d833-bcfa-411e-ad92-97686ca6890c',

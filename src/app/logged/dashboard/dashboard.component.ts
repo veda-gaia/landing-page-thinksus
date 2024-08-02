@@ -45,8 +45,6 @@ export class DashboardComponent {
     private EsgRatingService: EsgRatingService,
     private CompanyService: CompanyService,
   ) {
-    this.avaliationStatus = 'pre-avaliation'
-
     this.CompanyService.getByUser().subscribe({
       next: (data) => {
         console.log(data)
@@ -114,55 +112,60 @@ export class DashboardComponent {
     this.EsgRatingService.list().subscribe({
       next: (data) => {
         // Pega o item que pertence a minha empresa
-        let myCompanyInfo = data.filter(item => {
-          return item.company._id === companyId
+        let inProgressAvaliation = data.filter(item => {
+          return item.company._id === companyId && item.status === "IN_PROGRESS"
         })[0]
-
-        console.log(myCompanyInfo)
+        let postAvaliation = data.filter(item => {
+          return item.company._id === companyId && item.status === "COMPLETED"
+        })[0]
         
-        if(myCompanyInfo) {
-          const environmentalAnswers = myCompanyInfo.answers.filter((i: any) => {
+        if(inProgressAvaliation) {
+          this.avaliationStatus = 'pre-avaliation'
+
+          const environmentalAnswers = inProgressAvaliation.answers.filter((i: any) => {
             return i.questionNumber.startsWith("E")
           })
           
-          const socialAnswers = myCompanyInfo.answers.filter((i: any) => {
+          const socialAnswers = inProgressAvaliation.answers.filter((i: any) => {
             return i.questionNumber.startsWith("S")
           })
           
-          const governanceAnswers = myCompanyInfo.answers.filter((i: any) => {
+          const governanceAnswers = inProgressAvaliation.answers.filter((i: any) => {
             return i.questionNumber.startsWith("G")
           })
 
           if(environmentalAnswers.length) {
             this.environmentalInfo = {
               progress: environmentalAnswers.length,
-              score: myCompanyInfo.environmentalScore.toFixed(0)
+              score: inProgressAvaliation.environmentalScore.toFixed(0)
             }
           }
           
           if(socialAnswers.length) {
             this.socialInfo = {
               progress: socialAnswers.length,
-              score: myCompanyInfo.socialScore.toFixed(0)
+              score: inProgressAvaliation.socialScore.toFixed(0)
             }
           }
           
           if(governanceAnswers.length) {
             this.governanceInfo = {
               progress: governanceAnswers.length,
-              score: myCompanyInfo.governanceScore.toFixed(0)
+              score: inProgressAvaliation.governanceScore.toFixed(0)
             }
           }
 
-          this.odsScoreArray = myCompanyInfo.odsScore
+          this.odsScoreArray = inProgressAvaliation.odsScore
         }
 
+        if(postAvaliation) {
+          this.avaliationStatus = 'post-avaliation'
+        }
+
+        console.log(this.avaliationStatus)
+        
         this.loading = false
-        // if(!data.length) {
-        //   this.avaliationStatus = 'pre-avaliation'
-        //   return
-        // }
-        // this.avaliationStatus = 'post-avaliation'
+        console.log(this.loading)
       },
       error: (err) => {
         console.log(err)

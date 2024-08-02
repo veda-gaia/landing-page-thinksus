@@ -149,7 +149,7 @@
 
     <div class="fade-in row pt-4 pb-4">
         <div class="col d-flex align-items-start justify-content-end">
-            <button class="brand-btn px-5" type="submit" [disabled]="(form.invalid) || true">
+            <button class="brand-btn px-5" type="submit" [disabled]="(form.invalid) || (environmentalProgress !== 100) || (socialProgress !== 100) || (governanceProgress !== 100)">
                 {{ "ASSESMENT.GENERATE_RELATORY" | translate }}
             </button>
         </div>

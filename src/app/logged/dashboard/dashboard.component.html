@@ -1,6 +1,6 @@
 <div *ngIf="!loading">
   <!-- Pre Avaliacao -->
-  <ng-container *ngIf="avaliationStatus === 'pre-avaliation' else postAvaliation">
+  <div *ngIf="avaliationStatus === 'pre-avaliation'">
     <div class="row pb-4">
       <div class="col">
         <div class="dashboard-score-pre-container d-flex flex-column flex-xl-row align-item-center justify-content-between gap-4 p-4 card-logged">
@@ -246,10 +246,10 @@
         </div>
       </div>
     </div>
-  </ng-container>
+  </div>
   
   <!-- Pos Avaliacao -->
-  <ng-template #postAvaliation>
+  <div *ngIf="avaliationStatus === 'post-avaliation'">
     <div class="row pb-4">
       <div class="col d-flex flex-column flex-xl-row align-item-start justify-content-between gap-4">
         <div class="p-4 card-logged flex-grow-1 d-flex flex-column align-item-start justify-content-start gap-4">
@@ -470,5 +470,5 @@
           </button>
         </div>
     </div>
-  </ng-template>
+  </div>
 </div>

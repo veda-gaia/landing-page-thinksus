@@ -2,11 +2,11 @@ export const environment = {
     production: false,
 
     api: {
-        path: 'http://localhost:6001',
+        path: 'https://thinksus-api.com',
     },
  
-    encrypt_key: '415bbe92-ba56-41e2-a80c-e06f0eff0427',
-    jwt_key: 'f14ada3d-9368-451c-9e2d-5e3284cde35b',
+    encrypt_key: '5e99d833-bcfa-411e-ad92-97686ca6890c',
+    jwt_key: 'e3098c3f-434a-4ca8-96ce-4fbbadc4d5ec',
     socket: {
         notification: {
             host: '',

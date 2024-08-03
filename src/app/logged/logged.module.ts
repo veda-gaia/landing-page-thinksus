@@ -33,7 +33,11 @@ import { EsgRatingService } from '../services/esg-rating.service';
 import { DateFormatPipe } from '../pipes/date-format.pipe';
 import { NgxDocViewerModule } from 'ngx-doc-viewer';
 import { UseInstructionsComponent } from './use-instructions/use-instructions.component';
+// import { PlotlyModule } from 'angular-plotly.js';
+import { PlotlyModule } from 'angular-plotly.js';
+import * as PlotlyJS from 'plotly.js-dist-min';
 
+PlotlyModule.plotlyjs = PlotlyJS;
 
 @NgModule({
   declarations: [
@@ -72,7 +76,8 @@ import { UseInstructionsComponent } from './use-instructions/use-instructions.co
     TranslateModule,
     NgbModule,
     CurrencyMaskModule,
-    NgxDocViewerModule
+    NgxDocViewerModule,
+    PlotlyModule
   ],
   providers: [
     EsgRatingService,

@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component';
 import { EsgRatingService } from 'src/app/services/esg-rating.service';
+import { CompanyService } from 'src/app/services/company.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-e-industry',
@@ -74,6 +76,8 @@ export class EIndustryComponent {
     private router: Router,
     private modalService: NgbModal,
     private esgRatingService: EsgRatingService,
+    private CompanyService: CompanyService,
+    private toastr: ToastrService
   ) {
     this.formArray = this.fb.array([])
     this.formArrayDocuments = this.fb.array([])
@@ -85,6 +89,48 @@ export class EIndustryComponent {
     this.formArray.valueChanges.subscribe({
       next: () => {
         this.checkDoesntApply()
+      }
+    })
+
+    this.CompanyService.getByUser().subscribe({
+      next: (data) => {
+        if(data.section !== 'Industry') {
+          this.toastr.error('Esta avaliação não corresponde ao setor da sua empresa', 'Erro', {progressBar: true});
+          this.router.navigate(['/logged/dashboard'])
+        }
+        
+        this.getAnswersAndFill(data._id)
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
+  }
+
+  getAnswersAndFill(companyId: string) {
+    this.esgRatingService.list().subscribe({
+      next: (data) => {
+        // Pega o item que pertence a minha empresa
+        let myCompanyInfo = data.filter(item => {
+          return item.company._id === companyId
+        })[0]
+          
+        const questionaryAnswers = myCompanyInfo.answers.filter((i: any) => {
+          return i.questionNumber.startsWith("E")
+        })
+
+        console.log(questionaryAnswers)
+
+        if(questionaryAnswers.length) {
+          questionaryAnswers.forEach((answer: any, index: number) => {
+            this.formArray.at(index).setValue(answer.answer)
+          });
+
+          this.actualStep = questionaryAnswers.length + 1
+        }
+      },
+      error: (err) => {
+        console.log(err)
       }
     })
   }
@@ -166,7 +212,33 @@ export class EIndustryComponent {
   }
 
   continueLater() {
-    this.router.navigate(['/logged/assesment'])
+    // Preenche o dto com o formArray
+    const dto: any = {
+      answers: this.formArray.controls.map((control, index) => {
+        if(control.value) {{
+          return {
+            esgNumber: this.questionaryData[index].id,
+            answer: control.value,
+          }
+        }}
+        else return false
+      })
+    }
+    
+    // Filtra as que tem resposta 
+    dto.answers = dto.answers.filter((item: any) => {
+      if(!item) return false
+      else return true
+    })
+    
+    this.esgRatingService.register(dto).subscribe({
+      next: (data) => {
+        this.router.navigate(['/logged/assesment'])
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
   }
 
   scrollToTop() {

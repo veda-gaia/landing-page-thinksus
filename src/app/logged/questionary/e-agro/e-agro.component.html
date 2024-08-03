@@ -54,7 +54,7 @@
                         </button>
 
                         <div *ngIf="actualStep > 1" class="d-flex flex-column-reverse flex-lg-row align-items-center justify-content-between mt-5">
-                            <button (click)="continueLater()" class="no-bg-btn bg-transparent brand-text fw-700 pt-5 pt-lg-0">
+                            <button (click)="continueLater()" type="button" class="no-bg-btn bg-transparent brand-text fw-700 pt-5 pt-lg-0">
                                 {{ "QUESTIONARY.CONTINUE_LATER" | translate }}
                             </button>
         
@@ -216,7 +216,7 @@
         </ul>
     
         <div class="w-100 d-flex align-items-center justify-content-end gap-3 pt-4">
-            <button (click)="continueLater()" class="brand-outline-btn bg-transparent x-lg-5 d-block" type="button">
+            <button (click)="continueLater()" type="button" class="brand-outline-btn bg-transparent x-lg-5 d-block" type="button">
                 {{ "QUESTIONARY.CONTINUE_LATER" | translate }}
             </button>
             

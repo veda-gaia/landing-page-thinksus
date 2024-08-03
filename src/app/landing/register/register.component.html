@@ -164,7 +164,7 @@
                     <option value="> 20m">{{ "REGISTER.BRL_INVOICING_4" | translate }}</option>
                 </select>
 
-                <select *ngIf="country.value === 'United States'" name="invoicing" id="invoicing" formControlName="invoicing" class="d-block mb-4">
+                <select *ngIf="country.value !== 'Brazil'" name="invoicing" id="invoicing" formControlName="invoicing" class="d-block mb-4">
                     <option value="" disabled>{{ "REGISTER.SELECT" | translate }}</option>
                     <option value="< 360k">{{ "REGISTER.USD_INVOICING_1" | translate }}</option>
                     <option value="360k - 4.8m">{{ "REGISTER.USD_INVOICING_2" | translate }}</option>

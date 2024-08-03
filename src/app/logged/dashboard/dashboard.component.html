@@ -146,7 +146,7 @@
                 </div>
                     
                 <div>
-                  <a routerLink="/logged/assesment/g-{{ companySection }}" *ngIf="!governanceInfo.progress" class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-center gap-2">
+                  <a routerLink="/logged/assesment/g-{{ companySection }}" *ngIf="!governanceInfo.progress" class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-start gap-2">
                     {{ "DASHBOARD.START" | translate }}
                     <img src="/assets/icon/play.svg" alt="Iniciar">
                   </a>
@@ -188,12 +188,13 @@
     
     <div class="fade-in row">
       <div class="col-12 col-xl-5">
-        <div class="card-logged p-3 p-lg-4">
-          <h4 class="primary-text f-size-1-5rem fw-700 pb-3">
+        <div class="position-relative card-logged p-3 p-lg-4" style="overflow: hidden;">
+          <h4 class="position-absolute primary-text f-size-1-5rem fw-700 pb-3" style="z-index: 999999;">
             {{ "DASHBOARD.ASSESMENT_HISTORY" | translate }}
           </h4>
     
-          <img src="/assets/img/graph-dash.svg" alt="Gráfico exemplo" class="w-100">
+          <!-- <img src="/assets/img/graph-dash.svg" alt="Gráfico exemplo" class="w-100"> -->
+          <plotly-plot [data]="graphData" [config]="graphConfig"></plotly-plot>
         </div>
       </div>
     

@@ -209,11 +209,14 @@ $blue-100: #BEE3F8;
 
 $auxiliar-50: #FFFFF0;
 $brand-50: #F0FFF4;
+$teal-100: #B2F5EA;
+$teal-400: #38B2AC;
 $teal-900: #1D4044;
 
 $yellow-500: #D69E2E;
 
 $green-100: #C6F6D5;
+$green-300: #68D391;
 $green-400: #48BB78;
 $green-600: #25855A;
 $green-800: #22543D;
@@ -225,6 +228,7 @@ $purple-700: #553c9a;
 
 $blue-100: #BEE3F8;
 $blue-400: #4299E1;
+$blue-500: #3182CE;
 $blue-600: #2b6cb0;
 $blue-800: #2b6cb0;
 
@@ -264,6 +268,10 @@ body, html, .bg-1 {
     background-color: $green-100 !important;
 }
 
+.green-300-bg {
+    background-color: $green-300 !important;
+}
+
 .green-400-bg {
     background-color: $green-400 !important;
 }
@@ -282,6 +290,14 @@ body, html, .bg-1 {
 
 .blue-400-bg {
     background-color: $blue-400 !important;
+}
+
+.blue-500-bg {
+    background-color: $blue-500 !important;
+}
+
+.blue-600-bg {
+    background-color: $blue-600 !important;
 }
 
 .primary-bg {
@@ -336,6 +352,30 @@ body, html, .bg-1 {
     background-color: $alpha-50;
 }
 
+.teal-100-bg {
+    background-color: $teal-100 !important;
+}
+
+.teal-400-bg {
+    background-color: $teal-400 !important;
+}
+
+.purple-100-bg {
+    background-color: $purple-100 !important;
+}
+
+.purple-500-bg {
+    background-color: $purple-500 !important;
+}
+
+.purple-600-bg {
+    background-color: $purple-600 !important;
+}
+
+.input-bg {
+    background-color: $input-bg !important;
+}
+
 // Text
 .fw-300 {
     font-weight: 300 !important;
@@ -363,6 +403,10 @@ body, html, .bg-1 {
 
 .f-size-12px {
     font-size: 12px;
+}
+
+.f-size-14px {
+    font-size: 14px;
 }
 
 .f-size-0-671875rem {
@@ -2109,4 +2153,20 @@ td {
             }
         }
     }
+}
+
+.pie-chart {
+    width: 68px;
+    height: 68px;
+    max-width: 68px;
+    max-height: 68px;
+    min-width: 68px;
+    min-height: 68px;
+
+    position: relative;
+    clip-path: circle();
+}
+
+.js-plotly-plot .plotly .user-select-none {
+    height: 400px !important;
 }

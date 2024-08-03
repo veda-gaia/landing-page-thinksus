@@ -40,6 +40,7 @@ export class DashboardComponent {
   }
 
   odsScoreArray: any[] = []
+  postAvaliationInfo: any
 
   constructor(
     private EsgRatingService: EsgRatingService,
@@ -47,7 +48,6 @@ export class DashboardComponent {
   ) {
     this.CompanyService.getByUser().subscribe({
       next: (data) => {
-        console.log(data)
         this.userName = data.user.name
         
         if(data.section === 'Agribusiness') {
@@ -159,13 +159,12 @@ export class DashboardComponent {
         }
 
         if(postAvaliation) {
+          this.postAvaliationInfo = postAvaliation
           this.avaliationStatus = 'post-avaliation'
+          console.log(postAvaliation)
         }
 
-        console.log(this.avaliationStatus)
-        
         this.loading = false
-        console.log(this.loading)
       },
       error: (err) => {
         console.log(err)

@@ -555,5 +555,57 @@
         
         "17_TITLE": "Partnerships",
         "17_DESCRIPTION": "Strengthen the means of implementation and revitalize the global partnership for sustainable development."
+    },
+    "IMPROVEMENTS": {
+        "ENVIRONMENTAL_TITLE_1": "Natureza",
+        "ENVIRONMENTAL_DESCRIPTION_1": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+        
+        "ENVIRONMENTAL_TITLE_2": "Recursos naturais",
+        "ENVIRONMENTAL_DESCRIPTION_2": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+        
+        "ENVIRONMENTAL_TITLE_3": "Clima e risco",
+        "ENVIRONMENTAL_DESCRIPTION_3": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+
+        "ENVIRONMENTAL_TITLE_4": "Gestão de resíduos",
+        "ENVIRONMENTAL_DESCRIPTION_4": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+        
+
+        "SOCIAL_TITLE_5": "Trabalho justo",
+        "SOCIAL_DESCRIPTION_5": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+        
+        "SOCIAL_TITLE_6": "Comunidade",
+        "SOCIAL_DESCRIPTION_6": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+        
+        "SOCIAL_TITLE_7": "Sociedade",
+        "SOCIAL_DESCRIPTION_7": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+
+        "SOCIAL_TITLE_8": "Cadeia de valor",
+        "SOCIAL_DESCRIPTION_8": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+        
+
+        "GOVERNMENTAL_TITLE_9": "Risco",
+        "GOVERNMENTAL_DESCRIPTION_9": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+        
+        "GOVERNMENTAL_TITLE_10": "Econômica",
+        "GOVERNMENTAL_DESCRIPTION_10": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+        
+        "GOVERNMENTAL_TITLE_11": "Gestão",
+        "GOVERNMENTAL_DESCRIPTION_11": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+
+        "GOVERNMENTAL_TITLE_12": "Transparência",
+        "GOVERNMENTAL_DESCRIPTION_12": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'"
+    },
+    "CONTROL_PANEL": {
+        "TITLE": "Painel de controle",
+        "PERFORMANCE_TITLE": "Performance agregada dos fornecedores",
+        "HISTORY_TITLE": "Performance agregada dos fornecedores",
+        "ADERENCE_TITLE": "Performance agregada dos fornecedores",
+        "SUPPLIER_AVALIATION_TITLE": "Performance agregada dos fornecedores",
+        "AVERAGE_AVALIATION_TITLE": "Média ponderada de avaliações",
+        "AVERAGE_AVALIATION_SUBTITLE": "em função do volume de transações.",
+        "ENVIRONMENTAL": "Ambiental",
+        "SOCIAL": "Social",
+        "GOVERNANCE": "Governança",
+        "FILTER_BY_SUPPLIER": "Filtrar por Fornecedor"
     }
 }

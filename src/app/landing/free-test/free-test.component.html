@@ -6,41 +6,41 @@
         <div class="row justify-content-center">
             <form *ngIf="actualStep === 1" [formGroup]="form1" (submit)="onSubmitStep1()" class="fade-in-right col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-5 pb-lg-5 pt-lg-4">
                 <h4 class="brand-text fw-700 pb-3">
-                    Avaliação gratuita
+                    {{ "FREE_TEST.FREE_TRIAL" | translate }}
                 </h4>
 
                 <p class="secondary-text fw-600 pb-5">
-                    Primeiro, precisamos que você se identifique
+                    {{ "FREE_TEST.IDENTIFY" | translate }}
                 </p>
 
-                <label for="name" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Nome</label>
-                <input type="text" class="w-100 mb-4" formControlName="name" placeholder="Digite seu nome" autocomplete="off" id="name" name="name">
+                <label for="name" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "FREE_TEST.NAME" | translate }}</label>
+                <input type="text" class="w-100 mb-4" formControlName="name" placeholder="{{ 'FREE_TEST.NAME_PLACEHOLDER' | translate }}" autocomplete="off" id="name" name="name">
 
-                <label for="email" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Email</label>
-                <input type="text" mask="A*@A*.SSS" [validation]="true" [dropSpecialCharacters]="false" class="w-100 mb-4" formControlName="email" placeholder="Digite seu email" autocomplete="off" id="email" name="email">
+                <label for="email" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "FREE_TEST.EMAIL" | translate }}</label>
+                <input type="text" mask="A*@A*.SSS" [validation]="true" [dropSpecialCharacters]="false" class="w-100 mb-4" formControlName="email" placeholder="{{ 'FREE_TEST.EMAIL_PLACEHOLDER' | translate }}" autocomplete="off" id="email" name="email">
 
-                <label for="role" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Cargo</label>
-                <input type="text" class="w-100 mb-4" formControlName="role" placeholder="Digite seu cargo" autocomplete="off" id="role" name="role">
+                <label for="role" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "FREE_TEST.ROLE" | translate }}</label>
+                <input type="text" class="w-100 mb-4" formControlName="role" placeholder="{{ 'FREE_TEST.ROLE_PLACEHOLDER' | translate }}" autocomplete="off" id="role" name="role">
 
-                <label for="companyName" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">Nome da empresa</label>
-                <input type="text" class="w-100 mb-4" formControlName="companyName" placeholder="Digite o nome da empresa" autocomplete="off" id="companyName" name="companyName">
+                <label for="companyName" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "FREE_TEST.NAME_COMPANY" | translate }}</label>
+                <input type="text" class="w-100 mb-4" formControlName="companyName" placeholder="{{ 'FREE_TEST.NAME_COMPANY_PLACEHOLDER' | translate }}" autocomplete="off" id="companyName" name="companyName">
                 
                 <div class="mb-5 d-flex align-items-start gap-2">
                     <input type="checkbox" style="width: fit-content;" class="d-inline" formControlName="acceptTerms" placeholder="aceito os termos" id="acceptTerms" name="acceptTerms">
                     <div>
                         <label for="acceptTerms" class="fw-500 secondary-text f-size-1rem l-spacing-0-75 d-inline gap-1">
-                            Eu li e aceito os 
-                            <a href="{{ 'TERMS_LINK' | translate }}" target="_blank" class="brand-text d-inline text-decoration-underline cursor-pointer">Termos de Uso e Privacidade</a>
+                            {{ "FREE_TEST.AGREE" | translate }}
+                            <a href="{{ 'TERMS_LINK' | translate }}" target="_blank" class="brand-text d-inline text-decoration-underline cursor-pointer">{{ "FREE_TEST.TERMS" | translate }}</a>
                         </label>
                     </div>
                 </div>
 
                 <button class="secondary-brand-btn px-lg-5 d-block mx-auto w-100" [disabled]="form1.invalid" type="submit">
-                    Iniciar Avaliação
+                    {{ "FREE_TEST.TRIAL" | translate }}
                 </button>
                 <a routerLink="/home">
                     <button class="brand-outline-btn px-lg-5 d-block mx-auto w-100 mt-3 opacity-08" >
-                        Voltar
+                        {{ "FREE_TEST.BACK" | translate }}
                     </button>
                 </a>
             </form>
@@ -48,12 +48,12 @@
             <form *ngIf="actualStep === 2" [formGroup]="form2" (submit)="onSubmitStep2()" class="fade-in-right col pb-lg-5 pt-lg-4">
                 <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 w-100 pb-5">
                     <h4 class="brand-text fw-700 p-0">
-                        Avaliação gratuita
+                        {{ "FREE_TEST.FREE_TRIAL" | translate }}
                     </h4>
     
                     <div class="d-flex align-items-center justify-content-end gap-3">
                         <p class="secondary-text fw-600 p-0 pe-2">
-                            Questão &shy; {{ actualStep - 1 }} &shy; de &shy; 12
+                            {{ "FREE_TEST.QUESTION" | translate }} &shy; {{ actualStep - 1 }} &shy; {{ "FREE_TEST.OF" | translate }} &shy; 12
                         </p>
 
                         <button class="bg-transparent border-0 shadow-none" (click)="stepBack()">
@@ -68,55 +68,49 @@
                 
                 <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
                     <div class="flex-grow-1 w-100">
-                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep - 1 }}. Existe gestão apropriada de todos os resíduos? - (descarte de lixo, esgoto, materiais químicos ou qualquer outro que precise de cuidados especiais após a operação)</p>
+                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep - 1 }}. {{ "FREE_TEST.QUESTION1" | translate }}</p>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
-                            <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Sim</label>
+                            <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.YES" | translate }}</label>
                         </div>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="no" name="answer" value="no">
-                            <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não</label>
+                            <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.NO" | translate }}</label>
                         </div>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="undefined" name="answer" value="undefined">
-                            <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
+                            <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.N/A" | translate }}</label>
                         </div>
 
                         <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
-                            Próximo
+                            {{ "FREE_TEST.NEXT" | translate }}
                         </button>
                     </div>
 
                     <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
                         <h4 class="brand-text fw-700 p-0 pb-4">
-                            Glossário
+                            {{ "FREE_TEST.GLOSSARY" | translate }}
                         </h4>
 
-                        <p *ngIf="
-                            'Detalhamento documentado sobre como os resíduos são tratados e geridos na empresa.'.length > 200
-                        " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                        <p *ngIf="('FREE_TEST.GLOSSARY1' | translate).length > 200" class="f-size-0-85rem l-height-1-25 text-dark pb-4">
                             {{ keepReading 
                                 ? 
-                                'Detalhamento documentado sobre como os resíduos são tratados e geridos na empresa.'
+                                '{{ "FREE_TEST.GLOSSARY1" | translate }}'
                                 :
-                                'Detalhamento documentado sobre como os resíduos são tratados e geridos na empresa.'.slice(0, 200) + '...'
+                                '{{ "FREE_TEST.GLOSSARY1" | translate }}'.slice(0, 200) + '...'
                             }}
                         </p>
 
-                        <p *ngIf="
-                            'Detalhamento documentado sobre como os resíduos são tratados e geridos na empresa.'.length <= 200
-                        " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
-                            {{ 'Detalhamento documentado sobre como os resíduos são tratados e geridos na empresa.'}}
+                        <p *ngIf="('FREE_TEST.GLOSSARY1' | translate).length <= 200" class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                            {{ "FREE_TEST.GLOSSARY1" | translate }}
                         </p>
 
-                        <div *ngIf="
-                            'Detalhamento documentado sobre como os resíduos são tratados e geridos na empresa.'.length > 200
-                        " class="d-flex align-items-center justify-content-end w-100">
+                        <div *ngIf="('FREE_TEST.GLOSSARY1' | translate).length > 200" class="d-flex align-items-center justify-content-end w-100">
                             <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
-                                Continuar lendo
+                                {{ "FREE_TEST.READ_MORE" | translate }}
                                 <img src="/assets/icon/share.svg" alt="">
                             </button>
                         </div>
@@ -127,12 +121,12 @@
             <form *ngIf="actualStep === 3" [formGroup]="form3" (submit)="onSubmitStep3()" class="fade-in-right col pb-lg-5 pt-lg-4">
                 <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 w-100 pb-5">
                     <h4 class="brand-text fw-700 p-0">
-                        Avaliação gratuita
+                        {{ "FREE_TEST.FREE_TRIAL" | translate }}
                     </h4>
     
                     <div class="d-flex align-items-center justify-content-end gap-3">
                         <p class="secondary-text fw-600 p-0 pe-2">
-                            Questão &shy; {{ actualStep - 1 }} &shy; de &shy; 12
+                            {{ "FREE_TEST.QUESTION" | translate }} &shy; {{ actualStep - 1 }} &shy; {{ "FREE_TEST.OF" | translate }} &shy; 12
                         </p>
 
                         <button class="bg-transparent border-0 shadow-none" (click)="stepBack()">
@@ -147,56 +141,56 @@
                 
                 <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
                     <div class="flex-grow-1 w-100">
-                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep - 1 }}. Existe acompanhamento de consumo de recursos naturais mensal e metas para redução?</p>
+                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep - 1 }}. {{ "FREE_TEST.QUESTION2" | translate }}</p>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
-                            <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Sim</label>
+                            <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.YES" | translate }}</label>
                         </div>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="no" name="answer" value="no">
-                            <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não</label>
+                            <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.NO" | translate }}</label>
                         </div>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="undefined" name="answer" value="undefined">
-                            <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
+                            <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.N/A" | translate }}</label>
                         </div>
 
                         <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
-                            Próximo
+                            {{ "FREE_TEST.NEXT" | translate }}
                         </button>
                     </div>
 
                     <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
                         <h4 class="brand-text fw-700 p-0 pb-4">
-                            Glossário
+                            {{ "FREE_TEST.GLOSSARY" | translate }}
                         </h4>
 
                         
                         <p *ngIf="
-                            'Recursos naturais são elementos da natureza que são retirados para atender a demanda do homem (Ex.: energia solar, madeira, solo, água, vento, animais, vegetais).'.length > 200
+                            ( 'FREE_TEST.GLOSSARY2' | translate ).length > 200
                         " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
                             {{ keepReading 
                                 ? 
-                                'Recursos naturais são elementos da natureza que são retirados para atender a demanda do homem (Ex.: energia solar, madeira, solo, água, vento, animais, vegetais).'
+                                '{{ "FREE_TEST.GLOSSARY2" | translate }}'
                                 :
-                                'Recursos naturais são elementos da natureza que são retirados para atender a demanda do homem (Ex.: energia solar, madeira, solo, água, vento, animais, vegetais).'.slice(0, 200) + '...'
+                                '{{ "FREE_TEST.GLOSSARY2" | translate }}'.slice(0, 200) + '...'
                             }}
                         </p>
 
                         <p *ngIf="
-                            'Recursos naturais são elementos da natureza que são retirados para atender a demanda do homem (Ex.: energia solar, madeira, solo, água, vento, animais, vegetais).'.length <= 200
+                        ( 'FREE_TEST.GLOSSARY2' | translate ).length <= 200
                         " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
-                            {{ 'Recursos naturais são elementos da natureza que são retirados para atender a demanda do homem (Ex.: energia solar, madeira, solo, água, vento, animais, vegetais).'}}
+                        {{ "FREE_TEST.GLOSSARY2" | translate }}
                         </p>
 
                         <div *ngIf="
-                            'Recursos naturais são elementos da natureza que são retirados para atender a demanda do homem (Ex.: energia solar, madeira, solo, água, vento, animais, vegetais).'.length > 200
+                        ( 'FREE_TEST.GLOSSARY2' | translate ).length > 200
                         " class="d-flex align-items-center justify-content-end w-100">
                             <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
-                                Continuar lendo
+                                {{ "FREE_TEST.READ_MORE" | translate }}
                                 <img src="/assets/icon/share.svg" alt="">
                             </button>
                         </div>
@@ -207,12 +201,12 @@
             <form *ngIf="actualStep === 4" [formGroup]="form4" (submit)="onSubmitStep4()" class="fade-in-right col pb-lg-5 pt-lg-4">
                 <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 w-100 pb-5">
                     <h4 class="brand-text fw-700 p-0">
-                        Avaliação gratuita
+                        {{ "FREE_TEST.FREE_TRIAL" | translate }}
                     </h4>
     
                     <div class="d-flex align-items-center justify-content-end gap-3">
                         <p class="secondary-text fw-600 p-0 pe-2">
-                            Questão &shy; {{ actualStep - 1 }} &shy; de &shy; 12
+                            {{ "FREE_TEST.QUESTION" | translate }} &shy; {{ actualStep - 1 }} &shy; {{ "FREE_TEST.OF" | translate }} &shy; 12
                         </p>
 
                         <button class="bg-transparent border-0 shadow-none" (click)="stepBack()">
@@ -227,55 +221,53 @@
                 
                 <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
                     <div class="flex-grow-1 w-100">
-                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep - 1 }}. Existe controle de pegada de carbono e ações para mitigação?</p>
+                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep - 1 }}. {{ "FREE_TEST.QUESTION3" | translate }}</p>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
-                            <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Sim</label>
+                            <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.YES" | translate }}</label>
                         </div>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="no" name="answer" value="no">
-                            <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não</label>
+                            <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.NO" | translate }}</label>
                         </div>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="undefined" name="answer" value="undefined">
-                            <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
+                            <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.N/A" | translate }}</label>
                         </div>
 
                         <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
-                            Próximo
+                            {{ "FREE_TEST.NEXT" | translate }}
                         </button>
                     </div>
 
                     <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
                         <h4 class="brand-text fw-700 p-0 pb-4">
-                            Glossário
+                            {{ "FREE_TEST.GLOSSARY" | translate }}
                         </h4>
 
                         <p *ngIf="
-                        'Pegada de carbono são quanto de matéria prima e produção de poluentes são criados durante o processo produtivo. Cálculos envolvem cada recurso natural consumido (como litros de gasolina, kgw de energia, quantidade de matéria prima, etc.). O cálculo quantifica por quantidade de carbono toda a operação, gerando uma pegada de carbono para ser reportada ao final'.length > 200
-                    " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
+                            ( 'FREE_TEST.GLOSSARY3' | translate ).length > 200
+                        " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
                         {{ keepReading 
-                            ? 
-                            'Pegada de carbono são quanto de matéria prima e produção de poluentes são criados durante o processo produtivo. Cálculos envolvem cada recurso natural consumido (como litros de gasolina, kgw de energia, quantidade de matéria prima, etc.). O cálculo quantifica por quantidade de carbono toda a operação, gerando uma pegada de carbono para ser reportada ao final'
-                            :
-                            'Pegada de carbono são quanto de matéria prima e produção de poluentes são criados durante o processo produtivo. Cálculos envolvem cada recurso natural consumido (como litros de gasolina, kgw de energia, quantidade de matéria prima, etc.). O cálculo quantifica por quantidade de carbono toda a operação, gerando uma pegada de carbono para ser reportada ao final'.slice(0, 200) + '...'
+                            ? ('FREE_TEST.GLOSSARY3' | translate) 
+                            : ('FREE_TEST.GLOSSARY3' | translate).slice(0, 200) + '...'
                         }}
                         </p>
 
                         <p *ngIf="
-                            'Pegada de carbono são quanto de matéria prima e produção de poluentes são criados durante o processo produtivo. Cálculos envolvem cada recurso natural consumido (como litros de gasolina, kgw de energia, quantidade de matéria prima, etc.). O cálculo quantifica por quantidade de carbono toda a operação, gerando uma pegada de carbono para ser reportada ao final'.length <= 200
+                            ( 'FREE_TEST.GLOSSARY3' | translate ).length <= 200
                         " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
-                            {{ 'Pegada de carbono são quanto de matéria prima e produção de poluentes são criados durante o processo produtivo. Cálculos envolvem cada recurso natural consumido (como litros de gasolina, kgw de energia, quantidade de matéria prima, etc.). O cálculo quantifica por quantidade de carbono toda a operação, gerando uma pegada de carbono para ser reportada ao final'}}
+                        {{ "FREE_TEST.GLOSSARY3" | translate }}
                         </p>
 
                         <div *ngIf="
-                            'Pegada de carbono são quanto de matéria prima e produção de poluentes são criados durante o processo produtivo. Cálculos envolvem cada recurso natural consumido (como litros de gasolina, kgw de energia, quantidade de matéria prima, etc.). O cálculo quantifica por quantidade de carbono toda a operação, gerando uma pegada de carbono para ser reportada ao final'.length > 200
+                            ( 'FREE_TEST.GLOSSARY3' | translate ).length > 200
                         " class="d-flex align-items-center justify-content-end w-100">
                             <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
-                                Continuar lendo
+                                {{ "FREE_TEST.READ_MORE" | translate }}
                                 <img src="/assets/icon/share.svg" alt="">
                             </button>
                         </div>
@@ -286,12 +278,12 @@
             <form *ngIf="actualStep === 5" [formGroup]="form5" (submit)="onSubmitStep5()" class="fade-in-right col pb-lg-5 pt-lg-4">
                 <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 w-100 pb-5">
                     <h4 class="brand-text fw-700 p-0">
-                        Avaliação gratuita
+                        {{ "FREE_TEST.FREE_TRIAL" | translate }}
                     </h4>
     
                     <div class="d-flex align-items-center justify-content-end gap-3">
                         <p class="secondary-text fw-600 p-0 pe-2">
-                            Questão &shy; {{ actualStep - 1 }} &shy; de &shy; 12
+                            {{ "FREE_TEST.QUESTION" | translate }} &shy; {{ actualStep - 1 }} &shy; {{ "FREE_TEST.OF" | translate }} &shy; 12
                         </p>
 
                         <button class="bg-transparent border-0 shadow-none" (click)="stepBack()">
@@ -306,55 +298,53 @@
                 
                 <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
                     <div class="flex-grow-1 w-100">
-                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep - 1 }}. Existe atualmente um Programa de Mitigação de mudanças climáticas?</p>
+                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep - 1 }}. {{ "FREE_TEST.QUESTION4" | translate }}</p>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
-                            <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Sim</label>
+                            <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.YES" | translate }}</label>
                         </div>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="no" name="answer" value="no">
-                            <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não</label>
+                            <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.NO" | translate }}</label>
                         </div>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="undefined" name="answer" value="undefined">
-                            <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
+                            <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.N/A" | translate }}</label>
                         </div>
 
                         <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
-                            Próximo
+                            {{ "FREE_TEST.NEXT" | translate }}
                         </button>
                     </div>
 
                     <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
                         <h4 class="brand-text fw-700 p-0 pb-4">
-                            Glossário
+                            {{ "FREE_TEST.GLOSSARY" | translate }}
                         </h4>
 
                         <p *ngIf="
-                        'Adoção de protocolos que diminuam impactos negativos que afetem mudanças climáticas.'.length > 200
+                        ( 'FREE_TEST.GLOSSARY4' | translate ).length > 200
                     " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
-                        {{ keepReading 
-                            ? 
-                            'Adoção de protocolos que diminuam impactos negativos que afetem mudanças climáticas.'
-                            :
-                            'Adoção de protocolos que diminuam impactos negativos que afetem mudanças climáticas.'.slice(0, 200) + '...'
-                        }}
+                    {{ keepReading 
+                        ? ('FREE_TEST.GLOSSARY4' | translate) 
+                        : ('FREE_TEST.GLOSSARY4' | translate).slice(0, 200) + '...'
+                    }}
                         </p>
 
                         <p *ngIf="
-                            'Adoção de protocolos que diminuam impactos negativos que afetem mudanças climáticas.'.length <= 200
+                        ( 'FREE_TEST.GLOSSARY4' | translate ).length <= 200
                         " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
-                            {{ 'Adoção de protocolos que diminuam impactos negativos que afetem mudanças climáticas.'}}
+                            {{ "FREE_TEST.GLOSSARY4" | translate }}
                         </p>
 
                         <div *ngIf="
-                            'Adoção de protocolos que diminuam impactos negativos que afetem mudanças climáticas.'.length > 200
+                        ( 'FREE_TEST.GLOSSARY4' | translate ).length > 200
                         " class="d-flex align-items-center justify-content-end w-100">
                             <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
-                                Continuar lendo
+                                {{ "FREE_TEST.READ_MORE" | translate }}
                                 <img src="/assets/icon/share.svg" alt="">
                             </button>
                         </div>
@@ -365,12 +355,12 @@
             <form *ngIf="actualStep === 6" [formGroup]="form6" (submit)="onSubmitStep6()" class="fade-in-right col pb-lg-5 pt-lg-4">
                 <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 w-100 pb-5">
                     <h4 class="brand-text fw-700 p-0">
-                        Avaliação gratuita
+                        {{ "FREE_TEST.FREE_TRIAL" | translate }}
                     </h4>
     
                     <div class="d-flex align-items-center justify-content-end gap-3">
                         <p class="secondary-text fw-600 p-0 pe-2">
-                            Questão &shy; {{ actualStep - 1 }} &shy; de &shy; 12
+                            {{ "FREE_TEST.QUESTION" | translate }} &shy; {{ actualStep - 1 }} &shy; {{ "FREE_TEST.OF" | translate }} &shy; 12
                         </p>
 
                         <button class="bg-transparent border-0 shadow-none" (click)="stepBack()">
@@ -385,55 +375,53 @@
                 
                 <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
                     <div class="flex-grow-1 w-100">
-                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep - 1 }}. Existe interação com outras organizações sociais/políticas na cidade do negócio?</p>
+                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep - 1 }}. {{ "FREE_TEST.QUESTION5" | translate }}</p>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
-                            <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Sim</label>
+                            <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.YES" | translate }}</label>
                         </div>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="no" name="answer" value="no">
-                            <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não</label>
+                            <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.NO" | translate }}</label>
                         </div>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="undefined" name="answer" value="undefined">
-                            <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
+                            <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.N/A" | translate }}</label>
                         </div>
 
                         <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
-                            Próximo
+                            {{ "FREE_TEST.NEXT" | translate }}
                         </button>
                     </div>
 
                     <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
                         <h4 class="brand-text fw-700 p-0 pb-4">
-                            Glossário
+                            {{ "FREE_TEST.GLOSSARY" | translate }}
                         </h4>
                         
                         <p *ngIf="
-                        'A empresa possui vínculos com organizações sociais/ políticas na cidade que atua.'.length > 200
+                        ( 'FREE_TEST.GLOSSARY5' | translate ).length > 200
                     " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
-                        {{ keepReading 
-                            ? 
-                            'A empresa possui vínculos com organizações sociais/ políticas na cidade que atua.'
-                            :
-                            'A empresa possui vínculos com organizações sociais/ políticas na cidade que atua.'.slice(0, 200) + '...'
-                        }}
+                    {{ keepReading 
+                        ? ('FREE_TEST.GLOSSARY5' | translate) 
+                        : ('FREE_TEST.GLOSSARY5' | translate).slice(0, 200) + '...'
+                    }}
                         </p>
 
                         <p *ngIf="
-                            'A empresa possui vínculos com organizações sociais/ políticas na cidade que atua.'.length <= 200
+                        ( 'FREE_TEST.GLOSSARY5' | translate ).length <= 200
                         " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
-                            {{ 'A empresa possui vínculos com organizações sociais/ políticas na cidade que atua.'}}
+                            {{ "FREE_TEST.GLOSSARY5" | translate }}
                         </p>
 
                         <div *ngIf="
-                            'A empresa possui vínculos com organizações sociais/ políticas na cidade que atua.'.length > 200
+                        ( 'FREE_TEST.GLOSSARY5' | translate ).length > 200
                         " class="d-flex align-items-center justify-content-end w-100">
                             <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
-                                Continuar lendo
+                                {{ "FREE_TEST.READ_MORE" | translate }}
                                 <img src="/assets/icon/share.svg" alt="">
                             </button>
                         </div>
@@ -444,12 +432,12 @@
             <form *ngIf="actualStep === 7" [formGroup]="form7" (submit)="onSubmitStep7()" class="fade-in-right col pb-lg-5 pt-lg-4">
                 <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 w-100 pb-5">
                     <h4 class="brand-text fw-700 p-0">
-                        Avaliação gratuita
+                        {{ "FREE_TEST.FREE_TRIAL" | translate }}
                     </h4>
     
                     <div class="d-flex align-items-center justify-content-end gap-3">
                         <p class="secondary-text fw-600 p-0 pe-2">
-                            Questão &shy; {{ actualStep - 1 }} &shy; de &shy; 12
+                            {{ "FREE_TEST.QUESTION" | translate }} &shy; {{ actualStep - 1 }} &shy; {{ "FREE_TEST.OF" | translate }} &shy; 12
                         </p>
 
                         <button class="bg-transparent border-0 shadow-none" (click)="stepBack()">
@@ -464,55 +452,52 @@
                 
                 <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
                     <div class="flex-grow-1 w-100">
-                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep - 1 }}. Código Interno de Combate a Corrupção é claro e comunicado para todos os funcionários?</p>
+                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep - 1 }}. {{ "FREE_TEST.QUESTION6" | translate }}</p>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
-                            <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Sim</label>
+                            <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.YES" | translate }}</label>
                         </div>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="no" name="answer" value="no">
-                            <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não</label>
+                            <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.NO" | translate }}</label>
                         </div>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="undefined" name="answer" value="undefined">
-                            <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
+                            <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.N/A" | translate }}</label>
                         </div>
 
                         <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
-                            Próximo
+                            {{ "FREE_TEST.NEXT" | translate }}
                         </button>
                     </div>
 
                     <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
                         <h4 class="brand-text fw-700 p-0 pb-4">
-                            Glossário
+                            {{ "FREE_TEST.GLOSSARY" | translate }}
                         </h4>
                                                 
                         <p *ngIf="
-                        'O código interno de Combate à Corrupção foi escrito de forma clara, com informações objetivas, usando palavras de fácil compreensão.'.length > 200
+                        ('FREE_TEST.GLOSSARY6' | translate).length > 200
                     " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
-                        {{ keepReading 
-                            ? 
-                            'O código interno de Combate à Corrupção foi escrito de forma clara, com informações objetivas, usando palavras de fácil compreensão.'
-                            :
-                            'O código interno de Combate à Corrupção foi escrito de forma clara, com informações objetivas, usando palavras de fácil compreensão.'.slice(0, 200) + '...'
-                        }}
+                    {{ keepReading 
+                        ? ('FREE_TEST.GLOSSARY6' | translate) 
+                        : ('FREE_TEST.GLOSSARY6' | translate).slice(0, 200) + '...'
+                    }}
                         </p>
 
                         <p *ngIf="
-                            'O código interno de Combate à Corrupção foi escrito de forma clara, com informações objetivas, usando palavras de fácil compreensão.'.length <= 200
+                        ('FREE_TEST.GLOSSARY6' | translate).length <= 200
                         " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
-                            {{ 'O código interno de Combate à Corrupção foi escrito de forma clara, com informações objetivas, usando palavras de fácil compreensão.'}}
-                        </p>
+                        {{ "FREE_TEST.GLOSSARY6" | translate }}
 
                         <div *ngIf="
-                            'O código interno de Combate à Corrupção foi escrito de forma clara, com informações objetivas, usando palavras de fácil compreensão.'.length > 200
+                        ('FREE_TEST.GLOSSARY6' | translate).length > 200
                         " class="d-flex align-items-center justify-content-end w-100">
                             <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
-                                Continuar lendo
+                                {{ "FREE_TEST.READ_MORE" | translate }}
                                 <img src="/assets/icon/share.svg" alt="">
                             </button>
                         </div>
@@ -523,12 +508,12 @@
             <form *ngIf="actualStep === 8" [formGroup]="form8" (submit)="onSubmitStep8()" class="fade-in-right col pb-lg-5 pt-lg-4">
                 <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 w-100 pb-5">
                     <h4 class="brand-text fw-700 p-0">
-                        Avaliação gratuita
+                        {{ "FREE_TEST.FREE_TRIAL" | translate }}
                     </h4>
     
                     <div class="d-flex align-items-center justify-content-end gap-3">
                         <p class="secondary-text fw-600 p-0 pe-2">
-                            Questão &shy; {{ actualStep - 1 }} &shy; de &shy; 12
+                            {{ "FREE_TEST.QUESTION" | translate }} &shy; {{ actualStep - 1 }} &shy; {{ "FREE_TEST.OF" | translate }} &shy; 12
                         </p>
 
                         <button class="bg-transparent border-0 shadow-none" (click)="stepBack()">
@@ -543,55 +528,53 @@
                 
                 <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
                     <div class="flex-grow-1 w-100">
-                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep - 1 }}. Todos os Trabalhadores estão registrados, com benefícios sociais recolhidos corretamente mensalmente, com salário condizente com a função?</p>
+                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep - 1 }}. {{ "FREE_TEST.QUESTION7" | translate }}</p>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
-                            <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Sim</label>
+                            <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.YES" | translate }}</label>
                         </div>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="no" name="answer" value="no">
-                            <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não</label>
+                            <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.NO" | translate }}</label>
                         </div>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="undefined" name="answer" value="undefined">
-                            <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
+                            <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.N/A" | translate }}</label>
                         </div>
 
                         <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
-                            Próximo
+                            {{ "FREE_TEST.NEXT" | translate }}
                         </button>
                     </div>
 
                     <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
                         <h4 class="brand-text fw-700 p-0 pb-4">
-                            Glossário
+                            {{ "FREE_TEST.GLOSSARY" | translate }}
                         </h4>
                                                                         
                         <p *ngIf="
-                        'A empresa segue a CLT para contratação de funcionários, recolhe INSS e FGTS regularmente (sem atraso), com salários compatíveis com o mercado, respeitando ao menos o mínimo estabelicido pela convenção coletiva da categoria.'.length > 200
+                        ('FREE_TEST.GLOSSARY6' | translate).length > 200
                     " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
                         {{ keepReading 
-                            ? 
-                            'A empresa segue a CLT para contratação de funcionários, recolhe INSS e FGTS regularmente (sem atraso), com salários compatíveis com o mercado, respeitando ao menos o mínimo estabelicido pela convenção coletiva da categoria.'
-                            :
-                            'A empresa segue a CLT para contratação de funcionários, recolhe INSS e FGTS regularmente (sem atraso), com salários compatíveis com o mercado, respeitando ao menos o mínimo estabelicido pela convenção coletiva da categoria.'.slice(0, 200) + '...'
+                            ? ('FREE_TEST.GLOSSARY7' | translate) 
+                            : ('FREE_TEST.GLOSSARY7' | translate).slice(0, 200) + '...'
                         }}
                         </p>
 
                         <p *ngIf="
-                            'A empresa segue a CLT para contratação de funcionários, recolhe INSS e FGTS regularmente (sem atraso), com salários compatíveis com o mercado, respeitando ao menos o mínimo estabelicido pela convenção coletiva da categoria.'.length <= 200
+                        ('FREE_TEST.GLOSSARY7' | translate).length <= 200
                         " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
-                            {{ 'A empresa segue a CLT para contratação de funcionários, recolhe INSS e FGTS regularmente (sem atraso), com salários compatíveis com o mercado, respeitando ao menos o mínimo estabelicido pela convenção coletiva da categoria.'}}
+                        {{ "FREE_TEST.GLOSSARY7" | translate }}
                         </p>
 
                         <div *ngIf="
-                            'A empresa segue a CLT para contratação de funcionários, recolhe INSS e FGTS regularmente (sem atraso), com salários compatíveis com o mercado, respeitando ao menos o mínimo estabelicido pela convenção coletiva da categoria.'.length > 200
+                        ('FREE_TEST.GLOSSARY7' | translate).length > 200
                         " class="d-flex align-items-center justify-content-end w-100">
                             <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
-                                Continuar lendo
+                                {{ "FREE_TEST.READ_MORE" | translate }}
                                 <img src="/assets/icon/share.svg" alt="">
                             </button>
                         </div>
@@ -602,12 +585,12 @@
             <form *ngIf="actualStep === 9" [formGroup]="form9" (submit)="onSubmitStep9()" class="fade-in-right col pb-lg-5 pt-lg-4">
                 <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 w-100 pb-5">
                     <h4 class="brand-text fw-700 p-0">
-                        Avaliação gratuita
+                        {{ "FREE_TEST.FREE_TRIAL" | translate }}
                     </h4>
     
                     <div class="d-flex align-items-center justify-content-end gap-3">
                         <p class="secondary-text fw-600 p-0 pe-2">
-                            Questão &shy; {{ actualStep - 1 }} &shy; de &shy; 12
+                            {{ "FREE_TEST.QUESTION" | translate }} &shy; {{ actualStep - 1 }} &shy; {{ "FREE_TEST.OF" | translate }} &shy; 12
                         </p>
 
                         <button class="bg-transparent border-0 shadow-none" (click)="stepBack()">
@@ -622,55 +605,53 @@
                 
                 <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
                     <div class="flex-grow-1 w-100">
-                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep - 1 }}. Existe termo de conduta Social dos Fornecedores? Se sim, ele está de acordo com os valores de Compliances internos?</p>
+                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep - 1 }}. {{ "FREE_TEST.QUESTION8" | translate }}</p>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
-                            <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Sim</label>
+                            <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.YES" | translate }}</label>
                         </div>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="no" name="answer" value="no">
-                            <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não</label>
+                            <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.NO" | translate }}</label>
                         </div>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="undefined" name="answer" value="undefined">
-                            <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
+                            <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.N/A" | translate }}</label>
                         </div>
 
                         <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
-                            Próximo
+                            {{ "FREE_TEST.NEXT" | translate }}
                         </button>
                     </div>
 
                     <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
                         <h4 class="brand-text fw-700 p-0 pb-4">
-                            Glossário
+                            {{ "FREE_TEST.GLOSSARY" | translate }}
                         </h4>
                                                                                                 
                         <p *ngIf="
-                        'O manual de normas e condutas de como os fornecedores devem se comportar para se classificar fornecedor para a empresa está em conformidade  com as regras de normas e condutas da empresa que este estabeleceu relação comercial?'.length > 200
+                        ('FREE_TEST.GLOSSARY8' | translate).length > 200
                     " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
                         {{ keepReading 
-                            ? 
-                            'O manual de normas e condutas de como os fornecedores devem se comportar para se classificar fornecedor para a empresa está em conformidade  com as regras de normas e condutas da empresa que este estabeleceu relação comercial?'
-                            :
-                            'O manual de normas e condutas de como os fornecedores devem se comportar para se classificar fornecedor para a empresa está em conformidade  com as regras de normas e condutas da empresa que este estabeleceu relação comercial?'.slice(0, 200) + '...'
+                            ? ('FREE_TEST.GLOSSARY8' | translate) 
+                            : ('FREE_TEST.GLOSSARY8' | translate).slice(0, 200) + '...'
                         }}
                         </p>
 
                         <p *ngIf="
-                            'O manual de normas e condutas de como os fornecedores devem se comportar para se classificar fornecedor para a empresa está em conformidade  com as regras de normas e condutas da empresa que este estabeleceu relação comercial?'.length <= 200
+                        ('FREE_TEST.GLOSSARY8' | translate).length <= 200
                         " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
-                            {{ 'O manual de normas e condutas de como os fornecedores devem se comportar para se classificar fornecedor para a empresa está em conformidade  com as regras de normas e condutas da empresa que este estabeleceu relação comercial?'}}
+                            {{ "FREE_TEST.GLOSSARY8" | translate }}
                         </p>
 
                         <div *ngIf="
-                            'O manual de normas e condutas de como os fornecedores devem se comportar para se classificar fornecedor para a empresa está em conformidade  com as regras de normas e condutas da empresa que este estabeleceu relação comercial?'.length > 200
+                        ('FREE_TEST.GLOSSARY8' | translate).length > 200
                         " class="d-flex align-items-center justify-content-end w-100">
                             <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
-                                Continuar lendo
+                                {{ "FREE_TEST.READ_MORE" | translate }}
                                 <img src="/assets/icon/share.svg" alt="">
                             </button>
                         </div>
@@ -681,12 +662,12 @@
             <form *ngIf="actualStep === 10" [formGroup]="form10" (submit)="onSubmitStep10()" class="fade-in-right col pb-lg-5 pt-lg-4">
                 <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 w-100 pb-5">
                     <h4 class="brand-text fw-700 p-0">
-                        Avaliação gratuita
+                        {{ "FREE_TEST.FREE_TRIAL" | translate }}
                     </h4>
     
                     <div class="d-flex align-items-center justify-content-end gap-3">
                         <p class="secondary-text fw-600 p-0 pe-2">
-                            Questão &shy; {{ actualStep - 1 }} &shy; de &shy; 12
+                            {{ "FREE_TEST.QUESTION" | translate }} &shy; {{ actualStep - 1 }} &shy; {{ "FREE_TEST.OF" | translate }} &shy; 12
                         </p>
 
                         <button class="bg-transparent border-0 shadow-none" (click)="stepBack()">
@@ -701,55 +682,53 @@
                 
                 <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
                     <div class="flex-grow-1 w-100">
-                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep - 1 }}. A empresa passa anualmente por algum tipo de auditoria? (financeira e/ou qualidade)</p>
+                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep - 1 }}. {{ "FREE_TEST.QUESTION9" | translate }}</p>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
-                            <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Sim</label>
+                            <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.YES" | translate }}</label>
                         </div>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="no" name="answer" value="no">
-                            <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não</label>
+                            <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.NO" | translate }}</label>
                         </div>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="undefined" name="answer" value="undefined">
-                            <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
+                            <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.N/A" | translate }}</label>
                         </div>
 
                         <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
-                            Próximo
+                            {{ "FREE_TEST.NEXT" | translate }}
                         </button>
                     </div>
 
                     <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
                         <h4 class="brand-text fw-700 p-0 pb-4">
-                            Glossário
+                            {{ "FREE_TEST.GLOSSARY" | translate }}
                         </h4>
                                 
                         <p *ngIf="
-                        'Auditoria é uma análise cuidadosa, detalhada e sistemática das atividades desenvolvidas em determinada organização, cujo objetivo é averiguar se elas estão de acordo com as planejadas e/ou estabelecidas previamente, se foram implementadas com eficácia e adequadas (em conformidade) à consecução dos objetivos.'.length > 200
+                        ('FREE_TEST.GLOSSARY9' | translate).length > 200
                     " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
                         {{ keepReading 
-                            ? 
-                            'Auditoria é uma análise cuidadosa, detalhada e sistemática das atividades desenvolvidas em determinada organização, cujo objetivo é averiguar se elas estão de acordo com as planejadas e/ou estabelecidas previamente, se foram implementadas com eficácia e adequadas (em conformidade) à consecução dos objetivos.'
-                            :
-                            'Auditoria é uma análise cuidadosa, detalhada e sistemática das atividades desenvolvidas em determinada organização, cujo objetivo é averiguar se elas estão de acordo com as planejadas e/ou estabelecidas previamente, se foram implementadas com eficácia e adequadas (em conformidade) à consecução dos objetivos.'.slice(0, 200) + '...'
+                            ? ('FREE_TEST.GLOSSARY9' | translate) 
+                            : ('FREE_TEST.GLOSSARY9' | translate).slice(0, 200) + '...'
                         }}
                         </p>
 
                         <p *ngIf="
-                            'Auditoria é uma análise cuidadosa, detalhada e sistemática das atividades desenvolvidas em determinada organização, cujo objetivo é averiguar se elas estão de acordo com as planejadas e/ou estabelecidas previamente, se foram implementadas com eficácia e adequadas (em conformidade) à consecução dos objetivos.'.length <= 200
+                        ('FREE_TEST.GLOSSARY9' | translate).length <= 200
                         " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
-                            {{ 'Auditoria é uma análise cuidadosa, detalhada e sistemática das atividades desenvolvidas em determinada organização, cujo objetivo é averiguar se elas estão de acordo com as planejadas e/ou estabelecidas previamente, se foram implementadas com eficácia e adequadas (em conformidade) à consecução dos objetivos.'}}
+                        {{ "FREE_TEST.GLOSSARY9" | translate }}
                         </p>
 
                         <div *ngIf="
-                            'Auditoria é uma análise cuidadosa, detalhada e sistemática das atividades desenvolvidas em determinada organização, cujo objetivo é averiguar se elas estão de acordo com as planejadas e/ou estabelecidas previamente, se foram implementadas com eficácia e adequadas (em conformidade) à consecução dos objetivos.'.length > 200
+                        ('FREE_TEST.GLOSSARY9' | translate).length > 200
                         " class="d-flex align-items-center justify-content-end w-100">
                             <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
-                                Continuar lendo
+                                {{ "FREE_TEST.READ_MORE" | translate }}
                                 <img src="/assets/icon/share.svg" alt="">
                             </button>
                         </div>
@@ -760,12 +739,12 @@
             <form *ngIf="actualStep === 11" [formGroup]="form11" (submit)="onSubmitStep11()" class="fade-in-right col pb-lg-5 pt-lg-4">
                 <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 w-100 pb-5">
                     <h4 class="brand-text fw-700 p-0">
-                        Avaliação gratuita
+                        {{ "FREE_TEST.FREE_TRIAL" | translate }}
                     </h4>
     
                     <div class="d-flex align-items-center justify-content-end gap-3">
                         <p class="secondary-text fw-600 p-0 pe-2">
-                            Questão &shy; {{ actualStep - 1 }} &shy; de &shy; 12
+                            {{ "FREE_TEST.QUESTION" | translate }} &shy; {{ actualStep - 1 }} &shy; {{ "FREE_TEST.OF" | translate }} &shy; 12
                         </p>
 
                         <button class="bg-transparent border-0 shadow-none" (click)="stepBack()">
@@ -780,55 +759,53 @@
                 
                 <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
                     <div class="flex-grow-1 w-100">
-                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep - 1 }}. A lucratividade do negócio nos últimos 3 anos esteve em níveis saudáveis e na média ou acima do mercado?</p>
+                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep - 1 }}. {{ "FREE_TEST.QUESTION10" | translate }}</p>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
-                            <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Sim</label>
+                            <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.YES" | translate }}</label>
                         </div>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="no" name="answer" value="no">
-                            <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não</label>
+                            <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.NO" | translate }}</label>
                         </div>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="undefined" name="answer" value="undefined">
-                            <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
+                            <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.N/A" | translate }}</label>
                         </div>
 
                         <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
-                            Próximo
+                            {{ "FREE_TEST.NEXT" | translate }}
                         </button>
                     </div>
 
                     <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
                         <h4 class="brand-text fw-700 p-0 pb-4">
-                            Glossário
+                            {{ "FREE_TEST.GLOSSARY" | translate }}
                         </h4>
 
                         <p *ngIf="
-                        'Os lucros obtidos pela empresa esteve em níveis considerados aceitáveis, como positivos e dentro da média  comparado com os indicadores do mercado?'.length > 200
+                        ('FREE_TEST.GLOSSARY10' | translate).length > 200
                     " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
                         {{ keepReading 
-                            ? 
-                            'Os lucros obtidos pela empresa esteve em níveis considerados aceitáveis, como positivos e dentro da média  comparado com os indicadores do mercado?'
-                            :
-                            'Os lucros obtidos pela empresa esteve em níveis considerados aceitáveis, como positivos e dentro da média  comparado com os indicadores do mercado?'.slice(0, 200) + '...'
+                            ? ('FREE_TEST.GLOSSARY10' | translate) 
+                            : ('FREE_TEST.GLOSSARY10' | translate).slice(0, 200) + '...'
                         }}
                         </p>
 
                         <p *ngIf="
-                            'Os lucros obtidos pela empresa esteve em níveis considerados aceitáveis, como positivos e dentro da média  comparado com os indicadores do mercado?'.length <= 200
+                        ('FREE_TEST.GLOSSARY10' | translate).length <= 200
                         " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
-                            {{ 'Os lucros obtidos pela empresa esteve em níveis considerados aceitáveis, como positivos e dentro da média  comparado com os indicadores do mercado?'}}
+                        {{ "FREE_TEST.GLOSSARY10" | translate }}
                         </p>
 
                         <div *ngIf="
-                            'Os lucros obtidos pela empresa esteve em níveis considerados aceitáveis, como positivos e dentro da média  comparado com os indicadores do mercado?'.length > 200
+                        ('FREE_TEST.GLOSSARY10' | translate).length > 200
                         " class="d-flex align-items-center justify-content-end w-100">
                             <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
-                                Continuar lendo
+                                {{ "FREE_TEST.READ_MORE" | translate }}
                                 <img src="/assets/icon/share.svg" alt="">
                             </button>
                         </div>
@@ -839,12 +816,12 @@
             <form *ngIf="actualStep === 12" [formGroup]="form12" (submit)="onSubmitStep12()" class="fade-in-right col pb-lg-5 pt-lg-4">
                 <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 w-100 pb-5">
                     <h4 class="brand-text fw-700 p-0">
-                        Avaliação gratuita
+                        {{ "FREE_TEST.FREE_TRIAL" | translate }}
                     </h4>
     
                     <div class="d-flex align-items-center justify-content-end gap-3">
                         <p class="secondary-text fw-600 p-0 pe-2">
-                            Questão &shy; {{ actualStep - 1 }} &shy; de &shy; 12
+                            {{ "FREE_TEST.QUESTION" | translate }} &shy; {{ actualStep - 1 }} &shy; {{ "FREE_TEST.OF" | translate }} &shy; 12
                         </p>
 
                         <button class="bg-transparent border-0 shadow-none" (click)="stepBack()">
@@ -859,55 +836,53 @@
                 
                 <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
                     <div class="flex-grow-1 w-100">
-                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep - 1 }}. Seu produto apresenta risco à saúde do consumidor se consumido em excesso?</p>
+                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep - 1 }}. {{ "FREE_TEST.QUESTION11" | translate }}</p>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
-                            <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Sim</label>
+                            <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.YES" | translate }}</label>
                         </div>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="no" name="answer" value="no">
-                            <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não</label>
+                            <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.NO" | translate }}</label>
                         </div>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="undefined" name="answer" value="undefined">
-                            <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
+                            <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.N/A" | translate }}</label>
                         </div>
 
                         <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
-                            Próximo
+                            {{ "FREE_TEST.NEXT" | translate }}
                         </button>
                     </div>
 
                     <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
                         <h4 class="brand-text fw-700 p-0 pb-4">
-                            Glossário
+                            {{ "FREE_TEST.GLOSSARY" | translate }}
                         </h4>
                         
                         <p *ngIf="
-                        'O produto pode apresentar danos e riscos à saúde de quem o consome caso ele seja consumido em quantidades excessivas, além das recomendadas'.length > 200
+                        ('FREE_TEST.GLOSSARY11' | translate).length > 200
                     " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
                         {{ keepReading 
-                            ? 
-                            'O produto pode apresentar danos e riscos à saúde de quem o consome caso ele seja consumido em quantidades excessivas, além das recomendadas'
-                            :
-                            'O produto pode apresentar danos e riscos à saúde de quem o consome caso ele seja consumido em quantidades excessivas, além das recomendadas'.slice(0, 200) + '...'
+                            ? ('FREE_TEST.GLOSSARY11' | translate) 
+                            : ('FREE_TEST.GLOSSARY11' | translate).slice(0, 200) + '...'
                         }}
                         </p>
 
                         <p *ngIf="
-                            'O produto pode apresentar danos e riscos à saúde de quem o consome caso ele seja consumido em quantidades excessivas, além das recomendadas'.length <= 200
+                        ('FREE_TEST.GLOSSARY11' | translate).length <= 200
                         " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
-                            {{ 'O produto pode apresentar danos e riscos à saúde de quem o consome caso ele seja consumido em quantidades excessivas, além das recomendadas'}}
+                        {{ "FREE_TEST.GLOSSARY11" | translate }}
                         </p>
 
                         <div *ngIf="
-                            'O produto pode apresentar danos e riscos à saúde de quem o consome caso ele seja consumido em quantidades excessivas, além das recomendadas'.length > 200
+                        ('FREE_TEST.GLOSSARY11' | translate).length > 200
                         " class="d-flex align-items-center justify-content-end w-100">
                             <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
-                                Continuar lendo
+                                {{ "FREE_TEST.READ_MORE" | translate }}
                                 <img src="/assets/icon/share.svg" alt="">
                             </button>
                         </div>
@@ -918,12 +893,12 @@
             <form *ngIf="actualStep === 13" [formGroup]="form13" (submit)="finish()" class="fade-in-right col pb-lg-5 pt-lg-4">
                 <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 w-100 pb-5">
                     <h4 class="brand-text fw-700 p-0">
-                        Avaliação gratuita
+                        {{ "FREE_TEST.FREE_TRIAL" | translate }}
                     </h4>
     
                     <div class="d-flex align-items-center justify-content-end gap-3">
                         <p class="secondary-text fw-600 p-0 pe-2">
-                            Questão &shy; {{ actualStep - 1 }} &shy; de &shy; 12
+                            {{ "FREE_TEST.QUESTION" | translate }} &shy; {{ actualStep - 1 }} &shy; {{ "FREE_TEST.OF" | translate }} &shy; 12
                         </p>
 
                         <button class="bg-transparent border-0 shadow-none" (click)="stepBack()">
@@ -938,55 +913,53 @@
                 
                 <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-4">
                     <div class="flex-grow-1 w-100">
-                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep - 1 }}. Existe report mensal/anual financeiro para todos os funcionários?</p>
+                        <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68">{{ actualStep - 1 }}. {{ "FREE_TEST.QUESTION12" | translate }}</p>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="yes" name="answer" value="yes">
-                            <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Sim</label>
+                            <label for="yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.YES" | translate }}</label>
                         </div>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="no" name="answer" value="no">
-                            <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não</label>
+                            <label for="no" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.NO" | translate }}</label>
                         </div>
 
                         <div class="d-flex align-items-center justify-content-start gap-2 pb-3">
                             <input type="radio" style="width: fit-content;" formControlName="answer" id="undefined" name="answer" value="undefined">
-                            <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">Não se aplica</label>
+                            <label for="undefined" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{ "FREE_TEST.N/A" | translate }}</label>
                         </div>
 
                         <button class="secondary-brand-btn px-lg-5 d-block mt-5" [disabled]="form2.invalid" type="submit">
-                            Próximo
+                            {{ "FREE_TEST.NEXT" | translate }}
                         </button>
                     </div>
 
                     <div class="flex-grow-1 glossary-card p-4 w-100" style="max-width: 400px;">
                         <h4 class="brand-text fw-700 p-0 pb-4">
-                            Glossário
+                            {{ "FREE_TEST.GLOSSARY" | translate }}
                         </h4>
                                                 
                         <p *ngIf="
-                        'Todos os funcionários têm acesso à documentos que relatam o desempenho financeiro da empresa'.length > 200
+                        ('FREE_TEST.GLOSSARY12' | translate).length > 200
                     " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
                         {{ keepReading 
-                            ? 
-                            'Todos os funcionários têm acesso à documentos que relatam o desempenho financeiro da empresa'
-                            :
-                            'Todos os funcionários têm acesso à documentos que relatam o desempenho financeiro da empresa'.slice(0, 200) + '...'
+                            ? ('FREE_TEST.GLOSSARY12' | translate) 
+                            : ('FREE_TEST.GLOSSARY12' | translate).slice(0, 200) + '...'
                         }}
                         </p>
 
                         <p *ngIf="
-                            'Todos os funcionários têm acesso à documentos que relatam o desempenho financeiro da empresa'.length <= 200
+                        ('FREE_TEST.GLOSSARY12' | translate).length <= 200
                         " class="f-size-0-85rem l-height-1-25 text-dark pb-4">
-                            {{ 'Todos os funcionários têm acesso à documentos que relatam o desempenho financeiro da empresa'}}
+                        {{ "FREE_TEST.GLOSSARY12" | translate }}
                         </p>
 
                         <div *ngIf="
-                            'Todos os funcionários têm acesso à documentos que relatam o desempenho financeiro da empresa'.length > 200
+                        ('FREE_TEST.GLOSSARY12' | translate).length > 200
                         " class="d-flex align-items-center justify-content-end w-100">
                             <button *ngIf="!keepReading" (click)="keepReading = true" class="f-size-1rem fw-700 brand-text bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2">
-                                Continuar lendo
+                                {{ "FREE_TEST.READ_MORE" | translate }}
                                 <img src="/assets/icon/share.svg" alt="">
                             </button>
                         </div>
@@ -1004,29 +977,29 @@
                     </p>
     
                     <div *ngIf="score >= 60 && score <= 75" class="selo-bronze mt-5">
-                        <p class="f-size-1.1rem pt-2 ps-2" style="color: #404040;">Selo ThinkSus</p>
+                        <p class="f-size-1.1rem pt-2 ps-2" style="color: #404040;">{{ "FREE_TEST.SEAL" | translate }}</p>
 
                         <div>
                             <p class="score ps-1 pb-1">{{ score }}</p>
-                            <p class="score-title pb-3 ps-3">Bronze</p>
+                            <p class="score-title pb-3 ps-3">{{ "FREE_TEST.BRONZE" | translate }}</p>
                         </div>
                     </div>
     
                     <div *ngIf="score > 75 && score < 90" class="selo-prata mt-5">
-                        <p class="f-size-1.1rem pt-2 ps-2" style="color: #404040;">Selo ThinkSus</p>
+                        <p class="f-size-1.1rem pt-2 ps-2" style="color: #404040;">{{ "FREE_TEST.SEAL" | translate }}</p>
 
                         <div>
                             <p class="score ps-1 pb-1">{{ score }}</p>
-                            <p class="score-title pb-3 ps-3">Prata</p>
+                            <p class="score-title pb-3 ps-3">{{ "FREE_TEST.SILVER" | translate }}</p>
                         </div>
                     </div>
     
                     <div *ngIf="score >= 90" class="selo-dourado mt-5">
-                        <p class="f-size-1.1rem pt-2 ps-2" style="color: #404040;">Selo ThinkSus</p>
+                        <p class="f-size-1.1rem pt-2 ps-2" style="color: #404040;">{{ "FREE_TEST.SEAL" | translate }}</p>
 
                         <div>
                             <p class="score ps-1 pb-1">{{ score }}</p>
-                            <p class="score-title pb-3 ps-3">Ouro</p>
+                            <p class="score-title pb-3 ps-3">{{ "FREE_TEST.GOLD" | translate }}</p>
                         </div>
                     </div>
                 </div>
@@ -1035,18 +1008,14 @@
 
                 <div class="w-100 flex-grow-1">
                     <h2 class="pb-1">
-                        Parabéns!
+                        {{ "FREE_TEST.CONGRATULATIONS" | translate }}
                     </h2>
                     <h5 class="fw-600 l-spacing-0-75 pb-4">
-                        Você concluiu a Avaliação gratuita!
+                        {{ "FREE_TEST.COMPLETED" | translate }}
                     </h5>
 
                     <p class="fw-400 f-size-1rem l-height-1-5">
-                        A sua pontuação inicial foi de 60%, lhe 
-                        rendendo o selo de Bronze, o que significa 
-                        que sua empresa tem entendimento e já 
-                        pratica ESG, apesar de precisa melhorar 
-                        em alguns pontos.
+                        {{ "FREE_TEST.RESULT" | translate }}
                     </p>
                 </div>
             </div>

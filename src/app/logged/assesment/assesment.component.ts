@@ -34,6 +34,7 @@ export class AssesmentComponent {
     private toastr: ToastrService,
     private router: Router,
   ) {
+
     this.form = this.fb.group({
       title: ['', Validators.required]
     })
@@ -136,4 +137,9 @@ export class AssesmentComponent {
       }
     })
   }
+
+  navigateToSimulation() {
+    this.router.navigate(['simulation']);
+  }
+
 }

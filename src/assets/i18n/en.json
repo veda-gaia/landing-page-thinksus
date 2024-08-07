@@ -661,6 +661,7 @@
         "SEAL": "Seal ThinkSus",
         "GOLD": "Gold",
         "SILVER": "Silver",
-        "BRONZE": "Bronze"
+        "BRONZE": "Bronze",
+        "START": "Start"
     }
 }

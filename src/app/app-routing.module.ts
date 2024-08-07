@@ -17,6 +17,10 @@ const routes: Routes = [
   {
     path: 'logged',
     loadChildren: () => import('./logged/logged.module').then(m => m.LoggedModule)
+  },
+  {
+    path: 'simulation',
+    component: FreeTestComponent
   }
 ];
 

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { updateStatusDto } from 'src/app/dtos/update-status.dto';
 import { CompanyService } from 'src/app/services/company.service';
 import { EsgRatingService } from 'src/app/services/esg-rating.service';
 
@@ -22,11 +25,16 @@ export class AssesmentComponent {
   socialProgress = 0
   governanceProgress = 0
 
+  assesmentId = ''
+
   constructor(
     private fb: FormBuilder,
     private EsgRatingService: EsgRatingService,
     private CompanyService: CompanyService,
+    private toastr: ToastrService,
+    private router: Router,
   ) {
+
     this.form = this.fb.group({
       title: ['', Validators.required]
     })
@@ -70,7 +78,7 @@ export class AssesmentComponent {
       next: (data) => {
         // Pega o item que pertence a minha empresa
         let myCompanyInfo = data.filter(item => {
-          return item.company._id === companyId
+          return item.company._id === companyId && item.status === "IN_PROGRESS"
         })[0]
         
         if(myCompanyInfo) {
@@ -97,6 +105,9 @@ export class AssesmentComponent {
           if(governanceAnswers.length) {
             this.governanceProgress = +((governanceAnswers.length / this.governanceQuestions) * 100).toFixed(0)
           }
+
+          // console.log(myCompanyInfo)
+          this.assesmentId = myCompanyInfo._id
         }
 
         this.loading = false
@@ -108,6 +119,27 @@ export class AssesmentComponent {
   }
 
   onSubmit() {
-    if(this.form.invalid) return
+    if(this.form.invalid || !this.assesmentId.length) return
+
+    const dto: updateStatusDto = {
+      status: 'COMPLETED'
+    }
+
+    this.EsgRatingService.updateStatusById(this.assesmentId, dto).subscribe({
+      next: (data) => {
+        this.toastr.success('Pontuação gerada com sucesso', 'Sucesso', {progressBar: true});
+        setTimeout(() => {
+          this.router.navigate(['/logged/results'])
+        }, 100)
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
   }
+
+  navigateToSimulation() {
+    this.router.navigate(['simulation']);
+  }
+
 }

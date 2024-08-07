@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, map } from 'rxjs';
 import CompanyInterface from '../interfaces/company/company.interface';
+import { updateStatusDto } from '../dtos/update-status.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,12 @@ export class EsgRatingService extends BaseService {
   getById(id: string): Observable<any> {
     return this.httpClient
       .get(`${this.url}/id/${id}`, this.authorizedHeader())
+      .pipe(map(this.extractData), catchError(this.serviceError));
+  }
+
+  updateStatusById(id: string, dto: updateStatusDto): Observable<any> {
+    return this.httpClient
+      .put(`${this.url}/update-status/${id}`, dto, this.authorizedHeader())
       .pipe(map(this.extractData), catchError(this.serviceError));
   }
 

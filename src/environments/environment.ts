@@ -3,6 +3,7 @@ export const environment = {
 
     api: {
         path: 'https://thinksus-api.com',
+        // path: 'https://api-prod.thinksus.com',
     },
  
     encrypt_key: '5e99d833-bcfa-411e-ad92-97686ca6890c',

@@ -158,18 +158,18 @@
                 <label for="invoicing" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.INVOICING" | translate }}</label>
                 <select *ngIf="country.value === 'Brazil'" name="invoicing" id="invoicing" formControlName="invoicing" class="d-block mb-4">
                     <option value="" disabled>{{ "REGISTER.SELECT" | translate }}</option>
-                    <option value="< 360k">{{ "REGISTER.BRL_INVOICING_1" | translate }}</option>
-                    <option value="360k - 4.8m">{{ "REGISTER.BRL_INVOICING_2" | translate }}</option>
-                    <option value="4.8m - 20m">{{ "REGISTER.BRL_INVOICING_3" | translate }}</option>
-                    <option value="> 20m">{{ "REGISTER.BRL_INVOICING_4" | translate }}</option>
+                    <option [value]="CompanyRevenueEnum.under_360k">{{ "REGISTER.BRL_INVOICING_1" | translate }}</option>
+                    <option [value]="CompanyRevenueEnum.between_360k_4_8M">{{ "REGISTER.BRL_INVOICING_2" | translate }}</option>
+                    <option [value]="CompanyRevenueEnum.between_4_8M_20M">{{ "REGISTER.BRL_INVOICING_3" | translate }}</option>
+                    <option [value]="CompanyRevenueEnum.above_20M">{{ "REGISTER.BRL_INVOICING_4" | translate }}</option>
                 </select>
 
                 <select *ngIf="country.value !== 'Brazil'" name="invoicing" id="invoicing" formControlName="invoicing" class="d-block mb-4">
                     <option value="" disabled>{{ "REGISTER.SELECT" | translate }}</option>
                     <option value="< 360k">{{ "REGISTER.USD_INVOICING_1" | translate }}</option>
-                    <option value="360k - 4.8m">{{ "REGISTER.USD_INVOICING_2" | translate }}</option>
-                    <option value="4.8m - 20m">{{ "REGISTER.USD_INVOICING_3" | translate }}</option>
-                    <option value="> 20m">{{ "REGISTER.USD_INVOICING_4" | translate }}</option>
+                    <option [value]="CompanyRevenueEnum.between_360k_4_8M">{{ "REGISTER.USD_INVOICING_2" | translate }}</option>
+                    <option [value]="CompanyRevenueEnum.between_4_8M_20M">{{ "REGISTER.USD_INVOICING_3" | translate }}</option>
+                    <option [value]="CompanyRevenueEnum.above_20M">{{ "REGISTER.USD_INVOICING_4" | translate }}</option>
                 </select>
 
                 <button class="secondary-brand-btn px-lg-5 d-block mx-auto w-100" [disabled]="form3.invalid" type="submit">

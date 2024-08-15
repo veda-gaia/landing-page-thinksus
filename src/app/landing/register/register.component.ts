@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { CompanyEmployeesEnum } from 'src/app/enums/company-employees.enum';
+import { CompanyRevenueEnum } from 'src/app/enums/company-revenue.enum';
 import { CompanySectionEnum } from 'src/app/enums/company-section.enum';
 import { CompanySegmentEnum } from 'src/app/enums/company-segment.enum';
 import { LoginInterface } from 'src/app/interfaces/authentication/authentication.interface';
@@ -50,6 +51,8 @@ export class RegisterComponent implements OnInit {
   countryList: any[] = [];
   sectorList: SectorList[] = [];
   segmentList: SegmentList[] = [];
+
+  CompanyRevenueEnum = CompanyRevenueEnum
 
   constructor(
     private fb: FormBuilder,
@@ -192,6 +195,7 @@ export class RegisterComponent implements OnInit {
         section: this.form2.controls['sector'].value as CompanySectionEnum,
         numberEmployees: this.form3.controls['collaboratorsAmmount']
           .value as CompanyEmployeesEnum,
+        revenue: this.form3.controls['invoicing'].value as CompanyRevenueEnum
       },
       user: {
         name: this.name.value,

@@ -81,6 +81,8 @@ export class AssesmentComponent {
           return item.company._id === companyId && item.status === "IN_PROGRESS"
         })[0]
         
+        console.log(data)
+
         if(myCompanyInfo) {
           const environmentalAnswers = myCompanyInfo.answers.filter((i: any) => {
             return i.questionNumber.startsWith("E")
@@ -124,12 +126,22 @@ export class AssesmentComponent {
     const dto: updateStatusDto = {
       status: 'COMPLETED'
     }
+    const titleDto: any = {
+      title: this.form.controls['title'].value
+    }
 
     this.EsgRatingService.updateStatusById(this.assesmentId, dto).subscribe({
       next: (data) => {
-        this.toastr.success('Pontuação gerada com sucesso', 'Sucesso', {progressBar: true});
+        console.log(data)
+
         setTimeout(() => {
-          this.router.navigate(['/logged/results'])
+          this.EsgRatingService.updateTitleById(this.assesmentId, titleDto).subscribe({
+            next: (data) => {
+              this.toastr.success('Pontuação gerada com sucesso', 'Sucesso', {progressBar: true});
+      
+                this.router.navigate(['/logged/results'])
+              }
+          })
         }, 100)
       },
       error: (err) => {

@@ -34,6 +34,12 @@ export class EsgRatingService extends BaseService {
       .pipe(map(this.extractData), catchError(this.serviceError));
   }
 
+  updateTitleById(id: string, dto: any): Observable<any> {
+    return this.httpClient
+      .put(`${this.url}/update-title/${id}`, dto, this.authorizedHeader())
+      .pipe(map(this.extractData), catchError(this.serviceError));
+  }
+
   register(dto: any): Observable<any> {
     return this.httpClient
       .post(`${this.url}/register`, dto, this.authorizedHeader())

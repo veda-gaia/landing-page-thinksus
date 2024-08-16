@@ -2,6 +2,7 @@ import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { CompanyService } from 'src/app/services/company.service';
 import { EsgRatingService } from 'src/app/services/esg-rating.service';
+import { initialScoreArray } from 'src/app/util/initial-score-array.util';
 
 @Component({
   selector: 'app-dashboard',
@@ -111,6 +112,7 @@ export class DashboardComponent {
   handleInfo(companyId: string, section: string) {
     this.EsgRatingService.list().subscribe({
       next: (data) => {
+        console.log(data)
         // Pega o item que pertence a minha empresa
         let inProgressAvaliation = data.filter(item => {
           return item.company._id === companyId && item.status === "IN_PROGRESS"
@@ -119,6 +121,29 @@ export class DashboardComponent {
           return item.company._id === companyId && item.status === "COMPLETED"
         })[0]
         
+        // Sem Avaliação em andamento
+        if(!inProgressAvaliation) {
+          this.avaliationStatus = 'pre-avaliation'
+
+          this.environmentalInfo = {
+            progress: 0,
+            score: 0
+          }
+        
+          this.socialInfo = {
+            progress: 0,
+            score: 0
+          }
+        
+          this.governanceInfo = {
+            progress: 0,
+            score: 0
+          }
+
+          this.odsScoreArray = initialScoreArray
+        }
+
+        // Com Avaliação em andamento
         if(inProgressAvaliation) {
           this.avaliationStatus = 'pre-avaliation'
 
@@ -158,6 +183,7 @@ export class DashboardComponent {
           this.odsScoreArray = inProgressAvaliation.odsScore
         }
 
+        // Pós Avaliação
         if(postAvaliation) {
           this.postAvaliationInfo = postAvaliation
           this.avaliationStatus = 'post-avaliation'

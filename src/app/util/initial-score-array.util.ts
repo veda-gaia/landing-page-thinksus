@@ -1,0 +1,17 @@
+export const initialScoreArray = [
+    {score: 0, ods: '2'},
+    {score: 0, ods: '11'},
+    {score: 0, ods: '12'},
+    {score: 0, ods: '13'},
+    {score: 0, ods: '15'},
+    {score: 0, ods: '3'},
+    {score: 0, ods: '7'},
+    {score: 0, ods: '6'},
+    {score: 0, ods: '14'},
+    {score: 0, ods: '8'},
+    {score: 0, ods: '16'},
+    {score: 0, ods: '17'},
+    {score: 0, ods: '9'},
+    {score: 0, ods: '1'},
+    {score: 0, ods: '10'},
+]

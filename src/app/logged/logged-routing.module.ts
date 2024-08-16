@@ -60,7 +60,7 @@ const routes: Routes = [
         component: ResultsComponent
       },
       {
-        path: 'results/improvements',
+        path: 'results/improvements/:id',
         component: ImprovementsComponent
       },
       {

@@ -663,5 +663,47 @@
         "SILVER": "Silver",
         "BRONZE": "Bronze",
         "START": "Start"
+    },
+    "SEGMENTS": {
+        "bovine": "Bovine",
+        "pork": "Swine",
+        "birds": "Poultry",
+        "other_meat_animals": "Beef cattle",
+        "dairy": "Dairy",
+        "soy": "Soy",
+        "wood": "Wood",
+        "sugar_cane": "Sugarcane",
+        "other_platations": "Large scale cropping",
+        "subsistence_plantation": "Subsistence plantation",
+
+        "heavy_industry": "Heavy industry (steel industry and metallurgy)",
+        "construction": "Construction industry",
+        "automotive": "Automotive and Systemist",
+        "food": "Food",
+        "textile": "Textile and skins",
+        "pharmaceutical": "Pharmaceutical",
+        "technology": "IT or Technologies",
+        "energy": "Energy",
+        "another_transformation": "Transformation industry",
+        "electronics": "Electronics",
+        
+        "commerce_food": "Trade - food and beverage",
+        "commerce_clothing": "Trade - clothing",
+        "commerce_pharmacy": "Trade - pharmacy and cosmetics",
+        "education": "Educational",
+        "accommodation": "Hosting",
+        "cleaning": "Cleaning and maintenance",
+        "transport": "Transportation",
+        "sports": "Sports and physical activities",
+        "leisure": "Leisure (entertainment in general)",
+        "consultancy": "Consulting",
+        "resale": "Retail",
+        "miscellaneous": "Various services (beauty salon, security services, gardening etc.)",
+        "liberal_profession": "Independent professional (Physicians, dentists, psychologists, teachers etc.)"
+    },
+    "SECTORS": {
+        "Agribusiness" : "Agribusiness",
+        "Industry" : "Industry",
+        "Services" : "Services"
     }
 }

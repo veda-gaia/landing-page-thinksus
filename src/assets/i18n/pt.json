@@ -663,5 +663,47 @@
         "SILVER": "Prata",
         "BRONZE": "Bronze",
         "START": "Início"
+    },
+    "SEGMENTS": {
+        "bovine": "Bovina",
+        "pork": "Suína",
+        "birds": "Aves",
+        "other_meat_animals": "Outros animais de Corte",
+        "dairy": "Laticínio",
+        "soy": "Soja",
+        "wood": "Madeira",
+        "sugar_cane": "Cana-de-açúcar",
+        "other_platations": "Outra Plantação larga escala",
+        "subsistence_plantation": "Plantação subsistência",
+
+        "heavy_industry": "Pesada (siderúrgicas ou metalúrgicas)",
+        "construction": "Construção Civil",
+        "automotive": "Automotiva e sistemistas",
+        "food": "Alimentação",
+        "textile": "Têxtil ou de peles",
+        "pharmaceutical": "Farmacêutica",
+        "technology": "Informática ou Tecnologia",
+        "energy": "Energia",
+        "another_transformation": "Outra transformação",
+        "electronics": "Eletrônica",
+        
+        "commerce_food": "Comércio - Alimentação e bebidas",
+        "commerce_clothing": "Comércio - Vestuário",
+        "commerce_pharmacy": "Comércio - Farmácia e Cosméticos",
+        "education": "Educacional",
+        "accommodation": "Hospedagem",
+        "cleaning": "Limpeza e Manutenção",
+        "transport": "Transportes",
+        "sports": "Esportes e Atividades Físicas",
+        "leisure": "Lazer ( tenimento diversos)",
+        "consultancy": "Consultoria",
+        "resale": "Revenda de outros produtos",
+        "miscellaneous": "Serviços Diversos (salão de beleza, segurança, jardinagem, outros)",
+        "liberal_profession": "Profissional Liberal (médico, dentista, psicólogos, professores, outros)"
+    },
+    "SECTORS": {
+        "Agribusiness" : "Agronegócio",
+        "Industry" : "Indústria",
+        "Services" : "Serviços"
     }
 }

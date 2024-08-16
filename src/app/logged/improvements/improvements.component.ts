@@ -1,16 +1,60 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CompanyService } from 'src/app/services/company.service';
+import { EsgRatingService } from 'src/app/services/esg-rating.service';
 
 @Component({
   selector: 'app-improvements',
   templateUrl: './improvements.component.html',
   styleUrls: ['./improvements.component.scss']
 })
-export class ImprovementsComponent {
+export class ImprovementsComponent implements OnInit {
+  id = ''
+
   openAccordions: number[] = []
   selectedESG = ''
+  companyInfo: any
+  assesmentInfo: any
 
-  constructor(){
+  constructor(
+    private CompanyService: CompanyService,
+    private EsgRatingService: EsgRatingService,
+    private route: ActivatedRoute,
+  ){
 
+  }
+
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.id = params['id'];
+    })
+
+    this.EsgRatingService.getById(this.id).subscribe({
+      next: (data) => {
+        this.assesmentInfo = data
+        console.log(data)
+      }, error: (err) => {
+        console.log(err)
+      }
+    })
+
+    this.CompanyService.getByUser().subscribe({
+      next: (data) => {
+        this.companyInfo = data
+
+        // if(data.section === 'Agribusiness') {
+        // }
+
+        // if(data.section === 'Industry') {
+        // }
+
+        // if(data.section === 'Services') {
+        // }
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
   }
 
   changeSelectedESG(number: number) {

@@ -61,7 +61,7 @@
                             </h4>
             
                             <p class="secondary-text f-size-1rem fw-500 pb-2">
-                                {{ "SCORE.SCORE_TITLE" | translate }} <span class="fw-700 gray-text">Exemplo LTDA</span>
+                                {{ "SCORE.SCORE_TITLE" | translate }} <span class="fw-700 gray-text">{{ recentResult.title }}</span>
                             </p>
             
                             <p class="secondary-text f-size-1rem fw-500 pb-4">
@@ -81,7 +81,7 @@
                     </div>
         
                     <div class="d-flex align-item-start justify-content-between w-100">
-                        <a routerLink="improvements">
+                        <a routerLink="improvements/{{ recentResult._id }}">
                             <button class="brand-btn px-3 px-md-5">
                                 {{ "SCORE.IMPROVEMENTS" | translate }}
                             </button>

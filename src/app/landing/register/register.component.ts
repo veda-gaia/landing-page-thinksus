@@ -213,6 +213,7 @@ export class RegisterComponent implements OnInit {
       },
       error: (err) => {
         console.error(err);
+        this.toastr.error('Erro ao cadastrar usuário/empresa', 'Erro', {progressBar: true});
         this.toastr.error(err.error.errors, 'Error', {progressBar: true});
       },
     });

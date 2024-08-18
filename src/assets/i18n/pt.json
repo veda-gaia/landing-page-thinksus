@@ -705,5 +705,13 @@
         "Agribusiness" : "Agronegócio",
         "Industry" : "Indústria",
         "Services" : "Serviços"
+    },
+    "PROFILE": {
+        "EDIT": "Editar",
+        "TITLE": "Título",
+        "COMPANY": "Empresa",
+        "EMISSION_DATE": "Data de Emissão",
+        "ACTIONS": "Ações",
+        "DOWNLOAD": "Baixar"
     }
 }

@@ -50,10 +50,12 @@
                                 {{ company ? company.slice(0, 13) : '' }}
                             </p>
                         </div>
-                        <div class="profile-container">
-                            <!-- <img src="/assets/img/profile.jpg" alt="profile"> -->
-                            <img src="/assets/icon/default-profile.svg" alt="profile" width="32px">
-                        </div>
+                        <a class="m-0 p-0" routerLink="/logged/profile">
+                            <div class="profile-container">
+                                <!-- <img src="/assets/img/profile.jpg" alt="profile"> -->
+                                <img src="/assets/icon/default-profile.svg" alt="profile" width="32px">
+                            </div>
+                        </a>
                     </li>
                 </ul>
             </nav>
@@ -88,10 +90,12 @@
                         {{ company ? company.slice(0, 13) : '' }}
                     </p>
                 </div>
-                <div class="profile-container">
-                    <!-- <img src="/assets/img/profile.jpg" alt="profile"> -->
-                    <img src="/assets/icon/default-profile.svg" alt="profile" width="32px">
-                </div>
+                <a class="m-0 p-0" routerLink="/logged/profile">
+                    <div class="profile-container">
+                        <!-- <img src="/assets/img/profile.jpg" alt="profile"> -->
+                        <img src="/assets/icon/default-profile.svg" alt="profile" width="32px">
+                    </div>
+                </a>
             </li>
             <li class="dropdown">
                 <button class="bg-transparent border-0 shadow-none d-flex align-items-center justify-content-end gap-2 p-2 px-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"

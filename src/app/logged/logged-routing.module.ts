@@ -19,6 +19,7 @@ import { ControlPanelComponent } from './control-panel/control-panel.component';
 import { SuppliersComponent } from './suppliers/suppliers.component';
 import { ImprovementsComponent } from './improvements/improvements.component';
 import { UseInstructionsComponent } from './use-instructions/use-instructions.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 const routes: Routes = [
@@ -66,6 +67,10 @@ const routes: Routes = [
       {
         path: 'payment',
         component: PaymentComponent
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent
       },
 
       // Questionary

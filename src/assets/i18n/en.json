@@ -705,5 +705,13 @@
         "Agribusiness" : "Agribusiness",
         "Industry" : "Industry",
         "Services" : "Services"
+    },
+    "PROFILE": {
+        "EDIT": "Edit",
+        "TITLE": "Title",
+        "COMPANY": "Company",
+        "EMISSION_DATE": "Issue Date",
+        "ACTIONS": "Actions",
+        "DOWNLOAD": "Download"
     }
 }

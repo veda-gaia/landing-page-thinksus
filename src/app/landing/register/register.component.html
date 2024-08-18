@@ -35,7 +35,7 @@
                 <input type="text" class="w-100 mb-4" formControlName="name" placeholder="{{ 'REGISTER.NAME_PLACEHOLDER' | translate }}" autocomplete="off" id="name" name="name">
 
                 <label for="email" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.EMAIL" | translate }}</label>
-                <input type="text" mask="A*@A*.SSS" [validation]="true" [dropSpecialCharacters]="false" class="w-100 mb-4" formControlName="email" placeholder="email@email.com" autocomplete="off" id="email" name="email">
+                <input type="email" class="w-100 mb-4" formControlName="email" placeholder="email@email.com" autocomplete="off" id="email" name="email">
 
                 <label for="phone" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.PHONE" | translate }}</label>
                 <input type="tel" class="w-100 mb-4" formControlName="phone" mask="(00) 00000-0000" placeholder="(00) 00000-0000" autocomplete="off" id="phone" name="phone">

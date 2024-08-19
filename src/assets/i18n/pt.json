@@ -712,6 +712,16 @@
         "COMPANY": "Empresa",
         "EMISSION_DATE": "Data de Emissão",
         "ACTIONS": "Ações",
-        "DOWNLOAD": "Baixar"
+        "DOWNLOAD": "Baixar",
+        "EDIT_PROFILE": "Editar Perfil",
+        "USER_NAME": "Nome Completo",
+        "COMPANY_NAME": "Nome da Empresa",
+        "SECTOR": "Setor",
+        "COUNTRY": "País",
+        "EMAIL": "Email",
+        "PASSWORD": "Senha",
+        "EDIT_DATE": "Editado em",
+        "BACK": "Voltar",
+        "SAVE_EDIT": "Salvar Alterações"
     }
 }

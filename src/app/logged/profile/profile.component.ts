@@ -11,7 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 export class ProfileComponent {
   myContractsList: any[] = []
   
-  showEditForm = true
+  showEditForm = false
   editForm: FormGroup
   
   loading = true

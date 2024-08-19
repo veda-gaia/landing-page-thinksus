@@ -2,6 +2,7 @@ import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { CompanyService } from 'src/app/services/company.service';
 import { EsgRatingService } from 'src/app/services/esg-rating.service';
+import { initialScoreArray } from 'src/app/util/initial-score-array.util';
 
 @Component({
   selector: 'app-dashboard',
@@ -113,61 +114,85 @@ export class DashboardComponent {
   handleInfo() {
     this.EsgRatingService.getByCompany().subscribe({
       next: (data) => {
+        console.log(data);
         // Pega o item que pertence a minha empresa
         let inProgressAvaliation = data.filter((item) => {
-          return (
-            // item.company._id === companyId && item.status === 'IN_PROGRESS'
-            item.status === 'IN_PROGRESS'
-          );
-        })[0];
-        let postAvaliation = data.filter((item) => {
-          // return item.company._id === companyId && item.status === 'COMPLETED';
           return item.status === 'IN_PROGRESS';
         })[0];
+        let postAvaliation = data.filter((item) => {
+          return item.status === 'COMPLETED';
+        })[0];
 
+        // Sem Avaliação em andamento
+        if (!inProgressAvaliation) {
+          this.avaliationStatus = 'pre-avaliation';
+
+          this.environmentalInfo = {
+            progress: 0,
+            score: 0,
+          };
+
+          this.socialInfo = {
+            progress: 0,
+            score: 0,
+          };
+
+          this.governanceInfo = {
+            progress: 0,
+            score: 0,
+          };
+
+          this.odsScoreArray = initialScoreArray;
+        }
+
+        // Com Avaliação em andamento
         if (inProgressAvaliation) {
           this.avaliationStatus = 'pre-avaliation';
 
-          const environmentalAnswers = inProgressAvaliation.answers.filter(
-            (i: any) => {
-              return i.questionNumber.startsWith('E');
+          if (inProgressAvaliation) {
+            this.avaliationStatus = 'pre-avaliation';
+
+            const environmentalAnswers = inProgressAvaliation.answers.filter(
+              (i: any) => {
+                return i.questionNumber.startsWith('E');
+              }
+            );
+
+            const socialAnswers = inProgressAvaliation.answers.filter(
+              (i: any) => {
+                return i.questionNumber.startsWith('S');
+              }
+            );
+
+            const governanceAnswers = inProgressAvaliation.answers.filter(
+              (i: any) => {
+                return i.questionNumber.startsWith('G');
+              }
+            );
+
+            if (environmentalAnswers.length) {
+              this.environmentalInfo = {
+                progress: environmentalAnswers.length,
+                score: inProgressAvaliation.environmentalScore.toFixed(0),
+              };
             }
-          );
 
-          const socialAnswers = inProgressAvaliation.answers.filter(
-            (i: any) => {
-              return i.questionNumber.startsWith('S');
+            if (socialAnswers.length) {
+              this.socialInfo = {
+                progress: socialAnswers.length,
+                score: inProgressAvaliation.socialScore.toFixed(0),
+              };
             }
-          );
 
-          const governanceAnswers = inProgressAvaliation.answers.filter(
-            (i: any) => {
-              return i.questionNumber.startsWith('G');
+            if (governanceAnswers.length) {
+              this.governanceInfo = {
+                progress: governanceAnswers.length,
+                score: inProgressAvaliation.governanceScore.toFixed(0),
+              };
             }
-          );
 
-          if (environmentalAnswers.length) {
-            this.environmentalInfo = {
-              progress: environmentalAnswers.length,
-              score: inProgressAvaliation.environmentalScore.toFixed(0),
-            };
+            this.odsScoreArray = inProgressAvaliation.odsScore;
           }
-
-          if (socialAnswers.length) {
-            this.socialInfo = {
-              progress: socialAnswers.length,
-              score: inProgressAvaliation.socialScore.toFixed(0),
-            };
-          }
-
-          if (governanceAnswers.length) {
-            this.governanceInfo = {
-              progress: governanceAnswers.length,
-              score: inProgressAvaliation.governanceScore.toFixed(0),
-            };
-          }
-
-          this.odsScoreArray = inProgressAvaliation.odsScore;
         }
 
         if (postAvaliation) {

@@ -1,4 +1,4 @@
-<section class="w-100 pt-3">
+<section *ngIf="companyInfo && assesmentInfo" class="w-100 pt-3">
     <div class="row pb-4">
         <div class="col">
             <h3 class="alpha-800-text f-size-1-5rem l-height-1-5rem pb-1 fw-800">
@@ -15,21 +15,22 @@
             <div class="card-logged p-4 d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between gap-4 w-100">
                 <div class="flex-grow-1">
                     <p class="secondary-text f-size-1rem fw-500 pb-3">
-                        Empresa: <span class="fw-700 gray-text">Superemp</span>
+                        Empresa: <span class="fw-700 gray-text">{{ companyInfo.company }}</span>
                     </p>
                     
                     <p class="secondary-text f-size-1rem fw-500">
-                        Setor: <span class="fw-700 gray-text">Indústria</span>
+                        Setor: 
+                        <span class="fw-700 gray-text">{{ "SECTORS." + companyInfo.section | translate }}</span>
                     </p>
                 </div>
 
                 <div class="flex-grow-1">
                     <p class="secondary-text f-size-1rem fw-500 pb-3">
-                        CNPJ: <span class="fw-700 gray-text">00.000.000/0000-00</span>
+                        CNPJ: <span class="fw-700 gray-text">{{ companyInfo.cnpj }}</span>
                     </p>
                     
                     <p class="secondary-text f-size-1rem fw-500">
-                        Setor: <span class="fw-700 gray-text">Têxtil ou peles</span>
+                        Segmento: <span class="fw-700 gray-text">{{ "SEGMENTS." + companyInfo.segment | translate }}</span>
                     </p>
                 </div>
 
@@ -39,7 +40,7 @@
                     </p>
                     
                     <p class="system-success-text text-end f-size-3rem l-height-3 fw-700">
-                        97
+                        {{ assesmentInfo.esgScore.toFixed() }}
                     </p>
                 </div>
             </div>

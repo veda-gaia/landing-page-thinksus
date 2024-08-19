@@ -19,6 +19,7 @@ import { SServiceComponent } from './questionary/s-service/s-service.component';
 import { ResultsComponent } from './results/results.component';
 import { SuppliersComponent } from './suppliers/suppliers.component';
 import { UseInstructionsComponent } from './use-instructions/use-instructions.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 const routes: Routes = [
@@ -60,12 +61,16 @@ const routes: Routes = [
         component: ResultsComponent
       },
       {
-        path: 'results/improvements',
+        path: 'results/improvements/:id',
         component: ImprovementsComponent
       },
       {
         path: 'payment',
         component: PaymentComponent
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent
       },
 
       // Questionary

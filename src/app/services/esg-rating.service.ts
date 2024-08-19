@@ -22,6 +22,12 @@ export class EsgRatingService extends BaseService {
       .pipe(map(this.extractData), catchError(this.serviceError));
   }
 
+  getByCompany(): Observable<any[]> {
+    return this.httpClient
+      .get(`${this.url}/get-by-company`, this.authorizedHeader())
+      .pipe(map(this.extractData), catchError(this.serviceError));
+  }
+
   getById(id: string): Observable<any> {
     return this.httpClient
       .get(`${this.url}/id/${id}`, this.authorizedHeader())

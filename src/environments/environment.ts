@@ -1,17 +1,16 @@
 export const environment = {
-    production: false,
+  production: false,
 
-    api: {
-        path: 'https://thinksus-api.com',
-        // path: 'https://api-prod.thinksus.com',
+  api: {
+    path: 'https://thinksus-api.com',
+  },
+
+  encrypt_key: '5e99d833-bcfa-411e-ad92-97686ca6890c',
+  mercado_pago_public_key: 'TEST-ccac2c46-bef1-4033-aac9-9fcc516aab1b',
+  socket: {
+    notification: {
+      host: '',
+      path: '/socket/notification',
     },
- 
-    encrypt_key: '5e99d833-bcfa-411e-ad92-97686ca6890c',
-    jwt_key: 'e3098c3f-434a-4ca8-96ce-4fbbadc4d5ec',
-    socket: {
-        notification: {
-            host: '',
-            path: '/socket/notification',
-        }
-    },
+  },
 };

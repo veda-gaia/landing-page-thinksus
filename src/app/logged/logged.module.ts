@@ -37,6 +37,7 @@ import { UseInstructionsComponent } from './use-instructions/use-instructions.co
 import { PlotlyModule } from 'angular-plotly.js';
 import * as PlotlyJS from 'plotly.js-dist-min';
 import { ProfileComponent } from './profile/profile.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -68,6 +69,7 @@ PlotlyModule.plotlyjs = PlotlyJS;
     DateFormatPipe,
     UseInstructionsComponent,
     ProfileComponent,
+    ConfirmationComponent,
   ],
   imports: [
     CommonModule,

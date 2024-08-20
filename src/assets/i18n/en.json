@@ -723,5 +723,11 @@
         "EDIT_DATE": "Edited at",
         "BACK": "Back",
         "SAVE_EDIT": "Save Changes"
+    },
+    "SOLUTION_SIMULATION_TEXT": {
+        "0_35_TEXT": "Your operations require a significant transformation to become more sustainable. Process optimization to minimize negative impacts is crucial, as well as internal restructuring with process mapping for more efficient management.",
+        "36_59_TEXT": "Your operation is in compliance with environmental laws and demonstrates good social performance, but you need to strengthen impact assessments and define metrics for community support initiatives. To excel in ESG, you must go beyond compliance, set goals, and implement monitoring and evaluation mechanisms with auditable indicators. ",
+        "60_80_TEXT": "Your company demonstrates a strong commitment to ESG, with solid environmental practices, significant social actions, and responsible corporate governance. You are already on the right track for ESG certification, but you can further strengthen your performance. ESG certification is a journey, not a destination. Continue seeking improvement to achieve gold certification and become a reference in sustainability!",
+        "81_100_TEXT": "Your operations demonstrate an exemplary commitment to sustainability. You are in compliance with the environmental, social, and governance pillars of ESG, having a positive impact on the environment, society, and your business. Based on your strong sustainability standards, your operation is eligible for ESG Gold Certification with Blockchain validation."
     }
 }

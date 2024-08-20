@@ -266,17 +266,32 @@
   
             <div>
               <div class="d-flex align-items-end justify-content-between gap-4 pb-2">
-                <p class="d-block yellow-500-text f-size-12px l-height-1-25 fw-700">
+                <p *ngIf="postAvaliationInfo.esgScore.toFixed() <= 35" class="d-block primary-text f-size-12px l-height-1-25 fw-700">
+                  NOTA
+                </p>
+                <p *ngIf="postAvaliationInfo.esgScore.toFixed() > 35 && postAvaliationInfo.esgScore.toFixed() <= 59" class="d-block bronze-text f-size-12px l-height-1-25 fw-700">
+                  BRONZE
+                </p>
+                <p *ngIf="postAvaliationInfo.esgScore.toFixed() >= 60 && postAvaliationInfo.esgScore.toFixed() <= 80" class="d-block silver-text f-size-12px l-height-1-25 fw-700">
+                  PRATA
+                </p>
+                <p *ngIf="postAvaliationInfo.esgScore.toFixed() >= 81" class="d-block yellow-500-text f-size-12px l-height-1-25 fw-700">
                   OURO
                 </p>
   
-                <h4 class="d-block yellow-500-text f-size-3rem l-height-3 fw-700">
-                  97
+                <h4
+                 class="d-block f-size-3rem l-height-3 fw-700"
+                 [class.primary-text]="postAvaliationInfo.esgScore.toFixed() <= 35"
+                 [class.bronze-text]="postAvaliationInfo.esgScore.toFixed() > 35 && postAvaliationInfo.esgScore.toFixed() <= 59"
+                 [class.silver-text]="postAvaliationInfo.esgScore.toFixed() >= 60 && postAvaliationInfo.esgScore.toFixed() <= 80"
+                 [class.yellow-500-text]="postAvaliationInfo.esgScore.toFixed() >= 81"
+                 >
+                  {{ postAvaliationInfo.esgScore.toFixed() }}
                 </h4>
               </div>
   
               <p class="alpha-600-text f-size-12px l-height-1-25 fw-500">
-                Gerado em 00/00/0000
+                Gerado em {{ postAvaliationInfo.updatedAt | dateFormat }}
               </p>
             </div>
           </div>
@@ -287,9 +302,9 @@
                 Ambiental
               </p>
               <div class="score-progress-container green-100-bg">
-                <div class="score-progress green-400-bg gap-2" style="width: 70%;">
+                <div class="score-progress green-400-bg gap-2" [style]="'width: ' + postAvaliationInfo.environmentalScore.toFixed() + '%;'">
                   <p class="white-text f-size-12px l-height-1rem fw-500">Nota</p>
-                  <p class="white-text f-size-0-85rem l-height-1-25rem fw-700 pe-2">70</p>
+                  <p class="white-text f-size-0-85rem l-height-1-25rem fw-700 pe-2">{{ postAvaliationInfo.environmentalScore.toFixed() }}</p>
                 </div>
   
                 <p class="score-100">
@@ -303,9 +318,9 @@
                 Social
               </p>
               <div class="score-progress-container purple-100-bg">
-                <div class="score-progress purple-500-bg gap-2" style="width: 43%;">
+                <div class="score-progress purple-500-bg gap-2" [style]="'width: ' + postAvaliationInfo.socialScore.toFixed() + '%;'">
                   <p class="white-text f-size-12px l-height-1rem fw-500">Nota</p>
-                  <p class="white-text f-size-0-85rem l-height-1-25rem fw-700 pe-2">43</p>
+                  <p class="white-text f-size-0-85rem l-height-1-25rem fw-700 pe-2">{{ postAvaliationInfo.socialScore.toFixed() }}</p>
                 </div>
   
                 <p class="score-100">
@@ -316,12 +331,12 @@
   
             <div class="d-flex flex-column align-item-start justify-content-start pb-1">
               <p class="green-800-text l-height-1-25rem f-size-0-85rem fw-600">
-                Social
+                Governança
               </p>
               <div class="score-progress-container blue-100-bg">
-                <div class="score-progress blue-400-bg gap-2" style="width: 70%;">
+                <div class="score-progress blue-400-bg gap-2" [style]="'width: ' + postAvaliationInfo.governanceScore.toFixed() + '%;'">
                   <p class="white-text f-size-12px l-height-1rem fw-500">Nota</p>
-                  <p class="white-text f-size-0-85rem l-height-1-25rem fw-700 pe-2">70</p>
+                  <p class="white-text f-size-0-85rem l-height-1-25rem fw-700 pe-2">{{ postAvaliationInfo.governanceScore.toFixed() }}</p>
                 </div>
   
                 <p class="score-100">
@@ -397,61 +412,62 @@
           <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 pb-3">
             <div>
               <h4 class="primary-text f-size-1-5rem fw-700 pb-1">
-                Nível de aderência atual
+                {{ "DASHBOARD.ADERENCE_LEVEL" | translate }}
               </h4>
-  
+    
               <p class="alpha-700-text f-size-0-85rem fw-500">
-                17 objetivos das ODS
+                {{ "DASHBOARD.17_OBJECTIVES" | translate }}
               </p>
             </div>
       
             <button class="no-bg-btn text-nowrap fw-600 brand-text bg-transparent d-flex align-item-center justify-content-center gap-2">
-              Gerar relatório
+              {{ "DASHBOARD.GENERATE_RELATORY" | translate }}
               <img src="/assets/icon/download.svg" alt="Download">
             </button>
           </div>
-  
-          <div class="high-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2 mb-2">
+    
+          <div class="high-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2 mb-2" style="min-height: 50px;">
             <div class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
-              <img src="/assets/icon/selos-ods/1.svg" alt="1" title="1">
-              <img src="/assets/icon/selos-ods/2.svg" alt="2" title="2">
-              <img src="/assets/icon/selos-ods/3.svg" alt="3" title="3">
-              <img src="/assets/icon/selos-ods/4.svg" alt="4" title="4">
-              <img src="/assets/icon/selos-ods/5.svg" alt="5" title="5">
-              <img src="/assets/icon/selos-ods/7.svg" alt="6" title="6">
+              <div *ngFor="let ods of odsScoreArray" [class.d-none]="!(ods.score > 70)">
+                <img *ngIf="ods.score > 70" src="/assets/icon/selos-ods/{{ ods.ods }}.svg" alt="{{ ods.ods }}" title="{{ ods.ods }}">
+              </div>
             </div>
-            <p class="f-size-12px fw-500 pb-1">Alto</p>
+            <p class="f-size-12px fw-500 pb-1">{{ "DASHBOARD.HIGH" | translate }}</p>
           </div>
-  
-          <div class="intermediate-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2 mb-2">
+    
+          <div class="intermediate-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2 mb-2" style="min-height: 50px;">
             <div class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
-              <img src="/assets/icon/selos-ods/7.svg" alt="7" title="7">
-              <img src="/assets/icon/selos-ods/8.svg" alt="8" title="8">
-              <img src="/assets/icon/selos-ods/9.svg" alt="9" title="9">
-              <img src="/assets/icon/selos-ods/10.svg" alt="10" title="10">
-              <img src="/assets/icon/selos-ods/11.svg" alt="11" title="11">
-              <img src="/assets/icon/selos-ods/12.svg" alt="12" title="12">
-              <img src="/assets/icon/selos-ods/13.svg" alt="13" title="13">
-              <img src="/assets/icon/selos-ods/14.svg" alt="14" title="14">
+              <div *ngFor="let ods of odsScoreArray" [class.d-none]="!((ods.score <= 70) && (ods.score > 35))">
+                <img *ngIf="(ods.score <= 70) && (ods.score > 35)" src="/assets/icon/selos-ods/{{ ods.ods }}.svg" alt="{{ ods.ods }}" title="{{ ods.ods }}">
+              </div>
             </div>
-            <p class="f-size-12px fw-500 pb-1">Intermediário</p>
+            <p class="f-size-12px fw-500 pb-1">{{ "DASHBOARD.INTERMEDIATE" | translate }}</p>
           </div>
-  
-          <div class="low-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2">
+    
+          <div class="low-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2" style="min-height: 50px;">
             <div class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
-              <img src="/assets/icon/selos-ods/15.svg" alt="15" title="15">
-              <img src="/assets/icon/selos-ods/16.svg" alt="16" title="16">
-              <img src="/assets/icon/selos-ods/17.svg" alt="17" title="17">
+              <div *ngFor="let ods of odsScoreArray" [class.d-none]="!(ods.score <= 35)">
+                <img *ngIf="ods.score <= 35" src="/assets/icon/selos-ods/{{ ods.ods }}.svg" alt="{{ ods.ods }}" title="{{ ods.ods }}">
+              </div>
             </div>
-            <p class="f-size-12px fw-500 pb-1">Baixo</p>
+            <p class="f-size-12px fw-500 pb-1">{{ "DASHBOARD.LOW" | translate }}</p>
           </div>
         </div>
       </div>
   
       <div class="col-12 col-xl-5">
         <div class="card-logged p-3 p-lg-4">
-          <p class="f-size-0-85rem l-height-1-25rem alpha-800-text fw-500">
-            Sua operação é consciente de sua pegada ambiental e já apresenta ações que visam a otimização de recursos e preservação do meio natural. Há métricas que dialogam com riscos climáticos e/ou hídricos e busca minimizar o consumo energético, evitando assim emissões massivas de CO2. Procure ampliar as métricas de todos os consumos de recursos para ter registros mensais e anuais para eventual elaboração de relatórios que possam vir a ser exigidos por grandes clientes.
+          <p *ngIf="postAvaliationInfo.esgScore.toFixed() <= 35" class="f-size-0-85rem l-height-1-25rem alpha-800-text fw-500">
+            {{ "SOLUTION_SIMULATION_TEXT.0_35_TEXT" | translate }}
+          </p>
+          <p *ngIf="postAvaliationInfo.esgScore.toFixed() > 35 && postAvaliationInfo.esgScore.toFixed() <= 59" class="f-size-0-85rem l-height-1-25rem alpha-800-text fw-500">
+            {{ "SOLUTION_SIMULATION_TEXT.36_59_TEXT" | translate }}
+          </p>
+          <p *ngIf="postAvaliationInfo.esgScore.toFixed() >= 60 && postAvaliationInfo.esgScore.toFixed() <= 80" class="f-size-0-85rem l-height-1-25rem alpha-800-text fw-500">
+            {{ "SOLUTION_SIMULATION_TEXT.60_80_TEXT" | translate }}
+          </p>
+          <p *ngIf="postAvaliationInfo.esgScore.toFixed() >= 81" class="f-size-0-85rem l-height-1-25rem alpha-800-text fw-500">
+            {{ "SOLUTION_SIMULATION_TEXT.81_100_TEXT" | translate }}
           </p>
         </div>
       </div>

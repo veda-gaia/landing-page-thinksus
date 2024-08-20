@@ -30,10 +30,9 @@ export class ResultsComponent {
   ) {
     this.CompanyService.getByUser().subscribe({
       next: (data) => {
-        console.log(data)
         this.userName = data.user.name
         
-        this.loadList(data._id)
+        this.loadList()
       },
       error: (err) => {
         console.log(err)
@@ -41,13 +40,19 @@ export class ResultsComponent {
     })
   }
   
-  loadList(companyId: string) {
-    this.EsgRatingService.list().subscribe({
+  loadList() {
+    this.EsgRatingService.getByCompany().subscribe({
       next: (data) => {
         // Pega o item que pertence a minha empresa
-        this.list = this.filteredList = data.filter(item => {
-          return item.company._id === companyId && item.status === "COMPLETED"
+        this.list = data.filter(item => {
+          return item.status === "COMPLETED"
         })
+
+        this.list.sort((a, b) => {
+          return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
+        });
+
+        this.filteredList = [...this.list]
 
         console.log(this.filteredList)
 
@@ -57,6 +62,7 @@ export class ResultsComponent {
           this.avaliationStatus = 'pre-avaliation'
           return
         }
+
         this.avaliationStatus = 'post-avaliation'
         this.recentResult = this.checkRecent()
         this.loadGraph()
@@ -68,31 +74,52 @@ export class ResultsComponent {
   }
 
   loadGraph() {
+    const dates: string[] = this.list.map(avaliation => {
+      const date = new Date(avaliation.updatedAt);
+      const day = String(date.getUTCDate()).padStart(2, '0');  // Formata o dia para 2 dígitos
+      const month = String(date.getUTCMonth() + 1).padStart(2, '0');  // Formata o mês para 2 dígitos (janeiro é 0)
+      return `${day}/${month}`;
+    }).reverse();
+
+    const envrironmentalData = this.list.map(avaliation => {
+      return avaliation.environmentalScore.toFixed()
+    }).reverse()
+
+    const governmentalData = this.list.map(avaliation => {
+      return avaliation.governanceScore.toFixed()
+    }).reverse()
+
+    const socialData = this.list.map(avaliation => {
+      return avaliation.socialScore.toFixed()
+    }).reverse()
+
     const graphEnvironmental = {
-      x: [1, 2, 3, 4],
-      y: [64, 79, 80, 78],
+      x: dates,
+      y: envrironmentalData,
       mode: 'lines+markers',
       type: 'scatter',
-      name: 'Governança'
-    };
-    const graphGovernmental = {
-      x: [1, 2, 3, 4],
-      y: [71, 89, 90, 99],
-      mode: 'lines+markers',
-      type: 'scatter',
-      name: 'Social'
-    };
-    const graphSocial = {
-      x: [1, 2, 3, 4],
-      y: [50, 55, 54, 60],
-      mode: 'lines+markers',
-      type: 'scatter',
-      name: 'Ambiental'
+      name: 'Ambiental',
     };
 
-    this.graphData.push(graphEnvironmental)
-    this.graphData.push(graphGovernmental)
-    this.graphData.push(graphSocial)
+    const graphGovernmental = {
+      x: dates,
+      y: governmentalData,
+      mode: 'lines+markers',
+      type: 'scatter',
+      name: 'Governança',
+    };
+
+    const graphSocial = {
+      x: dates,
+      y: socialData,
+      mode: 'lines+markers',
+      type: 'scatter',
+      name: 'Social',
+    };
+
+    this.graphData.push(graphGovernmental);
+    this.graphData.push(graphSocial);
+    this.graphData.push(graphEnvironmental);
   }
 
   checkRecent(): any[] {

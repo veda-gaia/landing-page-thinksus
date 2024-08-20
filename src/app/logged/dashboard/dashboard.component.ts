@@ -41,6 +41,7 @@ export class DashboardComponent {
   };
 
   odsScoreArray: any[] = [];
+  allCompleteAvaliations: any[] = []
   postAvaliationInfo: any;
 
   constructor(
@@ -78,32 +79,6 @@ export class DashboardComponent {
         }
 
         this.handleInfo();
-
-        const graphEnvironmental = {
-          x: [1, 2, 3, 4],
-          y: [64, 79, 80, 78],
-          mode: 'lines+markers',
-          type: 'scatter',
-          name: 'Governança',
-        };
-        const graphGovernmental = {
-          x: [1, 2, 3, 4],
-          y: [71, 89, 90, 99],
-          mode: 'lines+markers',
-          type: 'scatter',
-          name: 'Social',
-        };
-        const graphSocial = {
-          x: [1, 2, 3, 4],
-          y: [50, 55, 54, 60],
-          mode: 'lines+markers',
-          type: 'scatter',
-          name: 'Ambiental',
-        };
-
-        this.graphData.push(graphEnvironmental);
-        this.graphData.push(graphGovernmental);
-        this.graphData.push(graphSocial);
       },
       error: (err) => {
         console.log(err);
@@ -111,17 +86,28 @@ export class DashboardComponent {
     });
   }
 
+  // Define as informaçõoes da Dashboard
   handleInfo() {
     this.EsgRatingService.getByCompany().subscribe({
       next: (data) => {
         console.log(data);
-        // Pega o item que pertence a minha empresa
+        // Pega todos os itens completos
+        this.allCompleteAvaliations = data.filter((item) => {
+          return item.status === 'COMPLETED';
+        })
+
+        // Coloca em ordem cronológica
+        this.allCompleteAvaliations.sort((a, b) => {
+          return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
+        });
+
+        // Pega o ultimo item em progresso
         let inProgressAvaliation = data.filter((item) => {
           return item.status === 'IN_PROGRESS';
         })[0];
-        let postAvaliation = data.filter((item) => {
-          return item.status === 'COMPLETED';
-        })[0];
+
+        // Pega o ultimo item completo
+        let postAvaliation = this.allCompleteAvaliations[0];
 
         // Sem Avaliação em andamento
         if (!inProgressAvaliation) {
@@ -199,14 +185,66 @@ export class DashboardComponent {
           this.postAvaliationInfo = postAvaliation;
           this.avaliationStatus = 'post-avaliation';
           console.log(postAvaliation);
-        }
 
+          this.handleGraphicStatistics()
+        }
+        
         this.loading = false;
       },
       error: (err) => {
         console.log(err), (this.loading = false);
       },
     });
+  }
+
+  // Define as informaçõoes do Gráfico
+  handleGraphicStatistics() {
+    const dates: string[] = this.allCompleteAvaliations.map(avaliation => {
+      const date = new Date(avaliation.updatedAt);
+      const day = String(date.getUTCDate()).padStart(2, '0');  // Formata o dia para 2 dígitos
+      const month = String(date.getUTCMonth() + 1).padStart(2, '0');  // Formata o mês para 2 dígitos (janeiro é 0)
+      return `${day}/${month}`;
+    }).reverse();
+
+    const envrironmentalData = this.allCompleteAvaliations.map(avaliation => {
+      return avaliation.environmentalScore.toFixed()
+    }).reverse()
+
+    const governmentalData = this.allCompleteAvaliations.map(avaliation => {
+      return avaliation.governanceScore.toFixed()
+    }).reverse()
+
+    const socialData = this.allCompleteAvaliations.map(avaliation => {
+      return avaliation.socialScore.toFixed()
+    }).reverse()
+
+    const graphEnvironmental = {
+      x: dates,
+      y: envrironmentalData,
+      mode: 'lines+markers',
+      type: 'scatter',
+      name: 'Ambiental',
+    };
+
+    const graphGovernmental = {
+      x: dates,
+      y: governmentalData,
+      mode: 'lines+markers',
+      type: 'scatter',
+      name: 'Governança',
+    };
+
+    const graphSocial = {
+      x: dates,
+      y: socialData,
+      mode: 'lines+markers',
+      type: 'scatter',
+      name: 'Social',
+    };
+
+    this.graphData.push(graphGovernmental);
+    this.graphData.push(graphSocial);
+    this.graphData.push(graphEnvironmental);
   }
 
   toggleAvaliationStatus() {

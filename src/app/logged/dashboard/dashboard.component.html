@@ -7,7 +7,7 @@
           <div class="flex-grow-1 d-flex flex-column align-item-start justify-content-start gap-4">
             <div class="w-100 d-flex align-item-center justify-content-between w-100 pb-2">
               <div>
-                <h4 class="primary-text f-size-1-5rem fw-700 pb-1" (click)="toggleAvaliationStatus()">
+                <h4 class="primary-text f-size-1-5rem fw-700 pb-1">
                   {{ "DASHBOARD.YOUR_SCORE" | translate }}
                 </h4>
       
@@ -188,13 +188,16 @@
     
     <div class="fade-in row">
       <div class="col-12 col-xl-5">
-        <div class="position-relative card-logged p-3 p-lg-4" style="overflow: hidden;">
-          <h4 class="position-absolute primary-text f-size-1-5rem fw-700 pb-3" style="z-index: 999999;">
+        <div class="position-relative card-logged p-3 p-lg-4 pt-0 pt-lg-0" style="overflow: hidden;">
+          <h4 class="position-absolute primary-text f-size-1-5rem fw-700 pb-2 pt-3 pt-lg-4" style="z-index: 999999;">
             {{ "DASHBOARD.ASSESMENT_HISTORY" | translate }}
           </h4>
     
           <!-- <img src="/assets/img/graph-dash.svg" alt="Gráfico exemplo" class="w-100"> -->
-          <plotly-plot [data]="graphData" [config]="graphConfig"></plotly-plot>
+          <plotly-plot *ngIf="allCompleteAvaliations.length > 1" [data]="graphData" [config]="graphConfig"></plotly-plot>
+          <p *ngIf="allCompleteAvaliations.length <= 1" class="l-height-1-5rem primary-text fw-600 f-size-1rem pt-5 mt-5 pb-2">
+            Avaliações insuficientes para gerar gráfico
+          </p>
         </div>
       </div>
     
@@ -250,12 +253,12 @@
   
   <!-- Pos Avaliacao -->
   <div *ngIf="avaliationStatus === 'post-avaliation'">
-    <div class="row pb-4">
+    <div class="row pb-4" (click)="toggleAvaliationStatus()">
       <div class="col d-flex flex-column flex-xl-row align-item-start justify-content-between gap-4">
         <div class="p-4 card-logged flex-grow-1 d-flex flex-column align-item-start justify-content-start gap-4">
           <div class="w-100 d-flex align-item-center justify-content-between w-100 pb-2">
             <div>
-              <h4 class="primary-text f-size-1-5rem fw-700 pb-1" (click)="toggleAvaliationStatus()">
+              <h4 class="primary-text f-size-1-5rem fw-700 pb-1">
                 Pontuação ThinkSus
               </h4>
   

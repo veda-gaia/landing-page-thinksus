@@ -185,7 +185,9 @@ export class DashboardComponent {
           this.postAvaliationInfo = postAvaliation;
           this.avaliationStatus = 'post-avaliation';
           console.log(postAvaliation);
-
+        }
+        
+        if(this.allCompleteAvaliations.length >= 2) {
           this.handleGraphicStatistics()
         }
         

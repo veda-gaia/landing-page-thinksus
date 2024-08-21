@@ -59,6 +59,8 @@ export class ProfileComponent {
 
           this.editForm.controls['companyName'].setValue(data.company)
           this.editForm.controls['section'].setValue(data.section)
+
+          if( data.companyAdress.country ) this.editForm.controls['country'].setValue(data.companyAdress.country)
         }
       })
 

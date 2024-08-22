@@ -769,5 +769,11 @@
         "SUPPLY_CHAIN_ITEM_7": "Blockchain registration for global validation",
         "SUPPLY_CHAIN_ITEM_8": "Supply chain certification",
         "SUPPLY_CHAIN_ITEM_9": "Analysis frameworks aligned with your operation and value chain (GRI, SASB, TCFD)"
+    },
+    "PAYMENT_ORIENTATION": {
+        "TITLE": "Payment Orientation",
+        "CHOOSE_METHOD": "You will be redirected to the Mercado Pago checkout. Choose your preferred payment method and complete the purchase.",
+        "IMPORTANT_DONT_FORGET": "Important: Don't forget to click to return to Thinksus and complete your purchase.",
+        "NEXT": "Next"
     }
 }

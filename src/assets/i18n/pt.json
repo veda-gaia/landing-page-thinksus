@@ -768,5 +768,11 @@
         "SUPPLY_CHAIN_ITEM_7": "Registro em blockchain para validação mundial",
         "SUPPLY_CHAIN_ITEM_8": "Certificação de cadeia de suprimentos",
         "SUPPLY_CHAIN_ITEM_9": "Frameworks de análise aderentes a sua operação e cadeia de valor (GRI, SASB, TCFD)"
+    },
+    "PAYMENT_ORIENTATION": {
+        "TITLE": "Orientações para pagamento",
+        "CHOOSE_METHOD": "Você será redirecionado para o checkout Mercado Pago. Escolha o método de pagamento de preferência e finalize a compra.",
+        "IMPORTANT_DONT_FORGET": "Importante: Não esqueça de clicar para retornar ao Thinksus e concluir sua compra.",
+        "NEXT": "Avançar"
     }
 }

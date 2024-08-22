@@ -41,6 +41,7 @@ export class DashboardComponent {
   };
 
   odsScoreArray: any[] = [];
+  postOdsScoreArray: any[] = [];
   allCompleteAvaliations: any[] = []
   postAvaliationInfo: any;
 
@@ -184,6 +185,7 @@ export class DashboardComponent {
         if (postAvaliation) {
           this.postAvaliationInfo = postAvaliation;
           this.avaliationStatus = 'post-avaliation';
+          this.postOdsScoreArray = postAvaliation.odsScore
           console.log(postAvaliation);
         }
         

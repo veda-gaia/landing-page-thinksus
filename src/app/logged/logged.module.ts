@@ -39,6 +39,7 @@ import * as PlotlyJS from 'plotly.js-dist-min';
 import { ProfileComponent } from './profile/profile.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { PlansComponent } from './plans/plans.component';
+import { PaymentOrientationModalComponent } from './plans/payment-orientation-modal/payment-orientation-modal.component';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -72,6 +73,7 @@ PlotlyModule.plotlyjs = PlotlyJS;
     ProfileComponent,
     ConfirmationComponent,
     PlansComponent,
+    PaymentOrientationModalComponent,
   ],
   imports: [
     CommonModule,

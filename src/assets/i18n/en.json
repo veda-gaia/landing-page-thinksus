@@ -735,17 +735,18 @@
         "SUBTITLE": "Get the best monitoring of your Company's ESG practices!",
         "PER_YEAR": "Per year",
         "ASSIGN": "Subscribe",
+        "SOON": "Soon",
 
         "SIMULATION_TITLE": "Simulation",
-        "SIMULATION_PRICE": "$1000",
-        "SIMULATION_ALL_SUBTITLE": "Everything from Basic +",
+        "SIMULATION_PRICE": "R$99",
+        "SIMULATION_ALL_SUBTITLE": "Everything from Simulation +",
         "SIMULATION_ITEM_1": "Rating simulation",
         "SIMULATION_ITEM_2": "Active profile on dashboard",
         "SIMULATION_ITEM_3": "SDG adherence matrix",
 
         "SOLUTION_TITLE": "Solution",
-        "SOLUTION_PRICE": "$2000",
-        "SOLUTION_ALL_SUBTITLE": "Everything from Basic +",
+        "SOLUTION_PRICE": "R$999",
+        "SOLUTION_ALL_SUBTITLE": "Everything from Solution +",
         "SOLUTION_ITEM_1": "Rating simulation",
         "SOLUTION_ITEM_2": "Complete package of ESG improvement recommendations",
         "SOLUTION_ITEM_3": "Annual validation and certification (with indicator report)",
@@ -753,6 +754,20 @@
         "SOLUTION_ITEM_5": "Active profile on dashboard",
         "SOLUTION_ITEM_6": "SDG adherence matrix",
         "SOLUTION_ITEM_7": "Blockchain registration for global validation",
-        "SOLUTION_ITEM_8": "Analysis frameworks aligned with your operation and value chain (GRI, SASB, TCFD)"
+        "SOLUTION_ITEM_8": "Analysis frameworks aligned with your operation and value chain (GRI, SASB, TCFD)",
+
+        
+        "SUPPLY_CHAIN_TITLE": "Supply Chain",
+        "SUPPLY_CHAIN_PRICE": "R$ 4.999",
+        "SUPPLY_CHAIN_ALL_SUBTITLE": "Everything from Solution +",
+        "SUPPLY_CHAIN_ITEM_1": "Rating simulation",
+        "SUPPLY_CHAIN_ITEM_2": "Complete package of ESG improvement recommendations",
+        "SUPPLY_CHAIN_ITEM_3": "Annual validation and certification (with indicator report)",
+        "SUPPLY_CHAIN_ITEM_4": "TKS seal for a score above 60% adherence",
+        "SUPPLY_CHAIN_ITEM_5": "Active profile on dashboard",
+        "SUPPLY_CHAIN_ITEM_6": "SDG adherence matrix",
+        "SUPPLY_CHAIN_ITEM_7": "Blockchain registration for global validation",
+        "SUPPLY_CHAIN_ITEM_8": "Supply chain certification",
+        "SUPPLY_CHAIN_ITEM_9": "Analysis frameworks aligned with your operation and value chain (GRI, SASB, TCFD)"
     }
 }

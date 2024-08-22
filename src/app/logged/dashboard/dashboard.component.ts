@@ -54,7 +54,6 @@ export class DashboardComponent {
     this.CompanyService.getByUser().subscribe({
       next: (data) => {
         this.userName = data.user.name;
-
         if (data.section === 'Agribusiness') {
           this.environmentalQuestions = 13;
           this.socialQuestions = 15;
@@ -87,30 +86,23 @@ export class DashboardComponent {
     });
   }
 
-  // Define as informaçõoes da Dashboard
   handleInfo() {
     this.EsgRatingService.getByCompany().subscribe({
       next: (data) => {
-        console.log(data);
-        // Pega todos os itens completos
         this.allCompleteAvaliations = data.filter((item) => {
           return item.status === 'COMPLETED';
         })
 
-        // Coloca em ordem cronológica
         this.allCompleteAvaliations.sort((a, b) => {
           return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
         });
 
-        // Pega o ultimo item em progresso
         let inProgressAvaliation = data.filter((item) => {
           return item.status === 'IN_PROGRESS';
         })[0];
 
-        // Pega o ultimo item completo
         let postAvaliation = this.allCompleteAvaliations[0];
 
-        // Sem Avaliação em andamento
         if (!inProgressAvaliation) {
           this.avaliationStatus = 'pre-avaliation';
 
@@ -132,7 +124,6 @@ export class DashboardComponent {
           this.odsScoreArray = initialScoreArray;
         }
 
-        // Com Avaliação em andamento
         if (inProgressAvaliation) {
           this.avaliationStatus = 'pre-avaliation';
 
@@ -186,7 +177,6 @@ export class DashboardComponent {
           this.postAvaliationInfo = postAvaliation;
           this.avaliationStatus = 'post-avaliation';
           this.postOdsScoreArray = postAvaliation.odsScore
-          console.log(postAvaliation);
         }
         
         if(this.allCompleteAvaliations.length >= 2) {
@@ -196,7 +186,7 @@ export class DashboardComponent {
         this.loading = false;
       },
       error: (err) => {
-        console.log(err), (this.loading = false);
+        console.error(err), (this.loading = false);
       },
     });
   }

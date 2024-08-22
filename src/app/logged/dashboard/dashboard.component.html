@@ -3,160 +3,186 @@
   <div *ngIf="avaliationStatus === 'pre-avaliation'">
     <div class="row pb-4">
       <div class="col">
-        <div class="dashboard-score-pre-container d-flex flex-column flex-xl-row align-item-center justify-content-between gap-4 p-4 card-logged">
+        <div
+          class="dashboard-score-pre-container d-flex flex-column flex-xl-row align-item-center justify-content-between gap-4 p-4 card-logged">
           <div class="flex-grow-1 d-flex flex-column align-item-start justify-content-start gap-4">
             <div class="w-100 d-flex align-item-center justify-content-between w-100 pb-2">
               <div>
                 <h4 class="primary-text f-size-1-5rem fw-700 pb-1">
                   {{ "DASHBOARD.YOUR_SCORE" | translate }}
                 </h4>
-      
+
                 <p class="alpha-700-text f-size-0-85rem fw-500">
                   {{ "DASHBOARD.HI" | translate }} {{ userName.split(' ')[0] }}. {{ "DASHBOARD.THATS" | translate }}
                 </p>
               </div>
-    
+
               <h4 class="primary-text f-size-2rem fw-700">
                 -
               </h4>
             </div>
-    
-            <div class="d-flex flex-column flex-sm-row align-item-start justify-content-between gap-3" style="max-width: 800px;">
+
+            <div class="d-flex flex-column flex-sm-row align-item-start justify-content-between gap-3"
+              style="max-width: 800px;">
               <div>
                 <p class="alpha-700-text l-height-1-5 f-size-12px fw-500 pb-1">
                   {{ "DASHBOARD.TYPE" | translate }}
                 </p>
-                    
+
                 <p class="brand-800-text f-size-0-85rem fw-600 l-height-1-5 pb-2">
                   {{ "DASHBOARD.ENVIRONMENTAL" | translate }}
                 </p>
-                    
+
                 <p class="brand-800-text f-size-0-85rem fw-600 l-height-1-5 pb-2">
                   {{ "DASHBOARD.SOCIAL" | translate }}
                 </p>
-                    
+
                 <p class="brand-800-text f-size-0-85rem fw-600 l-height-1-5">
                   {{ "DASHBOARD.GOVERNANCE" | translate }}
                 </p>
               </div>
-    
+
               <div>
                 <p class="alpha-700-text l-height-1-5 f-size-12px fw-500 pb-1">
                   {{ "DASHBOARD.PROGRESS" | translate }}
                 </p>
-                  
+
                 <div class="d-flex flex-column align-item-start justify-content-start pb-1">
-                  <p class="f-size-1rem fw-600 l-height-1-5" [class.gray-3-text]="environmentalInfo.progress === 0" [class.alpha-700-text]="environmentalInfo.progress > 0">
+                  <p class="f-size-1rem fw-600 l-height-1-5" [class.gray-3-text]="environmentalInfo.progress === 0"
+                    [class.alpha-700-text]="environmentalInfo.progress > 0">
                     {{ environmentalInfo.progress }}/{{ environmentalQuestions }}
                   </p>
                   <div class="mini-progress-container">
-                    <div class="mini-progress" [class.aplha-700-bg]="environmentalInfo.progress > 0" [style]="'width: ' + ((100 / environmentalQuestions) * environmentalInfo.progress) + '%;'"></div>
+                    <div class="mini-progress" [class.aplha-700-bg]="environmentalInfo.progress > 0"
+                      [style]="'width: ' + ((100 / environmentalQuestions) * environmentalInfo.progress) + '%;'"></div>
                   </div>
                 </div>
-                  
+
                 <div class="d-flex flex-column align-item-start justify-content-start pb-1">
-                  <p class="f-size-1rem fw-600 l-height-1-5" [class.gray-3-text]="socialInfo.progress === 0" [class.alpha-700-text]="socialInfo.progress > 0">
+                  <p class="f-size-1rem fw-600 l-height-1-5" [class.gray-3-text]="socialInfo.progress === 0"
+                    [class.alpha-700-text]="socialInfo.progress > 0">
                     {{ socialInfo.progress }}/{{ socialQuestions }}
                   </p>
                   <div class="mini-progress-container">
-                    <div class="mini-progress" [class.aplha-700-bg]="socialInfo.progress > 0" [style]="'width: ' + ((100 / socialQuestions) * socialInfo.progress) + '%;'"></div>
+                    <div class="mini-progress" [class.aplha-700-bg]="socialInfo.progress > 0"
+                      [style]="'width: ' + ((100 / socialQuestions) * socialInfo.progress) + '%;'"></div>
                   </div>
                 </div>
-  
+
                 <div class="d-flex flex-column align-item-start justify-content-start pb-1">
-                  <p class="f-size-1rem fw-600 l-height-1-5" [class.gray-3-text]="governanceInfo.progress === 0" [class.alpha-700-text]="governanceInfo.progress > 0">
+                  <p class="f-size-1rem fw-600 l-height-1-5" [class.gray-3-text]="governanceInfo.progress === 0"
+                    [class.alpha-700-text]="governanceInfo.progress > 0">
                     {{ governanceInfo.progress }}/{{ governanceQuestions }}
                   </p>
                   <div class="mini-progress-container">
-                    <div class="mini-progress" [class.aplha-700-bg]="governanceInfo.progress > 0" [style]="'width: ' + ((100 / governanceQuestions) * governanceInfo.progress) + '%;'"></div>
+                    <div class="mini-progress" [class.aplha-700-bg]="governanceInfo.progress > 0"
+                      [style]="'width: ' + ((100 / governanceQuestions) * governanceInfo.progress) + '%;'"></div>
                   </div>
                 </div>
               </div>
-    
+
               <div>
                 <p class="alpha-700-text l-height-1-5 f-size-12px fw-500 pb-1">
                   {{ "DASHBOARD.SCORE_PER_SEGMENT" | translate }}
                 </p>
-                  
+
                 <div class="d-flex flex-column align-item-start justify-content-start pb-1">
-                  <p class="f-size-1rem fw-600 l-height-1-5" [class.gray-3-text]="environmentalInfo.score === 0" [class.danger-text]="environmentalInfo.score > 0">
+                  <p class="f-size-1rem fw-600 l-height-1-5" [class.gray-3-text]="environmentalInfo.score === 0"
+                    [class.danger-text]="environmentalInfo.score > 0">
                     {{ environmentalInfo.score ? environmentalInfo.score : '-' }}
                   </p>
                   <div class="mini-progress-container">
-                    <div class="mini-progress" [class.danger-bg]="environmentalInfo.progress > 0" [style]="'width: ' + environmentalInfo.score + '%;'"></div>
+                    <div class="mini-progress" [class.danger-bg]="environmentalInfo.progress > 0"
+                      [style]="'width: ' + environmentalInfo.score + '%;'"></div>
                   </div>
                 </div>
-                  
+
                 <div class="d-flex flex-column align-item-start justify-content-start pb-1">
-                  <p class="f-size-1rem fw-600 l-height-1-5" [class.gray-3-text]="socialInfo.score === 0" [class.danger-text]="socialInfo.score > 0">
+                  <p class="f-size-1rem fw-600 l-height-1-5" [class.gray-3-text]="socialInfo.score === 0"
+                    [class.danger-text]="socialInfo.score > 0">
                     {{ socialInfo.score ? socialInfo.score : '-' }}
                   </p>
                   <div class="mini-progress-container">
-                    <div class="mini-progress" [class.danger-bg]="socialInfo.progress > 0" [style]="'width: ' + socialInfo.score + '%;'"></div>
+                    <div class="mini-progress" [class.danger-bg]="socialInfo.progress > 0"
+                      [style]="'width: ' + socialInfo.score + '%;'"></div>
                   </div>
                 </div>
-                  
+
                 <div class="d-flex flex-column align-item-start justify-content-start pb-1">
-                  <p class="f-size-1rem fw-600 l-height-1-5" [class.gray-3-text]="governanceInfo.score === 0" [class.danger-text]="governanceInfo.score > 0">
+                  <p class="f-size-1rem fw-600 l-height-1-5" [class.gray-3-text]="governanceInfo.score === 0"
+                    [class.danger-text]="governanceInfo.score > 0">
                     {{ governanceInfo.score ? governanceInfo.score : '-' }}
                   </p>
                   <div class="mini-progress-container">
-                    <div class="mini-progress" [class.danger-bg]="governanceInfo.progress > 0" [style]="'width: ' + governanceInfo.score + '%;'"></div>
+                    <div class="mini-progress" [class.danger-bg]="governanceInfo.progress > 0"
+                      [style]="'width: ' + governanceInfo.score + '%;'"></div>
                   </div>
                 </div>
               </div>
-    
+
               <div>
                 <p class="alpha-700-text l-height-1-5 f-size-12px fw-500 pb-1">
                   {{ "DASHBOARD.STATUS" | translate }}
                 </p>
-                    
+
                 <div>
-                  <a routerLink="/logged/assesment/e-{{ companySection }}" *ngIf="!environmentalInfo.progress" class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-start gap-2">
+                  <a routerLink="/logged/assesment/e-{{ companySection }}" *ngIf="!environmentalInfo.progress"
+                    class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-start gap-2">
                     {{ "DASHBOARD.START" | translate }}
                     <img src="/assets/icon/play.svg" alt="Iniciar">
                   </a>
-                  
-                  <a routerLink="/logged/assesment/e-{{ companySection }}" *ngIf="environmentalInfo.progress && (environmentalInfo.progress !== environmentalQuestions)" class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-start gap-2">
+
+                  <a routerLink="/logged/assesment/e-{{ companySection }}"
+                    *ngIf="environmentalInfo.progress && (environmentalInfo.progress !== environmentalQuestions)"
+                    class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-start gap-2">
                     {{ "DASHBOARD.CONTINUE" | translate }}
                     <img src="/assets/icon/play.svg" alt="Iniciar">
                   </a>
-  
-                  <button *ngIf="environmentalInfo.progress === environmentalQuestions" [disabled]="true" class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-start gap-2">
+
+                  <button *ngIf="environmentalInfo.progress === environmentalQuestions" [disabled]="true"
+                    class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-start gap-2">
                     {{ "DASHBOARD.FINISHED" | translate }}
                     <img src="/assets/icon/play.svg" alt="Iniciar">
                   </button>
                 </div>
-                    
+
                 <div>
-                  <a routerLink="/logged/assesment/s-{{ companySection }}" *ngIf="!socialInfo.progress" class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-start gap-2">
+                  <a routerLink="/logged/assesment/s-{{ companySection }}" *ngIf="!socialInfo.progress"
+                    class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-start gap-2">
                     {{ "DASHBOARD.START" | translate }}
                     <img src="/assets/icon/play.svg" alt="Iniciar">
                   </a>
-                  
-                  <a routerLink="/logged/assesment/s-{{ companySection }}" *ngIf="socialInfo.progress && (socialInfo.progress !== socialQuestions)" class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-start gap-2">
+
+                  <a routerLink="/logged/assesment/s-{{ companySection }}"
+                    *ngIf="socialInfo.progress && (socialInfo.progress !== socialQuestions)"
+                    class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-start gap-2">
                     {{ "DASHBOARD.CONTINUE" | translate }}
                     <img src="/assets/icon/play.svg" alt="Iniciar">
                   </a>
-  
-                  <button *ngIf="socialInfo.progress === socialQuestions" [disabled]="true" class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-start gap-2">
+
+                  <button *ngIf="socialInfo.progress === socialQuestions" [disabled]="true"
+                    class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-start gap-2">
                     {{ "DASHBOARD.FINISHED" | translate }}
                     <img src="/assets/icon/play.svg" alt="Iniciar">
                   </button>
                 </div>
-                    
+
                 <div>
-                  <a routerLink="/logged/assesment/g-{{ companySection }}" *ngIf="!governanceInfo.progress" class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-start gap-2">
+                  <a routerLink="/logged/assesment/g-{{ companySection }}" *ngIf="!governanceInfo.progress"
+                    class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-start gap-2">
                     {{ "DASHBOARD.START" | translate }}
                     <img src="/assets/icon/play.svg" alt="Iniciar">
                   </a>
-                  
-                  <a routerLink="/logged/assesment/g-{{ companySection }}" *ngIf="governanceInfo.progress && (governanceInfo.progress !== governanceQuestions)" class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-center gap-2">
+
+                  <a routerLink="/logged/assesment/g-{{ companySection }}"
+                    *ngIf="governanceInfo.progress && (governanceInfo.progress !== governanceQuestions)"
+                    class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-center gap-2">
                     {{ "DASHBOARD.CONTINUE" | translate }}
                     <img src="/assets/icon/play.svg" alt="Iniciar">
                   </a>
-  
-                  <button *ngIf="governanceInfo.progress === governanceQuestions" [disabled]="true" class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-start gap-2">
+
+                  <button *ngIf="governanceInfo.progress === governanceQuestions" [disabled]="true"
+                    class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-start gap-2">
                     {{ "DASHBOARD.FINISHED" | translate }}
                     <img src="/assets/icon/play.svg" alt="Iniciar">
                   </button>
@@ -164,7 +190,7 @@
               </div>
             </div>
           </div>
-    
+
           <div class="indicator-card p-4" style="min-width: 280px;">
             <h4 class="f-size-1-25rem l-height-1-5rem fw-700 primary-text mb-2">
               {{ "DASHBOARD.INDICATOR" | translate }}
@@ -175,73 +201,83 @@
             <p class="f-size-0-671875rem l-height-1rem fw-500 primary-text mb-4 pb-2" style="max-width: 182px;">
               {{ "DASHBOARD.TAKE_ASSESMENT" | translate }}
             </p>
-    
+
             <a routerLink="/logged/assesment/e-agro">
               <button class="brand-btn w-100">
                 {{ "DASHBOARD.START_ASSESMENT" | translate }}
-              </button> 
+              </button>
             </a>
           </div>
         </div>
       </div>
     </div>
-    
+
     <div class="fade-in row">
       <div class="col-12 col-xl-5">
         <div class="position-relative card-logged p-3 p-lg-4 pt-0 pt-lg-0" style="overflow: hidden;">
           <h4 class="position-absolute primary-text f-size-1-5rem fw-700 pb-2 pt-3 pt-lg-4" style="z-index: 999999;">
             {{ "DASHBOARD.ASSESMENT_HISTORY" | translate }}
           </h4>
-    
+
           <!-- <img src="/assets/img/graph-dash.svg" alt="Gráfico exemplo" class="w-100"> -->
-          <plotly-plot *ngIf="allCompleteAvaliations.length > 1" [data]="graphData" [config]="graphConfig"></plotly-plot>
-          <p *ngIf="allCompleteAvaliations.length <= 1" class="l-height-1-5rem primary-text fw-600 f-size-1rem pt-5 mt-5 pb-2">
+          <plotly-plot *ngIf="allCompleteAvaliations.length > 1" [data]="graphData"
+            [config]="graphConfig"></plotly-plot>
+          <p *ngIf="allCompleteAvaliations.length <= 1"
+            class="l-height-1-5rem primary-text fw-600 f-size-1rem pt-5 mt-5 pb-2">
             Avaliações insuficientes para gerar gráfico
           </p>
         </div>
       </div>
-    
+
       <div class="col-12 col-xl-7 pt-4 pt-xl-0">
         <div class="card-logged p-3 p-lg-4">
-          <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 pb-3">
+          <div
+            class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 pb-3">
             <div>
               <h4 class="primary-text f-size-1-5rem fw-700 pb-1">
                 {{ "DASHBOARD.ADERENCE_LEVEL" | translate }}
               </h4>
-    
+
               <p class="alpha-700-text f-size-0-85rem fw-500">
                 {{ "DASHBOARD.17_OBJECTIVES" | translate }}
               </p>
             </div>
-      
-            <button class="no-bg-btn text-nowrap fw-600 brand-text bg-transparent d-flex align-item-center justify-content-center gap-2">
+
+            <button
+              class="no-bg-btn text-nowrap fw-600 brand-text bg-transparent d-flex align-item-center justify-content-center gap-2">
               {{ "DASHBOARD.GENERATE_RELATORY" | translate }}
               <img src="/assets/icon/download.svg" alt="Download">
             </button>
           </div>
-    
-          <div class="high-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2 mb-2" style="min-height: 50px;">
+
+          <div class="high-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2 mb-2"
+            style="min-height: 50px;">
             <div class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
               <div *ngFor="let ods of odsScoreArray" [class.d-none]="!(ods.score > 70)">
-                <img *ngIf="ods.score > 70" src="/assets/icon/selos-ods/{{ ods.ods }}.svg" alt="{{ ods.ods }}" title="{{ ods.ods }}">
+                <img *ngIf="ods.score > 70" src="/assets/icon/selos-ods/{{ ods.ods }}.svg" alt="{{ ods.ods }}"
+                  title="{{ ods.ods }}">
               </div>
             </div>
             <p class="f-size-12px fw-500 pb-1">{{ "DASHBOARD.HIGH" | translate }}</p>
           </div>
-    
-          <div class="intermediate-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2 mb-2" style="min-height: 50px;">
+
+          <div class="intermediate-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2 mb-2"
+            style="min-height: 50px;">
             <div class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
               <div *ngFor="let ods of odsScoreArray" [class.d-none]="!((ods.score <= 70) && (ods.score > 35))">
-                <img *ngIf="(ods.score <= 70) && (ods.score > 35)" src="/assets/icon/selos-ods/{{ ods.ods }}.svg" alt="{{ ods.ods }}" title="{{ ods.ods }}">
+                <img *ngIf="(ods.score <= 70) && (ods.score > 35)" src="/assets/icon/selos-ods/{{ ods.ods }}.svg"
+                  alt="{{ ods.ods }}" title="{{ ods.ods }}">
               </div>
             </div>
             <p class="f-size-12px fw-500 pb-1">{{ "DASHBOARD.INTERMEDIATE" | translate }}</p>
           </div>
-    
-          <div class="low-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2" style="min-height: 50px;">
+
+          <div class="low-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2"
+            style="min-height: 50px;">
             <div class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
               <div *ngFor="let ods of odsScoreArray" [class.d-none]="!(ods.score <= 35) || ods.score <= 0">
-                <img *ngIf="ods.score <= 35 && ods.score > 0" src="/assets/icon/selos-ods/{{ ods.ods }}.svg" alt="{{ ods.ods }}" title="{{ ods.ods }}">
+                <img *ngIf="ods.score <= 35 && ods.score > 0" src="/assets/icon/selos-ods/{{ ods.ods }}.svg"
+                  alt="{{ ods.ods }}" title="{{ ods.ods }}">
               </div>
             </div>
             <p class="f-size-12px fw-500 pb-1">{{ "DASHBOARD.LOW" | translate }}</p>
@@ -250,7 +286,7 @@
       </div>
     </div>
   </div>
-  
+
   <!-- Pos Avaliacao -->
   <div *ngIf="avaliationStatus === 'post-avaliation'">
     <div class="row pb-4">
@@ -261,44 +297,46 @@
               <h4 class="primary-text f-size-1-5rem fw-700 pb-1">
                 Pontuação ThinkSus
               </h4>
-  
+
               <p class="alpha-700-text f-size-0-85rem fw-500">
                 Olá, {{ userName.split(' ')[0] }}. Esse é o seu Score total atual.
               </p>
             </div>
-  
+
             <div>
               <div class="d-flex align-items-end justify-content-between gap-4 pb-2">
-                <p *ngIf="postAvaliationInfo.esgScore.toFixed() <= 35" class="d-block primary-text f-size-12px l-height-1-25 fw-700">
+                <p *ngIf="postAvaliationInfo.esgScore.toFixed() <= 35"
+                  class="d-block primary-text f-size-12px l-height-1-25 fw-700">
                   NOTA
                 </p>
-                <p *ngIf="postAvaliationInfo.esgScore.toFixed() > 35 && postAvaliationInfo.esgScore.toFixed() <= 59" class="d-block bronze-text f-size-12px l-height-1-25 fw-700">
+                <p *ngIf="postAvaliationInfo.esgScore.toFixed() > 35 && postAvaliationInfo.esgScore.toFixed() <= 59"
+                  class="d-block bronze-text f-size-12px l-height-1-25 fw-700">
                   BRONZE
                 </p>
-                <p *ngIf="postAvaliationInfo.esgScore.toFixed() >= 60 && postAvaliationInfo.esgScore.toFixed() <= 80" class="d-block silver-text f-size-12px l-height-1-25 fw-700">
+                <p *ngIf="postAvaliationInfo.esgScore.toFixed() >= 60 && postAvaliationInfo.esgScore.toFixed() <= 80"
+                  class="d-block silver-text f-size-12px l-height-1-25 fw-700">
                   PRATA
                 </p>
-                <p *ngIf="postAvaliationInfo.esgScore.toFixed() >= 81" class="d-block yellow-500-text f-size-12px l-height-1-25 fw-700">
+                <p *ngIf="postAvaliationInfo.esgScore.toFixed() >= 81"
+                  class="d-block yellow-500-text f-size-12px l-height-1-25 fw-700">
                   OURO
                 </p>
-  
-                <h4
-                 class="d-block f-size-3rem l-height-3 fw-700"
-                 [class.primary-text]="postAvaliationInfo.esgScore.toFixed() <= 35"
-                 [class.bronze-text]="postAvaliationInfo.esgScore.toFixed() > 35 && postAvaliationInfo.esgScore.toFixed() <= 59"
-                 [class.silver-text]="postAvaliationInfo.esgScore.toFixed() >= 60 && postAvaliationInfo.esgScore.toFixed() <= 80"
-                 [class.yellow-500-text]="postAvaliationInfo.esgScore.toFixed() >= 81"
-                 >
+
+                <h4 class="d-block f-size-3rem l-height-3 fw-700"
+                  [class.primary-text]="postAvaliationInfo.esgScore.toFixed() <= 35"
+                  [class.bronze-text]="postAvaliationInfo.esgScore.toFixed() > 35 && postAvaliationInfo.esgScore.toFixed() <= 59"
+                  [class.silver-text]="postAvaliationInfo.esgScore.toFixed() >= 60 && postAvaliationInfo.esgScore.toFixed() <= 80"
+                  [class.yellow-500-text]="postAvaliationInfo.esgScore.toFixed() >= 81">
                   {{ postAvaliationInfo.esgScore.toFixed() }}
                 </h4>
               </div>
-  
+
               <p class="alpha-600-text f-size-12px l-height-1-25 fw-500">
                 Gerado em {{ postAvaliationInfo.updatedAt | dateFormat }}
               </p>
             </div>
           </div>
-  
+
           <div>
             <div class="d-flex flex-column align-item-start justify-content-start pb-1">
               <p class="green-800-text l-height-1-25rem f-size-0-85rem fw-600 ">
@@ -307,15 +345,16 @@
               <div class="score-progress-container green-100-bg">
                 <div class="score-progress green-400-bg gap-2" [class.below-15]="postAvaliationInfo.environmentalScore.toFixed() <= 15" [style]="'width: ' + postAvaliationInfo.environmentalScore.toFixed() + '%;'">
                   <p class="white-text f-size-12px l-height-1rem fw-500">Nota</p>
-                  <p class="white-text f-size-0-85rem l-height-1-25rem fw-700 pe-2">{{ postAvaliationInfo.environmentalScore.toFixed() }}</p>
+                  <p class="white-text f-size-0-85rem l-height-1-25rem fw-700 pe-2">{{
+                    postAvaliationInfo.environmentalScore.toFixed() }}</p>
                 </div>
-  
+
                 <p class="score-100">
                   100
                 </p>
               </div>
             </div>
-  
+
             <div class="d-flex flex-column align-item-start justify-content-start pb-1">
               <p class="green-800-text l-height-1-25rem f-size-0-85rem fw-600">
                 Social
@@ -323,15 +362,16 @@
               <div class="score-progress-container purple-100-bg">
                 <div class="score-progress purple-500-bg gap-2" [class.below-15]="postAvaliationInfo.socialScore.toFixed() <= 15" [style]="'width: ' + postAvaliationInfo.socialScore.toFixed() + '%;'">
                   <p class="white-text f-size-12px l-height-1rem fw-500">Nota</p>
-                  <p class="white-text f-size-0-85rem l-height-1-25rem fw-700 pe-2">{{ postAvaliationInfo.socialScore.toFixed() }}</p>
+                  <p class="white-text f-size-0-85rem l-height-1-25rem fw-700 pe-2">{{
+                    postAvaliationInfo.socialScore.toFixed() }}</p>
                 </div>
-  
+
                 <p class="score-100">
                   100
                 </p>
               </div>
             </div>
-  
+
             <div class="d-flex flex-column align-item-start justify-content-start pb-1">
               <p class="green-800-text l-height-1-25rem f-size-0-85rem fw-600">
                 Governança
@@ -339,9 +379,10 @@
               <div class="score-progress-container blue-100-bg">
                 <div class="score-progress blue-400-bg gap-2" [class.below-15]="postAvaliationInfo.governanceScore.toFixed() <= 15" [style]="'width: ' + postAvaliationInfo.governanceScore.toFixed() + '%;'">
                   <p class="white-text f-size-12px l-height-1rem fw-500">Nota</p>
-                  <p class="white-text f-size-0-85rem l-height-1-25rem fw-700 pe-2">{{ postAvaliationInfo.governanceScore.toFixed() }}</p>
+                  <p class="white-text f-size-0-85rem l-height-1-25rem fw-700 pe-2">{{
+                    postAvaliationInfo.governanceScore.toFixed() }}</p>
                 </div>
-  
+
                 <p class="score-100">
                   100
                 </p>
@@ -349,28 +390,28 @@
             </div>
           </div>
         </div>
-  
+
         <div class="card-logged flex-grow-1 p-4">
           <h4 class="primary-text f-size-1-5rem fw-700 pb-1">
             Distribuição de aderência ESG
           </h4>
-  
+
           <p class="alpha-700-text f-size-0-85rem fw-500 pb-3">
             A partir das notas parciais
           </p>
-  
+
           <div class="d-flex align-item-start justify-content-between w-100">
             <div class="green-400-bg score-block" style="width: calc(29% - .3rem);"></div>
             <div class="purple-500-bg score-block" style="width: calc(17% - .3rem);"></div>
             <div class="blue-400-bg score-block" style="width: calc(53% - .3rem);"></div>
           </div>
-  
+
           <div class="d-flex flex-row align-item-start justify-content-start gap-3 pt-4">
             <div>
               <p class="d-block f-size-12px l-height-1-25rem brand-800-text fw-500">
                 Ambiental
               </p>
-              
+
               <div class="d-flex align-items-center justify-content-start gap-2">
                 <img src="/assets/icon/ambiental.svg" alt="ambiental">
                 <p class="f-size-0-85rem l-height-1-25rem dark-text fw-700">
@@ -378,12 +419,12 @@
                 </p>
               </div>
             </div>
-  
+
             <div>
               <p class="d-block f-size-12px l-height-1-25rem brand-800-text fw-500">
                 Social
               </p>
-  
+
               <div class="d-flex align-items-center justify-content-start gap-2">
                 <img src="/assets/icon/social.svg" alt="social">
                 <p class="f-size-0-85rem l-height-1-25rem dark-text fw-700">
@@ -391,12 +432,12 @@
                 </p>
               </div>
             </div>
-  
+
             <div>
               <p class="d-block f-size-12px l-height-1-25rem brand-800-text fw-500">
                 Governança
               </p>
-  
+
               <div class="d-flex align-items-center justify-content-start gap-2">
                 <img src="/assets/icon/governance.svg" alt="governance">
                 <p class="f-size-0-85rem l-height-1-25rem dark-text fw-700">
@@ -408,28 +449,31 @@
         </div>
       </div>
     </div>
-  
+
     <div class="fade-in row">
       <div class="col-12 col-xl-7 pt-4 pt-xl-0">
         <div class="card-logged p-3 p-lg-4">
-          <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 pb-3">
+          <div
+            class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 pb-3">
             <div>
               <h4 class="primary-text f-size-1-5rem fw-700 pb-1">
                 {{ "DASHBOARD.ADERENCE_LEVEL" | translate }}
               </h4>
-    
+
               <p class="alpha-700-text f-size-0-85rem fw-500">
                 {{ "DASHBOARD.17_OBJECTIVES" | translate }}
               </p>
             </div>
-      
-            <button class="no-bg-btn text-nowrap fw-600 brand-text bg-transparent d-flex align-item-center justify-content-center gap-2">
+
+            <button
+              class="no-bg-btn text-nowrap fw-600 brand-text bg-transparent d-flex align-item-center justify-content-center gap-2">
               {{ "DASHBOARD.GENERATE_RELATORY" | translate }}
               <img src="/assets/icon/download.svg" alt="Download">
             </button>
           </div>
-    
-          <div class="high-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2 mb-2" style="min-height: 50px;">
+
+          <div class="high-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2 mb-2"
+            style="min-height: 50px;">
             <div class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
               <div *ngFor="let ods of postOdsScoreArray" [class.d-none]="!(ods.score > 70)">
                 <img *ngIf="ods.score > 70" src="/assets/icon/selos-ods/{{ ods.ods }}.svg" alt="{{ ods.ods }}" title="{{ ods.ods }}">
@@ -437,8 +481,9 @@
             </div>
             <p class="f-size-12px fw-500 pb-1">{{ "DASHBOARD.HIGH" | translate }}</p>
           </div>
-    
-          <div class="intermediate-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2 mb-2" style="min-height: 50px;">
+
+          <div class="intermediate-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2 mb-2"
+            style="min-height: 50px;">
             <div class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
               <div *ngFor="let ods of postOdsScoreArray" [class.d-none]="!((ods.score <= 70) && (ods.score > 35))">
                 <img *ngIf="(ods.score <= 70) && (ods.score > 35)" src="/assets/icon/selos-ods/{{ ods.ods }}.svg" alt="{{ ods.ods }}" title="{{ ods.ods }}">
@@ -446,8 +491,9 @@
             </div>
             <p class="f-size-12px fw-500 pb-1">{{ "DASHBOARD.INTERMEDIATE" | translate }}</p>
           </div>
-    
-          <div class="low-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2" style="min-height: 50px;">
+
+          <div class="low-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2"
+            style="min-height: 50px;">
             <div class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
               <div *ngFor="let ods of postOdsScoreArray" [class.d-none]="!(ods.score <= 35)">
                 <img *ngIf="ods.score <= 35" src="/assets/icon/selos-ods/{{ ods.ods }}.svg" alt="{{ ods.ods }}" title="{{ ods.ods }}">
@@ -457,21 +503,93 @@
           </div>
         </div>
       </div>
-  
+
       <div class="col-12 col-xl-5">
         <div class="card-logged p-3 p-lg-4">
-          <p *ngIf="postAvaliationInfo.esgScore.toFixed() <= 35" class="f-size-0-85rem l-height-1-25rem alpha-800-text fw-500">
-            {{ "SOLUTION_SIMULATION_TEXT.0_35_TEXT" | translate }}
-          </p>
-          <p *ngIf="postAvaliationInfo.esgScore.toFixed() > 35 && postAvaliationInfo.esgScore.toFixed() <= 59" class="f-size-0-85rem l-height-1-25rem alpha-800-text fw-500">
-            {{ "SOLUTION_SIMULATION_TEXT.36_59_TEXT" | translate }}
-          </p>
-          <p *ngIf="postAvaliationInfo.esgScore.toFixed() >= 60 && postAvaliationInfo.esgScore.toFixed() <= 80" class="f-size-0-85rem l-height-1-25rem alpha-800-text fw-500">
-            {{ "SOLUTION_SIMULATION_TEXT.60_80_TEXT" | translate }}
-          </p>
-          <p *ngIf="postAvaliationInfo.esgScore.toFixed() >= 81" class="f-size-0-85rem l-height-1-25rem alpha-800-text fw-500">
-            {{ "SOLUTION_SIMULATION_TEXT.81_100_TEXT" | translate }}
-          </p>
+          <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="carousel-item active px-2">
+                <p *ngIf="postAvaliationInfo.esgScore.toFixed() <= 35"
+                  class="f-size-0-85rem l-height-1-25rem alpha-800-text fw-500">
+                  {{ "SOLUTION_SIMULATION_TEXT.0_35_TEXT" | translate }}
+                </p>
+                <p *ngIf="postAvaliationInfo.esgScore.toFixed() > 35 && postAvaliationInfo.esgScore.toFixed() <= 59"
+                  class="f-size-0-85rem l-height-1-25rem alpha-800-text fw-500">
+                  {{ "SOLUTION_SIMULATION_TEXT.36_59_TEXT" | translate }}
+                </p>
+                <p *ngIf="postAvaliationInfo.esgScore.toFixed() >= 60 && postAvaliationInfo.esgScore.toFixed() <= 80"
+                  class="f-size-0-85rem l-height-1-25rem alpha-800-text fw-500">
+                  {{ "SOLUTION_SIMULATION_TEXT.60_80_TEXT" | translate }}
+                </p>
+                <p *ngIf="postAvaliationInfo.esgScore.toFixed() >= 81"
+                  class="f-size-0-85rem l-height-1-25rem alpha-800-text fw-500">
+                  {{ "SOLUTION_SIMULATION_TEXT.81_100_TEXT" | translate }}
+                </p>
+              </div>
+              <div class="carousel-item">
+                <p *ngIf="postAvaliationInfo.esgScore.toFixed() <= 35"
+                  class="f-size-0-85rem l-height-1-25rem alpha-800-text fw-500">
+                  {{ "SOLUTION_SIMULATION_TEXT.0_35_TEXT2" | translate }}
+                </p>
+                <p *ngIf="postAvaliationInfo.esgScore.toFixed() > 35 && postAvaliationInfo.esgScore.toFixed() <= 59"
+                  class="f-size-0-85rem l-height-1-25rem alpha-800-text fw-500">
+                  {{ "SOLUTION_SIMULATION_TEXT.36_59_TEXT2" | translate }}
+                </p>
+                <p *ngIf="postAvaliationInfo.esgScore.toFixed() >= 60 && postAvaliationInfo.esgScore.toFixed() <= 80"
+                  class="f-size-0-85rem l-height-1-25rem alpha-800-text fw-500">
+                  {{ "SOLUTION_SIMULATION_TEXT.60_80_TEXT2" | translate }}
+                </p>
+                <p *ngIf="postAvaliationInfo.esgScore.toFixed() >= 81"
+                  class="f-size-0-85rem l-height-1-25rem alpha-800-text fw-500">
+                  {{ "SOLUTION_SIMULATION_TEXT.81_100_TEXT2" | translate }}
+                </p>
+              </div>
+              <div class="carousel-item">
+                <p *ngIf="postAvaliationInfo.esgScore.toFixed() <= 35"
+                  class="f-size-0-85rem l-height-1-25rem alpha-800-text fw-500">
+                  {{ "SOLUTION_SIMULATION_TEXT.0_35_TEXT3" | translate }}
+                </p>
+                <p *ngIf="postAvaliationInfo.esgScore.toFixed() > 35 && postAvaliationInfo.esgScore.toFixed() <= 59"
+                  class="f-size-0-85rem l-height-1-25rem alpha-800-text fw-500">
+                  {{ "SOLUTION_SIMULATION_TEXT.36_59_TEXT3" | translate }}
+                </p>
+                <p *ngIf="postAvaliationInfo.esgScore.toFixed() >= 60 && postAvaliationInfo.esgScore.toFixed() <= 80"
+                  class="f-size-0-85rem l-height-1-25rem alpha-800-text fw-500">
+                  {{ "SOLUTION_SIMULATION_TEXT.60_80_TEXT3" | translate }}
+                </p>
+                <p *ngIf="postAvaliationInfo.esgScore.toFixed() >= 81"
+                  class="f-size-0-85rem l-height-1-25rem alpha-800-text fw-500">
+                  {{ "SOLUTION_SIMULATION_TEXT.81_100_TEXT3" | translate }}
+                </p>
+              </div>
+              <div class="carousel-item">
+                <p *ngIf="postAvaliationInfo.esgScore.toFixed() <= 35"
+                  class="f-size-0-85rem l-height-1-25rem alpha-800-text fw-500">
+                  {{ "SOLUTION_SIMULATION_TEXT.0_35_TEXT4" | translate }}
+                </p>
+                <p *ngIf="postAvaliationInfo.esgScore.toFixed() > 35 && postAvaliationInfo.esgScore.toFixed() <= 59"
+                  class="f-size-0-85rem l-height-1-25rem alpha-800-text fw-500">
+                  {{ "SOLUTION_SIMULATION_TEXT.36_59_TEXT4" | translate }}
+                </p>
+                <p *ngIf="postAvaliationInfo.esgScore.toFixed() >= 60 && postAvaliationInfo.esgScore.toFixed() <= 80"
+                  class="f-size-0-85rem l-height-1-25rem alpha-800-text fw-500">
+                  {{ "SOLUTION_SIMULATION_TEXT.60_80_TEXT4" | translate }}
+                </p>
+                <p *ngIf="postAvaliationInfo.esgScore.toFixed() >= 81"
+                  class="f-size-0-85rem l-height-1-25rem alpha-800-text fw-500">
+                  {{ "SOLUTION_SIMULATION_TEXT.81_100_TEXT4" | translate }}
+                </p>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>

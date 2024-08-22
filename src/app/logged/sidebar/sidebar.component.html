@@ -8,12 +8,20 @@
             <img src="/assets/icon/sidebar-btn.svg" alt="Abrir navegação">
         </button>
     
-        <a class="d-flex align-items-center justify-content-between gap-3 py-3 cursor-pointer">
+        <a class="d-flex align-items-center justify-content-between gap-3 py-3 cursor-pointer" *ngIf="verifyRequested === 'content'">
             <p class="f-size-12px white-text fw-500 l-height-1rem">
                 {{ 'SIDEBAR.TAKE_ASSESMENT' | translate }}
             </p>
             <img src="/assets/icon/plus.svg" alt="Fazer Avaliação">
         </a>
+
+        <div class="py-3 cursor-pointer" [class]="getClassPerScore()" *ngIf="verifyRequested === 'view'">
+            <p class="fw-700 mb-0" style="color: #222021;font-size: 20px;">
+                {{getScore()}}
+            </p>
+
+            <span class="fw-600" style="font-size: 14px;color: #222021;">{{ getTitle()}}</span>
+        </div>
     
         <nav class="pt-3 w-100" (click)="toggleSidebar()">
             <ul class="m-0 p-0 d-flex align-items-start justify-content-start flex-column gap-2 w-100">

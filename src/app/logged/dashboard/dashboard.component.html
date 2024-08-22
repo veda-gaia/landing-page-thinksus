@@ -343,8 +343,7 @@
                 Ambiental
               </p>
               <div class="score-progress-container green-100-bg">
-                <div class="score-progress green-400-bg gap-2"
-                  [style]="'width: ' + postAvaliationInfo.environmentalScore.toFixed() + '%;'">
+                <div class="score-progress green-400-bg gap-2" [class.below-15]="postAvaliationInfo.environmentalScore.toFixed() <= 15" [style]="'width: ' + postAvaliationInfo.environmentalScore.toFixed() + '%;'">
                   <p class="white-text f-size-12px l-height-1rem fw-500">Nota</p>
                   <p class="white-text f-size-0-85rem l-height-1-25rem fw-700 pe-2">{{
                     postAvaliationInfo.environmentalScore.toFixed() }}</p>
@@ -361,8 +360,7 @@
                 Social
               </p>
               <div class="score-progress-container purple-100-bg">
-                <div class="score-progress purple-500-bg gap-2"
-                  [style]="'width: ' + postAvaliationInfo.socialScore.toFixed() + '%;'">
+                <div class="score-progress purple-500-bg gap-2" [class.below-15]="postAvaliationInfo.socialScore.toFixed() <= 15" [style]="'width: ' + postAvaliationInfo.socialScore.toFixed() + '%;'">
                   <p class="white-text f-size-12px l-height-1rem fw-500">Nota</p>
                   <p class="white-text f-size-0-85rem l-height-1-25rem fw-700 pe-2">{{
                     postAvaliationInfo.socialScore.toFixed() }}</p>
@@ -379,8 +377,7 @@
                 Governança
               </p>
               <div class="score-progress-container blue-100-bg">
-                <div class="score-progress blue-400-bg gap-2"
-                  [style]="'width: ' + postAvaliationInfo.governanceScore.toFixed() + '%;'">
+                <div class="score-progress blue-400-bg gap-2" [class.below-15]="postAvaliationInfo.governanceScore.toFixed() <= 15" [style]="'width: ' + postAvaliationInfo.governanceScore.toFixed() + '%;'">
                   <p class="white-text f-size-12px l-height-1rem fw-500">Nota</p>
                   <p class="white-text f-size-0-85rem l-height-1-25rem fw-700 pe-2">{{
                     postAvaliationInfo.governanceScore.toFixed() }}</p>
@@ -478,9 +475,8 @@
           <div class="high-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2 mb-2"
             style="min-height: 50px;">
             <div class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
-              <div *ngFor="let ods of odsScoreArray" [class.d-none]="!(ods.score > 70)">
-                <img *ngIf="ods.score > 70" src="/assets/icon/selos-ods/{{ ods.ods }}.svg" alt="{{ ods.ods }}"
-                  title="{{ ods.ods }}">
+              <div *ngFor="let ods of postOdsScoreArray" [class.d-none]="!(ods.score > 70)">
+                <img *ngIf="ods.score > 70" src="/assets/icon/selos-ods/{{ ods.ods }}.svg" alt="{{ ods.ods }}" title="{{ ods.ods }}">
               </div>
             </div>
             <p class="f-size-12px fw-500 pb-1">{{ "DASHBOARD.HIGH" | translate }}</p>
@@ -489,9 +485,8 @@
           <div class="intermediate-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2 mb-2"
             style="min-height: 50px;">
             <div class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
-              <div *ngFor="let ods of odsScoreArray" [class.d-none]="!((ods.score <= 70) && (ods.score > 35))">
-                <img *ngIf="(ods.score <= 70) && (ods.score > 35)" src="/assets/icon/selos-ods/{{ ods.ods }}.svg"
-                  alt="{{ ods.ods }}" title="{{ ods.ods }}">
+              <div *ngFor="let ods of postOdsScoreArray" [class.d-none]="!((ods.score <= 70) && (ods.score > 35))">
+                <img *ngIf="(ods.score <= 70) && (ods.score > 35)" src="/assets/icon/selos-ods/{{ ods.ods }}.svg" alt="{{ ods.ods }}" title="{{ ods.ods }}">
               </div>
             </div>
             <p class="f-size-12px fw-500 pb-1">{{ "DASHBOARD.INTERMEDIATE" | translate }}</p>
@@ -500,9 +495,8 @@
           <div class="low-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2"
             style="min-height: 50px;">
             <div class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
-              <div *ngFor="let ods of odsScoreArray" [class.d-none]="!(ods.score <= 35)">
-                <img *ngIf="ods.score <= 35" src="/assets/icon/selos-ods/{{ ods.ods }}.svg" alt="{{ ods.ods }}"
-                  title="{{ ods.ods }}">
+              <div *ngFor="let ods of postOdsScoreArray" [class.d-none]="!(ods.score <= 35)">
+                <img *ngIf="ods.score <= 35" src="/assets/icon/selos-ods/{{ ods.ods }}.svg" alt="{{ ods.ods }}" title="{{ ods.ods }}">
               </div>
             </div>
             <p class="f-size-12px fw-500 pb-1">{{ "DASHBOARD.LOW" | translate }}</p>
@@ -599,19 +593,19 @@
         </div>
       </div>
     </div>
-
-    <div class="row pt-5 pb-5 pb-md-0">
-      <div class="col d-flex flex-column flex-sm-row align-items-center justify-content-end gap-3">
-        <a routerLink="/logged/results/improvements">
-          <button class="brand-outline-btn bg-transparent x-lg-5 d-block" type="button">
-            Sugestão de melhorias
-          </button>
-        </a>
-
-        <button class="secondary-brand-btn px-lg-5 d-block" type="button">
-          Visão geral
-        </button>
-      </div>
+  
+    <div class="row pt-5 pb-5 pb-md-3">
+        <div class="col d-flex flex-column flex-sm-row align-items-center justify-content-end gap-3">
+          <a routerLink="/logged/results/improvements/{{ postAvaliationInfo._id }}">
+            <button class="secondary-brand-btn x-lg-5 d-block" type="button">
+              Sugestão de melhorias
+            </button>
+          </a>
+        
+          <!-- <button class="secondary-brand-btn px-lg-5 d-block" type="button">
+            Visão geral
+          </button> -->
+        </div>
     </div>
   </div>
 </div>

@@ -81,7 +81,7 @@
         <p class="brand-50-text f-size-0-8rem l-height-1-25 fw-700">{{ 'SIDEBAR.WANT_MORE' | translate }}</p>
         <p class="brand-50-text f-size-0-8rem l-height-1-25 fw-400">{{ 'SIDEBAR.HAVE_ACCESS' | translate }}</p>
 
-        <a routerLink="/logged/plans" class="w-100 p-0 m-0">
+        <a routerLink="/logged/plans" class="w-100 p-0 m-0" (click)="toggleSidebar()">
             <button class="white-outline-btn d-flex align-items-center justify-content-between mt-3 w-100">
                 {{ 'SIDEBAR.SEE_PLANS' | translate }}
                 <img src="/assets/icon/tag.svg" alt="Planos">

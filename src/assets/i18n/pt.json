@@ -719,6 +719,7 @@
         "SECTOR": "Setor",
         "COUNTRY": "País",
         "EMAIL": "Email",
+        "OLD_PASSWORD": "Senha Antiga",
         "PASSWORD": "Senha",
         "EDIT_DATE": "Editado em",
         "BACK": "Voltar",

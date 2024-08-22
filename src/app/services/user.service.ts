@@ -6,6 +6,7 @@ import { UserActiveRequestDto } from '../interfaces/user/user-active-request.dto
 import { UserRegisterRequestDto } from '../interfaces/user/user-register-request.dto';
 import { UserInterface } from '../interfaces/user/user.interface';
 import { BaseService } from './base.service';
+import { UserUpdateRequestDto } from '../dtos/user-update-request.dto';
 
 @Injectable({
   providedIn: 'root',
@@ -38,7 +39,7 @@ export class UserService extends BaseService {
   getUserFromApi(): Observable<UserInterface> {
     return this.httpClient
       .get(`${this.authUrl}/authenticated`, this.authorizedHeader())
-      .pipe(map(this.extractData), catchError(this.serviceError));
+      .pipe(map(this.extractData), catchError(this.serviceError))
   }
 
   register(dto: UserRegisterRequestDto): Observable<UserInterface> {
@@ -62,6 +63,12 @@ export class UserService extends BaseService {
   getById(id: string): Observable<UserInterface> {
     return this.httpClient
       .get(`${this.url}/id/${id}`, this.authorizedHeader())
+      .pipe(map(this.extractData), catchError(this.serviceError));
+  }
+
+  update(id: string, dto: UserUpdateRequestDto): Observable<UserInterface> {
+    return this.httpClient
+      .put(`${this.url}/update/${id}`, this.encrypt(dto), this.authorizedHeader())
       .pipe(map(this.extractData), catchError(this.serviceError));
   }
 }

@@ -48,12 +48,10 @@ export class SidebarComponent {
           this.verifyRequested = 'content';
         }
         this.companyResponse = data[0];
-        console.log('teste', this.companyResponse);
-
         this.verifyRequested = 'view';
       },
       error: (err) => {
-        console.log(err);
+        console.error(err);
       },
     });
   }

@@ -729,5 +729,30 @@
         "36_59_TEXT": "Your operation is in compliance with environmental laws and demonstrates good social performance, but you need to strengthen impact assessments and define metrics for community support initiatives. To excel in ESG, you must go beyond compliance, set goals, and implement monitoring and evaluation mechanisms with auditable indicators. ",
         "60_80_TEXT": "Your company demonstrates a strong commitment to ESG, with solid environmental practices, significant social actions, and responsible corporate governance. You are already on the right track for ESG certification, but you can further strengthen your performance. ESG certification is a journey, not a destination. Continue seeking improvement to achieve gold certification and become a reference in sustainability!",
         "81_100_TEXT": "Your operations demonstrate an exemplary commitment to sustainability. You are in compliance with the environmental, social, and governance pillars of ESG, having a positive impact on the environment, society, and your business. Based on your strong sustainability standards, your operation is eligible for ESG Gold Certification with Blockchain validation."
+    },
+    "LOGGED_PLANS": {
+        "TITLE": "Plans",
+        "SUBTITLE": "Get the best monitoring of your Company's ESG practices!",
+        "PER_YEAR": "Per year",
+        "ASSIGN": "Subscribe",
+
+        "SIMULATION_TITLE": "Simulation",
+        "SIMULATION_PRICE": "$1000",
+        "SIMULATION_ALL_SUBTITLE": "Everything from Basic +",
+        "SIMULATION_ITEM_1": "Rating simulation",
+        "SIMULATION_ITEM_2": "Active profile on dashboard",
+        "SIMULATION_ITEM_3": "SDG adherence matrix",
+
+        "SOLUTION_TITLE": "Solution",
+        "SOLUTION_PRICE": "$2000",
+        "SOLUTION_ALL_SUBTITLE": "Everything from Basic +",
+        "SOLUTION_ITEM_1": "Rating simulation",
+        "SOLUTION_ITEM_2": "Complete package of ESG improvement recommendations",
+        "SOLUTION_ITEM_3": "Annual validation and certification (with indicator report)",
+        "SOLUTION_ITEM_4": "TKS seal for a score above 60% adherence",
+        "SOLUTION_ITEM_5": "Active profile on dashboard",
+        "SOLUTION_ITEM_6": "SDG adherence matrix",
+        "SOLUTION_ITEM_7": "Blockchain registration for global validation",
+        "SOLUTION_ITEM_8": "Analysis frameworks aligned with your operation and value chain (GRI, SASB, TCFD)"
     }
 }

@@ -21,6 +21,7 @@ import { SuppliersComponent } from './suppliers/suppliers.component';
 import { UseInstructionsComponent } from './use-instructions/use-instructions.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { PlansComponent } from './plans/plans.component';
 
 
 const routes: Routes = [
@@ -72,6 +73,10 @@ const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent
+      },
+      {
+        path: 'plans',
+        component: PlansComponent
       },
 
       // Questionary

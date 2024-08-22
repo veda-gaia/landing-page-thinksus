@@ -38,6 +38,7 @@ import { PlotlyModule } from 'angular-plotly.js';
 import * as PlotlyJS from 'plotly.js-dist-min';
 import { ProfileComponent } from './profile/profile.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { PlansComponent } from './plans/plans.component';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -70,6 +71,7 @@ PlotlyModule.plotlyjs = PlotlyJS;
     UseInstructionsComponent,
     ProfileComponent,
     ConfirmationComponent,
+    PlansComponent,
   ],
   imports: [
     CommonModule,

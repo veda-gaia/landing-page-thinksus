@@ -729,5 +729,30 @@
         "36_59_TEXT": "Sua operação está em compliance com as leis ambientais e possui bom desempenho social, mas precisa fortalecer a análises de impactos e definir métricas para ações de apoio comunitário. Para se destacar no ESG, você precisa ir além do compliance, definir metas e implementar mecanismos de monitoramento e avaliação com indicadores auditáveis.",
         "60_80_TEXT": "Sua empresa demonstra forte compromisso com o ESG, com práticas ambientais sólidas, ações sociais significativas e governança corporativa responsável. Você já está no caminho certo para a certificação ESG, mas pode fortalecer ainda mais sua performance. A certificação ESG é uma jornada, não um ponto final. Continue buscando aprimoramento para alcançar o ouro e se tornar uma referência em sustentabilidade!",
         "81_100_TEXT": "Suas operações demonstram um compromisso exemplar com a sustentabilidade. Você está em conformidade com os pilares ambiental, social e de governança do ESG, tendo um impacto positivo no meio ambiente, na sociedade e em seus negócios. Com base em seus fortes padrões de sustentabilidade, sua operação é elegível para a Certificação ESG Ouro com validação em Blockchain."
+    },
+    "LOGGED_PLANS": {
+        "TITLE": "Planos",
+        "SUBTITLE": "Tenha o melhor acompanhamento das práticas ESG da sua Empresa!",
+        "PER_YEAR": "Por ano",
+        "ASSIGN": "Assinar",
+
+        "SIMULATION_TITLE": "Simulation",
+        "SIMULATION_PRICE": "R$1000",
+        "SIMULATION_ALL_SUBTITLE": "Tudo do Básico +",
+        "SIMULATION_ITEM_1": "Simulação de rating",
+        "SIMULATION_ITEM_2": "Perfil ativo em dashboard",
+        "SIMULATION_ITEM_3": "Matriz de aderência ODS",
+
+        "SOLUTION_TITLE": "Solution",
+        "SOLUTION_PRICE": "R$2000",
+        "SOLUTION_ALL_SUBTITLE": "Tudo do Básico +",
+        "SOLUTION_ITEM_1": "Simulação de rating",
+        "SOLUTION_ITEM_2": "Pacote completo de recomendações de melhorias ESG",
+        "SOLUTION_ITEM_3": "Validação e certificação anual (com relatório de indicadores)",
+        "SOLUTION_ITEM_4": "Selo TKS para score acima de 60% de aderência",
+        "SOLUTION_ITEM_5": "Perfil ativo em dashboard",
+        "SOLUTION_ITEM_6": "Matriz de aderência ODS",
+        "SOLUTION_ITEM_7": "Registro em blockchain para validação mundial",
+        "SOLUTION_ITEM_8": "Frameworks de análise aderentes a sua operação e cadeia de valor (GRI, SASB, TCFD)"
     }
 }

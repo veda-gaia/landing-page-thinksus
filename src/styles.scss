@@ -1755,6 +1755,11 @@ div.both-container:has(aside.active) {
         height: 18px;
         background-color: $gray-4;
         border-radius: 2px;
+
+        &.below-15 .white-text{
+            color: $alpha-500;
+            transform: translateX(4.25rem);
+        } 
     }
 
     .score-100 {

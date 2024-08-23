@@ -38,6 +38,8 @@ export class LoginComponent {
       password: this.form.controls['password'].value ? this.form.controls['password'].value : ''
     }
 
+    dto.email = dto.email.toLocaleLowerCase();
+
     this.authService.login(dto).subscribe({
       next: (data) => {
         this.authService.setAuthUser(data);

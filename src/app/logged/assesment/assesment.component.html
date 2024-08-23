@@ -61,21 +61,21 @@
                 <p class="brand-700-text fw-700 f-size-1-25rem pt-3 pb-2">{{ "ASSESMENT.AMBIENTAL" | translate }}</p>
                 <p class="alpha-700-text fw-500 f-size-0-85rem l-height-1-25 mb-5 pb-3">{{ "ASSESMENT.AMBIENTAL_DESCRIPTION" | translate }}</p>
     
-                <a routerLink="/logged/assesment/e-{{ companySection }}" *ngIf="(1 > environmentalProgress)" class="w-100">
+                <a (click)="verifyPossibility()" *ngIf="(1 > environmentalProgress)" class="w-100">
                     <button class="w-100 brand-outline-btn d-flex align-items-center justify-content-between gap-3">
                         {{ "ASSESMENT.INIT_ASSESMENT" | translate }}
                         <img src="/assets/icon/init.svg" alt="Iniciar">
                     </button>
                 </a>
     
-                <a routerLink="/logged/assesment/e-{{ companySection }}" *ngIf="(1 <= environmentalProgress && 100 !== environmentalProgress)" class="w-100">
+                <a (click)="verifyPossibility()" *ngIf="(1 <= environmentalProgress && 100 !== environmentalProgress)" class="w-100">
                     <button class="w-100 brand-outline-btn d-flex align-items-center justify-content-between gap-3">
                         {{ "ASSESMENT.CONTINUE_ASSESMENT" | translate }}
                         <img src="/assets/icon/init.svg" alt="Iniciar">
                     </button>
                 </a>
 
-                <a class="w-100" *ngIf="(100 === environmentalProgress)">
+                <a class="w-100" (click)="verifyPossibility()" *ngIf="(100 === environmentalProgress)">
                     <button [disabled]="true" class="w-100 brand-outline-btn d-flex align-items-center justify-content-between gap-3">
                         {{ "ASSESMENT.FINISHED_ASSESMENT" | translate }}
                         <img src="/assets/icon/init.svg" alt="Iniciar">
@@ -92,21 +92,21 @@
                 <p class="brand-700-text fw-700 f-size-1-25rem pt-3 pb-2">{{ "ASSESMENT.SOCIAL" | translate }}</p>
                 <p class="alpha-700-text fw-500 f-size-0-85rem l-height-1-25 mb-5">{{ "ASSESMENT.SOCIAL_DESCRIPTION" | translate }}</p>
     
-                <a routerLink="/logged/assesment/s-{{ companySection }}" *ngIf="(1 > socialProgress)" class="w-100">
+                <a (click)="verifyPossibility()" *ngIf="(1 > socialProgress)" class="w-100">
                     <button class="w-100 brand-outline-btn d-flex align-items-center justify-content-between gap-3">
                         {{ "ASSESMENT.INIT_ASSESMENT" | translate }}
                         <img src="/assets/icon/init.svg" alt="Iniciar">
                     </button>
                 </a>
     
-                <a routerLink="/logged/assesment/s-{{ companySection }}" *ngIf="(1 <= socialProgress && 100 !== socialProgress)" class="w-100">
+                <a (click)="verifyPossibility()" *ngIf="(1 <= socialProgress && 100 !== socialProgress)" class="w-100">
                     <button class="w-100 brand-outline-btn d-flex align-items-center justify-content-between gap-3">
                         {{ "ASSESMENT.CONTINUE_ASSESMENT" | translate }}
                         <img src="/assets/icon/init.svg" alt="Iniciar">
                     </button>
                 </a>
                 
-                <a class="w-100" *ngIf="(100 === socialProgress)">
+                <a class="w-100" (click)="verifyPossibility()" *ngIf="(100 === socialProgress)">
                     <button [disabled]="true" class="w-100 brand-outline-btn d-flex align-items-center justify-content-between gap-3">
                         {{ "ASSESMENT.FINISHED_ASSESMENT" | translate }}
                         <img src="/assets/icon/init.svg" alt="Iniciar">
@@ -123,21 +123,21 @@
                 <p class="brand-700-text fw-700 f-size-1-25rem pt-3 pb-2">{{ "ASSESMENT.GOVERNAMENTAL" | translate }}</p>
                 <p class="alpha-700-text fw-500 f-size-0-85rem l-height-1-25 mb-5">{{ "ASSESMENT.GOVERNAMENTAL_DESCRIPTION" | translate }}</p>
     
-                <a routerLink="/logged/assesment/g-{{ companySection }}" *ngIf="(1 > governanceProgress)" class="w-100">
+                <a (click)="verifyPossibility()" *ngIf="(1 > governanceProgress)" class="w-100">
                     <button class="w-100 brand-outline-btn d-flex align-items-center justify-content-between gap-3">
                         {{ "ASSESMENT.INIT_ASSESMENT" | translate }}
                         <img src="/assets/icon/init.svg" alt="Iniciar">
                     </button>
                 </a>
     
-                <a routerLink="/logged/assesment/g-{{ companySection }}" *ngIf="(1 <= governanceProgress && 100 !== governanceProgress)" class="w-100">
+                <a (click)="verifyPossibility()" *ngIf="(1 <= governanceProgress && 100 !== governanceProgress)" class="w-100">
                     <button class="w-100 brand-outline-btn d-flex align-items-center justify-content-between gap-3">
                         {{ "ASSESMENT.CONTINUE_ASSESMENT" | translate }}
                         <img src="/assets/icon/init.svg" alt="Iniciar">
                     </button>
                 </a>
 
-                <a class="w-100" *ngIf="(100 === governanceProgress)">
+                <a class="w-100" (click)="verifyPossibility()" *ngIf="(100 === governanceProgress)">
                     <button [disabled]="true" class="w-100 brand-outline-btn d-flex align-items-center justify-content-between gap-3">
                         {{ "ASSESMENT.FINISHED_ASSESMENT" | translate }}
                         <img src="/assets/icon/init.svg" alt="Iniciar">
@@ -155,3 +155,14 @@
         </div>
     </div>
 </form>
+<ng-template #contentModal>
+	<div class="modal-header">
+		<span class="modal-title fw-bold" id="modal-basic-title">Sua pontuação já foi gerada</span>
+		<button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
+	</div>
+	<div class="modal-body">
+		<p class="f-size-0-85rem alpha-800-text fw-500 text-center my-3">
+            Você já realizou uma avaliação, aguarde 6 meses para realizar outra
+        </p>
+	</div>
+</ng-template>

@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { updateStatusDto } from 'src/app/dtos/update-status.dto';
 import { CompanyService } from 'src/app/services/company.service';
+import { ContractedPlanService } from 'src/app/services/contracted-plan.service';
 import { EsgRatingService } from 'src/app/services/esg-rating.service';
 
 @Component({
@@ -12,6 +14,8 @@ import { EsgRatingService } from 'src/app/services/esg-rating.service';
   styleUrls: ['./assesment.component.scss']
 })
 export class AssesmentComponent {
+  @ViewChild('contentModal') contentModal: any;
+
   form: FormGroup
 
   companySection = 'agro'
@@ -33,6 +37,8 @@ export class AssesmentComponent {
     private CompanyService: CompanyService,
     private toastr: ToastrService,
     private router: Router,
+    private contractedPlanService: ContractedPlanService,
+    private modalService: NgbModal
   ) {
 
     this.form = this.fb.group({
@@ -152,6 +158,27 @@ export class AssesmentComponent {
 
   navigateToSimulation() {
     this.router.navigate(['simulation']);
+  }
+
+  verifyPossibility() {
+    this.contractedPlanService.getByUser().subscribe({
+      next: data => {
+        console.log(data);
+        if(!data.verify) {
+          this.modalService.open(this.contentModal, {centered: true, size: 'sm'})
+        } else {
+          this.router.navigate(['/logged/assesment/e-' + this.companySection])
+        }
+      }
+    })
+    // routerLink="/logged/assesment/e-{{ companySection }}"
+    console.log(this.companySection);
+    // if()
+    
+  }
+
+  close() {
+    this.modalService.dismissAll();
   }
 
 }

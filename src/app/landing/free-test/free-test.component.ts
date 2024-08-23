@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TermsAndConditionsModalComponent } from '../register/terms-and-conditions-modal/terms-and-conditions-modal.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-free-test',
@@ -26,7 +29,9 @@ export class FreeTestComponent {
   form13: FormGroup
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private modalService: NgbModal,
+    private location: Location
   ) {
     this.form1 = this.fb.group({
       name: ['', Validators.required],
@@ -220,5 +225,13 @@ export class FreeTestComponent {
   stepBack() {
     this.actualStep = this.actualStep - 1
     this.keepReading = false
+  }
+
+  openPdf() {
+    this.modalService.open(TermsAndConditionsModalComponent)
+  }
+
+  back() {
+    this.location.back();
   }
 }

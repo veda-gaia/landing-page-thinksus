@@ -30,7 +30,7 @@
                     <div>
                         <label for="acceptTerms" class="fw-500 secondary-text f-size-1rem l-spacing-0-75 d-inline gap-1">
                             {{ "FREE_TEST.AGREE" | translate }}
-                            <a href="{{ 'TERMS_LINK' | translate }}" target="_blank" class="brand-text d-inline text-decoration-underline cursor-pointer">{{ "FREE_TEST.TERMS" | translate }}</a>
+                            <a (click)="openPdf()" class="brand-text d-inline text-decoration-underline cursor-pointer">{{ "FREE_TEST.TERMS" | translate }}</a>
                         </label>
                     </div>
                 </div>
@@ -1015,10 +1015,13 @@
                     </h5>
 
                     <p class="fw-400 f-size-1rem l-height-1-5">
-                        {{ "FREE_TEST.RESULT" | translate }}
+                        {{ "FREE_TEST.RESULT1" | translate }} {{score}}% {{ "FREE_TEST.RESULT2" | translate }}
+                    </p>
+                    <p class="fw-400 f-size-1rem l-height-1-5">
+                        {{ "FREE_TEST.RESULT3" | translate }}
                     </p>
 
-                    <button class="d-flex brand-btn align-items-center justify-content-center gap-2 mt-20">
+                    <button class="d-flex brand-btn align-items-center justify-content-center gap-2 mt-20" (click)="back()">
                         {{ "FREE_TEST.START" | translate }}
                     </button>
 

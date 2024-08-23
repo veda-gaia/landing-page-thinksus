@@ -9,4 +9,8 @@ export class HomeComponent {
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  findOutMore() {
+    window.open('https://thinksus.com/esg', '_blank')
+  }
 }

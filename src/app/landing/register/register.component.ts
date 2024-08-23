@@ -199,7 +199,7 @@ export class RegisterComponent implements OnInit {
       },
       user: {
         name: this.name.value,
-        email: this.email.value,
+        email: this.email.value.toLowerCase(),
         password: this.form1.controls['password'].value as string,
         phone: this.form1.controls['phone'].value as string,
         positionRole: this.form1.controls['role'].value as string,

@@ -23,8 +23,6 @@ export class ConfirmationComponent {
   vinculatePlan() {
     this.route.queryParams.subscribe((params) => {
       const preapproval_id = params['preapproval_id'];
-      console.log(params);
-      console.log(preapproval_id);
       if(!preapproval_id){
         this.router.navigate(['/logged/dashboard']);
         return;

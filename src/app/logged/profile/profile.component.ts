@@ -75,6 +75,11 @@ export class ProfileComponent {
       section: this.editForm.controls['section'].value,
     };
 
+    for(const key in dto) {
+      //@ts-ignore
+      if(!dto[key]) delete dto[key];
+    }
+
     this.userService.update(this.user._id, dto).subscribe({
       next: (data) => {
         this.userService.refreshUser();

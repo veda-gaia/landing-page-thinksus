@@ -6,8 +6,9 @@
         <div class="d-none d-lg-block col-0 col-lg-6 ps-0">
             <img src="/assets/img/login-img.jpg" alt="Imagem de indústria" class="auth-img">
         </div>
-        
-        <div class="col-12 col-lg-6 pb-lg-5 pt-lg-4 d-flex flex-column align-items-center justify-content-center pb-5 pb-lg-0">
+
+        <div
+            class="col-12 col-lg-6 pb-lg-5 pt-lg-4 d-flex flex-column align-items-center justify-content-center pb-5 pb-lg-0">
             <form [formGroup]="form" (submit)="onSubmit()" class="fade-in-right py-5 pb-lg-5 pt-lg-4 max-width-360">
                 <h4 class="brand-text fw-700 pb-2">
                     {{ "LOGIN.TITLE" | translate }}
@@ -17,17 +18,32 @@
                     {{ "LOGIN.SUBTITLE" | translate }}
                 </p>
 
-                <label for="email" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "LOGIN.EMAIL" | translate }}</label>
-                <input type="email" class="w-100 mb-4" formControlName="email" placeholder="email@email.com" autocomplete="off" id="email" name="email">
+                <label for="email" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "LOGIN.EMAIL" | translate
+                    }}</label>
+                <input type="email" class="w-100 mb-4" formControlName="email" placeholder="email@email.com"
+                    autocomplete="off" id="email" name="email">
 
-                <label for="password" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "LOGIN.PASSWORD" | translate }}</label>
+                <label for="password" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "LOGIN.PASSWORD" | translate
+                    }}</label>
                 <div class="input-container mb-4">
-                    <input [type]="showPassword ? 'text' : 'password'" class="w-100" formControlName="password" placeholder="{{ 'LOGIN.INSERT_PASSWORD' | translate }}" autocomplete="off" id="password" name="password">
-                    <img *ngIf="showPassword" (click)="showPassword = false" src="/assets/icon/eye.svg" alt="Esconder senha" class="input-icon cursor-pointer">
-                    <img *ngIf="!showPassword" (click)="showPassword = true" src="/assets/icon/eye-slash.svg" alt="Mostrar senha" class="input-icon cursor-pointer">
+                    <input [type]="showPassword ? 'text' : 'password'" class="w-100" formControlName="password"
+                        placeholder="{{ 'LOGIN.INSERT_PASSWORD' | translate }}" autocomplete="off" id="password"
+                        name="password">
+                    <img *ngIf="showPassword" (click)="showPassword = false" src="/assets/icon/eye.svg"
+                        alt="Esconder senha" class="input-icon cursor-pointer">
+                    <img *ngIf="!showPassword" (click)="showPassword = true" src="/assets/icon/eye-slash.svg"
+                        alt="Mostrar senha" class="input-icon cursor-pointer">
                 </div>
 
-                <button class="secondary-brand-btn px-lg-5 d-block mx-auto w-100" [disabled]="form.invalid" type="submit">
+                <div class="d-flex justify-content-center align-items-center">
+                    <a class="text-center secondary-text fw-600 pb-4 mb-2 link-text" routerLink="/forgot-password">
+                        {{ "LOGIN.FORGOT_PASSWORD" | translate }}
+                    </a>
+                </div>
+                
+
+                <button class="secondary-brand-btn px-lg-5 d-block mx-auto w-100" [disabled]="form.invalid"
+                    type="submit">
                     {{ 'LOGIN.NEXT' | translate }}
                 </button>
                 <a routerLink="/register">

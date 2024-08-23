@@ -9,6 +9,7 @@ import { PlansComponent } from './plans/plans.component';
 import { RatingSystemComponent } from './rating-system/rating-system.component';
 import { RegisterComponent } from './register/register.component';
 import { LandingComponent } from './landing.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 const routes: Routes = [
@@ -57,6 +58,10 @@ const routes: Routes = [
         path: 'login',
         component: LoginComponent,
       },
+      {
+        path: 'forgot-password',
+        component: ForgotPasswordComponent
+      }
     ]
   }
 ];

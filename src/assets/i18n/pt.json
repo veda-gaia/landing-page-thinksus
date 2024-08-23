@@ -146,6 +146,7 @@
     "LOGIN": {
         "TITLE": "Login",
         "SUBTITLE": "Faça seu login para acessar o painel ThinkSus",
+        "FORGOT_PASSWORD": "Esqueceu sua senha?",
         "EMAIL": "Email",
         "PASSWORD": "Senha",
         "INSERT_PASSWORD": "Digite sua senha",
@@ -793,5 +794,16 @@
         "CHOOSE_METHOD": "Você será redirecionado para o checkout Mercado Pago. Escolha o método de pagamento de preferência e finalize a compra.",
         "IMPORTANT_DONT_FORGET": "Importante: Não esqueça de clicar para retornar ao Thinksus e concluir sua compra.",
         "NEXT": "Avançar"
+    },
+    "FORGOT_PASSWORD": {
+        "TITLE": "Esqueceu sua senha?",
+        "SUBTITLE": "Digite seu email e enviaremos um link para você redefinir sua senha.",
+        "SUBTITLE_2": "Entre com sua nova senha",
+        "EMAIL": "Email",
+        "CODE": "Código",
+        "PASSWORD": "Senha",
+        "CONFIRM_PASSWORD": "Confirme a senha",
+        "SEND": "Enviar",
+        "BACK": "Voltar"
     }
 }

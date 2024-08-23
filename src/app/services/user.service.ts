@@ -7,6 +7,7 @@ import { UserRegisterRequestDto } from '../interfaces/user/user-register-request
 import { UserInterface } from '../interfaces/user/user.interface';
 import { BaseService } from './base.service';
 import { UserUpdateRequestDto } from '../dtos/user-update-request.dto';
+import { UserResetPasswordRequestDto } from '../dtos/user-reset-password-request.dto';
 
 @Injectable({
   providedIn: 'root',
@@ -69,6 +70,18 @@ export class UserService extends BaseService {
   update(id: string, dto: UserUpdateRequestDto): Observable<UserInterface> {
     return this.httpClient
       .put(`${this.url}/update/${id}`, this.encrypt(dto), this.authorizedHeader())
+      .pipe(map(this.extractData), catchError(this.serviceError));
+  }
+
+  resetPasswordEmail(email: string): Observable<any> {
+    return this.httpClient
+      .post(`${this.url}/reset-password-email`, { email }, this.anonymousHeader())
+      .pipe(map(this.extractData), catchError(this.serviceError));
+  }
+
+  resetPassword(dto: UserResetPasswordRequestDto): Observable<any> {
+    return this.httpClient
+      .post(`${this.url}/reset-password`, this.encrypt(dto), this.anonymousHeader())
       .pipe(map(this.extractData), catchError(this.serviceError));
   }
 }

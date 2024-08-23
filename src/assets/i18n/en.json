@@ -42,10 +42,20 @@
         "HAVE_A": "Have a sustainable positioning and learn its impacts on society",
         "EVOLUTION": "Evolution",
         "BUILD": "Build a healthy relationship with your stakeholders with a sustainable purpose for the future",
-        "EXAMPLE_1": "Noticias populares",
-        "EXAMPLE_2": "Lorem ipsum dolor sit amet, consecteturadipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris nisi utaliquip ex ea commodo consequat. Duisaute irure dolor in reprehenderit involuptate velit esse cillum dolore eufugiat nulla pariatur. Excepteur sintoccaecat cupidatat non proident,sunt in culpa qui ofcia deseruntmollit anim id est laborum.",
-        "EXAMPLE_3": "Saiba mais",
-        "EXAMPLE_4": "Lorem ipsum dolor sit amet, consectetur"
+        "EXAMPLE_1": "Popular news",
+        "EXAMPLE_2": "ESG practices are related to environmental, social and corporate governance and are pillars for an assessment of a company's collective conscience to bring sustainability to its business. That's why we developed our own evaluation method that reflects the demands and complexities of the main global rankings.",
+        "EXAMPLE_3": "Find out more",
+        "EXAMPLE_4": "A commitment to sustainable practices",
+
+        "EXAMPLE_1_2": "Popular news",
+        "EXAMPLE_2_2": "A carbon footprint is a measure of the amount of greenhouse gases that a person, organization, event or product emits. These gases, such as carbon dioxide (CO2), methane (CH4) and nitrous oxide (N2O), contribute to global warming and climate change. Some examples of how you can reduce your carbon footprint: focusing on conscious consumption, sustainable travel, consumption of renewable energy, reducing the amount of waste and opting for recyclable packaging, among others.",
+        "EXAMPLE_3_2": "Find out more",
+        "EXAMPLE_4_2": "Carbon Footprint: what it is and how to reduce it",
+
+        "EXAMPLE_1_3": "Popular news",
+        "EXAMPLE_2_3": "Blockchain technology, with its ability to create immutable and transparent digital records, is revolutionizing the way companies manage their supply chains, ensuring transparency and traceability, security and reliability, efficiency and automation, and cost reduction.",
+        "EXAMPLE_3_3": "Find out more",
+        "EXAMPLE_4_3": "The importance of blockchain technology related to the supply chain"
     },
     "ESG": {
         "SUBTITLE": "A commitment to sustainable practices",

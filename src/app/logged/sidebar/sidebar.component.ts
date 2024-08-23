@@ -78,7 +78,7 @@ export class SidebarComponent {
 
   getClassPerScore() {
     if (this.companyResponse) {
-      const socialScore = +this.companyResponse?.socialScore.toFixed();
+      const socialScore = +this.companyResponse?.esgScore.toFixed();
       if (socialScore <= 35) {
         return 'gap-base';
       } else if (socialScore > 35 && socialScore <= 59) {
@@ -97,7 +97,7 @@ export class SidebarComponent {
 
   getScore() {
     if(this.companyResponse) {
-      return this.companyResponse.socialScore.toFixed()
+      return this.companyResponse.esgScore.toFixed()
     }
   }
 }

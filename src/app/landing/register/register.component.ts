@@ -5,6 +5,7 @@ import {
   Validators
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { CompanyEmployeesEnum } from 'src/app/enums/company-employees.enum';
@@ -30,6 +31,7 @@ import {
   ptIndustryList,
   ptServicesList,
 } from 'src/app/util/pt-segment';
+import { TermsAndConditionsModalComponent } from './terms-and-conditions-modal/terms-and-conditions-modal.component';
 
 @Component({
   selector: 'app-register',
@@ -62,6 +64,7 @@ export class RegisterComponent implements OnInit {
     private authService: AuthenticationService,
     private toastr: ToastrService,
     private router: Router,
+    private modalService: NgbModal
   ) {
     this.form1 = this.fb.group({
       name: ['', Validators.required],
@@ -279,5 +282,9 @@ export class RegisterComponent implements OnInit {
 
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  openPdf() {
+    this.modalService.open(TermsAndConditionsModalComponent)
   }
 }

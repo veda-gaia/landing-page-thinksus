@@ -146,6 +146,7 @@
     "LOGIN": {
         "TITLE": "Login",
         "SUBTITLE": "Faça seu login para acessar o painel ThinkSus",
+        "FORGOT_PASSWORD": "Esqueceu sua senha?",
         "EMAIL": "Email",
         "PASSWORD": "Senha",
         "INSERT_PASSWORD": "Digite sua senha",

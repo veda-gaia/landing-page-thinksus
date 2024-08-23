@@ -145,6 +145,7 @@
     },
     "LOGIN": {
         "TITLE": "Login",
+        "FORGOT_PASSWORD": "Forgot your password?",
         "SUBTITLE": "Login to access ThinkSus panel",
         "EMAIL": "E-mail",
         "PASSWORD": "Password",

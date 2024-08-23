@@ -17,6 +17,7 @@ import { NgxMaskDirective, NgxMaskPipe, provideEnvironmentNgxMask } from 'ngx-ma
 import { TranslateModule } from '@ngx-translate/core';
 import { TermsAndConditionsModalComponent } from './register/terms-and-conditions-modal/terms-and-conditions-modal.component';
 import { NgxDocViewerModule } from 'ngx-doc-viewer';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { NgxDocViewerModule } from 'ngx-doc-viewer';
     FreeTestComponent,
     RegisterComponent,
     LoginComponent,
-    TermsAndConditionsModalComponent
+    TermsAndConditionsModalComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     CommonModule,

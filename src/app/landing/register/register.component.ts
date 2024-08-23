@@ -214,7 +214,9 @@ export class RegisterComponent implements OnInit {
       error: (err) => {
         console.error(err);
         this.toastr.error('Erro ao cadastrar usuário/empresa', 'Erro', {progressBar: true});
-        this.toastr.error(err.error.errors, 'Error', {progressBar: true});
+        if(err.error.errors.includes('cnpj') && err.error.errors.includes('dup key')) {
+          this.toastr.error('Já existe uma empresa cadastrada com o CNPJ informado', 'Erro', {progressBar: true});
+        }
       },
     });
   }

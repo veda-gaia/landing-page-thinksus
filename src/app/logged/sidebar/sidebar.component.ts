@@ -46,7 +46,11 @@ export class SidebarComponent {
       next: (data) => {
         if (!Object.keys(data).length) {
           this.verifyRequested = 'content';
+          return
         }
+        const last = data.sort((a: any, b: any) => b.createdAt - a.createdAt);
+        console.log(last);
+        
         this.companyResponse = data[0];
         this.verifyRequested = 'view';
       },
@@ -68,11 +72,21 @@ export class SidebarComponent {
   }
 
   getTitle() {
-    switch (this.companyResponse) {
-      case this.companyResponse?.title:
-        return 'teste'
-      default:
-        return 'teste'
+    if (this.companyResponse) {
+      const socialScore = +this.companyResponse?.esgScore.toFixed();
+      if (socialScore <= 35) {
+        return 'Convencional';
+      } else if (socialScore > 35 && socialScore <= 59) {
+        return 'Compliance';
+      } else if (socialScore >= 60 && socialScore <= 80) {
+        return 'Consciente';
+      } else if (socialScore >= 81) {
+        return 'Superior';
+      } else {
+        return '';
+      }
+    } else {
+      return '';
     }
   }
 
@@ -96,7 +110,7 @@ export class SidebarComponent {
   }
 
   getScore() {
-    if(this.companyResponse) {
+    if (this.companyResponse) {
       return this.companyResponse.esgScore.toFixed()
     }
   }

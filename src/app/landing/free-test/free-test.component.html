@@ -38,7 +38,7 @@
                 <button class="secondary-brand-btn px-lg-5 d-block mx-auto w-100" [disabled]="form1.invalid" type="submit">
                     {{ "FREE_TEST.TRIAL" | translate }}
                 </button>
-                <a routerLink="/home">
+                <a (click)="back()">
                     <button class="brand-outline-btn px-lg-5 d-block mx-auto w-100 mt-3 opacity-08" >
                         {{ "FREE_TEST.BACK" | translate }}
                     </button>

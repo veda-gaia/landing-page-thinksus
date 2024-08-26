@@ -193,8 +193,6 @@ export class SIndustryComponent {
               answer: control.value,
             }
           }),
-          lang: this.translateService.currentLang
-
         }
 
         this.esgRatingService.register(dto).subscribe({
@@ -241,8 +239,6 @@ export class SIndustryComponent {
         }
         else return false
       }),
-      lang: this.translateService.currentLang
-
     }
 
     // Filtra as que tem resposta 

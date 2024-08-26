@@ -6,7 +6,6 @@ import { CompanySegmentEnum } from "src/app/enums/company-segment.enum";
 export interface UserRegisterRequestDto {
   user: UserRegisterDto;
   company: CompanyRegisterDto;
-  lang: string;
 }
 
 interface UserRegisterDto {

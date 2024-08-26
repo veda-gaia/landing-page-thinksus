@@ -207,7 +207,6 @@ export class RegisterComponent implements OnInit {
         phone: this.form1.controls['phone'].value as string,
         positionRole: this.form1.controls['role'].value as string,
       },
-      lang: this.translateService.currentLang
     };
 
     this.userService.register(dto).subscribe({

@@ -52,7 +52,13 @@
                     </li>
                 </ul>
 
-                <a (click)="goToPlan('/logged/plans/simulation')" class="w-100 p-0 m-0 pt-5">
+                <a *ngIf="subscriptionsSimulation?.status !== 'ACTIVE'" class="w-100 p-0 m-0 pt-5">
+                    <button class="brand-outline-btn w-100">
+                        {{ "LOGGED_PLANS.SOON" | translate }}
+                    </button>
+                </a>
+
+                <a *ngIf="subscriptionsSimulation?.status === 'ACTIVE'" (click)="goToPlan(subscriptionsSimulation?.mercadoPagoPlanId)" class="w-100 p-0 m-0 pt-5">
                     <button class="brand-btn w-100">
                         {{ "LOGGED_PLANS.ASSIGN" | translate }}
                     </button>
@@ -131,7 +137,13 @@
                     </li>
                 </ul>
 
-                <a (click)="goToPlan('/logged/plans/solution')" class="w-100 p-0 m-0 pt-5">
+                <a *ngIf="subscriptionsSolution?.status !== 'ACTIVE'" class="w-100 p-0 m-0 pt-5">
+                    <button class="brand-outline-btn w-100">
+                        {{ "LOGGED_PLANS.SOON" | translate }}
+                    </button>
+                </a>
+
+                <a *ngIf="subscriptionsSolution?.status === 'ACTIVE'" (click)="goToPlan(subscriptionsSolution?.mercadoPagoPlanId)" class="w-100 p-0 m-0 pt-5">
                     <button class="brand-btn w-100">
                         {{ "LOGGED_PLANS.ASSIGN" | translate }}
                     </button>

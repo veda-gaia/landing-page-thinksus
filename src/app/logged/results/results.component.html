@@ -123,10 +123,10 @@
                             </tr>
                             <tr *ngFor="let item of filteredList" class="body-row-tr">
                                 <td class="">
-                                    <img *ngIf="item.esgScore < 60" src="/assets/icon/none-seal.svg" alt="Sem Selo" title="Sem Selo" width="20px">
-                                    <img *ngIf="item.esgScore >= 60 && item.esgScore <= 75" src="/assets/icon/seal-bronze.svg" alt="Selo de Bronze" title="Selo de Bronze" width="20px">
-                                    <img *ngIf="item.esgScore > 75 && item.esgScore < 90" src="/assets/icon/seal-silver.svg" alt="Selo de Prata" title="Selo de Prata" width="20px">
-                                    <img *ngIf="item.esgScore >= 90" src="/assets/icon/seal-gold.svg" alt="Selo de Ouro" title="Selo de Ouro" width="20px">
+                                    <img *ngIf="item.esgScore <= 35" src="/assets/icon/none-seal.svg" alt="Sem Selo" title="Sem Selo" width="20px">
+                                    <img *ngIf="item.esgScore > 35 && item.esgScore <= 60" src="/assets/icon/seal-bronze.svg" alt="Selo de Bronze" title="Selo de Bronze" width="20px">
+                                    <img *ngIf="item.esgScore > 60 && item.esgScore <= 80" src="/assets/icon/seal-silver.svg" alt="Selo de Prata" title="Selo de Prata" width="20px">
+                                    <img *ngIf="item.esgScore > 80" src="/assets/icon/seal-gold.svg" alt="Selo de Ouro" title="Selo de Ouro" width="20px">
                                 </td>
                                 <td class="">
                                     {{ item.title ? item.title : ( "UNTITLED" | translate ) }}

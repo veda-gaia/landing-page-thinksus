@@ -8,7 +8,7 @@
             <img src="/assets/icon/sidebar-btn.svg" alt="Abrir navegação">
         </button>
     
-        <a class="d-flex align-items-center justify-content-between gap-3 py-3 cursor-pointer" *ngIf="verifyRequested === 'content'">
+        <a routerLink="/logged/assesment" class="d-flex align-items-center justify-content-between gap-3 py-3 cursor-pointer" *ngIf="verifyRequested === 'content'">
             <p class="f-size-12px white-text fw-500 l-height-1rem">
                 {{ 'SIDEBAR.TAKE_ASSESMENT' | translate }}
             </p>

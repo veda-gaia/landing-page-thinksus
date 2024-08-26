@@ -169,12 +169,14 @@ export class AssesmentComponent {
         } else {
           this.router.navigate(['/logged/assesment/e-' + this.companySection])
         }
+      },
+      error: error => {
+        if(error.error.errors.includes('Contrate um plano')) {
+          this.toastr.warning('Contrate um plano antes de iniciar avaliação!', 'Atenção', {progressBar: true})
+          this.router.navigate(['/logged/plans'])
+        }
       }
     })
-    // routerLink="/logged/assesment/e-{{ companySection }}"
-    console.log(this.companySection);
-    // if()
-    
   }
 
   close() {

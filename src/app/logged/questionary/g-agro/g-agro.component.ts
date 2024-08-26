@@ -6,6 +6,7 @@ import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component'
 import { EsgRatingService } from 'src/app/services/esg-rating.service';
 import { CompanyService } from 'src/app/services/company.service';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-g-agro',
@@ -85,7 +86,8 @@ export class GAgroComponent implements OnInit {
     private modalService: NgbModal,
     private esgRatingService: EsgRatingService,
     private CompanyService: CompanyService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private translateService: TranslateService,
   ) {
     this.formArray = this.fb.array([])
     this.formArrayDocuments = this.fb.array([])
@@ -186,7 +188,8 @@ export class GAgroComponent implements OnInit {
               esgNumber: this.questionaryData[index].id,
               answer: control.value,
             }
-          })
+          }),
+          lang: this.translateService.currentLang
         }
 
         this.esgRatingService.register(dto).subscribe({
@@ -230,7 +233,8 @@ export class GAgroComponent implements OnInit {
           }
         }}
         else return false
-      })
+      }),
+      lang: this.translateService.currentLang
     }
     
     // Filtra as que tem resposta 

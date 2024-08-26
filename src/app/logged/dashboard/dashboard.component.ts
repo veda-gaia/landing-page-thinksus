@@ -39,6 +39,11 @@ export class DashboardComponent {
     progress: 0,
     score: 0,
   };
+  distributionESG: any = {
+    environmental: 0,
+    governance: 0,
+    social: 0,
+  }
 
   odsScoreArray: any[] = [];
   postOdsScoreArray: any[] = [];
@@ -177,6 +182,12 @@ export class DashboardComponent {
           this.postAvaliationInfo = postAvaliation;
           this.avaliationStatus = 'post-avaliation';
           this.postOdsScoreArray = postAvaliation.odsScore
+
+          this.distributionESG = {
+            environmental: (((postAvaliation.environmentalScore / postAvaliation.esgScore) / 3) * 100).toFixed(2),
+            governance: (((postAvaliation.governanceScore / postAvaliation.esgScore) / 3) * 100).toFixed(2),
+            social: (((postAvaliation.socialScore / postAvaliation.esgScore) / 3) * 100).toFixed(2),
+          }
         }
         
         if(this.allCompleteAvaliations.length >= 2) {

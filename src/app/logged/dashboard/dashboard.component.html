@@ -401,9 +401,9 @@
           </p>
 
           <div class="d-flex align-item-start justify-content-between w-100">
-            <div class="green-400-bg score-block" style="width: calc(29% - .3rem);"></div>
-            <div class="purple-500-bg score-block" style="width: calc(17% - .3rem);"></div>
-            <div class="blue-400-bg score-block" style="width: calc(53% - .3rem);"></div>
+            <div class="green-400-bg score-block" [style]="'width: calc(' + distributionESG.environmental + '% - .3rem);'"></div>
+            <div class="purple-500-bg score-block" [style]="'width: calc(' + distributionESG.social + '% - .3rem);'"></div>
+            <div class="blue-400-bg score-block" [style]="'width: calc(' + distributionESG.governance + '% - .3rem);'"></div>
           </div>
 
           <div class="d-flex flex-row align-item-start justify-content-start gap-3 pt-4">
@@ -415,7 +415,7 @@
               <div class="d-flex align-items-center justify-content-start gap-2">
                 <img src="/assets/icon/ambiental.svg" alt="ambiental">
                 <p class="f-size-0-85rem l-height-1-25rem dark-text fw-700">
-                  29,25%
+                  {{ distributionESG.environmental }}%
                 </p>
               </div>
             </div>
@@ -428,7 +428,7 @@
               <div class="d-flex align-items-center justify-content-start gap-2">
                 <img src="/assets/icon/social.svg" alt="social">
                 <p class="f-size-0-85rem l-height-1-25rem dark-text fw-700">
-                  17,69%
+                  {{ distributionESG.social }}%
                 </p>
               </div>
             </div>
@@ -441,7 +441,7 @@
               <div class="d-flex align-items-center justify-content-start gap-2">
                 <img src="/assets/icon/governance.svg" alt="governance">
                 <p class="f-size-0-85rem l-height-1-25rem dark-text fw-700">
-                  53,07%
+                  {{ distributionESG.governance }}%
                 </p>
               </div>
             </div>

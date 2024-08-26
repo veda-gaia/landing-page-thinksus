@@ -5,6 +5,10 @@ export default interface SubscriptionInterface extends BaseInterface {
   name: string;
   amount: number;
   description: string;
-  active: boolean;
+  frequency: number;
+  frequencyType: string;
+  currencyId: string;
+  mercadoPagoPlanId: string;
+  status: string;
   permissions: SubscriptionPermissionsEnum[];
 }

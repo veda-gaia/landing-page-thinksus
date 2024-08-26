@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { updateStatusDto } from 'src/app/dtos/update-status.dto';
 import { CompanyService } from 'src/app/services/company.service';
@@ -38,7 +39,8 @@ export class AssesmentComponent {
     private toastr: ToastrService,
     private router: Router,
     private contractedPlanService: ContractedPlanService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private translateService: TranslateService
   ) {
 
     this.form = this.fb.group({
@@ -114,7 +116,6 @@ export class AssesmentComponent {
             this.governanceProgress = +((governanceAnswers.length / this.governanceQuestions) * 100).toFixed(0)
           }
 
-          // console.log(myCompanyInfo)
           this.assesmentId = myCompanyInfo._id
         }
 
@@ -130,7 +131,8 @@ export class AssesmentComponent {
     if(this.form.invalid || !this.assesmentId.length) return
 
     const dto: updateStatusDto = {
-      status: 'COMPLETED'
+      status: 'COMPLETED',
+      lang: this.translateService.currentLang
     }
     const titleDto: any = {
       title: this.form.controls['title'].value
@@ -138,8 +140,6 @@ export class AssesmentComponent {
 
     this.EsgRatingService.updateStatusById(this.assesmentId, dto).subscribe({
       next: (data) => {
-        console.log(data)
-
         setTimeout(() => {
           this.EsgRatingService.updateTitleById(this.assesmentId, titleDto).subscribe({
             next: (data) => {
@@ -160,14 +160,13 @@ export class AssesmentComponent {
     this.router.navigate(['simulation']);
   }
 
-  verifyPossibility() {
+  verifyPossibility(symbol: string) {
     this.contractedPlanService.getByUser().subscribe({
       next: data => {
-        console.log(data);
         if(!data.verify) {
           this.modalService.open(this.contentModal, {centered: true, size: 'sm'})
         } else {
-          this.router.navigate(['/logged/assesment/e-' + this.companySection])
+          this.router.navigate(['/logged/assesment/' + symbol + '-' + this.companySection])
         }
       },
       error: error => {
@@ -181,6 +180,11 @@ export class AssesmentComponent {
 
   close() {
     this.modalService.dismissAll();
+  }
+
+  getSymbolCompanySection() {
+
+
   }
 
 }

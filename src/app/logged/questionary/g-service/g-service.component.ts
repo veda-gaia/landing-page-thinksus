@@ -189,7 +189,6 @@ export class GServiceComponent {
               answer: control.value,
             }
           }),
-          lang: this.translateService.currentLang
         }
 
         this.esgRatingService.register(dto).subscribe({
@@ -236,7 +235,6 @@ export class GServiceComponent {
         }
         else return false
       }),
-      lang: this.translateService.currentLang
     }
 
     // Filtra as que tem resposta 

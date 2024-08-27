@@ -16,6 +16,10 @@ export class ImprovementsComponent implements OnInit {
   companyInfo: any
   assesmentInfo: any
 
+  environmentalScoresArray: any[] = []
+  socialScoresArray: any[] = []
+  governanceScoresArray: any[] = []
+
   constructor(
     private CompanyService: CompanyService,
     private EsgRatingService: EsgRatingService,
@@ -32,6 +36,7 @@ export class ImprovementsComponent implements OnInit {
     this.EsgRatingService.getById(this.id).subscribe({
       next: (data) => {
         this.assesmentInfo = data
+        this.handleScoresInfo()
         console.log(data)
       }, error: (err) => {
         console.log(err)
@@ -41,15 +46,6 @@ export class ImprovementsComponent implements OnInit {
     this.CompanyService.getByUser().subscribe({
       next: (data) => {
         this.companyInfo = data
-
-        // if(data.section === 'Agribusiness') {
-        // }
-
-        // if(data.section === 'Industry') {
-        // }
-
-        // if(data.section === 'Services') {
-        // }
       },
       error: (err) => {
         console.log(err)
@@ -78,5 +74,39 @@ export class ImprovementsComponent implements OnInit {
     
     // Inclui se nao tiver
     this.openAccordions.push(number)
+  }
+
+  handleScoresInfo() {
+    const orderEnvironmental: string[] = ["Nature", "Natural_Resources", "Climate_Risk", "Waste_Management"]
+    this.environmentalScoresArray = this.assesmentInfo.areaScore.filter((i: any) => {
+      return orderEnvironmental.includes(i.area)
+    })
+    this.environmentalScoresArray.sort((a, b) => {
+      const indexA = orderEnvironmental.indexOf(a.area);
+      const indexB = orderEnvironmental.indexOf(b.area);
+      return indexA - indexB;
+    });
+
+    const orderSocial: string[] = ["Fair_Work", "Community", "Society", "Value_Chain"]
+    this.socialScoresArray = this.assesmentInfo.areaScore.filter((i: any) => {
+      return orderSocial.includes(i.area)
+    })
+    this.socialScoresArray.sort((a, b) => {
+      const indexA = orderSocial.indexOf(a.area);
+      const indexB = orderSocial.indexOf(b.area);
+      return indexA - indexB;
+    });
+
+    const orderGovernance: string[] = ["Risk", "Economic", "Management", "Transparency"]
+    this.governanceScoresArray = this.assesmentInfo.areaScore.filter((i: any) => {
+      return orderGovernance.includes(i.area)
+    })
+    this.governanceScoresArray.sort((a, b) => {
+      const indexA = orderGovernance.indexOf(a.area);
+      const indexB = orderGovernance.indexOf(b.area);
+      return indexA - indexB;
+    });
+
+    console.log(this.environmentalScoresArray, this.socialScoresArray, this.governanceScoresArray)
   }
 }

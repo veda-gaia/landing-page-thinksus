@@ -567,44 +567,132 @@
         "17_TITLE": "Partnerships",
         "17_DESCRIPTION": "Strengthen the means of implementation and revitalize the global partnership for sustainable development."
     },
-    "IMPROVEMENTS": {
+    "IMPROVEMENTS_TITLES": {
         "ENVIRONMENTAL_TITLE_1": "Natureza",
-        "ENVIRONMENTAL_DESCRIPTION_1": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-        
         "ENVIRONMENTAL_TITLE_2": "Recursos naturais",
-        "ENVIRONMENTAL_DESCRIPTION_2": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-        
         "ENVIRONMENTAL_TITLE_3": "Clima e risco",
-        "ENVIRONMENTAL_DESCRIPTION_3": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-
         "ENVIRONMENTAL_TITLE_4": "Gestão de resíduos",
-        "ENVIRONMENTAL_DESCRIPTION_4": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-        
 
         "SOCIAL_TITLE_5": "Trabalho justo",
-        "SOCIAL_DESCRIPTION_5": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-        
         "SOCIAL_TITLE_6": "Comunidade",
-        "SOCIAL_DESCRIPTION_6": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-        
         "SOCIAL_TITLE_7": "Sociedade",
-        "SOCIAL_DESCRIPTION_7": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-
         "SOCIAL_TITLE_8": "Cadeia de valor",
-        "SOCIAL_DESCRIPTION_8": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-        
 
         "GOVERNMENTAL_TITLE_9": "Risco",
-        "GOVERNMENTAL_DESCRIPTION_9": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-        
         "GOVERNMENTAL_TITLE_10": "Econômica",
-        "GOVERNMENTAL_DESCRIPTION_10": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-        
         "GOVERNMENTAL_TITLE_11": "Gestão",
-        "GOVERNMENTAL_DESCRIPTION_11": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+        "GOVERNMENTAL_TITLE_12": "Transparência"
+    },
+    "IMPROVEMENTS_Agribusiness": {
+        "ENVIRONMENTAL_DESCRIPTION_1_LOW": "Uso Responsável de Produtos Químicos: Minimizar o uso de pesticidas e fertilizantes químicos através de alternativas naturais e técnicas integradas de manejo de pragas. Biodiversidade e Conservação: Estabelecer áreas de conservação dentro das propriedades agrícolas e promover a diversidade de cultivos para proteger ecossistemas locais.",
+        "ENVIRONMENTAL_DESCRIPTION_1_MEDIUM": "Agricultura de Precisão: Utilizar tecnologias avançadas, como drones e sensores, para monitorar e otimizar o uso de água, fertilizantes e pesticidas. Proteção do Solo: Adotar práticas de conservação do solo, como rotação de culturas, plantio direto e cobertura do solo para reduzir a erosão e melhorar a saúde do solo.",
 
-        "GOVERNMENTAL_TITLE_12": "Transparência",
-        "GOVERNMENTAL_DESCRIPTION_12": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'"
+        "ENVIRONMENTAL_DESCRIPTION_2_LOW": "Adotar práticas de captação e armazenamento de água da chuva para usos administrativos",
+        "ENVIRONMENTAL_DESCRIPTION_2_MEDIUM": "Gestão Sustentável da Água: Implementar sistemas de irrigação eficientes, como a irrigação por gotejamento.",
+
+        "ENVIRONMENTAL_DESCRIPTION_3_LOW": "Realizar inventário de carbono e fontes de emissões de gases de efeito estufa",
+        "ENVIRONMENTAL_DESCRIPTION_3_MEDIUM": "Redução de Emissões de Gases: Investir em tecnologias para reduzir as emissões de gases de efeito estufa, como biocombustíveis e sistemas de captura de carbono.",
+
+        "ENVIRONMENTAL_DESCRIPTION_4_LOW": "Ter o controle volumétrico, unidades, kilogramas, litros dos residuos gerados e seu devido descarte",
+        "ENVIRONMENTAL_DESCRIPTION_4_MEDIUM": "Gestão de Resíduos: Implementar sistemas de compostagem e reciclagem para resíduos orgânicos e plásticos, e promover a redução de resíduos na produção.",
+
+        "SOCIAL_DESCRIPTION_5_LOW": "Itasdddddasdasdasd",
+        "SOCIAL_DESCRIPTION_5_MEDIUM": "Itasdddddasdasdasd",
+
+        "SOCIAL_DESCRIPTION_6_LOW": "Itasdddddasdasdasd",
+        "SOCIAL_DESCRIPTION_6_MEDIUM": "Itasdddddasdasdasd",
+
+        "SOCIAL_DESCRIPTION_7_LOW": "Itasdddddasdasdasd",
+        "SOCIAL_DESCRIPTION_7_MEDIUM": "Itasdddddasdasdasd",
+
+        "SOCIAL_DESCRIPTION_8_LOW": "Itasdddddasdasdasd",
+        "SOCIAL_DESCRIPTION_8_MEDIUM": "Itasdddddasdasdasd",
+
+        "GOVERNMENTAL_DESCRIPTION_9_LOW": "Itasdddddasdasdasd",
+        "GOVERNMENTAL_DESCRIPTION_9_MEDIUM": "Itasdddddasdasdasd",
+
+        "GOVERNMENTAL_DESCRIPTION_10_LOW": "Itasdddddasdasdasd",
+        "GOVERNMENTAL_DESCRIPTION_10_MEDIUM": "Itasdddddasdasdasd",
+
+        "GOVERNMENTAL_DESCRIPTION_11_LOW": "Itasdddddasdasdasd",
+        "GOVERNMENTAL_DESCRIPTION_11_MEDIUM": "Itasdddddasdasdasd",
+
+        "GOVERNMENTAL_DESCRIPTION_12_LOW": "Itasdddddasdasdasd",
+        "GOVERNMENTAL_DESCRIPTION_12_MEDIUM": "Itasdddddasdasdasd"
+    },
+    "IMPROVEMENTS_Industry": {
+        "ENVIRONMENTAL_DESCRIPTION_1_LOW": "Itasdddddasdasdasd",
+        "ENVIRONMENTAL_DESCRIPTION_1_MEDIUM": "Itasdddddasdasdasd",
+
+        "ENVIRONMENTAL_DESCRIPTION_2_LOW": "Itasdddddasdasdasd",
+        "ENVIRONMENTAL_DESCRIPTION_2_MEDIUM": "Itasdddddasdasdasd",
+
+        "ENVIRONMENTAL_DESCRIPTION_3_LOW": "Itasdddddasdasdasd",
+        "ENVIRONMENTAL_DESCRIPTION_3_MEDIUM": "Itasdddddasdasdasd",
+
+        "ENVIRONMENTAL_DESCRIPTION_4_LOW": "Itasdddddasdasdasd",
+        "ENVIRONMENTAL_DESCRIPTION_4_MEDIUM": "Itasdddddasdasdasd",
+
+        "SOCIAL_DESCRIPTION_5_LOW": "Itasdddddasdasdasd",
+        "SOCIAL_DESCRIPTION_5_MEDIUM": "Itasdddddasdasdasd",
+
+        "SOCIAL_DESCRIPTION_6_LOW": "Itasdddddasdasdasd",
+        "SOCIAL_DESCRIPTION_6_MEDIUM": "Itasdddddasdasdasd",
+
+        "SOCIAL_DESCRIPTION_7_LOW": "Itasdddddasdasdasd",
+        "SOCIAL_DESCRIPTION_7_MEDIUM": "Itasdddddasdasdasd",
+
+        "SOCIAL_DESCRIPTION_8_LOW": "Itasdddddasdasdasd",
+        "SOCIAL_DESCRIPTION_8_MEDIUM": "Itasdddddasdasdasd",
+
+        "GOVERNMENTAL_DESCRIPTION_9_LOW": "Itasdddddasdasdasd",
+        "GOVERNMENTAL_DESCRIPTION_9_MEDIUM": "Itasdddddasdasdasd",
+
+        "GOVERNMENTAL_DESCRIPTION_10_LOW": "Itasdddddasdasdasd",
+        "GOVERNMENTAL_DESCRIPTION_10_MEDIUM": "Itasdddddasdasdasd",
+
+        "GOVERNMENTAL_DESCRIPTION_11_LOW": "Itasdddddasdasdasd",
+        "GOVERNMENTAL_DESCRIPTION_11_MEDIUM": "Itasdddddasdasdasd",
+
+        "GOVERNMENTAL_DESCRIPTION_12_LOW": "Itasdddddasdasdasd",
+        "GOVERNMENTAL_DESCRIPTION_12_MEDIUM": "Itasdddddasdasdasd"
+    },
+    "IMPROVEMENTS_Services": {
+        "ENVIRONMENTAL_DESCRIPTION_1_LOW": "Itasdddddasdasdasd",
+        "ENVIRONMENTAL_DESCRIPTION_1_MEDIUM": "Itasdddddasdasdasd",
+
+        "ENVIRONMENTAL_DESCRIPTION_2_LOW": "Itasdddddasdasdasd",
+        "ENVIRONMENTAL_DESCRIPTION_2_MEDIUM": "Itasdddddasdasdasd",
+
+        "ENVIRONMENTAL_DESCRIPTION_3_LOW": "Itasdddddasdasdasd",
+        "ENVIRONMENTAL_DESCRIPTION_3_MEDIUM": "Itasdddddasdasdasd",
+
+        "ENVIRONMENTAL_DESCRIPTION_4_LOW": "Itasdddddasdasdasd",
+        "ENVIRONMENTAL_DESCRIPTION_4_MEDIUM": "Itasdddddasdasdasd",
+
+        "SOCIAL_DESCRIPTION_5_LOW": "Itasdddddasdasdasd",
+        "SOCIAL_DESCRIPTION_5_MEDIUM": "Itasdddddasdasdasd",
+
+        "SOCIAL_DESCRIPTION_6_LOW": "Itasdddddasdasdasd",
+        "SOCIAL_DESCRIPTION_6_MEDIUM": "Itasdddddasdasdasd",
+
+        "SOCIAL_DESCRIPTION_7_LOW": "Itasdddddasdasdasd",
+        "SOCIAL_DESCRIPTION_7_MEDIUM": "Itasdddddasdasdasd",
+
+        "SOCIAL_DESCRIPTION_8_LOW": "Itasdddddasdasdasd",
+        "SOCIAL_DESCRIPTION_8_MEDIUM": "Itasdddddasdasdasd",
+
+        "GOVERNMENTAL_DESCRIPTION_9_LOW": "Itasdddddasdasdasd",
+        "GOVERNMENTAL_DESCRIPTION_9_MEDIUM": "Itasdddddasdasdasd",
+
+        "GOVERNMENTAL_DESCRIPTION_10_LOW": "Itasdddddasdasdasd",
+        "GOVERNMENTAL_DESCRIPTION_10_MEDIUM": "Itasdddddasdasdasd",
+
+        "GOVERNMENTAL_DESCRIPTION_11_LOW": "Itasdddddasdasdasd",
+        "GOVERNMENTAL_DESCRIPTION_11_MEDIUM": "Itasdddddasdasdasd",
+
+        "GOVERNMENTAL_DESCRIPTION_12_LOW": "Itasdddddasdasdasd",
+        "GOVERNMENTAL_DESCRIPTION_12_MEDIUM": "Itasdddddasdasdasd"
     },
     "CONTROL_PANEL": {
         "TITLE": "Painel de controle",

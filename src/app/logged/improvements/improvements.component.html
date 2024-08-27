@@ -74,54 +74,66 @@
         </div>
 
         <div *ngIf="selectedESG === 'environmental'" class="col-12 col-lg-4 fade-in">
-            <div *ngFor="let item of [].constructor(4); let i = index" class="card-logged custom-accordion p-4 mb-2" [class.active]="openAccordions.includes(i + 1)">
+            <div *ngFor="let item of environmentalScoresArray; let i = index" class="card-logged custom-accordion p-4 mb-2" [class.active]="openAccordions.includes(i + 1)">
                 <div class="cursor-pointer d-flex align-items-center justify-content-between" (click)="toggleAccordion(i + 1)">
                     <p class="d-flex align-items-end justify-content-start gap-2 fw-700 f-size-1-5rem l-height-1-5 green-600-text">
-                        {{ (i + 1) }} <span class="fw-700 f-size-1-25rem l-height-1-25 green-600-text">{{ "IMPROVEMENTS.ENVIRONMENTAL_TITLE_" + (i + 1) | translate }}</span>
+                        {{ (i + 1) }} <span class="fw-700 f-size-1-25rem l-height-1-25 green-600-text">{{ "IMPROVEMENTS_TITLES.ENVIRONMENTAL_TITLE_" + (i + 1) | translate }}</span>
                     </p>
 
                     <img src="/assets/icon/open-close.svg" alt="Icon" class="open-close-icon">
                 </div>
 
                 <div class="content-custom-accordion">
-                    <p class="f-size-0-85rem fw-500 alpha-800-text l-height-1-25 w-100">
-                        {{ "IMPROVEMENTS.ENVIRONMENTAL_DESCRIPTION_" + (i + 1) | translate }}
+                    <p *ngIf="item.score <= 17.5" class="f-size-0-85rem fw-500 alpha-800-text l-height-1-25 w-100">
+                        {{ "IMPROVEMENTS_" + companyInfo.section + ".ENVIRONMENTAL_DESCRIPTION_" + (i + 1) + (item.score < 10 ? '_LOW' : '') + (item.score >= 10 && item.score <= 17.5 ? '_MEDIUM' : '') | translate }}
+                    </p>
+
+                    <p *ngIf="item.score > 17.5" class="f-size-0-85rem fw-500 alpha-800-text l-height-1-25 w-100">
+                        {{ "IMPROVEMENTS_TITLES.HIGH_SCORE_DESCRIPTION" | translate }}
                     </p>
                 </div>
             </div>
         </div>
 
         <div *ngIf="selectedESG === 'social'" class="col-12 col-lg-4 fade-in">
-            <div *ngFor="let item of [].constructor(4); let i = index" class="card-logged custom-accordion custom-accordion-social p-4 mb-2" [class.active]="openAccordions.includes(i + 5)">
+            <div *ngFor="let item of socialScoresArray; let i = index" class="card-logged custom-accordion custom-accordion-social p-4 mb-2" [class.active]="openAccordions.includes(i + 5)">
                 <div class="cursor-pointer d-flex align-items-center justify-content-between" (click)="toggleAccordion(i + 5)">
                     <p class="d-flex align-items-end justify-content-start gap-2 fw-700 f-size-1-5rem l-height-1-5 purple-600-text">
-                        {{ (i + 5) }} <span class="fw-700 f-size-1-25rem l-height-1-25 purple-600-text">{{ "IMPROVEMENTS.SOCIAL_TITLE_" + (i + 5) | translate }}</span>
+                        {{ (i + 5) }} <span class="fw-700 f-size-1-25rem l-height-1-25 purple-600-text">{{ "IMPROVEMENTS_TITLES.SOCIAL_TITLE_" + (i + 5) | translate }}</span>
                     </p>
 
                     <img src="/assets/icon/open-close-purple.svg" alt="Icon" class="open-close-icon">
                 </div>
 
                 <div class="content-custom-accordion">
-                    <p class="f-size-0-85rem fw-500 alpha-800-text l-height-1-25 w-100">
-                        {{ "IMPROVEMENTS.SOCIAL_DESCRIPTION_" + (i + 5) | translate }}
+                    <p *ngIf="item.score <= 17.5" class="f-size-0-85rem fw-500 alpha-800-text l-height-1-25 w-100">
+                        {{ "IMPROVEMENTS_" + companyInfo.section + ".SOCIAL_DESCRIPTION_" + (i + 5) + (item.score < 10 ? '_LOW' : '') + (item.score >= 10 && item.score <= 17.5 ? '_MEDIUM' : '') | translate }}
+                    </p>
+                    
+                    <p *ngIf="item.score > 17.5" class="f-size-0-85rem fw-500 alpha-800-text l-height-1-25 w-100">
+                        {{ "IMPROVEMENTS_TITLES.HIGH_SCORE_DESCRIPTION" | translate }}
                     </p>
                 </div>
             </div>
         </div>
 
         <div *ngIf="selectedESG === 'governmental'" class="col-12 col-lg-4 fade-in">
-            <div *ngFor="let item of [].constructor(4); let i = index" class="card-logged custom-accordion custom-accordion-governmental p-4 mb-2" [class.active]="openAccordions.includes(i + 9)">
+            <div *ngFor="let item of governanceScoresArray; let i = index" class="card-logged custom-accordion custom-accordion-governmental p-4 mb-2" [class.active]="openAccordions.includes(i + 9)">
                 <div class="cursor-pointer d-flex align-items-center justify-content-between" (click)="toggleAccordion(i + 9)">
                     <p class="d-flex align-items-end justify-content-start gap-2 fw-700 f-size-1-5rem l-height-1-5 blue-600-text">
-                        {{ (i + 9) }} <span class="fw-700 f-size-1-25rem l-height-1-25 blue-600-text">{{ "IMPROVEMENTS.GOVERNMENTAL_TITLE_" + (i + 9) | translate }}</span>
+                        {{ (i + 9) }} <span class="fw-700 f-size-1-25rem l-height-1-25 blue-600-text">{{ "IMPROVEMENTS_TITLES.GOVERNMENTAL_TITLE_" + (i + 9) | translate }}</span>
                     </p>
 
                     <img src="/assets/icon/open-close-blue.svg" alt="Icon" class="open-close-icon">
                 </div>
 
                 <div class="content-custom-accordion">
-                    <p class="f-size-0-85rem fw-500 alpha-800-text l-height-1-25 w-100">
-                        {{ "IMPROVEMENTS.GOVERNMENTAL_DESCRIPTION_" + (i + 9) | translate }}
+                    <p *ngIf="item.score <= 17.5" class="f-size-0-85rem fw-500 alpha-800-text l-height-1-25 w-100">
+                        {{ "IMPROVEMENTS_" + companyInfo.section + ".GOVERNMENTAL_DESCRIPTION_" + (i + 9) + (item.score < 10 ? '_LOW' : '') + (item.score >= 10 && item.score <= 17.5 ? '_MEDIUM' : '') | translate }}
+                    </p>
+                    
+                    <p *ngIf="item.score > 17.5" class="f-size-0-85rem fw-500 alpha-800-text l-height-1-25 w-100">
+                        {{ "IMPROVEMENTS_TITLES.HIGH_SCORE_DESCRIPTION" | translate }}
                     </p>
                 </div>
             </div>

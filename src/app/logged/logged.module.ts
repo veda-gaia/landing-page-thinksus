@@ -40,6 +40,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { PlansComponent } from './plans/plans.component';
 import { PaymentOrientationModalComponent } from './plans/payment-orientation-modal/payment-orientation-modal.component';
+import { ScoreWarningComponent } from './score-warning/score-warning.component';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -74,6 +75,7 @@ PlotlyModule.plotlyjs = PlotlyJS;
     ConfirmationComponent,
     PlansComponent,
     PaymentOrientationModalComponent,
+    ScoreWarningComponent,
   ],
   imports: [
     CommonModule,

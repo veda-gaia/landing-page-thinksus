@@ -118,7 +118,7 @@ export class EAgroComponent {
       next: (data) => {
         // Pega o item que pertence a minha empresa
         let myCompanyInfo = data.filter(item => {
-          return item.company._id === companyId
+          return item?.company?._id === companyId
         })[0]
           
         const questionaryAnswers = myCompanyInfo.answers.filter((i: any) => {

@@ -51,4 +51,10 @@ export class EsgRatingService extends BaseService {
       .post(`${this.url}/register`, dto, this.authorizedHeader())
       .pipe(map(this.extractData), catchError(this.serviceError));
   }
+
+  donwloadReport() {
+    return this.httpClient
+      .get(`${this.url}/download-report`, this.authorizedHeader())
+      .pipe(map(this.extractData), catchError(this.serviceError));
+  }
 }

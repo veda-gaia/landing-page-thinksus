@@ -93,20 +93,24 @@ export class SidebarComponent {
   getClassPerScore() {
     if (this.companyResponse) {
       const socialScore = +this.companyResponse?.esgScore.toFixed();
+
       if (socialScore <= 35) {
         return 'gap-base';
-      } else if (socialScore > 35 && socialScore <= 59) {
-        return 'gap-bronze';
-      } else if (socialScore >= 60 && socialScore <= 80) {
-        return 'gap-silver';
-      } else if (socialScore >= 81) {
-        return 'gap-gold';
-      } else {
-        return '';
       }
-    } else {
+      if (socialScore > 35 && socialScore <= 59) {
+        return 'gap-bronze';
+      }
+      if (socialScore >= 60 && socialScore <= 80) {
+        return 'gap-silver';
+      }
+      if (socialScore >= 81) {
+        return 'gap-gold';
+      }
+      
       return '';
     }
+
+    return '';
   }
 
   getScore() {

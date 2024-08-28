@@ -2,10 +2,10 @@
     <div class="row pb-4">
         <div class="col">
             <h3 class="alpha-800-text f-size-1-5rem l-height-1-5rem pb-1 fw-800">
-                Melhorias
+                {{ "IMPROVEMENTS_HUD.TITLE" | translate }}
             </h3>
             <p class="f-size-0-85rem alpha-700-text fw-500 l-height-1-25">
-                Nossas sugestões
+                {{ "IMPROVEMENTS_HUD.SUBTITLE" | translate }}
             </p>
         </div>
     </div>
@@ -15,28 +15,28 @@
             <div class="card-logged p-4 d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between gap-4 w-100">
                 <div class="flex-grow-1">
                     <p class="secondary-text f-size-1rem fw-500 pb-3">
-                        Empresa: <span class="fw-700 gray-text">{{ companyInfo.company }}</span>
+                        {{ "IMPROVEMENTS_HUD.COMPANY" | translate }}: <span class="fw-700 gray-text">{{ companyInfo.company }}</span>
                     </p>
                     
                     <p class="secondary-text f-size-1rem fw-500">
-                        Setor: 
+                        {{ "IMPROVEMENTS_HUD.SECTION" | translate }}: 
                         <span class="fw-700 gray-text">{{ "SECTORS." + companyInfo.section | translate }}</span>
                     </p>
                 </div>
 
                 <div class="flex-grow-1">
                     <p class="secondary-text f-size-1rem fw-500 pb-3">
-                        CNPJ: <span class="fw-700 gray-text">{{ companyInfo.cnpj }}</span>
+                        {{ "IMPROVEMENTS_HUD.CNPJ" | translate }}: <span class="fw-700 gray-text">{{ companyInfo.cnpj }}</span>
                     </p>
                     
                     <p class="secondary-text f-size-1rem fw-500">
-                        Segmento: <span class="fw-700 gray-text">{{ "SEGMENTS." + companyInfo.segment | translate }}</span>
+                        {{ "IMPROVEMENTS_HUD.SEGMENT" | translate }}: <span class="fw-700 gray-text">{{ "SEGMENTS." + companyInfo.segment | translate }}</span>
                     </p>
                 </div>
 
                 <div class="flex-grow-1">
                     <p class="secondary-text text-end f-size-0-85rem l-height-1-25 fw-500">
-                        Pontuação ThinkSus
+                        {{ "IMPROVEMENTS_HUD.SCORE" | translate }}
                     </p>
                     
                     <p class="system-success-text text-end f-size-3rem l-height-3 fw-700">
@@ -67,8 +67,8 @@
         <div *ngIf="!selectedESG" class="col-12 col-lg-4 fade-in">
             <div class="w-100 glossary-card p-4">
                 <p class="fw-700 d-inline f-size-1rem l-height-1-25">
-                    Selecione uma opção
-                    <span class="d-inline fw-500 l-height-1-25">ao lado para ler sobre esse ponto de melhoria.</span>
+                    {{ "IMPROVEMENTS_HUD.SELECTE_AN_OPTION" | translate }}
+                    <span class="d-inline fw-500 l-height-1-25">{{ "IMPROVEMENTS_HUD.AT_SIDE" | translate }}</span>
                 </p>
             </div>
         </div>
@@ -144,19 +144,19 @@
         <div class="col">
             <div class="pb-3">
                 <h4 *ngIf="selectedESG === 'environmental'" class="primary-text f-size-1-5rem fw-700 pb-1">
-                    Aderência aos ODS  voltados para área Ambiental
+                    {{ "IMPROVEMENTS_HUD.ADERENCE_TITLE_ENVIRONMENTAL" | translate }}
                 </h4>
                 
                 <h4 *ngIf="selectedESG === 'social'" class="primary-text f-size-1-5rem fw-700 pb-1">
-                    Aderência aos ODS  voltados para área Social
+                    {{ "IMPROVEMENTS_HUD.ADERENCE_TITLE_SOCIAL" | translate }}
                 </h4>
 
                 <h4 *ngIf="selectedESG === 'governmental'" class="primary-text f-size-1-5rem fw-700 pb-1">
-                    Aderência aos ODS  voltados para área Governamental
+                    {{ "IMPROVEMENTS_HUD.ADERENCE_TITLE_GOVERNANCE" | translate }}
                 </h4>
 
                 <p class="alpha-700-text f-size-0-85rem fw-500">
-                    Foque nas ODS abaixo
+                    {{ "IMPROVEMENTS_HUD.ADERENCE_SUBTITLE" | translate }}
                 </p>
             </div>
     

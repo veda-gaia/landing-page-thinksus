@@ -15,12 +15,12 @@
             <img src="/assets/icon/plus.svg" alt="Fazer Avaliação">
         </a>
 
-        <div class="py-3 cursor-pointer" [class]="getClassPerScore()" *ngIf="verifyRequested === 'view'">
-            <p class="fw-700 mb-0" style="color: #222021;font-size: 20px;">
+        <div class="py-2 cursor-pointer d-flex align-items-center justify-content-between px-3" [class]="getClassPerScore()" *ngIf="verifyRequested === 'view'">
+            <p class="fw-700 l-height-28 f-size-20px pb-1 mb-0 gray-text">
                 {{getScore()}}
             </p>
 
-            <span class="fw-600" style="font-size: 14px;color: #222021;">{{ getTitle()}}</span>
+            <span class="fw-700 l-height-20px f-size-14px gray-text">{{ getTitle()}}</span>
         </div>
     
         <nav class="pt-3 w-100" (click)="toggleSidebar()">

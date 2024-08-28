@@ -608,6 +608,14 @@ html,
     line-height: 14px;
 }
 
+.l-height-20px {
+    line-height: 20px;
+}
+
+.l-height-28 {
+    line-height: 28px;
+}
+
 .l-height-31 {
     line-height: 31px;
 }
@@ -2418,35 +2426,27 @@ td {
 
 .gap-gold {
     background: rgb(255, 255, 255);
-    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(248, 231, 139, 1) 35%, rgba(177, 133, 38, 1) 100%);
+    background: linear-gradient(270deg, #ffe263 0%, #fae896 100%);
     border-radius: 6px !important;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+    border: 1px solid #FFFFFF;
 }
 
 .gap-base {
     background: rgb(255, 255, 255);
     border-radius: 6px !important;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+    border: 1px solid #FFFFFF;
 }
 
 .gap-silver {
     background: rgb(255, 255, 255);
-    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(164, 164, 160, 1) 35%, rgba(170, 169, 167, 1) 100%);
+    background: linear-gradient(270deg, #b3aca9 0%, #ebe3dd 100%);
     border-radius: 6px !important;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+    border: 1px solid #FFFFFF;
 }
 
 .gap-bronze {
     background: rgb(255, 255, 255);
-    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(251, 167, 63, 1) 35%, rgba(153, 88, 22, 1) 100%);
+    background: linear-gradient(270deg, #F59969 0%, #F8BE88 100%);
     border-radius: 6px !important;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+    border: 1px solid #FFFFFF;
 }

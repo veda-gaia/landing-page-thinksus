@@ -73,6 +73,35 @@ export class ResultsComponent {
     })
   }
 
+  downloadReport() {
+    this.EsgRatingService.donwloadReport().subscribe({
+      next: data => {
+        if (data && data.report) {
+          const byteCharacters = atob(data.report);
+          const byteNumbers = new Array(byteCharacters.length);
+          for (let i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
+          }
+          const byteArray = new Uint8Array(byteNumbers);
+          const blob = new Blob([byteArray], { type: 'application/pdf' });
+  
+          const link = document.createElement('a');
+          link.href = URL.createObjectURL(blob);
+          link.download = 'relatorio.pdf';
+  
+          link.click();
+  
+          URL.revokeObjectURL(link.href);
+        } else {
+          console.error('O objeto data não contém o relatório em base64.');
+        }
+      },
+      error: err => {
+        console.error('Erro ao fazer o download do relatório:', err);
+      }
+    });
+  }
+
   loadGraph() {
     const dates: string[] = this.list.map(avaliation => {
       const date = new Date(avaliation.updatedAt);

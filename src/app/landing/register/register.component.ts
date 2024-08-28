@@ -225,7 +225,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmitStep4() {
     if (this.code.invalid || !this.code.value) return;
-    this.userService.activeUser({email: this.email.value, code: +this.code.value}).subscribe({
+    this.userService.activeUser({email: this.email.value, code: +this.code.value, lang: this.translateService.currentLang}).subscribe({
       next: (data) => {
         console.log(data);
         this.actualStep = 5;

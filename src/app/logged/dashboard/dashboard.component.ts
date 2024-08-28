@@ -1,8 +1,13 @@
 import { JsonPipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 import { CompanyService } from 'src/app/services/company.service';
+import { ContractedPlanService } from 'src/app/services/contracted-plan.service';
 import { EsgRatingService } from 'src/app/services/esg-rating.service';
 import { initialScoreArray } from 'src/app/util/initial-score-array.util';
+import { ScoreWarningComponent } from '../score-warning/score-warning.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,6 +15,8 @@ import { initialScoreArray } from 'src/app/util/initial-score-array.util';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
+  @ViewChild('contentModal') contentModal: any;
+
   avaliationStatus = '';
   userName = '';
   companySection = 'agro';
@@ -52,7 +59,11 @@ export class DashboardComponent {
 
   constructor(
     private EsgRatingService: EsgRatingService,
-    private CompanyService: CompanyService
+    private CompanyService: CompanyService,
+    private contractedPlanService: ContractedPlanService,
+    private modalService: NgbModal,
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
@@ -202,6 +213,35 @@ export class DashboardComponent {
     });
   }
 
+  downloadReport() {
+    this.EsgRatingService.donwloadReport().subscribe({
+      next: data => {
+        if (data && data.report) {
+          const byteCharacters = atob(data.report);
+          const byteNumbers = new Array(byteCharacters.length);
+          for (let i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
+          }
+          const byteArray = new Uint8Array(byteNumbers);
+          const blob = new Blob([byteArray], { type: 'application/pdf' });
+  
+          const link = document.createElement('a');
+          link.href = URL.createObjectURL(blob);
+          link.download = 'relatorio.pdf';
+  
+          link.click();
+  
+          URL.revokeObjectURL(link.href);
+        } else {
+          console.error('O objeto data não contém o relatório em base64.');
+        }
+      },
+      error: err => {
+        console.error('Erro ao fazer o download do relatório:', err);
+      }
+    });
+  }
+
   // Define as informaçõoes do Gráfico
   handleGraphicStatistics() {
     const dates: string[] = this.allCompleteAvaliations.map(avaliation => {
@@ -256,5 +296,23 @@ export class DashboardComponent {
     if (this.avaliationStatus === 'pre-avaliation') {
       this.avaliationStatus = 'post-avaliation';
     } else this.avaliationStatus = 'pre-avaliation';
+  }
+
+  verifyPossibility(symbol: string) {
+    this.contractedPlanService.getByUser().subscribe({
+      next: data => {
+        if(!data.verify) {
+          this.modalService.open(ScoreWarningComponent, {centered: true, size: 'sm'})
+        } else {
+          this.router.navigate(['/logged/assesment/' + symbol + '-' + this.companySection])
+        }
+      },
+      error: error => {
+        if(error.error.errors.includes('Contrate um plano')) {
+          this.toastr.warning('Contrate um plano antes de iniciar avaliação!', 'Atenção', {progressBar: true})
+          this.router.navigate(['/logged/plans'])
+        }
+      }
+    })
   }
 }

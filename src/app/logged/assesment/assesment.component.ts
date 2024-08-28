@@ -8,6 +8,7 @@ import { updateStatusDto } from 'src/app/dtos/update-status.dto';
 import { CompanyService } from 'src/app/services/company.service';
 import { ContractedPlanService } from 'src/app/services/contracted-plan.service';
 import { EsgRatingService } from 'src/app/services/esg-rating.service';
+import { ScoreWarningComponent } from '../score-warning/score-warning.component';
 
 @Component({
   selector: 'app-assesment',
@@ -86,7 +87,7 @@ export class AssesmentComponent {
       next: (data) => {
         // Pega o item que pertence a minha empresa
         let myCompanyInfo = data.filter(item => {
-          return item.company._id === companyId && item.status === "IN_PROGRESS"
+          return item?.company?._id === companyId && item?.status === "IN_PROGRESS"
         })[0]
         
         console.log(data)
@@ -164,7 +165,7 @@ export class AssesmentComponent {
     this.contractedPlanService.getByUser().subscribe({
       next: data => {
         if(!data.verify) {
-          this.modalService.open(this.contentModal, {centered: true, size: 'sm'})
+          this.modalService.open(ScoreWarningComponent, {centered: true, size: 'sm'})
         } else {
           this.router.navigate(['/logged/assesment/' + symbol + '-' + this.companySection])
         }

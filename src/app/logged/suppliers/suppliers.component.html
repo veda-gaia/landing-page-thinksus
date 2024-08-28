@@ -41,7 +41,10 @@
                         </tr>
                         <tr *ngFor="let item of filteredList" class="body-row-tr">
                             <td class="">
-                                <img src="/assets/icon/none-seal.svg" alt="Sem selo" width="24px">
+                                <img *ngIf="item.esgScore <= 35" src="/assets/icon/none-seal.svg" alt="Sem Selo" title="Sem Selo" width="20px">
+                                <img *ngIf="item.esgScore > 35 && item.esgScore <= 60" src="/assets/icon/seal-bronze.svg" alt="Selo de Bronze" title="Selo de Bronze" width="20px">
+                                <img *ngIf="item.esgScore > 60 && item.esgScore <= 80" src="/assets/icon/seal-silver.svg" alt="Selo de Prata" title="Selo de Prata" width="20px">
+                                <img *ngIf="item.esgScore > 80" src="/assets/icon/seal-gold.svg" alt="Selo de Ouro" title="Selo de Ouro" width="20px">
                             </td>
                             <td class="">
                                 {{ item.name }}
@@ -49,8 +52,8 @@
                             <td class="">
                                 {{ item.buyValue }}
                             </td>
-                            <td class="">
-                                {{ item.score }}
+                            <td class="fw-700" [class.brand-text-clear]="item.esgScore > 50" [class.yellow-500-text]="item.esgScore <= 50 && item.esgScore >= 30" [class.danger-text]="item.esgScore <= 30">
+                                {{ item.esgScore }}
                             </td>
                             <td class="">
                                 {{ item.document }}

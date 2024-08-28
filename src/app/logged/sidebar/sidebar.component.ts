@@ -15,7 +15,7 @@ export class SidebarComponent {
 
   verifyRequested: string = 'false';
 
-  companyResponse: any;
+  companyScoreResponse: any;
 
   classPerScore: string = '';
 
@@ -42,17 +42,28 @@ export class SidebarComponent {
   }
 
   ngOnInit() {
+
+    // this.allCompleteAvaliations = data.filter((item) => {
+    //   return item.status === 'COMPLETED';
+    // })
+
+    // this.allCompleteAvaliations.sort((a, b) => {
+    //   return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
+    // });
+
+    // let postAvaliation = this.allCompleteAvaliations[0];
+
     this.esgRatingService.getByCompany().subscribe({
       next: (data) => {
-        if (!Object.keys(data).length) {
-          this.verifyRequested = 'content';
-          return
-        }
-        const last = data.sort((a: any, b: any) => b.createdAt - a.createdAt);
-        console.log(last);
-        
-        this.companyResponse = data[0];
-        this.verifyRequested = 'view';
+        const allCompleteAvaliations = data.filter((item) => {
+          return item.status === 'COMPLETED';
+        })
+
+        allCompleteAvaliations.sort((a, b) => {
+          return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
+        });
+
+        this.companyScoreResponse = allCompleteAvaliations[0];
       },
       error: (err) => {
         console.error(err);
@@ -72,8 +83,8 @@ export class SidebarComponent {
   }
 
   getTitle() {
-    if (this.companyResponse) {
-      const socialScore = +this.companyResponse?.esgScore.toFixed();
+    if (this.companyScoreResponse) {
+      const socialScore = +this.companyScoreResponse?.esgScore.toFixed();
       if (socialScore <= 35) {
         return 'Convencional';
       } else if (socialScore > 35 && socialScore <= 59) {
@@ -91,27 +102,31 @@ export class SidebarComponent {
   }
 
   getClassPerScore() {
-    if (this.companyResponse) {
-      const socialScore = +this.companyResponse?.esgScore.toFixed();
+    if (this.companyScoreResponse) {
+      const socialScore = +this.companyScoreResponse?.esgScore.toFixed();
+
       if (socialScore <= 35) {
         return 'gap-base';
-      } else if (socialScore > 35 && socialScore <= 59) {
-        return 'gap-bronze';
-      } else if (socialScore >= 60 && socialScore <= 80) {
-        return 'gap-silver';
-      } else if (socialScore >= 81) {
-        return 'gap-gold';
-      } else {
-        return '';
       }
-    } else {
+      if (socialScore > 35 && socialScore <= 59) {
+        return 'gap-bronze';
+      }
+      if (socialScore >= 60 && socialScore <= 80) {
+        return 'gap-silver';
+      }
+      if (socialScore >= 81) {
+        return 'gap-gold';
+      }
+      
       return '';
     }
+
+    return '';
   }
 
   getScore() {
-    if (this.companyResponse) {
-      return this.companyResponse.esgScore.toFixed()
+    if (this.companyScoreResponse) {
+      return this.companyScoreResponse.esgScore.toFixed()
     }
   }
 }

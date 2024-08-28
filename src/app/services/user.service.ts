@@ -73,9 +73,9 @@ export class UserService extends BaseService {
       .pipe(map(this.extractData), catchError(this.serviceError));
   }
 
-  resetPasswordEmail(email: string): Observable<any> {
+  resetPasswordEmail(dto: any): Observable<any> {
     return this.httpClient
-      .post(`${this.url}/reset-password-email`, { email }, this.anonymousHeader())
+      .post(`${this.url}/reset-password-email`, dto, this.anonymousHeader())
       .pipe(map(this.extractData), catchError(this.serviceError));
   }
 

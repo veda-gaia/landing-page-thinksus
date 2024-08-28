@@ -207,6 +207,7 @@ export class RegisterComponent implements OnInit {
         phone: this.form1.controls['phone'].value as string,
         positionRole: this.form1.controls['role'].value as string,
       },
+      lang: this.translateService.currentLang
     };
 
     this.userService.register(dto).subscribe({
@@ -225,7 +226,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmitStep4() {
     if (this.code.invalid || !this.code.value) return;
-    this.userService.activeUser({email: this.email.value, code: +this.code.value, lang: this.translateService.currentLang}).subscribe({
+    this.userService.activeUser({email: this.email.value, code: +this.code.value}).subscribe({
       next: (data) => {
         console.log(data);
         this.actualStep = 5;

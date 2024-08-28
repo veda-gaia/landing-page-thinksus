@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormControl, Validators } from '@angular/
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-forgot-password',
@@ -25,7 +26,13 @@ export class ForgotPasswordComponent {
   showPassword = false;
   showPasswordConfirmation = false;
 
-  constructor(private fb:FormBuilder, private router:Router, private userService:UserService, private toastr:ToastrService) { }
+  constructor(
+    private fb:FormBuilder, 
+    private router:Router, 
+    private userService:UserService, 
+    private toastr:ToastrService,
+    private translateService: TranslateService
+  ) { }
 
 
   passwordValidation(
@@ -45,7 +52,12 @@ export class ForgotPasswordComponent {
       this.toastr.error('Please enter a valid email address');
       return;
     }
-    this.userService.resetPasswordEmail(this.emailForm.value.email).subscribe({
+
+    const request = {
+      email: this.emailForm.value.email,
+      lang: this.translateService.currentLang
+    }
+    this.userService.resetPasswordEmail(request).subscribe({
       next: () => {
         this.toastr.success('Email sent successfully');
         this.step = 2;

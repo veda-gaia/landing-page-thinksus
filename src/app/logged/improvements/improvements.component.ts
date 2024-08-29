@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { finalize } from 'rxjs';
 import { CompanyService } from 'src/app/services/company.service';
 import { EsgRatingService } from 'src/app/services/esg-rating.service';
 
@@ -24,6 +26,7 @@ export class ImprovementsComponent implements OnInit {
     private CompanyService: CompanyService,
     private EsgRatingService: EsgRatingService,
     private route: ActivatedRoute,
+    private spinnerService: NgxSpinnerService
   ){
 
   }
@@ -32,9 +35,22 @@ export class ImprovementsComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.id = params['id'];
     })
-
-    this.EsgRatingService.getById(this.id).subscribe({
+    this.spinnerService.show()
+    this.EsgRatingService.getById(this.id).pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
+
+        this.CompanyService.getByUser().subscribe({
+          next: (data) => {
+            this.companyInfo = data
+          },
+          error: (err) => {
+            console.log(err)
+          }
+        })
         this.assesmentInfo = data
         this.handleScoresInfo()
         console.log(data)
@@ -43,14 +59,7 @@ export class ImprovementsComponent implements OnInit {
       }
     })
 
-    this.CompanyService.getByUser().subscribe({
-      next: (data) => {
-        this.companyInfo = data
-      },
-      error: (err) => {
-        console.log(err)
-      }
-    })
+    
   }
 
   changeSelectedESG(number: number) {
@@ -106,7 +115,5 @@ export class ImprovementsComponent implements OnInit {
       const indexB = orderGovernance.indexOf(b.area);
       return indexA - indexB;
     });
-
-    console.log(this.environmentalScoresArray, this.socialScoresArray, this.governanceScoresArray)
   }
 }

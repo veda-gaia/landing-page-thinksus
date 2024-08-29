@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { finalize } from 'rxjs';
 import { UserUpdateRequestDto } from 'src/app/dtos/user-update-request.dto';
 import { UserInterface } from 'src/app/interfaces/user/user.interface';
 import { CompanyService } from 'src/app/services/company.service';
@@ -25,7 +27,8 @@ export class ProfileComponent {
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
-    private companyService: CompanyService
+    private companyService: CompanyService,
+    private spinnerService: NgxSpinnerService
   ) {
     this.editForm = this.fb.group({
       fullName: ['', Validators.required],
@@ -49,8 +52,12 @@ export class ProfileComponent {
         this.editForm.controls['email'].setValue(data.email);
       },
     });
-
-    this.companyService.getByUser().subscribe({
+    this.spinnerService.show();
+    this.companyService.getByUser().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
         this.company = data;
         this.loading = false;
@@ -79,8 +86,13 @@ export class ProfileComponent {
       //@ts-ignore
       if(!dto[key]) delete dto[key];
     }
+    this.spinnerService.show()
 
-    this.userService.update(this.user._id, dto).subscribe({
+    this.userService.update(this.user._id, dto).pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
         this.userService.refreshUser();
         this.showEditForm = false;

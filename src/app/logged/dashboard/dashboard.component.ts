@@ -8,6 +8,8 @@ import { ContractedPlanService } from 'src/app/services/contracted-plan.service'
 import { EsgRatingService } from 'src/app/services/esg-rating.service';
 import { initialScoreArray } from 'src/app/util/initial-score-array.util';
 import { ScoreWarningComponent } from '../score-warning/score-warning.component';
+import { finalize } from 'rxjs';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-dashboard',
@@ -63,11 +65,17 @@ export class DashboardComponent {
     private contractedPlanService: ContractedPlanService,
     private modalService: NgbModal,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private spinnerService: NgxSpinnerService
   ) {}
 
   ngOnInit() {
-    this.CompanyService.getByUser().subscribe({
+    this.spinnerService.show()
+    this.CompanyService.getByUser().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
         this.userName = data.user.name;
         if (data.section === 'Agribusiness') {
@@ -103,7 +111,13 @@ export class DashboardComponent {
   }
 
   handleInfo() {
-    this.EsgRatingService.getByCompany().subscribe({
+    this.spinnerService.show()
+
+    this.EsgRatingService.getByCompany().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
         this.allCompleteAvaliations = data.filter((item) => {
           return item.status === 'COMPLETED';
@@ -214,7 +228,12 @@ export class DashboardComponent {
   }
 
   downloadReport() {
-    this.EsgRatingService.donwloadReport().subscribe({
+    this.spinnerService.show()
+    this.EsgRatingService.donwloadReport().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: data => {
         if (data && data.report) {
           const byteCharacters = atob(data.report);
@@ -299,7 +318,12 @@ export class DashboardComponent {
   }
 
   verifyPossibility(symbol: string) {
-    this.contractedPlanService.getByUser().subscribe({
+    this.spinnerService.show()
+    this.contractedPlanService.getByUser().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: data => {
         if(!data.verify) {
           this.modalService.open(ScoreWarningComponent, {centered: true, size: 'sm'})

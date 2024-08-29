@@ -4,6 +4,8 @@ import { CompanyService } from 'src/app/services/company.service';
 import { EsgRatingService } from 'src/app/services/esg-rating.service';
 import LocalStorageUtil, { LocalStorageKeys } from 'src/app/util/localStorage.util';
 import { initialScoreArray } from 'src/app/util/initial-score-array.util';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-sidebar',
@@ -38,22 +40,17 @@ export class SidebarComponent {
   constructor(
     private router: Router,
     private esgRatingService: EsgRatingService,
+    private spinnerService: NgxSpinnerService
   ) {
   }
 
   ngOnInit() {
-
-    // this.allCompleteAvaliations = data.filter((item) => {
-    //   return item.status === 'COMPLETED';
-    // })
-
-    // this.allCompleteAvaliations.sort((a, b) => {
-    //   return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
-    // });
-
-    // let postAvaliation = this.allCompleteAvaliations[0];
-
-    this.esgRatingService.getByCompany().subscribe({
+    this.spinnerService.show()
+    this.esgRatingService.getByCompany().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
         const allCompleteAvaliations = data.filter((item) => {
           return item.status === 'COMPLETED';
@@ -117,7 +114,7 @@ export class SidebarComponent {
       if (socialScore >= 81) {
         return 'gap-gold';
       }
-      
+
       return '';
     }
 

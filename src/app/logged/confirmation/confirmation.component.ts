@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ContractedPlanService } from '../../services/contracted-plan.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-confirmation',
@@ -13,7 +15,8 @@ export class ConfirmationComponent {
     private route: ActivatedRoute,
     private contractedPlanService: ContractedPlanService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private spinnerService: NgxSpinnerService
   ) {}
 
   ngOnInit(): void {
@@ -27,7 +30,12 @@ export class ConfirmationComponent {
         this.router.navigate(['/logged/dashboard']);
         return;
       }
-      this.contractedPlanService.vinculatePlan(preapproval_id).subscribe({
+      this.spinnerService.show()
+      this.contractedPlanService.vinculatePlan(preapproval_id).pipe(
+        finalize(() => {
+          this.spinnerService.hide()
+        })
+      ).subscribe({
         next: (data) => {
           console.log(data);
           this.toastr.success('Plano assinado com sucesso!');

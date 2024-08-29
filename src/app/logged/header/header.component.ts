@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { finalize } from 'rxjs';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { CompanyService } from 'src/app/services/company.service';
 import { UserService } from 'src/app/services/user.service';
@@ -22,9 +24,15 @@ export class HeaderComponent implements OnInit {
     private translateService: TranslateService,
     private UserService: UserService,
     private CompanyService: CompanyService,
-    private router: Router
+    private router: Router,
+    private spinnerService: NgxSpinnerService
   ){
-    this.CompanyService.getByUser().subscribe({
+    this.spinnerService.show()
+    this.CompanyService.getByUser().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
         this.company = data.company
         this.user = data.user

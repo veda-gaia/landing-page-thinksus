@@ -7,6 +7,8 @@ import { EsgRatingService } from 'src/app/services/esg-rating.service';
 import { CompanyService } from 'src/app/services/company.service';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-g-agro',
@@ -87,7 +89,7 @@ export class GAgroComponent implements OnInit {
     private esgRatingService: EsgRatingService,
     private CompanyService: CompanyService,
     private toastr: ToastrService,
-    private translateService: TranslateService,
+    private spinnerService: NgxSpinnerService
   ) {
     this.formArray = this.fb.array([])
     this.formArrayDocuments = this.fb.array([])
@@ -101,8 +103,13 @@ export class GAgroComponent implements OnInit {
         this.checkDoesntApply()
       }
     })
+    this.spinnerService.show();
 
-    this.CompanyService.getByUser().subscribe({
+    this.CompanyService.getByUser().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
         if(data.section !== 'Agribusiness') {
           this.toastr.error('Esta avaliação não corresponde ao setor da sua empresa', 'Erro', {progressBar: true});
@@ -118,7 +125,13 @@ export class GAgroComponent implements OnInit {
   }
 
   getAnswersAndFill(companyId: string) {
-    this.esgRatingService.list().subscribe({
+    this.spinnerService.show()
+
+    this.esgRatingService.list().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
         // Pega o item que pertence a minha empresa
         let myCompanyInfo = data.filter(item => {
@@ -190,8 +203,12 @@ export class GAgroComponent implements OnInit {
             }
           }),
         }
-
-        this.esgRatingService.register(dto).subscribe({
+        this.spinnerService.show()
+        this.esgRatingService.register(dto).pipe(
+          finalize(() => {
+            this.spinnerService.hide()
+          })
+        ).subscribe({
           next: (data) => {
             this.router.navigate(['/logged/assesment'])
           },
@@ -240,8 +257,13 @@ export class GAgroComponent implements OnInit {
       if(!item) return false
       else return true
     })
+    this.spinnerService.show()
     
-    this.esgRatingService.register(dto).subscribe({
+    this.esgRatingService.register(dto).pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
         this.router.navigate(['/logged/assesment'])
       },

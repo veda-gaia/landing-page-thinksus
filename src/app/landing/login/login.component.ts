@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { finalize } from 'rxjs';
 import { LoginInterface } from 'src/app/interfaces/authentication/authentication.interface';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
@@ -19,6 +21,7 @@ export class LoginComponent {
     private router: Router,
     private authService: AuthenticationService,
     private toastr: ToastrService,
+    private spinnerService: NgxSpinnerService
   ) {
     this.form = this.fb.group({
       email: ['', Validators.required],
@@ -39,8 +42,12 @@ export class LoginComponent {
     }
 
     dto.email = dto.email.toLocaleLowerCase();
-
-    this.authService.login(dto).subscribe({
+    this.spinnerService.show();
+    this.authService.login(dto).pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
         this.authService.setAuthUser(data);
         this.router.navigate(['/logged'])

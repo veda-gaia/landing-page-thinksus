@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { finalize } from 'rxjs';
 import { CompanyService } from 'src/app/services/company.service';
 import { EsgRatingService } from 'src/app/services/esg-rating.service';
 
@@ -27,8 +29,14 @@ export class ResultsComponent {
   constructor(
     private EsgRatingService: EsgRatingService,
     private CompanyService: CompanyService,
+    private spinnerService: NgxSpinnerService
   ) {
-    this.CompanyService.getByUser().subscribe({
+    this.spinnerService.show()
+    this.CompanyService.getByUser().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
         this.userName = data.user.name
         
@@ -41,7 +49,12 @@ export class ResultsComponent {
   }
   
   loadList() {
-    this.EsgRatingService.getByCompany().subscribe({
+    this.spinnerService.show();
+    this.EsgRatingService.getByCompany().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
         // Pega o item que pertence a minha empresa
         this.list = data.filter(item => {
@@ -74,7 +87,12 @@ export class ResultsComponent {
   }
 
   downloadReport() {
-    this.EsgRatingService.donwloadReport().subscribe({
+    this.spinnerService.show()
+    this.EsgRatingService.donwloadReport().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: data => {
         if (data && data.report) {
           const byteCharacters = atob(data.report);

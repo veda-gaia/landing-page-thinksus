@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { finalize } from 'rxjs';
 import { CompanyService } from 'src/app/services/company.service';
 import { EsgRatingService } from 'src/app/services/esg-rating.service';
 
@@ -111,11 +113,16 @@ export class ControlPanelComponent {
   constructor(
     private EsgRatingService: EsgRatingService,
     private CompanyService: CompanyService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private spinnerService: NgxSpinnerService
   ) {
-    this.EsgRatingService.getByCompany().subscribe({
+    this.spinnerService.show()
+    this.EsgRatingService.getByCompany().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
-        // this.averageResult = this.checkAverage(data)
         this.loading = false
       },
       error: (err) => {

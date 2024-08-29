@@ -32,6 +32,8 @@ import {
   ptServicesList,
 } from 'src/app/util/pt-segment';
 import { TermsAndConditionsModalComponent } from './terms-and-conditions-modal/terms-and-conditions-modal.component';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -64,7 +66,8 @@ export class RegisterComponent implements OnInit {
     private authService: AuthenticationService,
     private toastr: ToastrService,
     private router: Router,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private spinnerService: NgxSpinnerService
   ) {
     this.form1 = this.fb.group({
       name: ['', Validators.required],
@@ -209,8 +212,12 @@ export class RegisterComponent implements OnInit {
       },
       lang: this.translateService.currentLang
     };
-
-    this.userService.register(dto).subscribe({
+    this.spinnerService.show();
+    this.userService.register(dto).pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
         this.actualStep = 4;
       },
@@ -226,7 +233,12 @@ export class RegisterComponent implements OnInit {
 
   onSubmitStep4() {
     if (this.code.invalid || !this.code.value) return;
-    this.userService.activeUser({email: this.email.value, code: +this.code.value}).subscribe({
+    this.spinnerService.show();
+    this.userService.activeUser({email: this.email.value, code: +this.code.value}).pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
         console.log(data);
         this.actualStep = 5;
@@ -243,8 +255,12 @@ export class RegisterComponent implements OnInit {
       email: this.form1.controls['email'].value ? this.form1.controls['email'].value : '',
       password: this.form1.controls['password'].value ? this.form1.controls['password'].value : ''
     }
-
-    this.authService.login(dto).subscribe({
+    this.spinnerService.show();
+    this.authService.login(dto).pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
         this.authService.setAuthUser(data);
         this.router.navigate(['/logged'])

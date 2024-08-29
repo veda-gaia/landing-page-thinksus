@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { SubscriptionService } from '../../services/subscription.service';
 import SubscriptionInterface from '../../interfaces/subscription/subscription.interface';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-plans',
@@ -22,11 +24,17 @@ export class PlansComponent {
     private modalService: NgbModal,
     private router: Router,
     private subscriptionService: SubscriptionService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private spinnerService: NgxSpinnerService
   ) {}
 
   ngOnInit() {
-    this.subscriptionService.list().subscribe({
+    this.spinnerService.show()
+    this.subscriptionService.list().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
         this.subscriptions = data;
         this.subscriptionsSimulation = data.find(subscription => subscription.name === 'Simulation');

@@ -9,6 +9,8 @@ import { CompanyService } from 'src/app/services/company.service';
 import { ContractedPlanService } from 'src/app/services/contracted-plan.service';
 import { EsgRatingService } from 'src/app/services/esg-rating.service';
 import { ScoreWarningComponent } from '../score-warning/score-warning.component';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-assesment',
@@ -41,14 +43,20 @@ export class AssesmentComponent {
     private router: Router,
     private contractedPlanService: ContractedPlanService,
     private modalService: NgbModal,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private spinnerService: NgxSpinnerService
   ) {
 
     this.form = this.fb.group({
       title: ['', Validators.required]
     })
+    this.spinnerService.show()
 
-    this.CompanyService.getByUser().subscribe({
+    this.CompanyService.getByUser().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
         if(data.section === 'Agribusiness') {
           this.environmentalQuestions = 13
@@ -83,7 +91,12 @@ export class AssesmentComponent {
   }
 
   handleInfo(companyId: string, section: string) {
-    this.EsgRatingService.list().subscribe({
+    this.spinnerService.show()
+    this.EsgRatingService.list().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
         // Pega o item que pertence a minha empresa
         let myCompanyInfo = data.filter(item => {
@@ -138,8 +151,13 @@ export class AssesmentComponent {
     const titleDto: any = {
       title: this.form.controls['title'].value
     }
+    this.spinnerService.show()
 
-    this.EsgRatingService.updateStatusById(this.assesmentId, dto).subscribe({
+    this.EsgRatingService.updateStatusById(this.assesmentId, dto).pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
         setTimeout(() => {
           this.EsgRatingService.updateTitleById(this.assesmentId, titleDto).subscribe({
@@ -162,7 +180,13 @@ export class AssesmentComponent {
   }
 
   verifyPossibility(symbol: string) {
-    this.contractedPlanService.getByUser().subscribe({
+    this.spinnerService.show()
+
+    this.contractedPlanService.getByUser().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: data => {
         if(!data.verify) {
           this.modalService.open(ScoreWarningComponent, {centered: true, size: 'sm'})

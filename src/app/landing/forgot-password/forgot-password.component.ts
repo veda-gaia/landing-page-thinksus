@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-forgot-password',
@@ -31,7 +33,8 @@ export class ForgotPasswordComponent {
     private router:Router, 
     private userService:UserService, 
     private toastr:ToastrService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private spinnerService: NgxSpinnerService
   ) { }
 
 
@@ -57,7 +60,12 @@ export class ForgotPasswordComponent {
       email: this.emailForm.value.email,
       lang: this.translateService.currentLang
     }
-    this.userService.resetPasswordEmail(request).subscribe({
+    this.spinnerService.show();
+    this.userService.resetPasswordEmail(request).pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: () => {
         this.toastr.success('Email sent successfully');
         this.step = 2;
@@ -80,8 +88,13 @@ export class ForgotPasswordComponent {
       password: this.passwordForm.value.password!,
       code: this.passwordForm.value.code!
     }
+    this.spinnerService.show()
 
-    this.userService.resetPassword(dto).subscribe({
+    this.userService.resetPassword(dto).pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: () => {
         this.toastr.success('Password changed successfully');
         this.router.navigate(['/login']);

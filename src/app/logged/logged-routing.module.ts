@@ -1,24 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { AssesmentComponent } from './assesment/assesment.component';
-import { OdsComponent } from './ods/ods.component';
-import { ResultsComponent } from './results/results.component';
-import { LoggedComponent } from './logged.component';
-import { EAgroComponent } from './questionary/e-agro/e-agro.component';
-import { SAgroComponent } from './questionary/s-agro/s-agro.component';
-import { GAgroComponent } from './questionary/g-agro/g-agro.component';
-import { EIndustryComponent } from './questionary/e-industry/e-industry.component';
-import { SIndustryComponent } from './questionary/s-industry/s-industry.component';
-import { GIndustryComponent } from './questionary/g-industry/g-industry.component';
-import { EServiceComponent } from './questionary/e-service/e-service.component';
-import { SServiceComponent } from './questionary/s-service/s-service.component';
-import { GServiceComponent } from './questionary/g-service/g-service.component';
-import { PaymentComponent } from './payment/payment.component';
 import { ControlPanelComponent } from './control-panel/control-panel.component';
-import { SuppliersComponent } from './suppliers/suppliers.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { ImprovementsComponent } from './improvements/improvements.component';
+import { LoggedComponent } from './logged.component';
+import { OdsComponent } from './ods/ods.component';
+import { PaymentComponent } from './payment/payment.component';
+import { EAgroComponent } from './questionary/e-agro/e-agro.component';
+import { EIndustryComponent } from './questionary/e-industry/e-industry.component';
+import { EServiceComponent } from './questionary/e-service/e-service.component';
+import { GAgroComponent } from './questionary/g-agro/g-agro.component';
+import { GIndustryComponent } from './questionary/g-industry/g-industry.component';
+import { GServiceComponent } from './questionary/g-service/g-service.component';
+import { SAgroComponent } from './questionary/s-agro/s-agro.component';
+import { SIndustryComponent } from './questionary/s-industry/s-industry.component';
+import { SServiceComponent } from './questionary/s-service/s-service.component';
+import { ResultsComponent } from './results/results.component';
+import { SuppliersComponent } from './suppliers/suppliers.component';
 import { UseInstructionsComponent } from './use-instructions/use-instructions.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { PlansComponent } from './plans/plans.component';
 
 
 const routes: Routes = [
@@ -60,12 +63,20 @@ const routes: Routes = [
         component: ResultsComponent
       },
       {
-        path: 'results/improvements',
+        path: 'results/improvements/:id',
         component: ImprovementsComponent
       },
       {
         path: 'payment',
         component: PaymentComponent
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent
+      },
+      {
+        path: 'plans',
+        component: PlansComponent
       },
 
       // Questionary
@@ -105,6 +116,14 @@ const routes: Routes = [
         path: 'assesment/g-service',
         component: GServiceComponent
       },
+      {
+        path: 'confirmation',
+        component: ConfirmationComponent,
+      },
+      {
+        path: '**',
+        redirectTo: 'dashboard'
+      }
     ]
   }
 ];

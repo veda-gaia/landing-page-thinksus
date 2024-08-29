@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { finalize } from 'rxjs';
 import { CompanyService } from 'src/app/services/company.service';
 import { EsgRatingService } from 'src/app/services/esg-rating.service';
 
@@ -27,13 +29,18 @@ export class ResultsComponent {
   constructor(
     private EsgRatingService: EsgRatingService,
     private CompanyService: CompanyService,
+    private spinnerService: NgxSpinnerService
   ) {
-    this.CompanyService.getByUser().subscribe({
+    this.spinnerService.show()
+    this.CompanyService.getByUser().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
-        console.log(data)
         this.userName = data.user.name
         
-        this.loadList(data._id)
+        this.loadList()
       },
       error: (err) => {
         console.log(err)
@@ -41,13 +48,24 @@ export class ResultsComponent {
     })
   }
   
-  loadList(companyId: string) {
-    this.EsgRatingService.list().subscribe({
+  loadList() {
+    this.spinnerService.show();
+    this.EsgRatingService.getByCompany().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
         // Pega o item que pertence a minha empresa
-        this.list = this.filteredList = data.filter(item => {
-          return item.company._id === companyId && item.status === "COMPLETED"
+        this.list = data.filter(item => {
+          return item.status === "COMPLETED"
         })
+
+        this.list.sort((a, b) => {
+          return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
+        });
+
+        this.filteredList = [...this.list]
 
         console.log(this.filteredList)
 
@@ -57,6 +75,7 @@ export class ResultsComponent {
           this.avaliationStatus = 'pre-avaliation'
           return
         }
+
         this.avaliationStatus = 'post-avaliation'
         this.recentResult = this.checkRecent()
         this.loadGraph()
@@ -67,32 +86,87 @@ export class ResultsComponent {
     })
   }
 
+  downloadReport() {
+    this.spinnerService.show()
+    this.EsgRatingService.donwloadReport().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
+      next: data => {
+        if (data && data.report) {
+          const byteCharacters = atob(data.report);
+          const byteNumbers = new Array(byteCharacters.length);
+          for (let i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
+          }
+          const byteArray = new Uint8Array(byteNumbers);
+          const blob = new Blob([byteArray], { type: 'application/pdf' });
+  
+          const link = document.createElement('a');
+          link.href = URL.createObjectURL(blob);
+          link.download = 'relatorio.pdf';
+  
+          link.click();
+  
+          URL.revokeObjectURL(link.href);
+        } else {
+          console.error('O objeto data não contém o relatório em base64.');
+        }
+      },
+      error: err => {
+        console.error('Erro ao fazer o download do relatório:', err);
+      }
+    });
+  }
+
   loadGraph() {
+    const dates: string[] = this.list.map(avaliation => {
+      const date = new Date(avaliation.updatedAt);
+      const day = String(date.getUTCDate()).padStart(2, '0');  // Formata o dia para 2 dígitos
+      const month = String(date.getUTCMonth() + 1).padStart(2, '0');  // Formata o mês para 2 dígitos (janeiro é 0)
+      return `${day}/${month}`;
+    }).reverse();
+
+    const envrironmentalData = this.list.map(avaliation => {
+      return avaliation.environmentalScore.toFixed()
+    }).reverse()
+
+    const governmentalData = this.list.map(avaliation => {
+      return avaliation.governanceScore.toFixed()
+    }).reverse()
+
+    const socialData = this.list.map(avaliation => {
+      return avaliation.socialScore.toFixed()
+    }).reverse()
+
     const graphEnvironmental = {
-      x: [1, 2, 3, 4],
-      y: [64, 79, 80, 78],
+      x: dates,
+      y: envrironmentalData,
       mode: 'lines+markers',
       type: 'scatter',
-      name: 'Governança'
-    };
-    const graphGovernmental = {
-      x: [1, 2, 3, 4],
-      y: [71, 89, 90, 99],
-      mode: 'lines+markers',
-      type: 'scatter',
-      name: 'Social'
-    };
-    const graphSocial = {
-      x: [1, 2, 3, 4],
-      y: [50, 55, 54, 60],
-      mode: 'lines+markers',
-      type: 'scatter',
-      name: 'Ambiental'
+      name: 'Ambiental',
     };
 
-    this.graphData.push(graphEnvironmental)
-    this.graphData.push(graphGovernmental)
-    this.graphData.push(graphSocial)
+    const graphGovernmental = {
+      x: dates,
+      y: governmentalData,
+      mode: 'lines+markers',
+      type: 'scatter',
+      name: 'Governança',
+    };
+
+    const graphSocial = {
+      x: dates,
+      y: socialData,
+      mode: 'lines+markers',
+      type: 'scatter',
+      name: 'Social',
+    };
+
+    this.graphData.push(graphGovernmental);
+    this.graphData.push(graphSocial);
+    this.graphData.push(graphEnvironmental);
   }
 
   checkRecent(): any[] {

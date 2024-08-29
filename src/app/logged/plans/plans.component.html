@@ -1,0 +1,239 @@
+<section class="w-100">
+    <div class="row pb-5">
+        <div class="col">
+            <h3 class="alpha-800-text f-size-1-5rem l-height-1-5rem pb-1 fw-800">
+                {{ "LOGGED_PLANS.TITLE" | translate }}
+            </h3>
+            <p class="f-size-0-85rem alpha-700-text fw-500 l-height-1-25">
+                {{ "LOGGED_PLANS.SUBTITLE" | translate }}
+            </p>
+        </div>
+    </div>
+
+    <div class="row pb-5">
+        <!-- Plano Simulation -->
+        <div class="col-12 col-xl-4 mb-3">
+            <div class="darker-card-logged p-3 p-lg-4">
+                <p class="f-size-20px fw-800 brand-text pb-2">
+                    {{ "LOGGED_PLANS.SIMULATION_TITLE" | translate }}
+                </p>
+
+                <div class="d-flex align-items-end justify-content-start gap-1 pb-5">
+                    <p class="f-size-1-8rem fw-800 brand-text p-0 m-0">
+                        {{ "LOGGED_PLANS.SIMULATION_PRICE" | translate }}
+                    </p>
+                    <p class="f-size-14px fw-600 brand-text p-0 m-0 pb-1">
+                        /{{ "LOGGED_PLANS.PER_YEAR" | translate }}
+                    </p>
+                </div>
+
+                <p class="f-size-14px fw-600 secondary-text pb-3 m-0">
+                    {{ "LOGGED_PLANS.SIMULATION_ALL_SUBTITLE" | translate }}
+                </p>
+
+                <ul class="p-0 m-0 d-flex flex-column align-item-start justify-content-start gap-3 pb-5">
+                    <li class="d-flex align-item-center justify-content-start gap-3">
+                        <img src="/assets/icon/check-escuro.svg" alt="Check">
+                        <p class="f-size-14px l-height-1-25 fw-600 secondary-text p-0 m-0" style="padding-top: 2px !important;">
+                            {{ "LOGGED_PLANS.SIMULATION_ITEM_1" | translate }}
+                        </p>
+                    </li>
+                    <li class="d-flex align-item-center justify-content-start gap-3">
+                        <img src="/assets/icon/check-escuro.svg" alt="Check">
+                        <p class="f-size-14px l-height-1-25 fw-600 secondary-text p-0 m-0" style="padding-top: 2px !important;">
+                            {{ "LOGGED_PLANS.SIMULATION_ITEM_2" | translate }}
+                        </p>
+                    </li>
+                    <li class="d-flex align-item-center justify-content-start gap-3">
+                        <img src="/assets/icon/check-escuro.svg" alt="Check">
+                        <p class="f-size-14px l-height-1-25 fw-600 secondary-text p-0 m-0" style="padding-top: 2px !important;">
+                            {{ "LOGGED_PLANS.SIMULATION_ITEM_3" | translate }}
+                        </p>
+                    </li>
+                </ul>
+
+                <a *ngIf="subscriptionsSimulation?.status !== 'ACTIVE'" class="w-100 p-0 m-0 pt-5">
+                    <button class="brand-outline-btn w-100">
+                        {{ "LOGGED_PLANS.SOON" | translate }}
+                    </button>
+                </a>
+
+                <a *ngIf="subscriptionsSimulation?.status === 'ACTIVE'" (click)="goToPlan(subscriptionsSimulation?.mercadoPagoPlanId)" class="w-100 p-0 m-0 pt-5">
+                    <button class="brand-btn w-100">
+                        {{ "LOGGED_PLANS.ASSIGN" | translate }}
+                    </button>
+                </a>
+            </div>
+        </div>
+
+        <!-- Plano Solution -->
+        <div class="col-12 col-xl-4 mb-3">
+            <div class="darker-card-logged p-3 p-lg-4">
+                <p class="f-size-20px fw-800 brand-text pb-2">
+                    {{ "LOGGED_PLANS.SOLUTION_TITLE" | translate }}
+                </p>
+
+                <div class="d-flex align-items-end justify-content-start gap-1 pb-5">
+                    <p class="f-size-1-8rem fw-800 brand-text p-0 m-0">
+                        {{ "LOGGED_PLANS.SOLUTION_PRICE" | translate }}
+                    </p>
+                    <p class="f-size-14px fw-600 brand-text p-0 m-0 pb-1">
+                        /{{ "LOGGED_PLANS.PER_YEAR" | translate }}
+                    </p>
+                </div>
+
+                <p class="f-size-14px fw-600 secondary-text pb-3 m-0">
+                    {{ "LOGGED_PLANS.SOLUTION_ALL_SUBTITLE" | translate }}
+                </p>
+
+                <ul class="p-0 m-0 d-flex flex-column align-item-start justify-content-start gap-3 pb-5">
+                    <li class="d-flex align-item-center justify-content-start gap-3">
+                        <img src="/assets/icon/check-escuro.svg" alt="Check">
+                        <p class="f-size-14px l-height-1-25 fw-600 secondary-text p-0 m-0" style="padding-top: 2px !important;">
+                            {{ "LOGGED_PLANS.SOLUTION_ITEM_1" | translate }}
+                        </p>
+                    </li>
+                    <li class="d-flex align-item-center justify-content-start gap-3">
+                        <img src="/assets/icon/check-escuro.svg" alt="Check">
+                        <p class="f-size-14px l-height-1-25 fw-600 secondary-text p-0 m-0" style="padding-top: 2px !important;">
+                            {{ "LOGGED_PLANS.SOLUTION_ITEM_2" | translate }}
+                        </p>
+                    </li>
+                    <li class="d-flex align-item-center justify-content-start gap-3">
+                        <img src="/assets/icon/check-escuro.svg" alt="Check">
+                        <p class="f-size-14px l-height-1-25 fw-600 secondary-text p-0 m-0" style="padding-top: 2px !important;">
+                            {{ "LOGGED_PLANS.SOLUTION_ITEM_3" | translate }}
+                        </p>
+                    </li>
+                    <li class="d-flex align-item-center justify-content-start gap-3">
+                        <img src="/assets/icon/check-escuro.svg" alt="Check">
+                        <p class="f-size-14px l-height-1-25 fw-600 secondary-text p-0 m-0" style="padding-top: 2px !important;">
+                            {{ "LOGGED_PLANS.SOLUTION_ITEM_4" | translate }}
+                        </p>
+                    </li>
+                    <li class="d-flex align-item-center justify-content-start gap-3">
+                        <img src="/assets/icon/check-escuro.svg" alt="Check">
+                        <p class="f-size-14px l-height-1-25 fw-600 secondary-text p-0 m-0" style="padding-top: 2px !important;">
+                            {{ "LOGGED_PLANS.SOLUTION_ITEM_5" | translate }}
+                        </p>
+                    </li>
+                    <li class="d-flex align-item-center justify-content-start gap-3">
+                        <img src="/assets/icon/check-escuro.svg" alt="Check">
+                        <p class="f-size-14px l-height-1-25 fw-600 secondary-text p-0 m-0" style="padding-top: 2px !important;">
+                            {{ "LOGGED_PLANS.SOLUTION_ITEM_6" | translate }}
+                        </p>
+                    </li>
+                    <li class="d-flex align-item-center justify-content-start gap-3">
+                        <img src="/assets/icon/check-escuro.svg" alt="Check">
+                        <p class="f-size-14px l-height-1-25 fw-600 secondary-text p-0 m-0" style="padding-top: 2px !important;">
+                            {{ "LOGGED_PLANS.SOLUTION_ITEM_7" | translate }}
+                        </p>
+                    </li>
+                    <li class="d-flex align-item-center justify-content-start gap-3">
+                        <img src="/assets/icon/check-escuro.svg" alt="Check">
+                        <p class="f-size-14px l-height-1-25 fw-600 secondary-text p-0 m-0" style="padding-top: 2px !important;">
+                            {{ "LOGGED_PLANS.SOLUTION_ITEM_8" | translate }}
+                        </p>
+                    </li>
+                </ul>
+
+                <a *ngIf="subscriptionsSolution?.status !== 'ACTIVE'" class="w-100 p-0 m-0 pt-5">
+                    <button class="brand-outline-btn w-100">
+                        {{ "LOGGED_PLANS.SOON" | translate }}
+                    </button>
+                </a>
+
+                <a *ngIf="subscriptionsSolution?.status === 'ACTIVE'" (click)="goToPlan(subscriptionsSolution?.mercadoPagoPlanId)" class="w-100 p-0 m-0 pt-5">
+                    <button class="brand-btn w-100">
+                        {{ "LOGGED_PLANS.ASSIGN" | translate }}
+                    </button>
+                </a>
+            </div>
+        </div>
+
+        <!-- Plano Supply Chain -->
+        <div class="col-12 col-xl-4">
+            <div class="card-logged p-3 p-lg-4">
+                <p class="f-size-20px fw-800 brand-text pb-2">
+                    {{ "LOGGED_PLANS.SUPPLY_CHAIN_TITLE" | translate }}
+                </p>
+
+                <div class="d-flex align-items-end justify-content-start gap-1 pb-5">
+                    <p class="f-size-1-8rem fw-800 brand-text p-0 m-0">
+                        {{ "LOGGED_PLANS.SUPPLY_CHAIN_PRICE" | translate }}
+                    </p>
+                    <p class="f-size-14px fw-600 brand-text p-0 m-0 pb-1">
+                        /{{ "LOGGED_PLANS.PER_YEAR" | translate }}
+                    </p>
+                </div>
+
+                <p class="f-size-14px fw-600 secondary-text pb-3 m-0">
+                    {{ "LOGGED_PLANS.SUPPLY_CHAIN_ALL_SUBTITLE" | translate }}
+                </p>
+
+                <ul class="p-0 m-0 d-flex flex-column align-item-start justify-content-start gap-3 pb-5">
+                    <li class="d-flex align-item-center justify-content-start gap-3">
+                        <img src="/assets/icon/check-escuro.svg" alt="Check">
+                        <p class="f-size-14px l-height-1-25 fw-600 secondary-text p-0 m-0" style="padding-top: 2px !important;">
+                            {{ "LOGGED_PLANS.SUPPLY_CHAIN_ITEM_1" | translate }}
+                        </p>
+                    </li>
+                    <li class="d-flex align-item-center justify-content-start gap-3">
+                        <img src="/assets/icon/check-escuro.svg" alt="Check">
+                        <p class="f-size-14px l-height-1-25 fw-600 secondary-text p-0 m-0" style="padding-top: 2px !important;">
+                            {{ "LOGGED_PLANS.SUPPLY_CHAIN_ITEM_2" | translate }}
+                        </p>
+                    </li>
+                    <li class="d-flex align-item-center justify-content-start gap-3">
+                        <img src="/assets/icon/check-escuro.svg" alt="Check">
+                        <p class="f-size-14px l-height-1-25 fw-600 secondary-text p-0 m-0" style="padding-top: 2px !important;">
+                            {{ "LOGGED_PLANS.SUPPLY_CHAIN_ITEM_3" | translate }}
+                        </p>
+                    </li>
+                    <li class="d-flex align-item-center justify-content-start gap-3">
+                        <img src="/assets/icon/check-escuro.svg" alt="Check">
+                        <p class="f-size-14px l-height-1-25 fw-600 secondary-text p-0 m-0" style="padding-top: 2px !important;">
+                            {{ "LOGGED_PLANS.SUPPLY_CHAIN_ITEM_4" | translate }}
+                        </p>
+                    </li>
+                    <li class="d-flex align-item-center justify-content-start gap-3">
+                        <img src="/assets/icon/check-escuro.svg" alt="Check">
+                        <p class="f-size-14px l-height-1-25 fw-600 secondary-text p-0 m-0" style="padding-top: 2px !important;">
+                            {{ "LOGGED_PLANS.SUPPLY_CHAIN_ITEM_5" | translate }}
+                        </p>
+                    </li>
+                    <li class="d-flex align-item-center justify-content-start gap-3">
+                        <img src="/assets/icon/check-escuro.svg" alt="Check">
+                        <p class="f-size-14px l-height-1-25 fw-600 secondary-text p-0 m-0" style="padding-top: 2px !important;">
+                            {{ "LOGGED_PLANS.SUPPLY_CHAIN_ITEM_6" | translate }}
+                        </p>
+                    </li>
+                    <li class="d-flex align-item-center justify-content-start gap-3">
+                        <img src="/assets/icon/check-escuro.svg" alt="Check">
+                        <p class="f-size-14px l-height-1-25 fw-600 secondary-text p-0 m-0" style="padding-top: 2px !important;">
+                            {{ "LOGGED_PLANS.SUPPLY_CHAIN_ITEM_7" | translate }}
+                        </p>
+                    </li>
+                    <li class="d-flex align-item-center justify-content-start gap-3">
+                        <img src="/assets/icon/check-escuro.svg" alt="Check">
+                        <p class="f-size-14px l-height-1-25 fw-600 secondary-text p-0 m-0" style="padding-top: 2px !important;">
+                            {{ "LOGGED_PLANS.SUPPLY_CHAIN_ITEM_8" | translate }}
+                        </p>
+                    </li>
+                    <li class="d-flex align-item-center justify-content-start gap-3">
+                        <img src="/assets/icon/check-escuro.svg" alt="Check">
+                        <p class="f-size-14px l-height-1-25 fw-600 secondary-text p-0 m-0" style="padding-top: 2px !important;">
+                            {{ "LOGGED_PLANS.SUPPLY_CHAIN_ITEM_9" | translate }}
+                        </p>
+                    </li>
+                </ul>
+
+                <a class="w-100 p-0 m-0 pt-5">
+                    <button class="brand-outline-btn w-100">
+                        {{ "LOGGED_PLANS.SOON" | translate }}
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

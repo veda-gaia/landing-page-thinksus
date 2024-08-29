@@ -1,0 +1,250 @@
+<section *ngIf="!loading && user && company" class="w-100 pt-3 pb-5">
+  <div class="row pb-5">
+    <div class="col">
+      <div
+        class="card-logged p-4 d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between gap-4 w-100">
+        <div class="flex-grow-1">
+          <p class="brand-text f-size-1-25rem fw-800 pb-2">
+            {{ user.name }}
+          </p>
+
+          <p class="secondary-text f-size-0-85rem fw-500 pt-1">
+            {{ company.company }}
+          </p>
+        </div>
+
+        <div *ngIf="!showEditForm" class="flex-grow-0" (click)="showEditForm = true">
+          <button class="brand-btn">
+            {{ "PROFILE.EDIT" | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Show Info -->
+  <div *ngIf="!showEditForm" class="fade-in row">
+    <div class="col">
+      <p class="brand-text f-size-1rem fw-800 pb-4">
+        Meus Certificados
+      </p>
+
+      <div class="w-100 pb-2">
+        <div *ngIf="myContractsList.length" class="table-container-real">
+          <table class="white-bg border-radius-10 pt-2">
+            <tr class="header-row-tr">
+              <th>{{ "PROFILE.TITLE" | translate }}</th>
+              <th>{{ "PROFILE.COMPANY" | translate }}</th>
+              <th>{{ "PROFILE.EMISSION_DATE" | translate }}</th>
+              <th>{{ "PROFILE.ACTIONS" | translate }}</th>
+            </tr>
+            <tr *ngFor="let item of myContractsList" class="body-row-tr">
+              <td class="">
+                {{ item.name }}
+              </td>
+              <td class="">
+                {{ item.company }}
+              </td>
+              <td class="">
+                {{ item.emissionDate }}
+              </td>
+              <td class="">
+                <button
+                  class="bg-transparent fw-600 brand-text text-decoration-underline border-0 shadow-none d-flex align-items-center justify-content-end gap-2"
+                  title="Baixar">
+                  Baixar
+                  <img src="/assets/icon/download-no-bg-23.svg" width="16px" alt="Baixar">
+                </button>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div *ngIf="!myContractsList.length"
+          class="darker-card-logged w-100 p-3 p-xl-4 d-flex flex-column flex-xl-row align-items-end align-items-xl-center justify-content-between gap-4">
+          <div
+            class="flex-grow-1 d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-start gap-3">
+            <img src="/assets/img/not-found.svg" alt="Não encontrado" width="128px">
+
+            <div class="w-100 d-block">
+              <h4 class="f-size-1-25rem l-height-1-5 fw-700 brand-text pb-2">
+                {{ "SCORE.YOU_DONT_HAVE" | translate }}
+              </h4>
+              <p class="f-size-0-85rem l-height-1-25 alpha-800-text fw-500" style="max-width: 480px;">
+                {{ "SCORE.MAKE_YOUR_FIRST" | translate }}
+              </p>
+            </div>
+          </div>
+
+          <button class="d-flex brand-btn align-items-center justify-content-center gap-2"
+            routerLink="/logged/assesment">
+            {{ "SCORE.MAKE_BUTTON" | translate }}
+            <img src="/assets/icon/go-to.svg" alt="">
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Form -->
+  <div *ngIf="showEditForm" class="fade-in row">
+    <form [formGroup]="editForm" class="col">
+      <p class="brand-text f-size-1rem fw-800 pb-4">
+        {{ "PROFILE.EDIT_PROFILE" | translate }}
+      </p>
+
+      <div class="card-logged p-4 w-100">
+        <!-- Nome Completo -->
+        <div
+          class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 pb-2 pb-md-0">
+          <label for="fullName" class="fw-600 f-size-1rem l-spacing-1-68 text-nowrap" style="min-width: 180px;">
+            {{ "PROFILE.USER_NAME" | translate }}
+          </label>
+
+          <div class="input-container p-0">
+            <input type="text" class="w-100" formControlName="fullName" autocomplete="off" id="fullName" name="fullName"
+              [readOnly]="!selectedEditInputs.includes('fullName')">
+            <img *ngIf="!selectedEditInputs.includes('fullName')" (click)="addEditInput('fullName')"
+              src="/assets/icon/edit-input.svg" alt="Editar" height="53px" class="input-icon cursor-pointer"
+              style="top: 0; right: 0; transform: none !important;">
+          </div>
+        </div>
+
+        <div class="w-100 py-1">
+          <div class="separator-opacity my-2 w-100"></div>
+        </div>
+
+        <!-- Nome da Empresa -->
+        <div
+          class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 py-2 py-md-0">
+          <label for="companyName" class="fw-600 f-size-1rem l-spacing-1-68 text-nowrap" style="min-width: 180px;">
+            {{ "PROFILE.COMPANY_NAME" | translate }}
+          </label>
+
+          <div class="input-container p-0">
+            <input type="text" class="w-100" formControlName="companyName" autocomplete="off" id="companyName"
+              name="companyName" [readOnly]="!selectedEditInputs.includes('companyName')">
+            <img *ngIf="!selectedEditInputs.includes('companyName')" (click)="addEditInput('companyName')"
+              src="/assets/icon/edit-input.svg" alt="Editar" height="53px" class="input-icon cursor-pointer"
+              style="top: 0; right: 0; transform: none !important;">
+          </div>
+        </div>
+
+        <div class="w-100 py-1">
+          <div class="separator-opacity my-2 w-100"></div>
+        </div>
+
+        <!-- Setor -->
+        <div
+          class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 py-2 py-md-0">
+          <label for="section" class="fw-600 f-size-1rem l-spacing-1-68 text-nowrap" style="min-width: 180px;">
+            {{ "PROFILE.SECTOR" | translate }}
+          </label>
+
+          <div class="input-container p-0">
+            <input type="text" class="w-100" formControlName="section" autocomplete="off" id="section" name="section"
+              [readOnly]="!selectedEditInputs.includes('section')">
+            <img *ngIf="!selectedEditInputs.includes('section')" (click)="addEditInput('section')"
+              src="/assets/icon/edit-input.svg" alt="Editar" height="53px" class="input-icon cursor-pointer"
+              style="top: 0; right: 0; transform: none !important;">
+          </div>
+        </div>
+
+        <div class="w-100 py-1">
+          <div class="separator-opacity my-2 w-100"></div>
+        </div>
+
+        <!-- País -->
+        <!-- <div
+          class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 py-2 py-md-0">
+          <label for="country" class="fw-600 f-size-1rem l-spacing-1-68 text-nowrap" style="min-width: 180px;">
+            {{ "PROFILE.COUNTRY" | translate }}
+          </label>
+
+          <div class="input-container p-0">
+            <input type="text" class="w-100" formControlName="country" autocomplete="off" id="country" name="country"
+              [readOnly]="!selectedEditInputs.includes('country')">
+            <img *ngIf="!selectedEditInputs.includes('country')" (click)="addEditInput('country')"
+              src="/assets/icon/edit-input.svg" alt="Editar" height="53px" class="input-icon cursor-pointer"
+              style="top: 0; right: 0; transform: none !important;">
+          </div>
+        </div>
+
+        <div class="w-100 py-1">
+          <div class="separator-opacity my-2 w-100"></div>
+        </div> -->
+
+        <!-- Email -->
+        <div
+          class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 py-2 py-md-0">
+          <label for="email" class="fw-600 f-size-1rem l-spacing-1-68 text-nowrap" style="min-width: 180px;">
+            {{ "PROFILE.EMAIL" | translate }}
+          </label>
+
+          <div class="input-container p-0">
+            <input type="text" class="w-100" formControlName="email" autocomplete="off" id="email" name="email"
+              [readOnly]="!selectedEditInputs.includes('email')">
+            <img *ngIf="!selectedEditInputs.includes('email')" (click)="addEditInput('email')"
+              src="/assets/icon/edit-input.svg" alt="Editar" height="53px" class="input-icon cursor-pointer"
+              style="top: 0; right: 0; transform: none !important;">
+          </div>
+        </div>
+
+        <div class="w-100 py-1">
+          <div class="separator-opacity my-2 w-100"></div>
+        </div>
+
+        <!-- Senha -->
+        <div
+          class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 py-2 py-md-0">
+          <label for="password" class="fw-600 f-size-1rem l-spacing-1-68 text-nowrap" style="min-width: 180px;">
+            {{ "PROFILE.PASSWORD" | translate }}
+          </label>
+
+          <div class="input-container p-0">
+            <input type="password" class="w-100" formControlName="password" autocomplete="off" id="password" name="password"
+              [readOnly]="!selectedEditInputs.includes('password')">
+            <img *ngIf="!selectedEditInputs.includes('password')" (click)="addEditInput('password')"
+              src="/assets/icon/edit-input.svg" alt="Editar" height="53px" class="input-icon cursor-pointer"
+              style="top: 0; right: 0; transform: none !important;">
+          </div>
+        </div>
+
+        <div class="w-100 py-1" *ngIf="editForm.controls['password'].dirty">
+          <div class="separator-opacity my-2 w-100"></div>
+        </div>
+
+        <!-- Senha antiga -->
+        <div *ngIf="editForm.controls['password'].dirty"
+          class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 py-2 py-md-0">
+          <label for="password" class="fw-600 f-size-1rem l-spacing-1-68 text-nowrap" style="min-width: 180px;">
+            {{ "PROFILE.OLD_PASSWORD" | translate }}
+          </label>
+
+          <div class="input-container p-0">
+            <input type="password" class="w-100" formControlName="oldPassword" autocomplete="off" id="oldPassword" name="oldPassword">
+          </div>
+        </div>
+
+
+
+        <div
+          class="d-flex flex-column flex-md-row align-items-start align-items-md-end justify-content-between gap-3 pt-5">
+          <p class="primary-text f-size-1rem text-nowrap">
+            {{ "PROFILE.EDIT_DATE" | translate }} {{ user.updatedAt | dateFormat }}
+          </p>
+
+          <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-end justify-content-end gap-3">
+            <button class="brand-outline-btn" (click)="showEditForm = false">
+              {{ "PROFILE.BACK" | translate }}
+            </button>
+
+            <button class="brand-btn" (click)="subimt()">
+              {{ "PROFILE.SAVE_EDIT" | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

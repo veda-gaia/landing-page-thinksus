@@ -42,10 +42,20 @@
         "HAVE_A": "Have a sustainable positioning and learn its impacts on society",
         "EVOLUTION": "Evolution",
         "BUILD": "Build a healthy relationship with your stakeholders with a sustainable purpose for the future",
-        "EXAMPLE_1": "Noticias populares",
-        "EXAMPLE_2": "Lorem ipsum dolor sit amet, consecteturadipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris nisi utaliquip ex ea commodo consequat. Duisaute irure dolor in reprehenderit involuptate velit esse cillum dolore eufugiat nulla pariatur. Excepteur sintoccaecat cupidatat non proident,sunt in culpa qui ofcia deseruntmollit anim id est laborum.",
-        "EXAMPLE_3": "Saiba mais",
-        "EXAMPLE_4": "Lorem ipsum dolor sit amet, consectetur"
+        "EXAMPLE_1": "Popular news",
+        "EXAMPLE_2": "ESG practices are related to environmental, social and corporate governance and are pillars for an assessment of a company's collective conscience to bring sustainability to its business. That's why we developed our own evaluation method that reflects the demands and complexities of the main global rankings.",
+        "EXAMPLE_3": "Find out more",
+        "EXAMPLE_4": "A commitment to sustainable practices",
+
+        "EXAMPLE_1_2": "Popular news",
+        "EXAMPLE_2_2": "A carbon footprint is a measure of the amount of greenhouse gases that a person, organization, event or product emits. These gases, such as carbon dioxide (CO2), methane (CH4) and nitrous oxide (N2O), contribute to global warming and climate change. Some examples of how you can reduce your carbon footprint: focusing on conscious consumption, sustainable travel, consumption of renewable energy, reducing the amount of waste and opting for recyclable packaging, among others.",
+        "EXAMPLE_3_2": "Find out more",
+        "EXAMPLE_4_2": "Carbon Footprint: what it is and how to reduce it",
+
+        "EXAMPLE_1_3": "Popular news",
+        "EXAMPLE_2_3": "Blockchain technology, with its ability to create immutable and transparent digital records, is revolutionizing the way companies manage their supply chains, ensuring transparency and traceability, security and reliability, efficiency and automation, and cost reduction.",
+        "EXAMPLE_3_3": "Find out more",
+        "EXAMPLE_4_3": "The importance of blockchain technology related to the supply chain"
     },
     "ESG": {
         "SUBTITLE": "A commitment to sustainable practices",
@@ -145,6 +155,7 @@
     },
     "LOGIN": {
         "TITLE": "Login",
+        "FORGOT_PASSWORD": "Forgot your password?",
         "SUBTITLE": "Login to access ThinkSus panel",
         "EMAIL": "E-mail",
         "PASSWORD": "Password",
@@ -556,44 +567,149 @@
         "17_TITLE": "Partnerships",
         "17_DESCRIPTION": "Strengthen the means of implementation and revitalize the global partnership for sustainable development."
     },
-    "IMPROVEMENTS": {
-        "ENVIRONMENTAL_TITLE_1": "Natureza",
-        "ENVIRONMENTAL_DESCRIPTION_1": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-        
-        "ENVIRONMENTAL_TITLE_2": "Recursos naturais",
-        "ENVIRONMENTAL_DESCRIPTION_2": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-        
-        "ENVIRONMENTAL_TITLE_3": "Clima e risco",
-        "ENVIRONMENTAL_DESCRIPTION_3": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+    "IMPROVEMENTS_HUD": {
+        "TITLE": "Improvements",
+        "SUBTITLE": "Our suggestions",
+        "COMPANY": "Company",
+        "SECTION": "Section",
+        "CNPJ": "Document",
+        "SEGMENT": "Segment",
+        "SCORE": "ThinkSus score",
+        "ADERENCE_TITLE_ENVIRONMENTAL": "Adherence to the ODSs focused on the Environmental area",
+        "ADERENCE_TITLE_SOCIAL": "Adherence to the ODSs focused on the Social area",
+        "ADERENCE_TITLE_GOVERNANCE": "Adherence to the ODSs focused on the Governmental area",
+        "ADERENCE_SUBTITLE": "Focus on the ODSs below",
+        "SELECTE_AN_OPTION": "Select an option",
+        "AT_SIDE": "below to read about this point of improvement."
+    },
+    "IMPROVEMENTS_TITLES": {
+        "ENVIRONMENTAL_TITLE_1": "Nature",
+        "ENVIRONMENTAL_TITLE_2": "Natural Resources",
+        "ENVIRONMENTAL_TITLE_3": "Climate and Risk",
+        "ENVIRONMENTAL_TITLE_4": "Waste management",
 
-        "ENVIRONMENTAL_TITLE_4": "Gestão de resíduos",
-        "ENVIRONMENTAL_DESCRIPTION_4": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-        
+        "SOCIAL_TITLE_5": "Fair Work",
+        "SOCIAL_TITLE_6": "Community",
+        "SOCIAL_TITLE_7": "Society",
+        "SOCIAL_TITLE_8": "Value Chain",
 
-        "SOCIAL_TITLE_5": "Trabalho justo",
-        "SOCIAL_DESCRIPTION_5": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-        
-        "SOCIAL_TITLE_6": "Comunidade",
-        "SOCIAL_DESCRIPTION_6": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-        
-        "SOCIAL_TITLE_7": "Sociedade",
-        "SOCIAL_DESCRIPTION_7": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+        "GOVERNMENTAL_TITLE_9": "Risk",
+        "GOVERNMENTAL_TITLE_10": "Ecomonics",
+        "GOVERNMENTAL_TITLE_11": "Management",
+        "GOVERNMENTAL_TITLE_12": "Transparency",
 
-        "SOCIAL_TITLE_8": "Cadeia de valor",
-        "SOCIAL_DESCRIPTION_8": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-        
+        "HIGH_SCORE_DESCRIPTION": "Your score is already considered high in this regard."
+    },
+    "IMPROVEMENTS_Agribusiness": {
+        "ENVIRONMENTAL_DESCRIPTION_1_LOW": "Responsible Use of Chemical Products: Minimize the use of pesticides and chemical fertilizers through natural alternatives and integrated pest management techniques. Biodiversity and Conservation: Establish conservation areas within agricultural properties and promote crop diversity to protect local ecosystems.",
+        "ENVIRONMENTAL_DESCRIPTION_1_MEDIUM": "Precision Agriculture: Using advanced technologies, such as drones and sensors, to monitor and optimize the use of water, fertilizers, and pesticides. Soil Protection: Adopt soil conservation practices, such as crop rotation, no-till farming, and soil cover to reduce erosion and improve soil health.",
 
-        "GOVERNMENTAL_TITLE_9": "Risco",
-        "GOVERNMENTAL_DESCRIPTION_9": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-        
-        "GOVERNMENTAL_TITLE_10": "Econômica",
-        "GOVERNMENTAL_DESCRIPTION_10": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-        
-        "GOVERNMENTAL_TITLE_11": "Gestão",
-        "GOVERNMENTAL_DESCRIPTION_11": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
+        "ENVIRONMENTAL_DESCRIPTION_2_LOW": "Adopt practices for capturing and storing rainwater for administrative uses. ",
+        "ENVIRONMENTAL_DESCRIPTION_2_MEDIUM": "Sustainable Water Management: Implement efficient irrigation systems, such as drip irrigation.",
 
-        "GOVERNMENTAL_TITLE_12": "Transparência",
-        "GOVERNMENTAL_DESCRIPTION_12": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'"
+        "ENVIRONMENTAL_DESCRIPTION_3_LOW": "Conduct a carbon inventory and sources of greenhouse gas emissions.",
+        "ENVIRONMENTAL_DESCRIPTION_3_MEDIUM": "Reduction of Gas Emissions: Invest in technologies to reduce greenhouse gas emissions, such as biofuels and carbon capture systems.",
+
+        "ENVIRONMENTAL_DESCRIPTION_4_LOW": "To have volumetric control, units, kilograms, liters of the waste generated and its proper disposal.",
+        "ENVIRONMENTAL_DESCRIPTION_4_MEDIUM": "Waste Management: Implement composting and recycling systems for organic and plastic waste, and promote waste reduction in production.",
+
+        "SOCIAL_DESCRIPTION_5_LOW": "Education and Training: Provide ongoing training for employees on sustainable environmental practices and the importance of environmental preservation. Working Conditions: Improve working conditions on farms and facilities, including access to adequate facilities, food, and transportation. Benefits and Psychological Support: Offering benefits such as psychological assistance and wellness programs to support the mental and emotional health of employees. Safety and Health Policies: Safety Standards: Establish basic policies to ensure the safety and health of workers, even on a small scale.",
+        "SOCIAL_DESCRIPTION_5_MEDIUM": "Health and Safety at Work: Implement occupational health and safety programs to ensure safe working conditions and prevent accidents and illnesses. Development and Training: Provide ongoing training and development for employees, including technical skills and soft skills, to promote professional growth. Labor Rights: Ensuring that all work practices comply with labor laws and human rights, promoting a fair and ethical work environment. Diversity and Inclusion: Promoting diversity and inclusion in the workplace, ensuring equal opportunities for all individuals, regardless of gender, ethnicity, age, or any other characteristic. Education and Training: Capacity Building: Participate in training sessions and workshops on best practices in governance and compliance, offered by local associations or cooperatives.",
+
+        "SOCIAL_DESCRIPTION_6_LOW": "Education and Training: Support education and training in the community by offering scholarships, internship programs, and partnerships with educational institutions. Community Engagement: Local Participation: Engaging with the local community to understand and respond to their expectations and needs. Social Responsibility: Local Actions: Develop and support small social responsibility initiatives that benefit the local community, such as educational or environmental programs.",
+        "SOCIAL_DESCRIPTION_6_MEDIUM": "Community Engagement: Working with local communities to promote sustainable agricultural practices and support conservation and sustainable development initiatives. Local Community: Engage with local communities through social projects and initiatives that contribute to the development and well-being of the region.",
+
+        "SOCIAL_DESCRIPTION_7_LOW": "Human Rights Policies: Implement and monitor policies that ensure respect for human rights, including the prohibition of child and forced labor.",
+        "SOCIAL_DESCRIPTION_7_MEDIUM": "Respect for Human Rights: Monitor and report practices that ensure respect for human rights throughout the supply chain and operations.",
+
+        "SOCIAL_DESCRIPTION_8_LOW": "Identify the largest suppliers, the risks, and categorize by business volume (e.g., highest deforestation risk with a supplier that moves 800 thousand per month).",
+        "SOCIAL_DESCRIPTION_8_MEDIUM": "Supplier Evaluation: Assess and ensure that suppliers and partners also comply with social standards and labor rights, promoting ethical practices throughout the supply chain.",
+
+        "GOVERNMENTAL_DESCRIPTION_9_LOW": "Risk Management: Risk Identification: Identify the main risks that affect the business and create simple mitigation plans tailored to the operational capabilities.",
+        "GOVERNMENTAL_DESCRIPTION_9_MEDIUM": "Medium Planning and Management: Planning: Develop simple business and long-term plans that integrate sustainability practices and governance. (Include climate risk assessment).",
+
+        "GOVERNMENTAL_DESCRIPTION_10_LOW": "Fair Compensation: Establish a compensation policy that ensures fair wages and adequate benefits for all employees.",
+        "GOVERNMENTAL_DESCRIPTION_10_MEDIUM": "Fair Wage: Ensure that all employees receive fair wages and competitive benefits that meet basic needs and provide financial security",
+
+        "GOVERNMENTAL_DESCRIPTION_11_LOW": "Establishment of Basic Rules: Code of Conduct: Create a simple and accessible code of conduct that defines expected behaviors and ethical practices. Diversity in the Board: Inclusion of Perspectives: Ensuring the inclusion of different perspectives, such as informal advisory councils, to make more balanced decisions.",
+        "GOVERNMENTAL_DESCRIPTION_11_MEDIUM": "Technological Innovation: Invest in research and development of new technologies that enhance the efficiency and sustainability of agricultural practices. Employee Participation: Encourage employee involvement in decision-making and the development of social and sustainability initiatives. Compliance Procedures: Compliance Rules: Implement and adhere to basic compliance rules with local and national regulations. Internal Control System: Basic Control: Implement basic internal controls to ensure the accuracy of financial and operational information, such as simple accounting records.",
+
+        "GOVERNMENTAL_DESCRIPTION_12_LOW": "Environmental Certifications: Seek sustainability certifications, such as Rainforest Alliance, Fair Trade, or organic certification, to demonstrate commitment to sustainable practices. Monitoring and Evaluation: Establish environmental performance indicators and conduct regular audits to monitor and assess the environmental impact of operations. Basic Transparency: Simple Reports: Implement basic reporting practices to document and share information about practices and results with stakeholders.",
+        "GOVERNMENTAL_DESCRIPTION_12_MEDIUM": "Environmental Certifications: Seek sustainability certifications, such as Rainforest Alliance, Fair Trade, or organic certification, to demonstrate commitment to sustainable practices. Monitoring and Evaluation: Establish environmental performance indicators and conduct regular audits to monitor and assess the environmental impact of operations. Transparency and Communication: Maintaining open and transparent communication with employees and stakeholders about social policies, practices, and progress in sustainability. Conflicts of Interest: Transparency in Decisions: Maintaining a transparent approach in decision-making to minimize conflicts of interest and promote trust."
+    },
+    "IMPROVEMENTS_Industry": {
+        "ENVIRONMENTAL_DESCRIPTION_1_LOW": "Responsible Use of Chemical Products: Minimize the use of pesticides and chemical fertilizers through natural alternatives and integrated pest management techniques. Biodiversity and Conservation: Establish conservation areas within agricultural properties and promote crop diversity to protect local ecosystems.",
+        "ENVIRONMENTAL_DESCRIPTION_1_MEDIUM": "Environmental Preservation: Implement practices that protect local biodiversity and prevent negative impacts on natural ecosystems near industrial operations.",
+
+        "ENVIRONMENTAL_DESCRIPTION_2_LOW": "Establish an action plan for reducing water and energy consumption, with indicators that are updated monthly.",
+        "ENVIRONMENTAL_DESCRIPTION_2_MEDIUM": "Efficient Technologies: Invest in technologies and equipment that enhance energy efficiency, such as LED lighting systems and more efficient industrial processes. Conservation Technologies: Implement water conservation technologies and reuse systems to reduce consumption and impact on water resources.",
+
+        "ENVIRONMENTAL_DESCRIPTION_3_LOW": "Green Energy: Adopt renewable energy sources, such as solar, wind, or biomass, to reduce dependence on fossil fuels and minimize the carbon footprint. Emission Control: Implement emission control systems and carbon capture and storage technologies to reduce greenhouse gases and atmospheric pollutants.",
+        "ENVIRONMENTAL_DESCRIPTION_3_MEDIUM": "Sustainable Transport: Optimize logistics and transportation to reduce emissions and energy consumption, including the use of more efficient vehicles and the reduction of distances traveled.",
+
+        "ENVIRONMENTAL_DESCRIPTION_4_LOW": "Minimization and Recycling: Adopt practices to minimize waste generation and implement programs for recycling and reuse of materials",
+        "ENVIRONMENTAL_DESCRIPTION_4_MEDIUM": "Proper Treatment: Report industrial wastewater treatment processes to ensure that wastewater is adequately treated before disposal or reuse",
+
+        "SOCIAL_DESCRIPTION_5_LOW": "Health and Safety Programs: Implement and maintain robust health and safety programs in the workplace, with regular training and appropriate protective equipment. Inclusion Policies: Promote diversity and inclusion in the workplace through policies that ensure equal opportunities for all employees, regardless of gender, ethnicity, age, or sexual orientation. Safe and Comfortable Environment: Ensure safe, comfortable, and dignified working conditions, including clean, well-ventilated, and well-lit environments. Training and Development: Provide ongoing opportunities for professional and personal development for employees, including technical and leadership training.",
+        "SOCIAL_DESCRIPTION_5_MEDIUM": "Training: Provide training and promote environmental awareness campaigns for employees on sustainable practices and the importance of environmental preservation. Support for Mental and Physical Health: Provide wellness programs that include psychological support, physical activities, and initiatives to promote the mental and physical health of employees. Promote Equality: Establish and implement policies that ensure equal opportunities in all areas, from hiring to promotions and performance evaluations. Diversity in the Board: Promote diversity and inclusion in the board of directors, ensuring that different perspectives and experiences are represented in strategic decision-making.",
+
+        "SOCIAL_DESCRIPTION_6_LOW": "Education and Training: Support education and training in the community by offering scholarships, internship programs, and partnerships with educational institutions. Community Engagement: Local Participation: Engaging with the local community to understand and respond to their expectations and needs.",
+        "SOCIAL_DESCRIPTION_6_MEDIUM": "Support for Local Communities: Engage in initiatives that benefit local communities, such as social responsibility projects, support for community events, and investments in local infrastructure. Develop a Corporate Social Responsibility Policy",
+
+        "SOCIAL_DESCRIPTION_7_LOW": "Human Rights Policies: Implement and monitor policies that ensure respect for human rights, including the prohibition of child and forced labor.",
+        "SOCIAL_DESCRIPTION_7_MEDIUM": "Respect for Human Rights: Monitor and report practices that ensure respect for human rights throughout the supply chain and operations",
+
+        "SOCIAL_DESCRIPTION_8_LOW": "Identify the largest suppliers, the risks, and categorize them by business volume (e.g., highest deforestation risk with a supplier that moves 800 thousand per month).",
+        "SOCIAL_DESCRIPTION_8_MEDIUM": "Supplier Evaluation: Assess and ensure that suppliers and partners also comply with social standards and labor rights, promoting ethical practices throughout the supply chain.",
+
+        "GOVERNMENTAL_DESCRIPTION_9_LOW": "Risk Management Strategy: Establish a comprehensive risk management strategy that identifies, assesses, and mitigates financial, operational, environmental, and market risks.",
+        "GOVERNMENTAL_DESCRIPTION_9_MEDIUM": "Medium Planning and Management: Planning: Develop simple business and long-term plans that integrate sustainability practices and governance. (Include climate risk assessment)",
+
+        "GOVERNMENTAL_DESCRIPTION_10_LOW": "Fair Wage: Ensure that all employees receive fair wages and competitive benefits that meet basic needs and provide financial security.",
+        "GOVERNMENTAL_DESCRIPTION_10_MEDIUM": "Fair Compensation: Establish a compensation policy that ensures fair wages and adequate benefits for all employees.",
+
+        "GOVERNMENTAL_DESCRIPTION_11_LOW": "Governance Structure: Establish a clear governance structure with well-defined responsibilities and roles for the board of directors and governance committees. Code of Ethics and Conduct: Implement a code of ethics and conduct that promotes ethical behaviors and high standards of integrity at all levels of the organization. Compliance Procedures: Develop and maintain compliance policies and procedures to ensure adherence to legal regulations and industry standards. Control Systems: Implement robust auditing and internal control systems to ensure the accuracy of financial information and the effectiveness of operational controls",
+        "GOVERNMENTAL_DESCRIPTION_11_MEDIUM": "Life Cycle Analysis: Conduct life cycle assessments of products to identify and reduce environmental impacts throughout all stages, from production to disposal. Sustainable Development: Investing in research and development to create more sustainable products and processes, with a lower environmental impact and greater efficiency. Participation and Feedback: Create mechanisms for employees to participate in company decisions and provide feedback on the work environment and business practices. Long-Term Vision: Develop and regularly review a long-term strategic plan that integrates governance and sustainability objectives. Accountability: Implement clear mechanisms of responsibility and accountability to ensure that management is aligned with the company's objectives and values. Data Protection: Establish robust policies and practices for data governance and privacy protection, ensuring compliance with data protection regulations. Dialogue and Feedback: Develop strategies to proactively engage stakeholders, collect feedback, and adjust practices and policies as needed. Leadership Training: Investing in the continuous development of leaders to ensure effective management aligned with governance and sustainability objectives.",
+
+        "GOVERNMENTAL_DESCRIPTION_12_LOW": "Certifications: Seek recognized environmental certifications, such as ISO 14001, that attest to the commitment to environmental management and good practices. Open Dialogue: Maintain open and transparent communication with employees about company policies, changes, and strategic objectives.",
+        "GOVERNMENTAL_DESCRIPTION_12_MEDIUM": "Regular Reports: Publish regular and detailed reports on the company's ESG performance, including the disclosure of practices, results, and challenges faced."
+    },
+    "IMPROVEMENTS_Services": {
+        "ENVIRONMENTAL_DESCRIPTION_1_LOW": "Environmental Preservation: Implement practices that protect local biodiversity and prevent negative impacts on natural ecosystems near industrial operations.",
+        "ENVIRONMENTAL_DESCRIPTION_1_MEDIUM": "ESG Integration: Integrate sustainability goals into governance processes, ensuring that strategic decisions take into account environmental and social impacts.",
+
+        "ENVIRONMENTAL_DESCRIPTION_2_LOW": "Clean Energy Sources: Installing solar panels on facilities or purchasing energy from renewable sources to reduce dependence on fossil fuels. Water Reuse: Implement systems for capturing and reusing rainwater in industrial processes and for use in facilities, such as restrooms.",
+        "ENVIRONMENTAL_DESCRIPTION_2_MEDIUM": "Conservation Technologies: Report indicators on the use of water conservation technologies and reuse systems to reduce consumption and impact on water resources.",
+
+        "ENVIRONMENTAL_DESCRIPTION_3_LOW": "Energy Optimization: Implement monitoring and management systems for energy and water to identify and reduce waste across all operations, such as in workshops and offices. Efficient Vehicles: Update the fleet to electric or hybrid models and adopt maintenance practices that reduce fuel consumption and emissions.",
+        "ENVIRONMENTAL_DESCRIPTION_3_MEDIUM": "Sustainable Innovation: Investing in clean technologies that enhance efficiency and reduce environmental impact, such as pollution control systems and low-emission equipment. Lean Manufacturing: Adopt lean manufacturing principles to reduce waste in production processes and increase efficiency, thereby decreasing the use of natural resources. Efficient Vehicles: Update the fleet to electric or hybrid models and adopt maintenance practices that reduce fuel consumption and emissions.",
+
+        "ENVIRONMENTAL_DESCRIPTION_4_LOW": "Recycling and Proper Disposal: Develop robust recycling programs for industrial and hazardous waste, ensuring safe disposal and compliance with environmental regulations.",
+        "ENVIRONMENTAL_DESCRIPTION_4_MEDIUM": "Proper Treatment: Report industrial wastewater treatment processes to ensure that wastewater is adequately treated before disposal or reuse.",
+
+        "SOCIAL_DESCRIPTION_5_LOW": "Safety Programs: Implement rigorous health and safety programs in the workplace, with continuous training, mandatory use of PPE (Personal Protective Equipment), and incident monitoring to ensure a safe working environment. Continuous Training: Provide opportunities for continuous training and development for employees, including technical training, leadership courses, and learning programs. Inclusion Policies: Establish policies that promote diversity and inclusion, ensuring that all hiring, promotions, and work practices are free from any form of discrimination. Wellness Programs: create wellness programs that include mental health support, access to physical activities, and work-life balance initiatives.",
+        "SOCIAL_DESCRIPTION_5_MEDIUM": "Benefit Packages: Offer fair compensation and competitive benefit packages, including health plans, private pension, and financial incentives aligned with performance. Equal Opportunities: Promoting gender equity at all levels of the company, ensuring that women have the same opportunities for growth and development as men. Climate Surveys: Regularly conduct organizational climate surveys to understand the needs and concerns of employees, and take action based on the feedback received. Inclusion in Governance: Promote diversity in the board of directors and governance committees, ensuring that different perspectives are considered in decision-making.",
+
+        "SOCIAL_DESCRIPTION_6_LOW": "Support for Local Communities: Engage in initiatives that benefit local communities, such as social responsibility projects, support for community events, and investments in local infrastructure. Develop a Corporate Social Responsibility Policy.",
+        "SOCIAL_DESCRIPTION_6_MEDIUM": "Social Responsibility: Engaging in initiatives that benefit local communities, such as volunteer programs, partnerships with schools, and donations to community causes. Develop strategies to engage stakeholders, including employees, customers, suppliers, and the community, by collecting feedback and adjusting governance practices as needed",
+
+        "SOCIAL_DESCRIPTION_7_LOW": "Human Rights Policies: Implement and monitor policies that ensure respect for human rights, including the prohibition of child and forced labor.",
+        "SOCIAL_DESCRIPTION_7_MEDIUM": "Ethical Practices: Reporting that the company's operations respect human rights, avoiding practices such as child labor, forced labor, or discrimination.",
+
+        "SOCIAL_DESCRIPTION_8_LOW": "Supplier Evaluation: Assess and ensure that suppliers and partners also comply with social standards and labor rights, promoting ethical practices throughout the supply chain.",
+        "SOCIAL_DESCRIPTION_8_MEDIUM": "Green Supply: Prioritize the procurement of materials and supplies from suppliers that adopt sustainable practices, such as the use of recycled or biodegradable products. Ethical Practices of Suppliers: Monitor and require that suppliers and business partners adhere to ethical and sustainable practices, with respect for workers' rights. Supplier Evaluation: Implement policies that ensure suppliers and partners comply with the governance, ethics, and sustainability standards established by the company.",
+
+        "GOVERNMENTAL_DESCRIPTION_9_LOW": "Risk Management Strategy: Establish a comprehensive risk management strategy that identifies, assesses, and mitigates financial, operational, environmental, and market risks. Regular Reports: Publish regular and detailed reports on corporate governance, including information on governance structure, compliance practices, and ESG performance. Risk Identification: Implement a comprehensive risk management system that identifies, assesses, and mitigates operational, financial, and reputational risks.",
+        "GOVERNMENTAL_DESCRIPTION_9_MEDIUM": "Continuous Monitoring: Implement a continuous monitoring system for the environmental impact of operations, focusing on identifying areas for improvement and minimizing environmental damage.",
+
+        "GOVERNMENTAL_DESCRIPTION_10_LOW": "Fair Salary: Ensure that all employees receive fair wages and competitive benefits that meet basic needs and provide financial security.",
+        "GOVERNMENTAL_DESCRIPTION_10_MEDIUM": "Fair Compensation: Establish a compensation policy that ensures fair salaries and adequate benefits for all employees.",
+
+        "GOVERNMENTAL_DESCRIPTION_11_LOW": "Board of Directors: Establish and/or strengthen a board of directors that includes independent members, ensuring strong and diverse governance.",
+        "GOVERNMENTAL_DESCRIPTION_11_MEDIUM": "Training: Promote education and training programs for employees on environmental practices, such as waste reduction and the adoption of more sustainable methods. Data Protection: Establish strict data governance and privacy protection policies, ensuring compliance with data protection regulations, such as the GDPR. Internal Controls: Strengthen internal audit systems and financial controls to ensure the accuracy of information and the early detection of irregularities.",
+
+        "GOVERNMENTAL_DESCRIPTION_12_LOW": "Open Dialogue: Establish open and transparent communication channels with employees, allowing for constant feedback and participation in decisions that affect the work environment. Ethical Practices: Develop and implement a code of ethics and conduct that guides all employees and suppliers on ethical practices, with regular training to ensure adherence. Rigorous Compliance: Implement a robust compliance program to ensure that the company adheres to all applicable laws and regulations, especially regarding environmental and labor issues.",
+        "GOVERNMENTAL_DESCRIPTION_12_MEDIUM": "ISO 14001: Seek recognized environmental certifications, such as ISO 14001, that demonstrate the company's commitment to responsible environmental management practices. Combating Corruption: Establish and promote clear anti-corruption policies, with specific training for all employees and secure channels for anonymous reporting."
     },
     "CONTROL_PANEL": {
         "TITLE": "Painel de controle",
@@ -657,11 +773,154 @@
         "GLOSSARY12": "All employees have access to documents reporting the company's financial performance.",
         "CONGRATULATIONS": "Congratulations!",
         "COMPLETED": "You have completed your free trial!",
-        "RESULT": "Your initial score was 60%, earning you the Bronze Badge, which means your company understands and already practices ESG, though there are areas for improvement.",
+        "RESULT1": "Your score was",
+        "RESULT2": ", which means that your company has an understanding and already practices ESG, despite need to improve some points.",
+        "RESULT3": "Acesse nossa página de Planos e veja as opções que a ThinkSus oferece para evoluir em sua jornada por um mundo mais sustentável.",
         "SEAL": "Seal ThinkSus",
         "GOLD": "Gold",
         "SILVER": "Silver",
         "BRONZE": "Bronze",
         "START": "Start"
+    },
+    "SEGMENTS": {
+        "bovine": "Bovine",
+        "pork": "Swine",
+        "birds": "Poultry",
+        "other_meat_animals": "Beef cattle",
+        "dairy": "Dairy",
+        "soy": "Soy",
+        "wood": "Wood",
+        "sugar_cane": "Sugarcane",
+        "other_platations": "Large scale cropping",
+        "subsistence_plantation": "Subsistence plantation",
+
+        "heavy_industry": "Heavy industry (steel industry and metallurgy)",
+        "construction": "Construction industry",
+        "automotive": "Automotive and Systemist",
+        "food": "Food",
+        "textile": "Textile and skins",
+        "pharmaceutical": "Pharmaceutical",
+        "technology": "IT or Technologies",
+        "energy": "Energy",
+        "another_transformation": "Transformation industry",
+        "electronics": "Electronics",
+        
+        "commerce_food": "Trade - food and beverage",
+        "commerce_clothing": "Trade - clothing",
+        "commerce_pharmacy": "Trade - pharmacy and cosmetics",
+        "education": "Educational",
+        "accommodation": "Hosting",
+        "cleaning": "Cleaning and maintenance",
+        "transport": "Transportation",
+        "sports": "Sports and physical activities",
+        "leisure": "Leisure (entertainment in general)",
+        "consultancy": "Consulting",
+        "resale": "Retail",
+        "miscellaneous": "Various services (beauty salon, security services, gardening etc.)",
+        "liberal_profession": "Independent professional (Physicians, dentists, psychologists, teachers etc.)"
+    },
+    "SECTORS": {
+        "Agribusiness" : "Agribusiness",
+        "Industry" : "Industry",
+        "Services" : "Services"
+    },
+    "PROFILE": {
+        "EDIT": "Edit",
+        "TITLE": "Title",
+        "COMPANY": "Company",
+        "EMISSION_DATE": "Issue Date",
+        "ACTIONS": "Actions",
+        "DOWNLOAD": "Download",
+        "EDIT_PROFILE": "Edit Profile",
+        "USER_NAME": "Full Name",
+        "COMPANY_NAME": "Company Name",
+        "SECTOR": "Sector",
+        "COUNTRY": "Country",
+        "EMAIL": "Email",
+        "OLD_PASSWORD": "Old Password",
+        "PASSWORD": "Password",
+        "EDIT_DATE": "Edited at",
+        "BACK": "Back",
+        "SAVE_EDIT": "Save Changes"
+    },
+    "SOLUTION_SIMULATION_TEXT": {
+        "0_35_TEXT": "Your operations require a significant transformation to become more sustainable. Process optimization to minimize negative impacts is crucial, as well as internal restructuring with process mapping for more efficient management.",
+        "0_35_TEXT2": "The percentage indicates that your operation works in a traditional way and needs to implement efforts to minimize environmental impacts. Check the lowest rates and create an action plan around your operations that privileges and protects the natural system.",
+        "0_35_TEXT3": "Its operation is focused on internal actions, that is, there are no collaborative actions for the outside. To advance in this social aspect, it is necessary to adopt a more comprehensive vision, understanding the positive and negative impacts of its operation on the individuals who contribute to the operation and outside it, as well as the communities and the entire social fabric with which the company interacts.",
+        "0_35_TEXT4": "Your operation has great challenges and opportunities in establishing routines, policies and procedures. It's time to restructure and reorganize your culture and internal operations and advance to auditable control levels.  Map all processes, business ecosystem, your main suppliers, and create metrics and criteria, parameterize delivery, receipt and payment deadlines, as well as the evaluation of hiring a finance and corporate governance consultancy for more fluid and effective administration.",
+
+        "36_59_TEXT": "Your operation is in compliance with environmental laws and demonstrates good social performance, but you need to strengthen impact assessments and define metrics for community support initiatives. To excel in ESG, you must go beyond compliance, set goals, and implement monitoring and evaluation mechanisms with auditable indicators. ",
+        "36_59_TEXT2": "Compliance means that its operation occurs in line with and in full regularity with established environmental standards, laws and regulations, but presents levels of climate and/or water vulnerability. There is room for defining a more positive and synergistic interaction with the natural environment and for establishing metrics for current resource consumption and projection of targets for reducing this consumption. ESG values ​​management that goes beyond its compliance responsibilities; and seek alternative solutions for an increasingly sustainable operation.",
+        "36_59_TEXT3": "The 'Social' pillar of ESG is evident in its operation, although it requires efforts to map and create indicators relating to the impacts that your company can have on society and interested parties. There is room for your operation to develop strategies, actions and metrics in community support, employee health and well-being, human rights, safety, and business ethics, among others.",
+        "36_59_TEXT4": "Compliance means that your operation operates in line and in full regularity with established environmental standards, laws and regulations. To stand out in ESG, your operation needs to set goals and carry out due monitoring and analysis of elements that encompass policies, procedures and monitoring and evaluation indicators that can be reported and eventually audited by an independent third party.",
+
+
+        "60_80_TEXT": "Your company demonstrates a strong commitment to ESG, with solid environmental practices, significant social actions, and responsible corporate governance. You are already on the right track for ESG certification, but you can further strengthen your performance. ESG certification is a journey, not a destination. Continue seeking improvement to achieve gold certification and become a reference in sustainability!",
+        "60_80_TEXT2": "Its operation is aware of its environmental footprint and already presents actions aimed at optimizing resources and preserving the natural environment. There are metrics that dialogue with climate and/or water risks and seek to minimize energy consumption, thus avoiding massive CO2 emissions. Try to expand the metrics of all resource consumption to have monthly and annual records for possible preparation of reports that may be required by large clients.",
+        "60_80_TEXT3": "ESG Social involves adopting policies, strategies and practices that promote a positive social impact, respect human rights, care for your employees and the community in which your business operates, and maintain ethical conduct in your operations. This is increasingly important for investors, customers and stakeholders, as they look for companies committed to making a positive impact on society and the environment, while also seeking financial success. Create indicators with your company's actions and set goals to advance in this aspect.",
+        "60_80_TEXT4": "An ESG-conscious company is one that demonstrates concern about adopting good corporate governance practices. This means that it strives to implement policies and structures that ensure transparency, accountability, business ethics and alignment of interests among shareholders, directors, executives and other stakeholders. The company must always seek to improve its internal governance practices to meet the standards and expectations of the market, investors and regulators. With this level of commitment to exercising responsible governance, your operation is now eligible for the Silver ESG Certification Seal!",
+
+
+        "81_100_TEXT": "Your operations demonstrate an exemplary commitment to sustainability. You are in compliance with the environmental, social, and governance pillars of ESG, having a positive impact on the environment, society, and your business. Based on your strong sustainability standards, your operation is eligible for ESG Gold Certification with Blockchain validation.",
+        "81_100_TEXT2": "Operation with notable sustainability standards. Contributes to the maintenance and restoration of the natural system and its resources. Without an environmental and/or water footprint, its activities are aware of climate risks and, therefore, there is the possibility of drawing up an action plan for resilience with mitigation of its emissions. Your operation is eligible for ESG Gold Certification with Blockchain validation!",
+        "81_100_TEXT3": "The 'Social' pillar of ESG is related to social issues and impacts that a company can have on society and stakeholders. It encompasses a wide range of aspects to which your company complies and practices these points, with plans, actions and metrics that include corporate social responsibility, the appreciation of its employees, respect for human rights in the operation and with responsible partners, health and safety of everyone involved inside and outside the company, and ethics towards business and the community. Your operation is eligible for ESG Gold certification!",
+        "81_100_TEXT4": "In addition to having solid corporate governance, its operation demonstrates high performance in environmental and social issues. With this analysis, your company has a strong commitment to social issues, such as promoting diversity and inclusion in the workplace, caring for employee health and safety, respecting human rights in your supply chain, and actively engaging with communities where it operates. The responses indicate that its operation not only complies with regulatory requirements and investor expectations, but also stands out as a leader in the ESG field, having a significant positive impact on the environment, society and its internal operations, making it eligible for the ESG Certification Gold Seal!"
+    },
+    "LOGGED_PLANS": {
+        "TITLE": "Plans",
+        "SUBTITLE": "Get the best monitoring of your Company's ESG practices!",
+        "PER_YEAR": "Per year",
+        "ASSIGN": "Subscribe",
+        "SOON": "Soon",
+
+        "SIMULATION_TITLE": "Simulation",
+        "SIMULATION_PRICE": "R$99",
+        "SIMULATION_ALL_SUBTITLE": "Everything from Simulation +",
+        "SIMULATION_ITEM_1": "Rating simulation",
+        "SIMULATION_ITEM_2": "Active profile on dashboard",
+        "SIMULATION_ITEM_3": "SDG adherence matrix",
+
+        "SOLUTION_TITLE": "Solution",
+        "SOLUTION_PRICE": "R$999",
+        "SOLUTION_ALL_SUBTITLE": "Everything from Solution +",
+        "SOLUTION_ITEM_1": "Rating simulation",
+        "SOLUTION_ITEM_2": "Complete package of ESG improvement recommendations",
+        "SOLUTION_ITEM_3": "Annual validation and certification (with indicator report)",
+        "SOLUTION_ITEM_4": "TKS seal for a score above 60% adherence",
+        "SOLUTION_ITEM_5": "Active profile on dashboard",
+        "SOLUTION_ITEM_6": "SDG adherence matrix",
+        "SOLUTION_ITEM_7": "Blockchain registration for global validation",
+        "SOLUTION_ITEM_8": "Analysis frameworks aligned with your operation and value chain (GRI, SASB, TCFD)",
+
+        
+        "SUPPLY_CHAIN_TITLE": "Supply Chain",
+        "SUPPLY_CHAIN_PRICE": "R$ 4.999",
+        "SUPPLY_CHAIN_ALL_SUBTITLE": "Everything from Solution +",
+        "SUPPLY_CHAIN_ITEM_1": "Rating simulation",
+        "SUPPLY_CHAIN_ITEM_2": "Complete package of ESG improvement recommendations",
+        "SUPPLY_CHAIN_ITEM_3": "Annual validation and certification (with indicator report)",
+        "SUPPLY_CHAIN_ITEM_4": "TKS seal for a score above 60% adherence",
+        "SUPPLY_CHAIN_ITEM_5": "Active profile on dashboard",
+        "SUPPLY_CHAIN_ITEM_6": "SDG adherence matrix",
+        "SUPPLY_CHAIN_ITEM_7": "Blockchain registration for global validation",
+        "SUPPLY_CHAIN_ITEM_8": "Supply chain certification",
+        "SUPPLY_CHAIN_ITEM_9": "Analysis frameworks aligned with your operation and value chain (GRI, SASB, TCFD)"
+    },
+    "PAYMENT_ORIENTATION": {
+        "TITLE": "Payment Orientation",
+        "CHOOSE_METHOD": "You will be redirected to the Mercado Pago checkout. Choose your preferred payment method and complete the purchase.",
+        "IMPORTANT_DONT_FORGET": "Important: Don't forget to click to return to Thinksus and complete your purchase.",
+        "NEXT": "Next"
+    },
+    "FORGOT_PASSWORD": {
+        "TITLE": "Forgot Password",
+        "SUBTITLE": "Enter your email to receive a password reset link.",
+        "SUBTITLE_2": "Enter your new password.",
+        "EMAIL": "Email",
+        "CODE": "Code",
+        "PASSWORD": "Password",
+        "CONFIRM_PASSWORD": "Confirm password",
+        "SEND": "Send",
+        "BACK": "Back"
     }
 }

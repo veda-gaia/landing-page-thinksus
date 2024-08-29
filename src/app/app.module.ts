@@ -21,6 +21,8 @@ import { AuthInterceptor } from './services/auth-interceptor.service';
 import { AuthenticationService } from './services/authentication.service';
 import { CepService } from './services/cep.service';
 import { UserService } from './services/user.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -28,10 +30,11 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
     NgxMaskDirective,
@@ -45,6 +48,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
+    NgxSpinnerModule
   ],
   providers: [
     provideEnvironmentNgxMask(),

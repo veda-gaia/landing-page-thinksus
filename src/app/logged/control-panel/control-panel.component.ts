@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { finalize } from 'rxjs';
 import { CompanyService } from 'src/app/services/company.service';
 import { EsgRatingService } from 'src/app/services/esg-rating.service';
 
@@ -15,6 +17,9 @@ export class ControlPanelComponent {
   openAccordions: number[] = []
   averageResult: any
 
+  // odsScoreArray = []
+  
+  // Mock
   odsScoreArray: any[] = [
     {
       ods: "11",
@@ -65,45 +70,60 @@ export class ControlPanelComponent {
       score: 63.63
     },
   ]
+
+  // supplierScoresArray = []
+
+  // Mock
   supplierScoresArray = [
     {
-      name: 'Fornecedor #1',
-      score: 70
+      name: 'Matéria prima - Produção',
+      score: 57.7
     },
     {
-      name: 'Fornecedor #2',
-      score: 50
+      name: 'Material de Consumo',
+      score: 64.3
     },
     {
-      name: 'Fornecedor #3',
-      score: 70
+      name: 'Serviços Operacionais',
+      score: 68.7
     },
     {
-      name: 'Fornecedor #4',
-      score: 70
+      name: 'Energia e Recursos',
+      score: 81.3
     },
     {
-      name: 'Fornecedor #5',
-      score: 100
-    },
-    {
-      name: 'Fornecedor #6',
-      score: 60
-    },
-    {
-      name: 'Fornecedor #7',
-      score: 70
-    },
+      name: 'Frete e serviços externos',
+      score: 62.3
+    }
   ]
+
+  // performanceScores: any = {
+  //   environmentScore: 0,
+  //   socialScore: 0,
+  //   governanceScore: 0,
+  // }
+
+  // Mock
+  performanceScores: any = {
+    environmentScore: 57,
+    socialScore: 65,
+    governanceScore: 68,
+  }
   
   constructor(
     private EsgRatingService: EsgRatingService,
     private CompanyService: CompanyService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private spinnerService: NgxSpinnerService
   ) {
-    this.CompanyService.getByUser().subscribe({
+    this.spinnerService.show()
+    this.EsgRatingService.getByCompany().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
-        this.loadList(data._id)
+        this.loading = false
       },
       error: (err) => {
         console.log(err)
@@ -115,23 +135,7 @@ export class ControlPanelComponent {
     })
   }
 
-  loadList(companyId: string) {
-    this.EsgRatingService.list().subscribe({
-      next: (data) => {
-        let myCompanyInfo = data.filter(item => {
-          return item.company._id === companyId
-        })
-
-        this.averageResult = this.checkAverage(myCompanyInfo)
-        console.log(this.averageResult)
-        this.loading = false
-      },
-      error: (err) => {
-        console.log(err)
-      }
-    })
-  }
-
+  // Calcula a média ponderada das avaliações
   checkAverage(data: any): any {
     let averageScoreEnvironmental = 0
     let averageScoreSocial = 0

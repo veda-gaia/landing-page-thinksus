@@ -5,9 +5,11 @@ import {
   Validators
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { CompanyEmployeesEnum } from 'src/app/enums/company-employees.enum';
+import { CompanyRevenueEnum } from 'src/app/enums/company-revenue.enum';
 import { CompanySectionEnum } from 'src/app/enums/company-section.enum';
 import { CompanySegmentEnum } from 'src/app/enums/company-segment.enum';
 import { LoginInterface } from 'src/app/interfaces/authentication/authentication.interface';
@@ -29,6 +31,9 @@ import {
   ptIndustryList,
   ptServicesList,
 } from 'src/app/util/pt-segment';
+import { TermsAndConditionsModalComponent } from './terms-and-conditions-modal/terms-and-conditions-modal.component';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -51,6 +56,8 @@ export class RegisterComponent implements OnInit {
   sectorList: SectorList[] = [];
   segmentList: SegmentList[] = [];
 
+  CompanyRevenueEnum = CompanyRevenueEnum
+
   constructor(
     private fb: FormBuilder,
     private cepService: CepService,
@@ -59,6 +66,8 @@ export class RegisterComponent implements OnInit {
     private authService: AuthenticationService,
     private toastr: ToastrService,
     private router: Router,
+    private modalService: NgbModal,
+    private spinnerService: NgxSpinnerService
   ) {
     this.form1 = this.fb.group({
       name: ['', Validators.required],
@@ -192,31 +201,44 @@ export class RegisterComponent implements OnInit {
         section: this.form2.controls['sector'].value as CompanySectionEnum,
         numberEmployees: this.form3.controls['collaboratorsAmmount']
           .value as CompanyEmployeesEnum,
+        revenue: this.form3.controls['invoicing'].value as CompanyRevenueEnum
       },
       user: {
         name: this.name.value,
-        email: this.email.value,
+        email: this.email.value.toLowerCase(),
         password: this.form1.controls['password'].value as string,
         phone: this.form1.controls['phone'].value as string,
         positionRole: this.form1.controls['role'].value as string,
       },
+      lang: this.translateService.currentLang
     };
-
-    this.userService.register(dto).subscribe({
+    this.spinnerService.show();
+    this.userService.register(dto).pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
-        console.log(data);
         this.actualStep = 4;
       },
       error: (err) => {
         console.error(err);
-        this.toastr.error(err.error.errors, 'Error', {progressBar: true});
+        this.toastr.error('Erro ao cadastrar usuário/empresa', 'Erro', {progressBar: true});
+        if(err.error.errors.includes('cnpj') && err.error.errors.includes('dup key')) {
+          this.toastr.error('Já existe uma empresa cadastrada com o CNPJ informado', 'Erro', {progressBar: true});
+        }
       },
     });
   }
 
   onSubmitStep4() {
     if (this.code.invalid || !this.code.value) return;
-    this.userService.activeUser({email: this.email.value, code: +this.code.value}).subscribe({
+    this.spinnerService.show();
+    this.userService.activeUser({email: this.email.value, code: +this.code.value}).pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
         console.log(data);
         this.actualStep = 5;
@@ -233,8 +255,12 @@ export class RegisterComponent implements OnInit {
       email: this.form1.controls['email'].value ? this.form1.controls['email'].value : '',
       password: this.form1.controls['password'].value ? this.form1.controls['password'].value : ''
     }
-
-    this.authService.login(dto).subscribe({
+    this.spinnerService.show();
+    this.authService.login(dto).pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
         this.authService.setAuthUser(data);
         this.router.navigate(['/logged'])
@@ -272,5 +298,9 @@ export class RegisterComponent implements OnInit {
 
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  openPdf() {
+    this.modalService.open(TermsAndConditionsModalComponent)
   }
 }

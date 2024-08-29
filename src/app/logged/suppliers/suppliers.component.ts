@@ -28,59 +28,54 @@ export class SuppliersComponent {
   loadList() {
     this.list = [
       {
-        seal: '',
-        name: 'Exemplo LTDA',
-        buyValue: 1000000,
-        currency: 'BRL',
-        score: 55.4,
+        name: 'Matéria prima - Produção',
+        buyValue: 550000,
+        currency: 'USD',
+        esgScore: 51,
         document: '000000000000'
       },
       {
-        seal: '',
-        name: 'Exemplo LTDA',
-        buyValue: 1000000,
+        name: 'Material de Consumo',
+        buyValue: 150000,
         currency: 'BRL',
-        score: 55.4,
-        document: '000000000000'
+        esgScore: 54.3,
+        document: '11111111111'
       },
       {
-        seal: '',
-        name: 'Exemplo LTDA',
+        name: 'Serviços Operacionais',
         buyValue: 1000000,
         currency: 'BRL',
-        score: 55.4,
-        document: '000000000000'
+        esgScore: 65.3,
+        document: '22222222222'
       },
       {
-        seal: '',
-        name: 'Exemplo LTDA',
-        buyValue: 1000000,
+        name: 'Energia e Recursos',
+        buyValue: 135000,
         currency: 'BRL',
-        score: 55.4,
-        document: '000000000000'
+        esgScore: 81.3,
+        document: '33333333333'
       },
       {
-        seal: '',
-        name: 'Exemplo LTDA',
-        buyValue: 1000000,
+        name: 'Frete e serviços externos',
+        buyValue: 65000,
         currency: 'BRL',
-        score: 55.4,
-        document: '000000000000'
+        esgScore: 55.7,
+        document: '444.444.444/44'
       },
     ]
     this.filteredList = this.list
   }
 
   openAddSupplier() {
-        // Abre o modal do formulário
-        const modalRef = this.modalService.open(AddSupplierModalComponent, {centered: true});
+    // Abre o modal do formulário
+    const modalRef = this.modalService.open(AddSupplierModalComponent, {centered: true});
 
-        // Se inscreve no status do modal
-        modalRef.componentInstance.submitted.subscribe((closed: boolean) => {
-          if (closed) {
-            // Reload da lista
-            this.loadList()
-          }
-        });
+    // Se inscreve no status do modal
+    modalRef.componentInstance.submitted.subscribe((closed: boolean) => {
+      if (closed) {
+        // Reload da lista
+        this.loadList()
+      }
+    });
   }
 }

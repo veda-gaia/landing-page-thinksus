@@ -15,6 +15,9 @@ import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskDirective, NgxMaskPipe, provideEnvironmentNgxMask } from 'ngx-mask';
 import { TranslateModule } from '@ngx-translate/core';
+import { TermsAndConditionsModalComponent } from './register/terms-and-conditions-modal/terms-and-conditions-modal.component';
+import { NgxDocViewerModule } from 'ngx-doc-viewer';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 @NgModule({
@@ -29,7 +32,9 @@ import { TranslateModule } from '@ngx-translate/core';
     KnowMoreComponent,
     FreeTestComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    TermsAndConditionsModalComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +42,8 @@ import { TranslateModule } from '@ngx-translate/core';
     ReactiveFormsModule,
     NgxMaskDirective,
     NgxMaskPipe,
-    TranslateModule
+    TranslateModule,
+    NgxDocViewerModule
   ],
   providers: [
     provideEnvironmentNgxMask(),

@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { updateStatusDto } from 'src/app/dtos/update-status.dto';
 import { CompanyService } from 'src/app/services/company.service';
+import { ContractedPlanService } from 'src/app/services/contracted-plan.service';
 import { EsgRatingService } from 'src/app/services/esg-rating.service';
+import { ScoreWarningComponent } from '../score-warning/score-warning.component';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-assesment',
@@ -12,6 +18,8 @@ import { EsgRatingService } from 'src/app/services/esg-rating.service';
   styleUrls: ['./assesment.component.scss']
 })
 export class AssesmentComponent {
+  @ViewChild('contentModal') contentModal: any;
+
   form: FormGroup
 
   companySection = 'agro'
@@ -33,13 +41,22 @@ export class AssesmentComponent {
     private CompanyService: CompanyService,
     private toastr: ToastrService,
     private router: Router,
+    private contractedPlanService: ContractedPlanService,
+    private modalService: NgbModal,
+    private translateService: TranslateService,
+    private spinnerService: NgxSpinnerService
   ) {
 
     this.form = this.fb.group({
       title: ['', Validators.required]
     })
+    this.spinnerService.show()
 
-    this.CompanyService.getByUser().subscribe({
+    this.CompanyService.getByUser().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
         if(data.section === 'Agribusiness') {
           this.environmentalQuestions = 13
@@ -74,13 +91,20 @@ export class AssesmentComponent {
   }
 
   handleInfo(companyId: string, section: string) {
-    this.EsgRatingService.list().subscribe({
+    this.spinnerService.show()
+    this.EsgRatingService.list().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
         // Pega o item que pertence a minha empresa
         let myCompanyInfo = data.filter(item => {
-          return item.company._id === companyId && item.status === "IN_PROGRESS"
+          return item?.company?._id === companyId && item?.status === "IN_PROGRESS"
         })[0]
         
+        console.log(data)
+
         if(myCompanyInfo) {
           const environmentalAnswers = myCompanyInfo.answers.filter((i: any) => {
             return i.questionNumber.startsWith("E")
@@ -106,7 +130,6 @@ export class AssesmentComponent {
             this.governanceProgress = +((governanceAnswers.length / this.governanceQuestions) * 100).toFixed(0)
           }
 
-          // console.log(myCompanyInfo)
           this.assesmentId = myCompanyInfo._id
         }
 
@@ -122,14 +145,28 @@ export class AssesmentComponent {
     if(this.form.invalid || !this.assesmentId.length) return
 
     const dto: updateStatusDto = {
-      status: 'COMPLETED'
+      status: 'COMPLETED',
+      lang: this.translateService.currentLang
     }
+    const titleDto: any = {
+      title: this.form.controls['title'].value
+    }
+    this.spinnerService.show()
 
-    this.EsgRatingService.updateStatusById(this.assesmentId, dto).subscribe({
+    this.EsgRatingService.updateStatusById(this.assesmentId, dto).pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
-        this.toastr.success('Pontuação gerada com sucesso', 'Sucesso', {progressBar: true});
         setTimeout(() => {
-          this.router.navigate(['/logged/results'])
+          this.EsgRatingService.updateTitleById(this.assesmentId, titleDto).subscribe({
+            next: (data) => {
+              this.toastr.success('Pontuação gerada com sucesso', 'Sucesso', {progressBar: true});
+      
+                this.router.navigate(['/logged/results'])
+              }
+          })
         }, 100)
       },
       error: (err) => {
@@ -140,6 +177,39 @@ export class AssesmentComponent {
 
   navigateToSimulation() {
     this.router.navigate(['simulation']);
+  }
+
+  verifyPossibility(symbol: string) {
+    this.spinnerService.show()
+
+    this.contractedPlanService.getByUser().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
+      next: data => {
+        if(!data.verify) {
+          this.modalService.open(ScoreWarningComponent, {centered: true, size: 'sm'})
+        } else {
+          this.router.navigate(['/logged/assesment/' + symbol + '-' + this.companySection])
+        }
+      },
+      error: error => {
+        if(error.error.errors.includes('Contrate um plano')) {
+          this.toastr.warning('Contrate um plano antes de iniciar avaliação!', 'Atenção', {progressBar: true})
+          this.router.navigate(['/logged/plans'])
+        }
+      }
+    })
+  }
+
+  close() {
+    this.modalService.dismissAll();
+  }
+
+  getSymbolCompanySection() {
+
+
   }
 
 }

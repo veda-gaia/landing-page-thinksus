@@ -1,180 +1,342 @@
 import { JsonPipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 import { CompanyService } from 'src/app/services/company.service';
+import { ContractedPlanService } from 'src/app/services/contracted-plan.service';
 import { EsgRatingService } from 'src/app/services/esg-rating.service';
+import { initialScoreArray } from 'src/app/util/initial-score-array.util';
+import { ScoreWarningComponent } from '../score-warning/score-warning.component';
+import { finalize } from 'rxjs';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
-  avaliationStatus = ''
-  userName = ''
-  companySection = 'agro'
-  loading = true
+  @ViewChild('contentModal') contentModal: any;
 
-  graphData: any = []
-  graphConfig: any = { 
+  avaliationStatus = '';
+  userName = '';
+  companySection = 'agro';
+  loading = true;
+
+  graphData: any = [];
+  graphConfig: any = {
     displayModeBar: false,
     responsive: true,
     scrollZoom: false,
-    staticPlot: true
-  }
+    staticPlot: true,
+  };
 
-  environmentalQuestions = 0
-  socialQuestions = 0
-  governanceQuestions = 0
+  environmentalQuestions = 0;
+  socialQuestions = 0;
+  governanceQuestions = 0;
 
   environmentalInfo = {
     progress: 0,
     score: 0,
-  }
+  };
   socialInfo = {
     progress: 0,
     score: 0,
-  }
+  };
   governanceInfo = {
     progress: 0,
     score: 0,
+  };
+  distributionESG: any = {
+    environmental: 0,
+    governance: 0,
+    social: 0,
   }
 
-  odsScoreArray: any[] = []
-  postAvaliationInfo: any
+  odsScoreArray: any[] = [];
+  postOdsScoreArray: any[] = [];
+  allCompleteAvaliations: any[] = []
+  postAvaliationInfo: any;
 
   constructor(
     private EsgRatingService: EsgRatingService,
     private CompanyService: CompanyService,
-  ) {
-    this.CompanyService.getByUser().subscribe({
+    private contractedPlanService: ContractedPlanService,
+    private modalService: NgbModal,
+    private router: Router,
+    private toastr: ToastrService,
+    private spinnerService: NgxSpinnerService
+  ) {}
+
+  ngOnInit() {
+    this.spinnerService.show()
+    this.CompanyService.getByUser().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
-        this.userName = data.user.name
-        
-        if(data.section === 'Agribusiness') {
-          this.environmentalQuestions = 13
-          this.socialQuestions = 15
-          this.governanceQuestions = 14
+        this.userName = data.user.name;
+        if (data.section === 'Agribusiness') {
+          this.environmentalQuestions = 13;
+          this.socialQuestions = 15;
+          this.governanceQuestions = 14;
 
-          this.companySection = 'agro'
+          this.companySection = 'agro';
         }
 
-        if(data.section === 'Industry') {
-          this.environmentalQuestions = 12
-          this.socialQuestions = 15
-          this.governanceQuestions = 14
+        if (data.section === 'Industry') {
+          this.environmentalQuestions = 12;
+          this.socialQuestions = 15;
+          this.governanceQuestions = 14;
 
-          this.companySection = 'industry'
+          this.companySection = 'industry';
         }
 
-        if(data.section === 'Services') {
-          this.environmentalQuestions = 13
-          this.socialQuestions = 15
-          this.governanceQuestions = 14
+        if (data.section === 'Services') {
+          this.environmentalQuestions = 13;
+          this.socialQuestions = 15;
+          this.governanceQuestions = 14;
 
-          this.companySection = 'service'
+          this.companySection = 'service';
         }
-        
-        this.handleInfo(data._id, data.section)
 
-        const graphEnvironmental = {
-          x: [1, 2, 3, 4],
-          y: [64, 79, 80, 78],
-          mode: 'lines+markers',
-          type: 'scatter',
-          name: 'Governança'
-        };
-        const graphGovernmental = {
-          x: [1, 2, 3, 4],
-          y: [71, 89, 90, 99],
-          mode: 'lines+markers',
-          type: 'scatter',
-          name: 'Social'
-        };
-        const graphSocial = {
-          x: [1, 2, 3, 4],
-          y: [50, 55, 54, 60],
-          mode: 'lines+markers',
-          type: 'scatter',
-          name: 'Ambiental'
-        };
-    
-        this.graphData.push(graphEnvironmental)
-        this.graphData.push(graphGovernmental)
-        this.graphData.push(graphSocial)
+        this.handleInfo();
       },
       error: (err) => {
-        console.log(err)
-      }
-    })
+        console.log(err);
+      },
+    });
   }
 
-  handleInfo(companyId: string, section: string) {
-    this.EsgRatingService.list().subscribe({
+  handleInfo() {
+    this.spinnerService.show()
+
+    this.EsgRatingService.getByCompany().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
-        // Pega o item que pertence a minha empresa
-        let inProgressAvaliation = data.filter(item => {
-          return item.company._id === companyId && item.status === "IN_PROGRESS"
-        })[0]
-        let postAvaliation = data.filter(item => {
-          return item.company._id === companyId && item.status === "COMPLETED"
-        })[0]
+        this.allCompleteAvaliations = data.filter((item) => {
+          return item.status === 'COMPLETED';
+        })
+
+        this.allCompleteAvaliations.sort((a, b) => {
+          return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
+        });
+
+        let inProgressAvaliation = data.filter((item) => {
+          return item.status === 'IN_PROGRESS';
+        })[0];
+
+        let postAvaliation = this.allCompleteAvaliations[0];
+
+        if (!inProgressAvaliation) {
+          this.avaliationStatus = 'pre-avaliation';
+
+          this.environmentalInfo = {
+            progress: 0,
+            score: 0,
+          };
+
+          this.socialInfo = {
+            progress: 0,
+            score: 0,
+          };
+
+          this.governanceInfo = {
+            progress: 0,
+            score: 0,
+          };
+
+          this.odsScoreArray = initialScoreArray;
+        }
+
+        if (inProgressAvaliation) {
+          this.avaliationStatus = 'pre-avaliation';
+
+          if (inProgressAvaliation) {
+            this.avaliationStatus = 'pre-avaliation';
+
+            const environmentalAnswers = inProgressAvaliation.answers.filter(
+              (i: any) => {
+                return i.questionNumber.startsWith('E');
+              }
+            );
+
+            const socialAnswers = inProgressAvaliation.answers.filter(
+              (i: any) => {
+                return i.questionNumber.startsWith('S');
+              }
+            );
+
+            const governanceAnswers = inProgressAvaliation.answers.filter(
+              (i: any) => {
+                return i.questionNumber.startsWith('G');
+              }
+            );
+
+            if (environmentalAnswers.length) {
+              this.environmentalInfo = {
+                progress: environmentalAnswers.length,
+                score: inProgressAvaliation.environmentalScore.toFixed(0),
+              };
+            }
+
+            if (socialAnswers.length) {
+              this.socialInfo = {
+                progress: socialAnswers.length,
+                score: inProgressAvaliation.socialScore.toFixed(0),
+              };
+            }
+
+            if (governanceAnswers.length) {
+              this.governanceInfo = {
+                progress: governanceAnswers.length,
+                score: inProgressAvaliation.governanceScore.toFixed(0),
+              };
+            }
+
+            this.odsScoreArray = inProgressAvaliation.odsScore;
+          }
+        }
+
+        if (postAvaliation) {
+          this.postAvaliationInfo = postAvaliation;
+          this.avaliationStatus = 'post-avaliation';
+          this.postOdsScoreArray = postAvaliation.odsScore
+
+          this.distributionESG = {
+            environmental: (((postAvaliation.environmentalScore / postAvaliation.esgScore) / 3) * 100).toFixed(2),
+            governance: (((postAvaliation.governanceScore / postAvaliation.esgScore) / 3) * 100).toFixed(2),
+            social: (((postAvaliation.socialScore / postAvaliation.esgScore) / 3) * 100).toFixed(2),
+          }
+        }
         
-        if(inProgressAvaliation) {
-          this.avaliationStatus = 'pre-avaliation'
-
-          const environmentalAnswers = inProgressAvaliation.answers.filter((i: any) => {
-            return i.questionNumber.startsWith("E")
-          })
-          
-          const socialAnswers = inProgressAvaliation.answers.filter((i: any) => {
-            return i.questionNumber.startsWith("S")
-          })
-          
-          const governanceAnswers = inProgressAvaliation.answers.filter((i: any) => {
-            return i.questionNumber.startsWith("G")
-          })
-
-          if(environmentalAnswers.length) {
-            this.environmentalInfo = {
-              progress: environmentalAnswers.length,
-              score: inProgressAvaliation.environmentalScore.toFixed(0)
-            }
-          }
-          
-          if(socialAnswers.length) {
-            this.socialInfo = {
-              progress: socialAnswers.length,
-              score: inProgressAvaliation.socialScore.toFixed(0)
-            }
-          }
-          
-          if(governanceAnswers.length) {
-            this.governanceInfo = {
-              progress: governanceAnswers.length,
-              score: inProgressAvaliation.governanceScore.toFixed(0)
-            }
-          }
-
-          this.odsScoreArray = inProgressAvaliation.odsScore
+        if(this.allCompleteAvaliations.length >= 2) {
+          this.handleGraphicStatistics()
         }
-
-        if(postAvaliation) {
-          this.postAvaliationInfo = postAvaliation
-          this.avaliationStatus = 'post-avaliation'
-          console.log(postAvaliation)
-        }
-
-        this.loading = false
+        
+        this.loading = false;
       },
       error: (err) => {
-        console.log(err)
+        console.error(err), (this.loading = false);
+      },
+    });
+  }
+
+  downloadReport() {
+    this.spinnerService.show()
+    this.EsgRatingService.donwloadReport().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
+      next: data => {
+        if (data && data.report) {
+          const byteCharacters = atob(data.report);
+          const byteNumbers = new Array(byteCharacters.length);
+          for (let i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
+          }
+          const byteArray = new Uint8Array(byteNumbers);
+          const blob = new Blob([byteArray], { type: 'application/pdf' });
+  
+          const link = document.createElement('a');
+          link.href = URL.createObjectURL(blob);
+          link.download = 'relatorio.pdf';
+  
+          link.click();
+  
+          URL.revokeObjectURL(link.href);
+        } else {
+          console.error('O objeto data não contém o relatório em base64.');
+        }
+      },
+      error: err => {
+        console.error('Erro ao fazer o download do relatório:', err);
       }
-    })
+    });
+  }
+
+  // Define as informaçõoes do Gráfico
+  handleGraphicStatistics() {
+    const dates: string[] = this.allCompleteAvaliations.map(avaliation => {
+      const date = new Date(avaliation.updatedAt);
+      const day = String(date.getUTCDate()).padStart(2, '0');  // Formata o dia para 2 dígitos
+      const month = String(date.getUTCMonth() + 1).padStart(2, '0');  // Formata o mês para 2 dígitos (janeiro é 0)
+      return `${day}/${month}`;
+    }).reverse();
+
+    const envrironmentalData = this.allCompleteAvaliations.map(avaliation => {
+      return avaliation.environmentalScore.toFixed()
+    }).reverse()
+
+    const governmentalData = this.allCompleteAvaliations.map(avaliation => {
+      return avaliation.governanceScore.toFixed()
+    }).reverse()
+
+    const socialData = this.allCompleteAvaliations.map(avaliation => {
+      return avaliation.socialScore.toFixed()
+    }).reverse()
+
+    const graphEnvironmental = {
+      x: dates,
+      y: envrironmentalData,
+      mode: 'lines+markers',
+      type: 'scatter',
+      name: 'Ambiental',
+    };
+
+    const graphGovernmental = {
+      x: dates,
+      y: governmentalData,
+      mode: 'lines+markers',
+      type: 'scatter',
+      name: 'Governança',
+    };
+
+    const graphSocial = {
+      x: dates,
+      y: socialData,
+      mode: 'lines+markers',
+      type: 'scatter',
+      name: 'Social',
+    };
+
+    this.graphData.push(graphGovernmental);
+    this.graphData.push(graphSocial);
+    this.graphData.push(graphEnvironmental);
   }
 
   toggleAvaliationStatus() {
-    if(this.avaliationStatus === 'pre-avaliation') {
-      this.avaliationStatus = 'post-avaliation'
-    } else this.avaliationStatus = 'pre-avaliation'
+    if (this.avaliationStatus === 'pre-avaliation') {
+      this.avaliationStatus = 'post-avaliation';
+    } else this.avaliationStatus = 'pre-avaliation';
+  }
+
+  verifyPossibility(symbol: string) {
+    this.spinnerService.show()
+    this.contractedPlanService.getByUser().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
+      next: data => {
+        if(!data.verify) {
+          this.modalService.open(ScoreWarningComponent, {centered: true, size: 'sm'})
+        } else {
+          this.router.navigate(['/logged/assesment/' + symbol + '-' + this.companySection])
+        }
+      },
+      error: error => {
+        if(error.error.errors.includes('Contrate um plano')) {
+          this.toastr.warning('Contrate um plano antes de iniciar avaliação!', 'Atenção', {progressBar: true})
+          this.router.navigate(['/logged/plans'])
+        }
+      }
+    })
   }
 }

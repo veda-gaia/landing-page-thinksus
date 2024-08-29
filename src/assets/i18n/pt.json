@@ -43,9 +43,19 @@
         "EVOLUTION": "Evolução",
         "BUILD": "Construa uma relação saudável com seus stakeholders, e estabeleça métricas de um propósito sustentável ",
         "EXAMPLE_1": "Noticias populares",
-        "EXAMPLE_2": "Lorem ipsum dolor sit amet, consecteturadipiscing elit, sed do eiusmod temporincididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris nisi utaliquip ex ea commodo consequat. Duisaute irure dolor in reprehenderit involuptate velit esse cillum dolore eufugiat nulla pariatur. Excepteur sintoccaecat cupidatat non proident,sunt in culpa qui ofcia deseruntmollit anim id est laborum.",
+        "EXAMPLE_2": "A prática ESG está relacionada à governança ambiental, social e corporativa e são pilares para uma avaliação de consciência coletiva de uma empresa para trazer sustentabilidade aos seus negócios. Por isso desenvolvemos um método de avaliação próprio que reflete as demandas e complexidades dos principais rankings globais.",
         "EXAMPLE_3": "Saiba mais",
-        "EXAMPLE_4": "Lorem ipsum dolor sit amet, consectetur"
+        "EXAMPLE_4": "Um compromisso de práticas sustentáveis",
+
+        "EXAMPLE_1_2": "Noticias populares",
+        "EXAMPLE_2_2": "A pegada de carbono é a medida da quantidade de gases de efeito estufa que uma pessoa, organização, evento ou produto emite. Esses gases, como dióxido de carbono (CO2), metano (CH4) e óxido nitroso (N2O), contribuem para o aquecimento global e as mudanças climáticas. Alguns exemplos de como você pode reduzir a pegada de carbono: apostar no consumo consciente, deslocamento sustentável, consumo de energia renovável, redução da quantidade de resíduos e opção de embalagens recicláveis, entre outros.",
+        "EXAMPLE_3_2": "Saiba mais",
+        "EXAMPLE_4_2": "Pegada de Carbono: o que é e como reduzi-la",
+
+        "EXAMPLE_1_3": "Noticias populares",
+        "EXAMPLE_2_3": "A tecnologia blockchain, com sua capacidade de criar registros digitais imutáveis e transparentes, está revolucionando a forma como as empresas gerenciam suas cadeias de suprimentos, garantindo transparência e rastreabilidade, segurança e confiabilidade, eficiência e automação e redução de custos.",
+        "EXAMPLE_3_3": "Saiba mais",
+        "EXAMPLE_4_3": "A importância da tecnologia blockhain relacionada ao supply chain"
     },
     "ESG": {
         "SUBTITLE": "Um compromisso de práticas sustentáveis:",
@@ -97,7 +107,6 @@
         "TERMS": "Termos de Uso e Privacidade",
         "NEXT": "Avançar",
         "I_HAVE": "Já Sou Cadastrado",
-        
         "ENTERPRISE_NAME": "Nome da empresa",
         "ENTERPRISE_NAME_PLACEHOLDER": "Digite o nome da empresa",
         "CODE_PLACEHOLDER": "Digite o código de verificação",
@@ -116,7 +125,6 @@
         "SEGMENT": "Segmento",
         "SEGMENT_PLACEHOLDER": "Selecione o Segmento",
         "BACK": "Voltar",
-        
         "COLLABORATORS_AMMOUNT": "Número de colaboradores na empresa (opcional)",
         "AMMOUNT_1": "1 - 20",
         "AMMOUNT_2": "21 - 50",
@@ -129,23 +137,21 @@
         "BRL_INVOICING_2": "R$ 360 mil - R$ 4,8 milhões",
         "BRL_INVOICING_3": "R$ 4,8 milhões - R$ 20 milhões",
         "BRL_INVOICING_4": "> R$ 20 milhões",
-
         "USD_INVOICING_1": "< USD 360 mil",
         "USD_INVOICING_2": "USD 360 mil - USD 4,8 milhões",
         "USD_INVOICING_3": "USD 4,8 milhões - USD 20 milhões",
         "USD_INVOICING_4": "> USD 20 milhões",
-        
         "CLICK_LINK": "Digite o código que enviamos para:",
         "POST_CONFIRMATION": "Após a confirmação, clique em continuar para prosseguir com o cadastro",
         "ENJOY": "Aproveite o Painel ThinkSus",
         "CLICK_BUTTON": "Você pode clicar no botão abaixo para entrar na aplicação",
         "GO_TO_PANEL": "Ir Para o Painel",
-
         "SELECT": "Selecione"
     },
     "LOGIN": {
         "TITLE": "Login",
         "SUBTITLE": "Faça seu login para acessar o painel ThinkSus",
+        "FORGOT_PASSWORD": "Esqueceu sua senha?",
         "EMAIL": "Email",
         "PASSWORD": "Senha",
         "INSERT_PASSWORD": "Digite sua senha",
@@ -234,136 +240,92 @@
     "QUESTIONS": {
         "E1_TITLE": "O nível atual de desmatamento está dentro do permitido legalmente?",
         "E1_DESCRIPTION": "A quantidade de desmatamento que a empresa causa está dentro dos limites aceitáveis dentro das leis ambientais ",
-
         "E2_TITLE": "Existe Política e práticas de bem estar animal?",
         "E2_DESCRIPTION": "Regras e normas que a empresa deve seguir para o bem estar animal",
-
         "E3_TITLE": "Existe controle da pegada de carbono e ações para mitigação?",
         "E3_DESCRIPTION": "Pegada de carbono são quanto de matéria prima e produção de poluentes são criados durante o processo produtivo. Cálculos envolvem cada recurso natural consumido (como litros de gasolina, kgw de energia, quantidade de matéria prima, etc.). O cálculo quantifica por quantidade de carbono toda a operação, gerando uma pegada de carbono para ser reportada ao final",
-
         "E4_TITLE": "Existe um compliance de responsabilidade ambiental divulgado para todos?",
         "E4_DESCRIPTION": "Compliance são regras e orientações de responsabilidade individual e coletiva da empresa, em termos de ações que impactam o meio ambiente (como reciclar materiais, reduzir consumo). E essas regras devem ser comunicadas e relembradas para todos os funcionários da empresa periodicamente.",
-
         "E5_TITLE": "Fonte de energia é através de fontes renováveis? (solar, eólica, outra)",
         "E5_DESCRIPTION": "Fontes de energias são o que alimenta as máquinas, prédios e operações. Em geral são água e luz da cidade. Fontes alternativas seriam captar e tratar água da chuva, ter geração de energia elétrica por painel solar ou de fonte eólica (ventos e turbinas)",
-
         "E6_TITLE": "Existe captação de água da chuva para reuso?",
         "E6_DESCRIPTION": "Formas e técnicas de captação de água da chuva que, após tratamentos, permitem a reutilização para reaproveitamento. Isso diminuiria a utilização da água proveniente da rede municipal regular",
-
         "E7_TITLE": "Os veículos utilizam combustível fóssil?",
         "E7_DESCRIPTION": "Combustíveis fósseis são: petróleo, carvão mineral e gás natural, provenientes da decomposição de seres vivos. No caso em geral gasolina e diesel são combustíveis fóssil. A alternativa seria veículos elétricos.",
-
         "E8_TITLE": "Existe acompanhamento de consumo de recursos naturais mensal e metas para redução?",
         "E8_DESCRIPTION": "Recursos naturais são elementos da natureza que são retirados para atender a demanda do homem (Ex.: energia solar, madeira, solo, água, vento, animais, vegetais).",
-
         "E9_TITLE": "Todos os dejetos da operação são tratados antes de descarte? (esgoto, material de descarte, tratamento de afluentes)",
         "E9_DESCRIPTION": "Dejetos apresentam riscos de poluição ao meio ambiente caso não sejam manejados e tratados corretamente. Materiais utilizados na produção precisam ser reciclados corretamente, esgoto tratado e qualquer outro material que resta descartado corretamente ",
-
         "E10_TITLE": "Existe um reporte mensal da gestão dos resíduos?",
         "E10_DESCRIPTION": "Detalhamento documentado sobre como os resíduos são tratados e geridos na empresa. Nesse caso a questão é se existe uma comunicação mensal/periodica para os funcionários em geral.",
-
         "E11_TITLE": "Existem alternativas atuais em execução para minimizar poluição?",
         "E11_DESCRIPTION": "Protocolos, regras e técnicas para a diminuição de poluição que estejam em curso. Um exemplo seria programa de conciencização de consumo de água, reciclagem de materiais e consumo consciente de energia elétrica.",
-
         "E12_TITLE": "Ocorre na atividade econômica o Uso de pesticida no solo e/ou contaminação do lençol freático?",
         "E12_DESCRIPTION": "O uso de pesticidas (substâncias químicas para controle de pragas e insetos) é presente no processo",
-
         "E13_TITLE": "O seu produto final possui uma embalagem descartável?",
         "E13_DESCRIPTION": "Embalagens descartáveis são feitas de materiais recicláveis, que podem ser reutilizadas e/ou reaproveitadas, diminuindo impactos negativos no meio ambiente",
-
         "E14_TITLE": "Existe atualmente um Programa de Mitigação de mudanças climáticas?",
         "E14_DESCRIPTION": "Adoção de protocolos que diminuam impactos negativos que afetem mudanças climáticas.",
-
         "E15_TITLE": "Operação pode ser duramente afetada por mudanças climáticas? (secas, queimadas, tornados, etc.)",
         "E15_DESCRIPTION": "As atividades da empresa podem sofrer mudanças em sua produção por conta das mudanças climáticas, como chuvas acima do nível normal (alagamento), secas excessivas, local sujeito a furacão.",
-
         "S1_TITLE": "Empresa possui Compliance Interno de Função Social?",
         "S1_DESCRIPTION": "Compliance interno de função social são regras e orientações de responsabilidade individual e coletiva da empresa que contemplam esferas da sociedade, como criação de empregos, pagamento de tributos, geração de riqueza, contribuição para o desenvolvimento econômico, social e cultural do entorno, adoção de práticas sustentáveis e respeito aos direitos dos consumidores.",
-
         "S2_TITLE": "Todos os Trabalhadores estão registrados, com benefícios sociais recolhidos corretamente mensalmente, com salário condizente com a função?",
         "S2_DESCRIPTION": "A empresa segue a CLT para contratação de funcionários, recolhe INSS e FGTS regularmente (sem atraso), com salários compatíveis com o mercado, respeitando ao menos o mínimo estabelicido pela convenção coletiva da categoria.",
-
         "S3_TITLE": "Todos os Trabalhadores estão registrados, com salário condizente com a função?",
         "S3_DESCRIPTION": "A empresa segue a CLT para contratação de funcionários, com salários compatíveis com o mercado.",
-
         "S4_TITLE": "Processo seletivo para todas as vagas em aberto é feito de forma justa, sem diferenciação de credo, cor, raça ou opção sexual?",
         "S4_DESCRIPTION": "O processo de seleção de novos funcionários respeita a diversidade, sem classifica-los como forma eliminatória suas escolhas de religião, cor da pele, etnia e opção sexual, levando apenas em conta suas aptidões profissionais e capacidade de desenvolver o trabalho para que está sendo avaliado.",
-
         "S5_TITLE": "Houve algum acidente de trabalho com ferimento nos últimos 24 meses?",
         "S5_DESCRIPTION": "Ocorrência de acidentes de trabalho com funcionários durante o exercício de sua função, com ou sem perca de tempo de trabalho, no período anterior de 24 meses da data de respostas desse questionário.",
-
         "S6_TITLE": "Houve condenação em primeira instância na Justiça do Trabalho nos últimos 5 anos?",
         "S6_DESCRIPTION": "A empresa foi acionada e punida judicialmente por não cumprir com as leis de bases e diretrizes de trabalho.",
-
         "S7_TITLE": "Existe interação com outras organizações sociais/políticas na cidade do negócio?",
         "S7_DESCRIPTION": "A empresa possui vínculos com organizações sociais/ políticas na cidade que atua.",
-
         "S8_TITLE": "Compromissos sociais são reportados de forma consistente (últimos 48 meses)?",
         "S8_DESCRIPTION": "São documentados/relatados todos os compromissos sociais (criação, desenvolvimento e apoio e à  programas voltados para a comunidade, qualidade de vida e meio ambiente.)",
-
         "S9_TITLE": "Existe controle de informação sigilosa, de acordo com a Lei de Proteção de Dados?",
         "S9_DESCRIPTION": "As informações sigilosas são mantidas em segredo por meio de controles e diretrizes de acordo com a Lei Geral de Proteção de Dados",
-
         "S10_TITLE": "Existe Canal de Comunicação com clientes e fornecedores?",
         "S10_DESCRIPTION": "Ferramentas que viabilizam formas de comunicação entre clientes e fornecedores",
-
         "S11_TITLE": "Existe forma de denúncia anônima? Se sim, os casos são investigados e reportados com todos os funcionários ?",
         "S11_DESCRIPTION": "Canais para denúncia anônima, onde quem denuncia não será identificado, será mantido sigilo sobre quem fez a denúncia. Em caso afirmativo, o setor responsável por receber as denúncias analisa e toma medidas e providências com funcionários para sanar a questão. ",
-
         "S12_TITLE": "Código Interno de Combate a Corrupção é claro e comunicado para todos os funcionários?",
         "S12_DESCRIPTION": "O código interno de Combate à Corrupção foi escrito de forma clara, com informações objetivas, usando palavras de fácil compreensão.",
-
         "S13_TITLE": "A empresa pratica política de preços de forma a manipular a livre concorrência do mercado?",
         "S13_DESCRIPTION": "A forma de precificação dos produtos da empresa é feita de forma justa e leal para a livre concorrência do mercado.",
-
         "S14_TITLE": "Existe termo de conduta Social dos Fornecedores? Se sim, ele está de acordo com os valores de Compliances internos?",
         "S14_DESCRIPTION": "O manual de normas e condutas de como os fornecedores devem se comportar para se classificar fornecedor para a empresa está em conformidade  com as regras de normas e condutas da empresa que este estabeleceu relação comercial?  ",
-
         "S15_TITLE": "Existe report interno ou externo com os questionamentos dos clientes, de forma transparente, nos últimos 48 meses?",
         "S15_DESCRIPTION": "Todos os questionamentos vindos de clientes são relatados em documentos sem que haja censura.",
-
         "S16_TITLE": "Entre os benefícios oferecidos aos funcionários, existe algum incentivo à educação, cultura e/ou treinamento extra (além da função específica)?",
         "S16_DESCRIPTION": "Entre os benefícios podem ser parcerias de desconto para cursos extra-curriculares ou de educação continuada, programa de treinamento e estudo na própria empresa ou incentivo financeiro para ser gasto com educação",
-
         "G1_TITLE": "Seu produto apresenta risco à saúde do consumidor se consumido em excesso?",
         "G1_DESCRIPTION": "O produto pode apresentar danos e riscos à saúde de quem o consome caso ele seja consumido em quantidades excessivas, além das recomendadas ",
-
         "G2_TITLE": "Seu produto apresenta riscos a sociedade em geral se consumido ou usado de forma equivocada?",
         "G2_DESCRIPTION": "O produto pode apresentar danos e riscos à saúde de quem o consome caso ele seja consumido de forma diferente a que a empresa sugere",
-
         "G3_TITLE": "Existe risco político, nacional ou internacional, que pode afetar o mercado do seu produto?",
         "G3_DESCRIPTION": "Há fatores políticos, internos ou externos aos território nacional que possam afetar a forma que seu produto é comercializado ?",
-
         "G4_TITLE": "Seu mercado de atuação é regulado através de instituições de classes e/ou corporativas?",
         "G4_DESCRIPTION": "O mercado o qual seu produto atua deve seguir leis e regras de algum tipo de instituição para que possa ser comercializado ?",
-
         "G5_TITLE": "Existe plano de mitigação/contingência contra riscos corporativos?",
         "G5_DESCRIPTION": "Planos para redução ou controle contra qualquer situação de risco dentro da empresa; situações que fogem aos escopo dos manuais de normas e condutas impostos pela empresa",
-
         "G6_TITLE": "A empresa passa anualmente por algum tipo de auditoria? (financeira e/ou qualidade)",
         "G6_DESCRIPTION": "Auditoria é uma análise cuidadosa, detalhada e sistemática das atividades desenvolvidas em determinada organização, cujo objetivo é averiguar se elas estão de acordo com as planejadas e/ou estabelecidas previamente, se foram implementadas com eficácia e adequadas (em conformidade) à consecução dos objetivos.",
-
         "G7_TITLE": "Existe separação entre quem toca o dia-a-dia do negócio e o Proprietário (a) da empresa?",
         "G7_DESCRIPTION": "Há funcionários específicos para o bom funcionamento da empresa que não seja a mesma pessoa que é a proprietária da empresa",
-
         "G8_TITLE": "Existe relação econômica/comercial com outras subsidiárias de mesma gestão?",
         "G8_DESCRIPTION": "Relações econômicas e comerciais com outras unidades da mesma empresa sob a mesma administração",
-
         "G9_TITLE": "Existe código interno sobre Conflito de Interesses?",
         "G9_DESCRIPTION": "Manual com regras e diretrizes relacionado a divergências de interesses",
-
         "G10_TITLE": "Existe publicação pública dos ingredientes do seu produto?",
         "G10_DESCRIPTION": "Publicação em meios de comunicação públicos dos ingredientes usados na composição dos produtos que a empresa oferece no mercado",
-
         "G11_TITLE": "A empresa já foi sancionada judicialmente nos últimos 3 anos por práticas contra a livre concorrência?",
         "G11_DESCRIPTION": "A empresa já foi acionada de forma judicial por ter praticado de forma desonesta e injusta contra a livre concorrência",
-
         "G14_TITLE": "Existe report mensal/anual financeiro para todos os funcionários?",
         "G14_DESCRIPTION": "Todos os funcionários têm acesso à documentos que relatam o desempenho financeiro da empresa",
-
         "G15_TITLE": "A lucratividade do negócio nos últimos 3 anos esteve em níveis saudáveis e na média ou acima do mercado?",
         "G15_DESCRIPTION": "Os lucros obtidos pela empresa esteve em níveis considerados aceitáveis, como positivos e dentro da média  comparado com os indicadores do mercado ?",
-
         "G16_TITLE": "A estrutura atual do negócio suporta um crescimento operacional e tendências de mercado futura, sem grande dispêndio de investimento adicional?",
         "G16_DESCRIPTION": "A empresa tem capacidade de investimentos para crescimento operacional, de acordo com seu faturamento, sem que haja necessidade de investimentos adicionais externos?"
     },
@@ -405,7 +367,7 @@
         "SIMULATION": "Simulação",
         "SOLUTION": "Solução",
         "SUPPLY": "Cadeia de Suprimento",
-        "SIMULATION_PLAN" : "Plano Simulação"
+        "SIMULATION_PLAN": "Plano Simulação"
     },
     "DASHBOARD": {
         "YOUR_SCORE": "Pontuação ThinkSus",
@@ -501,99 +463,186 @@
         "PAGE_DESCRIPTION_PT_1": "Os 17 Objetivos de Desenvolvimento Sustentável da ONU é uma proposta de aceno global que aborda os principais desafios da sociedade contemporânea no Brasil e no mundo.",
         "PAGE_DESCRIPTION_PT_2": "Essa proposição da ONU, que envolve seus países membros, é parte da Agenda 2030, que nada mais é que um esforço conjunto de países, empresas, instituições e sociedade civil para acabar com a pobreza, proteger o meio ambiente e o clima e garantir que as pessoas, em todos os lugares, possam desfrutar de paz e de prosperidade.",
         "PAGE_DESCRIPTION_PT_3": "Nosso rating tem como matriz de aderência as 17 ODS da ONU, que determina os pontos fortes e os pontos a serem melhorados para que sua empresa e seus negócios estejam dentro dos padrões de práticas sustentáveis...",
-
         "PAGE_TITLE": "Aderência ODS ao seu perfil",
         "PAGE_SUBTITLE": "Objetivos voltados a área de atuação de sua empresa",
-
         "1_TITLE": "Erradicação da pobreza",
         "1_DESCRIPTION": "Erradicar a pobreza em todas as formas e em todos os lugares",
-
         "2_TITLE": "Fome zero e agricultura sustentável",
         "2_DESCRIPTION": "Erradicar a fome, alcançar a segurança alimentar, melhorar a nutrição e promover a agricultura sustentável",
-
         "3_TITLE": "Saúde e Bem-Estar",
         "3_DESCRIPTION": "Garantir o acesso à saúde de qualidade e promover o bem-estar para todos, em todas as idades",
-
         "4_TITLE": "Educação de qualidade",
         "4_DESCRIPTION": "Garantir o acesso à educação inclusiva, de qualidade e equitativa, e promover oportunidades de aprendizagem ao longo da vida para todos",
-
         "5_TITLE": "Igualdade de gênero",
         "5_DESCRIPTION": "Alcançar a igualdade de gênero e empoderar todas as mulheres e meninas",
-
         "6_TITLE": "Água potável e saneamento",
         "6_DESCRIPTION": "Garantir a disponibilidade e a gestão sustentável da água potável e do saneamento para todos",
-
         "7_TITLE": "Energia limpa e acessível",
         "7_DESCRIPTION": "Garantir o acesso a fontes de energia fiáveis, sustentáveis e modernas para todos",
-
         "8_TITLE": "Trabalho decente e crescimento econômico",
         "8_DESCRIPTION": "Promover o crescimento econômico inclusivo e sustentável, o emprego pleno e produtivo e o trabalho digno para todos",
-
         "9_TITLE": "Indústria, inovação e infraestrutura",
         "9_DESCRIPTION": "Construir infraestruturas resilientes, promover a industrialização inclusiva e sustentável e fomentar a inovação",
-
         "10_TITLE": "Redução das desigualdades",
         "10_DESCRIPTION": "Reduzir as desigualdades no interior dos países e entre países",
-
         "11_TITLE": "Cidades e comunidades sustentáveis",
         "11_DESCRIPTION": "Tornar as cidades e comunidades mais inclusivas, seguras, resilientes e sustentáveis",
-
         "12_TITLE": "Consumo e produção responsáveis",
         "12_DESCRIPTION": "Garantir padrões de consumo e de produção sustentáveis",
-
         "13_TITLE": "Ação contra a mudança global do clima",
         "13_DESCRIPTION": "Adotar medidas urgentes para combater as alterações climáticas e os seus impactos",
-
         "14_TITLE": "Vida na água",
         "14_DESCRIPTION": "Conservar e usar de forma sustentável os oceanos, mares e os recursos marinhos para o desenvolvimento sustentável",
-
         "15_TITLE": "Vida terrestre",
         "15_DESCRIPTION": "Proteger, restaurar e promover o uso sustentável dos ecossistemas terrestres, gerir de forma sustentável as florestas, combater a desertificação, travar e reverter a degradação dos solos e travar a perda da biodiversidade",
-
         "16_TITLE": "Paz, Justiça e Instituições Eficazes",
         "16_DESCRIPTION": "Promover sociedades pacíficas e inclusivas para o desenvolvimento sustentável, proporcionar o acesso à justiça para todos e construir instituições eficazes, responsáveis e inclusivas a todos os níveis",
-
         "17_TITLE": "Parcerias e meios de implementação",
         "17_DESCRIPTION": "Reforçar os meios de implementação e revitalizar a parceria global para o desenvolvimento sustentável"
     },
-    "IMPROVEMENTS": {
+    "IMPROVEMENTS_HUD": {
+        "TITLE": "Melhorias",
+        "SUBTITLE": "Nossas sugestões",
+        "COMPANY": "Empresa",
+        "SECTION": "Setor",
+        "CNPJ": "CNPJ",
+        "SEGMENT": "Segmento",
+        "SCORE": "Pontuação ThinkSus",
+        "ADERENCE_TITLE_ENVIRONMENTAL": "Aderência aos ODS voltados para área Ambiental",
+        "ADERENCE_TITLE_SOCIAL": "Aderência aos ODS voltados para área Social",
+        "ADERENCE_TITLE_GOVERNANCE": "Aderência aos ODS voltados para área Governamental",
+        "ADERENCE_SUBTITLE": "Foque nas ODS abaixo",
+        "SELECTE_AN_OPTION": "Selecione uma opção",
+        "AT_SIDE": "ao lado para ler sobre esse ponto de melhoria."
+    },
+    "IMPROVEMENTS_TITLES": {
         "ENVIRONMENTAL_TITLE_1": "Natureza",
-        "ENVIRONMENTAL_DESCRIPTION_1": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-        
         "ENVIRONMENTAL_TITLE_2": "Recursos naturais",
-        "ENVIRONMENTAL_DESCRIPTION_2": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-        
         "ENVIRONMENTAL_TITLE_3": "Clima e risco",
-        "ENVIRONMENTAL_DESCRIPTION_3": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-
         "ENVIRONMENTAL_TITLE_4": "Gestão de resíduos",
-        "ENVIRONMENTAL_DESCRIPTION_4": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-        
 
         "SOCIAL_TITLE_5": "Trabalho justo",
-        "SOCIAL_DESCRIPTION_5": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-        
         "SOCIAL_TITLE_6": "Comunidade",
-        "SOCIAL_DESCRIPTION_6": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-        
         "SOCIAL_TITLE_7": "Sociedade",
-        "SOCIAL_DESCRIPTION_7": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-
         "SOCIAL_TITLE_8": "Cadeia de valor",
-        "SOCIAL_DESCRIPTION_8": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-        
 
         "GOVERNMENTAL_TITLE_9": "Risco",
-        "GOVERNMENTAL_DESCRIPTION_9": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-        
         "GOVERNMENTAL_TITLE_10": "Econômica",
-        "GOVERNMENTAL_DESCRIPTION_10": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-        
         "GOVERNMENTAL_TITLE_11": "Gestão",
-        "GOVERNMENTAL_DESCRIPTION_11": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'",
-
         "GOVERNMENTAL_TITLE_12": "Transparência",
-        "GOVERNMENTAL_DESCRIPTION_12": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'"
+
+        "HIGH_SCORE_DESCRIPTION": "Sua pontuação já está considerada como alta neste quesito."
+    },
+    "IMPROVEMENTS_Agribusiness": {
+        "ENVIRONMENTAL_DESCRIPTION_1_LOW": "Uso Responsável de Produtos Químicos: Minimizar o uso de pesticidas e fertilizantes químicos através de alternativas naturais e técnicas integradas de manejo de pragas. Biodiversidade e Conservação: Estabelecer áreas de conservação dentro das propriedades agrícolas e promover a diversidade de cultivos para proteger ecossistemas locais.",
+        "ENVIRONMENTAL_DESCRIPTION_1_MEDIUM": "Agricultura de Precisão: Utilizar tecnologias avançadas, como drones e sensores, para monitorar e otimizar o uso de água, fertilizantes e pesticidas. Proteção do Solo: Adotar práticas de conservação do solo, como rotação de culturas, plantio direto e cobertura do solo para reduzir a erosão e melhorar a saúde do solo.",
+
+        "ENVIRONMENTAL_DESCRIPTION_2_LOW": "Adotar práticas de captação e armazenamento de água da chuva para usos administrativos",
+        "ENVIRONMENTAL_DESCRIPTION_2_MEDIUM": "Gestão Sustentável da Água: Implementar sistemas de irrigação eficientes, como a irrigação por gotejamento.",
+
+        "ENVIRONMENTAL_DESCRIPTION_3_LOW": "Realizar inventário de carbono e fontes de emissões de gases de efeito estufa",
+        "ENVIRONMENTAL_DESCRIPTION_3_MEDIUM": "Redução de Emissões de Gases: Investir em tecnologias para reduzir as emissões de gases de efeito estufa, como biocombustíveis e sistemas de captura de carbono.",
+
+        "ENVIRONMENTAL_DESCRIPTION_4_LOW": "Ter o controle volumétrico, unidades, kilogramas, litros dos residuos gerados e seu devido descarte",
+        "ENVIRONMENTAL_DESCRIPTION_4_MEDIUM": "Gestão de Resíduos: Implementar sistemas de compostagem e reciclagem para resíduos orgânicos e plásticos, e promover a redução de resíduos na produção.",
+
+        "SOCIAL_DESCRIPTION_5_LOW": "Saúde e Segurança no Trabalho: Implementar programas de saúde e segurança ocupacional para garantir condições de trabalho seguras e prevenir acidentes e doenças. Desenvolvimento e Capacitação: Oferecer treinamento e desenvolvimento contínuo para colaboradores, incluindo habilidades técnicas e soft skills, para promover o crescimento profissional. Direitos Trabalhistas: Garantir que todas as práticas de trabalho estejam em conformidade com as leis trabalhistas e direitos humanos, promovendo um ambiente de trabalho justo e ético. Diversidade e Inclusão: Promover a diversidade e a inclusão no local de trabalho, garantindo oportunidades iguais para todas as pessoas, independentemente de gênero, etnia, idade, ou qualquer outra característica. Educação e Treinamento: Capacitação: Participar de treinamentos e workshops sobre boas práticas de governança e conformidade, oferecidos por associações ou cooperativas locais.",
+        "SOCIAL_DESCRIPTION_5_MEDIUM": "Educação e Treinamento: Oferecer treinamento contínuo para os colaboradores sobre práticas ambientais sustentáveis e a importância da preservação ambiental. Condições de Trabalho: Melhorar as condições de trabalho nas fazendas e instalações, incluindo acesso a instalações adequadas, alimentação e transporte. Benefícios e Apoio Psicológico: Oferecer benefícios como assistência psicológica e programas de bem-estar para apoiar a saúde mental e emocional dos colaboradores. Políticas de Segurança e Saúde: Normas de Segurança: Estabelecer políticas básicas para garantir a segurança e saúde dos trabalhadores, mesmo em pequena escala.",
+
+        "SOCIAL_DESCRIPTION_6_LOW": "Educação e Formação: Apoiar a educação e a formação na comunidade, oferecendo bolsas de estudo, programas de estágio e parcerias com instituições educacionais. Engajamento Comunitário: Participação Local: Engajar-se com a comunidade local para entender e responder às suas expectativas e necessidades. Responsabilidade Social: Ações Locais: Desenvolver e apoiar pequenas iniciativas de responsabilidade social que beneficiem a comunidade local, como programas educacionais ou ambientais.",
+        "SOCIAL_DESCRIPTION_6_MEDIUM": "Engajamento Comunitário: Trabalhar com as comunidades locais para promover práticas agrícolas sustentáveis e apoiar iniciativas de conservação e desenvolvimento sustentável Comunidade Local: Engajar com as comunidades locais através de projetos sociais e iniciativas que contribuam para o desenvolvimento e bem-estar da região.",
+
+        "SOCIAL_DESCRIPTION_7_LOW": "Políticas de Direitos Humanos: Implementar e monitorar políticas que garantam o respeito aos direitos humanos, incluindo a proibição de trabalho infantil e forçado.",
+        "SOCIAL_DESCRIPTION_7_MEDIUM": "Respeito aos Direitos Humanos: Monitorar e reportar práticas que garantam o respeito aos direitos humanos em toda a cadeia de fornecimento e operações.",
+
+        "SOCIAL_DESCRIPTION_8_LOW": "ItasdIdentificar os maiores fornecedores, os riscos, e categorizar por volume de negócios  (Ex: Maior risco de desmatamento com um fornecedor que movimenta 800 mil mês)ddddasdasdasd",
+        "SOCIAL_DESCRIPTION_8_MEDIUM": "Avaliação de Fornecedores: Avaliar e assegurar que os fornecedores e parceiros também cumpram com os padrões sociais e de direitos trabalhistas, promovendo práticas éticas em toda a cadeia de fornecimento.",
+
+        "GOVERNMENTAL_DESCRIPTION_9_LOW": "Gestão de Riscos: Identificação de Riscos: Identificar os principais riscos que afetam o negócio e criar planos simples para mitigação, adaptados às capacidades da operação.",
+        "GOVERNMENTAL_DESCRIPTION_9_MEDIUM": "Planejamento e Gestão Médios: Planejamento: Desenvolver planos de negócios e de longo prazo simples que integrem práticas de sustentabilidade e governança. (Incluir avaliação de risco climático)",
+
+        "GOVERNMENTAL_DESCRIPTION_10_LOW": "Remuneração Justa: Estabelecer uma política de remuneração que assegure salários justos e benefícios adequados para todos os colaboradores.",
+        "GOVERNMENTAL_DESCRIPTION_10_MEDIUM": "Salário Justo: Assegurar que todos os colaboradores recebam salários justos e benefícios competitivos, que atendam às necessidades básicas e ofereçam segurança financeira.",
+
+        "GOVERNMENTAL_DESCRIPTION_11_LOW": "Estabelecimento de Regras Básicas: Código de Conduta: Criar um código de conduta simples e acessível que defina comportamentos esperados e práticas éticas. Diversidade no Conselho: Inclusão de Perspectivas: Garantir a inclusão de diferentes perspectivas, como conselhos consultivos informais, para tomar decisões mais equilibradas.",
+        "GOVERNMENTAL_DESCRIPTION_11_MEDIUM": "Inovação Tecnológica: Investir em pesquisa e desenvolvimento de novas tecnologias que aumentem a eficiência e a sustentabilidade das práticas agrícolas. Participação dos Funcionários: Estimular a participação dos funcionários na tomada de decisões e no desenvolvimento de iniciativas sociais e de sustentabilidade. Procedimentos de Compliance: Regras de Conformidade: Implementar e seguir regras básicas de conformidade com regulamentações locais e nacionais. Sistema de Controle Interno: Controle Básico: Implementar controles internos básicos para garantir a precisão das informações financeiras e operacionais, como registros contábeis simples.",
+
+        "GOVERNMENTAL_DESCRIPTION_12_LOW": "Certificações Ambientais: Buscar certificações de sustentabilidade, como a certificação Rainforest Alliance, Fair Trade ou orgânica, para demonstrar compromisso com práticas sustentáveis. Monitoramento e Avaliação: Estabelecer indicadores de desempenho ambiental e realizar auditorias regulares para monitorar e avaliar o impacto ambiental das operações. Transparência Básica: Relatórios Simples: Implementar práticas básicas de relatórios para documentar e compartilhar informações sobre práticas e resultados com stakeholders.",
+        "GOVERNMENTAL_DESCRIPTION_12_MEDIUM": "Certificações Ambientais: Buscar certificações de sustentabilidade, como a certificação Rainforest Alliance, Fair Trade ou orgânica, para demonstrar compromisso com práticas sustentáveis. Monitoramento e Avaliação: Estabelecer indicadores de desempenho ambiental e realizar auditorias regulares para monitorar e avaliar o impacto ambiental das operações. Transparência e Comunicação: Manter uma comunicação aberta e transparente com os funcionários e partes interessadas sobre políticas sociais, práticas e progressos em sustentabilidade. Conflitos de Interesse: Transparência em Decisões: Manter uma abordagem transparente na tomada de decisões para minimizar conflitos de interesse e promover a confiança."
+    },
+    "IMPROVEMENTS_Industry": {
+        "ENVIRONMENTAL_DESCRIPTION_1_LOW": "Uso Responsável de Produtos Químicos: Minimizar o uso de pesticidas e fertilizantes químicos através de alternativas naturais e técnicas integradas de manejo de pragas. Biodiversidade e Conservação: Estabelecer áreas de conservação dentro das propriedades agrícolas e promover a diversidade de cultivos para proteger ecossistemas locais.",
+        "ENVIRONMENTAL_DESCRIPTION_1_MEDIUM": "Preservação Ambiental: Implementar práticas que protejam a biodiversidade local e evitem impactos negativos sobre ecossistemas naturais próximos às operações industriais.",
+
+        "ENVIRONMENTAL_DESCRIPTION_2_LOW": "Estabelecer plano de ação para redução do consumo de água e energia, com indicadores que sejam atualizados mês-a-mês",
+        "ENVIRONMENTAL_DESCRIPTION_2_MEDIUM": "Tecnologias Eficientes: Investir em tecnologias e equipamentos que melhorem a eficiência energética, como sistemas de iluminação LED e processos industriais mais eficientes. Tecnologias de Conservação: Implementar tecnologias de conservação de água e sistemas de reaproveitamento para reduzir o consumo e o impacto sobre os recursos hídricos.",
+
+        "ENVIRONMENTAL_DESCRIPTION_3_LOW": "Energia Verde: Adotar fontes de energia renovável, como solar, eólica ou biomassa, para reduzir a dependência de combustíveis fósseis e minimizar a pegada de carbono. Controle de Emissões: Implementar sistemas de controle de emissões e tecnologias de captura e armazenamento de carbono para reduzir gases de efeito estufa e poluentes atmosféricos.",
+        "ENVIRONMENTAL_DESCRIPTION_3_MEDIUM": "Transporte Sustentável: Otimizar a logística e o transporte para reduzir as emissões e o consumo de energia, incluindo o uso de veículos mais eficientes e a redução de distâncias percorridas.",
+
+        "ENVIRONMENTAL_DESCRIPTION_4_LOW": "Minimização e Reciclagem: Adotar práticas para minimizar a geração de resíduos e implementar programas de reciclagem e reuso de materiais.",
+        "ENVIRONMENTAL_DESCRIPTION_4_MEDIUM": "Tratamento Adequado: Reportar processos de tratamento de efluentes industriais para garantir que as águas residuais sejam tratadas adequadamente antes do descarte ou reutilização.",
+
+        "SOCIAL_DESCRIPTION_5_LOW": "Programas de Saúde e Segurança: Implementar e manter programas robustos de saúde e segurança no trabalho, com treinamentos regulares e equipamentos de proteção adequados. Políticas de Inclusão: Promover a diversidade e inclusão no local de trabalho através de políticas que garantam oportunidades iguais para todos os funcionários, independentemente de gênero, etnia, idade ou orientação sexual. Ambiente Seguro e Confortável: Garantir condições de trabalho seguras, confortáveis e dignas, incluindo ambientes limpos, ventilados e bem iluminados. Treinamento e Desenvolvimento: Oferecer oportunidades contínuas de desenvolvimento profissional e pessoal para os colaboradores, incluindo treinamentos técnicos e de liderança.",
+        "SOCIAL_DESCRIPTION_5_MEDIUM": "Treinamento: Oferecer treinamentos e promover campanhas de conscientização ambiental para colaboradores sobre práticas sustentáveis e a importância da preservação ambiental. Apoio à Saúde Mental e Física: Oferecer programas de bem-estar que incluam apoio psicológico, atividades físicas e iniciativas para promover a saúde mental e física dos funcionários. Promover Igualdade: Estabelecer e aplicar políticas que garantam a igualdade de oportunidades em todas as áreas, desde a contratação até as promoções e avaliações de desempenho. Diversidade no Conselho: Promover a diversidade e inclusão no conselho de administração, assegurando que diferentes perspectivas e experiências sejam representadas na tomada de decisões estratégicas.",
+
+        "SOCIAL_DESCRIPTION_6_LOW": "Educação e Formação: Apoiar a educação e a formação na comunidade, oferecendo bolsas de estudo, programas de estágio e parcerias com instituições educacionais. Engajamento Comunitário: Participação Local: Engajar-se com a comunidade local para entender e responder às suas expectativas e necessidades.",
+        "SOCIAL_DESCRIPTION_6_MEDIUM": "Apoio às Comunidades Locais: Engajar-se em iniciativas que beneficiem as comunidades locais, como projetos de responsabilidade social, apoio a eventos comunitários e investimentos em infraestrutura local Elaborar Política de Responsabilidade Social Corporativa",
+
+        "SOCIAL_DESCRIPTION_7_LOW": "Políticas de Direitos Humanos: Implementar e monitorar políticas que garantam o respeito aos direitos humanos, incluindo a proibição de trabalho infantil e forçado.",
+        "SOCIAL_DESCRIPTION_7_MEDIUM": "Respeito aos Direitos Humanos: Monitorar e reportar práticas que garantam o respeito aos direitos humanos em toda a cadeia de fornecimento e operações.",
+
+        "SOCIAL_DESCRIPTION_8_LOW": "Identificar os maiores fornecedores, os riscos, e categorizar por volume de negócios  (Ex: Maior risco de desmatamento com um fornecedor que movimenta 800 mil mês)",
+        "SOCIAL_DESCRIPTION_8_MEDIUM": "Avaliação de Fornecedores: Avaliar e assegurar que os fornecedores e parceiros também cumpram com os padrões sociais e de direitos trabalhistas, promovendo práticas éticas em toda a cadeia de fornecimento.",
+
+        "GOVERNMENTAL_DESCRIPTION_9_LOW": "Estratégia de Gestão de Risco: Estabelecer uma estratégia abrangente de gestão de riscos que identifique, avalie e mitigue riscos financeiros, operacionais, ambientais e de mercado.",
+        "GOVERNMENTAL_DESCRIPTION_9_MEDIUM": "Planejamento e Gestão Médios: Planejamento: Desenvolver planos de negócios e de longo prazo simples que integrem práticas de sustentabilidade e governança. (Incluir avaliação de risco climático)",
+
+        "GOVERNMENTAL_DESCRIPTION_10_LOW": "Salário Justo: Assegurar que todos os colaboradores recebam salários justos e benefícios competitivos, que atendam às necessidades básicas e ofereçam segurança financeira.",
+        "GOVERNMENTAL_DESCRIPTION_10_MEDIUM": "Remuneração Justa: Estabelecer uma política de remuneração que assegure salários justos e benefícios adequados para todos os colaboradores.",
+
+        "GOVERNMENTAL_DESCRIPTION_11_LOW": "Estrutura de Governança: Estabelecer uma estrutura clara de governança com responsabilidades e funções bem definidas para o conselho de administração e comitês de governança. Código de Ética e Conduta: Implementar um código de ética e conduta que promova comportamentos éticos e padrões elevados de integridade em todos os níveis da organização. Procedimentos de Compliance: Desenvolver e manter políticas e procedimentos de conformidade para garantir a adesão a regulamentações legais e normas industriais. Sistemas de Controle: Implementar sistemas robustos de auditoria e controle interno para assegurar a precisão das informações financeiras e a eficácia dos controles operacionais.",
+        "GOVERNMENTAL_DESCRIPTION_11_MEDIUM": "Análise do Ciclo de Vida: Realizar avaliações do ciclo de vida dos produtos para identificar e reduzir impactos ambientais ao longo de todas as etapas, desde a produção até o descarte. Desenvolvimento Sustentável: Investir em pesquisa e desenvolvimento para criar produtos e processos mais sustentáveis, com menor impacto ambiental e maior eficiência. Participação e Feedback: Criar mecanismos para que os funcionários possam participar das decisões da empresa e fornecer feedback sobre o ambiente de trabalho e práticas empresariais. Visão de Longo Prazo: Desenvolver e revisar regularmente um plano estratégico de longo prazo que integre objetivos de governança e sustentabilidade. Responsabilização: Implementar mecanismos claros de responsabilidade e prestação de contas para garantir que a gestão esteja alinhada com os objetivos e valores da empresa. Proteção de Dados: Estabelecer políticas e práticas robustas para a governança de dados e a proteção da privacidade, garantindo a conformidade com regulamentos de proteção de dados. Diálogo e Feedback: Desenvolver estratégias para engajar os stakeholders de forma proativa, coletar feedback e ajustar práticas e políticas conforme necessário. Capacitação de Líderes: Investir no desenvolvimento contínuo de líderes para garantir uma gestão eficaz e alinhada com os objetivos de governança e sustentabilidade.",
+
+        "GOVERNMENTAL_DESCRIPTION_12_LOW": "Certificações: Buscar certificações ambientais reconhecidas, como ISO 14001, que atestem o compromisso com a gestão ambiental e boas práticas. Diálogo Aberto: Manter uma comunicação aberta e transparente com os funcionários sobre as políticas da empresa, mudanças e objetivos estratégicos.",
+        "GOVERNMENTAL_DESCRIPTION_12_MEDIUM": "Relatórios Regulares: Publicar relatórios regulares e detalhados sobre o desempenho ESG da empresa, incluindo a divulgação de práticas, resultados e desafios enfrentados."
+    },
+    "IMPROVEMENTS_Services": {
+        "ENVIRONMENTAL_DESCRIPTION_1_LOW": "Preservação Ambiental: Implementar práticas que protejam a biodiversidade local e evitem impactos negativos sobre ecossistemas naturais próximos às operações industriais.",
+        "ENVIRONMENTAL_DESCRIPTION_1_MEDIUM": "Integração ESG: Integrar metas de sustentabilidade nos processos de governança, garantindo que as decisões estratégicas considerem os impactos ambientais e sociais.",
+
+        "ENVIRONMENTAL_DESCRIPTION_2_LOW": "Fontes de Energia Limpa: Instalar painéis solares nas instalações ou adquirir energia de fontes renováveis para reduzir a dependência de combustíveis fósseis. Reuso de Água: Implementar sistemas de captação e reuso de água da chuva em processos industriais e para uso em instalações, como sanitários.",
+        "ENVIRONMENTAL_DESCRIPTION_2_MEDIUM": "Tecnologias de Conservação: Reportar indicadores do uso das tecnologias de conservação de água e sistemas de reaproveitamento para reduzir o consumo e o impacto sobre os recursos hídricos.",
+
+        "ENVIRONMENTAL_DESCRIPTION_3_LOW": "Otimização de Energia: Implementar sistemas de monitoramento e gestão de energia e água para identificar e reduzir desperdícios em todas as operações, como em oficinas e escritórios. Veículos Eficientes: Atualizar a frota de veículos para modelos elétricos ou híbridos e adotar práticas de manutenção que reduzam o consumo de combustível e as emissões.",
+        "ENVIRONMENTAL_DESCRIPTION_3_MEDIUM": "Inovação Sustentável: Investir em tecnologias limpas que aumentem a eficiência e reduzam o impacto ambiental, como sistemas de controle de poluição e equipamentos de baixa emissão. Lean Manufacturing: Adotar princípios de lean manufacturing para reduzir desperdícios nos processos produtivos e aumentar a eficiência, diminuindo o uso de recursos naturais. Veículos Eficientes: Atualizar a frota de veículos para modelos elétricos ou híbridos e adotar práticas de manutenção que reduzam o consumo de combustível e as emissões",
+
+        "ENVIRONMENTAL_DESCRIPTION_4_LOW": "Reciclagem e Descarte Correto: Desenvolver programas robustos de reciclagem para resíduos industriais e perigosos, garantindo o descarte seguro e a conformidade com regulamentações ambientais.",
+        "ENVIRONMENTAL_DESCRIPTION_4_MEDIUM": "Tratamento Adequado: Reportar processos de tratamento de efluentes industriais para garantir que as águas residuais sejam tratadas adequadamente antes do descarte ou reutilização",
+
+        "SOCIAL_DESCRIPTION_5_LOW": "Programas de Segurança: Implementar programas rigorosos de saúde e segurança no trabalho, com treinamentos contínuos, uso obrigatório de EPIs (Equipamentos de Proteção Individual), e monitoramento de incidentes para garantir um ambiente de trabalho seguro. Capacitação Contínua: Oferecer oportunidades de capacitação e desenvolvimento contínuo para os colaboradores, incluindo treinamentos técnicos, cursos de liderança e programas de aprendizado. Políticas de Inclusão: Estabelecer políticas que promovam a diversidade e inclusão, garantindo que todas as contratações, promoções e práticas de trabalho sejam livres de todo e qualquer tipo de discriminação. Programas de Bem-Estar: criar programas de bem-estar que incluam suporte à saúde mental, acesso a atividades físicas e iniciativas de equilíbrio entre vida profissional e pessoal.",
+        "SOCIAL_DESCRIPTION_5_MEDIUM": "Pacotes de Benefícios: Oferecer remuneração justa e pacotes de benefícios competitivos, incluindo planos de saúde, previdência privada e incentivos financeiros alinhados com o desempenho. Oportunidades Iguais: Promover a equidade de gênero em todos os níveis da empresa, garantindo que mulheres tenham as mesmas oportunidades de crescimento e desenvolvimento que os homens. Pesquisas de Clima: Realizar regularmente pesquisas de clima organizacional para entender as necessidades e preocupações dos funcionários, e tomar ações com base no feedback recebido. Inclusão na Governança: Promover a diversidade no conselho de administração e nos comitês de governança, garantindo que diferentes perspectivas sejam consideradas na tomada de decisões.",
+
+        "SOCIAL_DESCRIPTION_6_LOW": "Apoio às Comunidades Locais: Engajar-se em iniciativas que beneficiem as comunidades locais, como projetos de responsabilidade social, apoio a eventos comunitários e investimentos em infraestrutura local Elaborar Política de Responsabilidade Social Corporativa",
+        "SOCIAL_DESCRIPTION_6_MEDIUM": "Responsabilidade Social: Envolver-se em iniciativas que beneficiem as comunidades locais, como programas de voluntariado, parcerias com escolas e doações para causas comunitárias. Desenvolver estratégias para engajar os stakeholders, incluindo colaboradores, clientes, fornecedores e a comunidade, coletando feedback e ajustando as práticas de governança conforme necessário.",
+
+        "SOCIAL_DESCRIPTION_7_LOW": "Políticas de Direitos Humanos: Implementar e monitorar políticas que garantam o respeito aos direitos humanos, incluindo a proibição de trabalho infantil e forçado.",
+        "SOCIAL_DESCRIPTION_7_MEDIUM": "Práticas Éticas: Reportar que as operações da empresa respeitem os direitos humanos, evitando práticas como trabalho infantil, trabalho forçado ou discriminação.",
+
+        "SOCIAL_DESCRIPTION_8_LOW": "Avaliação de Fornecedores: Avaliar e assegurar que os fornecedores e parceiros também cumpram com os padrões sociais e de direitos trabalhistas, promovendo práticas éticas em toda a cadeia de fornecimento.",
+        "SOCIAL_DESCRIPTION_8_MEDIUM": "Fornecimento Verde: Priorizar a aquisição de materiais e insumos de fornecedores que adotem práticas sustentáveis, como o uso de produtos reciclados ou biodegradáveis. Práticas Éticas dos Fornecedores: Monitorar e exigir que os fornecedores e parceiros de negócios sigam práticas éticas e sustentáveis, com respeito aos direitos dos trabalhadores. Avaliação de Fornecedores: Implementar políticas que assegurem que os fornecedores e parceiros cumpram com os padrões de governança, ética e sustentabilidade estabelecidos pela empresa.",
+
+        "GOVERNMENTAL_DESCRIPTION_9_LOW": "Estratégia de Gestão de Risco: Estabelecer uma estratégia abrangente de gestão de riscos que identifique, avalie e mitigue riscos financeiros, operacionais, ambientais e de mercado. Relatórios Regulares: Publicar relatórios regulares e detalhados sobre a governança corporativa, incluindo informações sobre a estrutura de governança, práticas de conformidade e desempenho ESG. Identificação de Riscos: Implementar um sistema abrangente de gestão de riscos que identifique, avalie e mitigue riscos operacionais, financeiros e reputacionais.",
+        "GOVERNMENTAL_DESCRIPTION_9_MEDIUM": "Monitoramento Contínuo: Implementar um sistema de monitoramento contínuo do impacto ambiental das operações, com foco em identificar áreas para melhorias e minimizar danos ambientais.",
+
+        "GOVERNMENTAL_DESCRIPTION_10_LOW": "Salário Justo: Assegurar que todos os colaboradores recebam salários justos e benefícios competitivos, que atendam às necessidades básicas e ofereçam segurança financeira.",
+        "GOVERNMENTAL_DESCRIPTION_10_MEDIUM": "Remuneração Justa: Estabelecer uma política de remuneração que assegure salários justos e benefícios adequados para todos os colaboradores.",
+
+        "GOVERNMENTAL_DESCRIPTION_11_LOW": "Conselho de Administração: Estabelecer e/ou fortalecer um conselho de administração que inclua membros independentes, garantindo uma governança sólida e diversa.",
+        "GOVERNMENTAL_DESCRIPTION_11_MEDIUM": "Treinamentos: Promover programas de educação e treinamento para os colaboradores sobre práticas ambientais, como redução de desperdícios e adoção de métodos mais sustentáveis. Proteção de Dados: Estabelecer políticas rigorosas de governança de dados e proteção de privacidade, assegurando a conformidade com regulamentos de proteção de dados, como a LGPD. Controles Internos: Fortalecer os sistemas de auditoria interna e controles financeiros para garantir a precisão das informações e a detecção precoce de irregularidades.",
+
+        "GOVERNMENTAL_DESCRIPTION_12_LOW": "Diálogo Aberto: Estabelecer canais de comunicação abertos e transparentes com os funcionários, permitindo o feedback constante e a participação nas decisões que afetam o ambiente de trabalho. Práticas Éticas: Desenvolver e implementar um código de ética e conduta que oriente todos os funcionários e fornecedores sobre práticas éticas, com treinamentos regulares para garantir a adesão. Compliance Rigoroso: Implementar um programa de compliance robusto para garantir que a empresa esteja em conformidade com todas as leis e regulamentos aplicáveis, especialmente em relação a questões ambientais e trabalhistas.",
+        "GOVERNMENTAL_DESCRIPTION_12_MEDIUM": "ISO 14001: Buscar certificações ambientais reconhecidas, como a ISO 14001, que demonstram o compromisso da empresa com práticas de gestão ambiental responsáveis. Combate à Corrupção: Estabelecer e promover políticas anticorrupção claras, com treinamentos específicos para todos os colaboradores e canais seguros para denúncias anônimas."
     },
     "CONTROL_PANEL": {
         "TITLE": "Painel de controle",
@@ -612,14 +661,14 @@
         "FREE_TRIAL": "Avaliação gratuita",
         "IDENTIFY": "Primeiro, precisamos que você se identifique",
         "NAME": "Nome",
-        "NAME_PLACEHOLDER":"Digite seu nome",
+        "NAME_PLACEHOLDER": "Digite seu nome",
         "EMAIL": "Email",
         "EMAIL_PLACEHOLDER": "Digite seu email",
         "ROLE": "Cargo",
-        "ROLE_PLACEHOLDER":"Digite seu cargo",
+        "ROLE_PLACEHOLDER": "Digite seu cargo",
         "NAME_COMPANY": "Nome da empresa",
         "NAME_COMPANY_PLACEHOLDER": "Digite o nome da empresa",
-        "AGREE":"Eu li e aceito os",
+        "AGREE": "Eu li e aceito os",
         "TERMS": "Termos de Uso e Privacidade",
         "TRIAL": "Iniciar Avaliação",
         "BACK": "Voltar",
@@ -657,11 +706,143 @@
         "GLOSSARY12": "Todos os funcionários têm acesso à documentos que relatam o desempenho financeiro da empresa",
         "CONGRATULATIONS": "Parabéns!",
         "COMPLETED": "Você concluiu a Avaliação gratuita!",
-        "RESULT": "A sua pontuação inicial foi de 60%, lhe rendendo o selo de Bronze, o que significa que sua empresa tem entendimento e já pratica ESG, apesar de precisa melhorar em alguns pontos.",
+        "RESULT1": "A sua pontuação foi de ",
+        "RESULT2": ", o que significa que sua empresa tem entendimento e já pratica ESG, apesar de precisar melhorar alguns pontos.",
+        "RESULT3": "Acesse nossa página de Planos e veja as opções que a ThinkSus oferece para evoluir em sua jornada por um mundo mais sustentável.",
         "SEAL": "Selo ThinkSus",
         "GOLD": "Ouro",
         "SILVER": "Prata",
         "BRONZE": "Bronze",
         "START": "Início"
+    },
+    "SEGMENTS": {
+        "bovine": "Bovina",
+        "pork": "Suína",
+        "birds": "Aves",
+        "other_meat_animals": "Outros animais de Corte",
+        "dairy": "Laticínio",
+        "soy": "Soja",
+        "wood": "Madeira",
+        "sugar_cane": "Cana-de-açúcar",
+        "other_platations": "Outra Plantação larga escala",
+        "subsistence_plantation": "Plantação subsistência",
+        "heavy_industry": "Pesada (siderúrgicas ou metalúrgicas)",
+        "construction": "Construção Civil",
+        "automotive": "Automotiva e sistemistas",
+        "food": "Alimentação",
+        "textile": "Têxtil ou de peles",
+        "pharmaceutical": "Farmacêutica",
+        "technology": "Informática ou Tecnologia",
+        "energy": "Energia",
+        "another_transformation": "Outra transformação",
+        "electronics": "Eletrônica",
+        "commerce_food": "Comércio - Alimentação e bebidas",
+        "commerce_clothing": "Comércio - Vestuário",
+        "commerce_pharmacy": "Comércio - Farmácia e Cosméticos",
+        "education": "Educacional",
+        "accommodation": "Hospedagem",
+        "cleaning": "Limpeza e Manutenção",
+        "transport": "Transportes",
+        "sports": "Esportes e Atividades Físicas",
+        "leisure": "Lazer ( tenimento diversos)",
+        "consultancy": "Consultoria",
+        "resale": "Revenda de outros produtos",
+        "miscellaneous": "Serviços Diversos (salão de beleza, segurança, jardinagem, outros)",
+        "liberal_profession": "Profissional Liberal (médico, dentista, psicólogos, professores, outros)"
+    },
+    "SECTORS": {
+        "Agribusiness": "Agronegócio",
+        "Industry": "Indústria",
+        "Services": "Serviços"
+    },
+    "PROFILE": {
+        "EDIT": "Editar",
+        "TITLE": "Título",
+        "COMPANY": "Empresa",
+        "EMISSION_DATE": "Data de Emissão",
+        "ACTIONS": "Ações",
+        "DOWNLOAD": "Baixar",
+        "EDIT_PROFILE": "Editar Perfil",
+        "USER_NAME": "Nome Completo",
+        "COMPANY_NAME": "Nome da Empresa",
+        "SECTOR": "Setor",
+        "COUNTRY": "País",
+        "EMAIL": "Email",
+        "OLD_PASSWORD": "Senha Antiga",
+        "PASSWORD": "Senha",
+        "EDIT_DATE": "Editado em",
+        "BACK": "Voltar",
+        "SAVE_EDIT": "Salvar Alterações"
+    },
+    "SOLUTION_SIMULATION_TEXT": {
+        "0_35_TEXT": "Suas operações necessitam de uma grande transformação para se tornar mais sustentável. A otimização de processos para minimizar impactos negativos, além de reestruturação interna com mapeamentos dos processos para gestão mais eficiente.",
+        "0_35_TEXT2": "O percentual indica que sua operação trabalha de maneira tradicional e precisa implementar esforços para minimizar os impactos ambientais. Verifique as taxas mais baixas e crie um plano de ações ao redor de suas operações que privilegiem e protejam o sistema natural.",
+        "0_35_TEXT3": "Sua operação está voltada para ações internas, ou seja, não há ações colaborativas para o exterior. Para avançar neste quesito social, é preciso adotar uma visão mais abrangente, compreendendo os impactos positivos e negativos de sua operação perante os indivíduos que contribuem na operação e fora dela, assim como as comunidades e todo tecido social com que a empresa se relaciona. ",
+        "0_35_TEXT4": "Sua operação tem grandes desafios e oportunidades em estabelecer rotinas, políticas e procedimentos. É hora de reestruturar e reorganizar sua cultura e operações internas e avançar para patamares de controles auditáveis.  Mapeie todos os processos, ecossistema de negócios, seus principais fornecedores, e crie métricas e critérios, parametrize prazos de entregas, recebimentos e pagamentos, bem como a avaliação de contratar uma consultoria em finanças e governança corporativa para ter uma administração mais fluida e efetiva.",
+        "36_59_TEXT": "Sua operação está em compliance com as leis ambientais e possui bom desempenho social, mas precisa fortalecer a análises de impactos e definir métricas para ações de apoio comunitário. Para se destacar no ESG, você precisa ir além do compliance, definir metas e implementar mecanismos de monitoramento e avaliação com indicadores auditáveis.",
+        "36_59_TEXT2": "Compliance significa que sua operação ocorre em consonância e em plena regularidade com as normas, leis e regulamentos ambientais estabelecidos, porém apresenta níveis de vulnerabilidade climática e/ou hídrica. Há espaço para a definição de uma interação mais positiva e sinérgica com o meio natural e para o estabelecimento de métricas de consumo atual de recursos e projeção de metas de redução destes consumos. O ESG valoriza gestões que atuam além de suas responsabilidades de compliance; e buscar soluções alternativas para uma operação cada vez mais sustentável.",
+        "36_59_TEXT3": "O pilar 'Social' do ESG está em evidência na sua operação, embora demande esforços em mapear e criar indicadores referentes aos impactos que sua empresa pode ter na sociedade e nas partes interessadas. Há espaço para sua operação desenvolver estratégias, ações e métricas em apoio comunitário, saúde e bem estar de funcionários, direitos humanos, segurança, e ética nos negócios entre outros.",
+        "36_59_TEXT4": "Compliance significa que sua operação opera em consonância e plena regularidade com as normas, leis e regulamentos ambientais estabelecidos. Para se destacar no ESG, sua operação necessita traçar metas e fazer o devido acompanhamento e análise de elementos que englobem políticas, procedimentos e indicadores de monitoramento e avaliação que possam ser reportados e eventualmente auditados por uma terceira parte independente.",
+        "60_80_TEXT": "Sua empresa demonstra forte compromisso com o ESG, com práticas ambientais sólidas, ações sociais significativas e governança corporativa responsável. Você já está no caminho certo para a certificação ESG, mas pode fortalecer ainda mais sua performance. A certificação ESG é uma jornada, não um ponto final. Continue buscando aprimoramento para alcançar o ouro e se tornar uma referência em sustentabilidade!",
+        "60_80_TEXT2": "Sua operação é consciente de sua pegada ambiental e já apresenta ações que visam a otimização de recursos e preservação do meio natural. Há métricas que dialogam com riscos climáticos e/ou hídricos e busca minimizar o consumo energético, evitando assim emissões massivas de CO2. Procure ampliar as métricas de todos os consumos de recursos para ter registros mensais e anuais para eventual elaboração de relatórios que possam vir a ser exigidos por grandes clientes.",
+        "60_80_TEXT3": "O Social do ESG implica em adotar políticas, estratégias e práticas que promovam um impacto social positivo, respeitam os direitos humanos, cuidam de seus funcionários e da comunidade que seus negócios estão inseridos, e manter uma conduta ética em suas operações. Isso é cada vez mais importante para os investidores, clientes e stakeholders, pois eles buscam empresas comprometidas em promover um impacto positivo na sociedade e no meio ambiente, ao mesmo tempo que buscam o sucesso financeiro. Crie indicadores com as ações de sua empresa e trace metas para avançar neste aspecto.",
+        "60_80_TEXT4": "Uma empresa consciente em ESG é aquela que demonstra uma preocupação com a adoção de boas práticas de governança corporativa. Isso significa que ela se esforça para implementar políticas e estruturas que garantam a transparência, prestação de contas, ética nos negócios e alinhamento de interesses entre os acionistas, diretores, executivos e demais partes interessadas. A empresa deve sempre buscar melhorar suas práticas internas de governança para atender aos padrões e expectativas do mercado, investidores e reguladores. Com este nível de comprometimento em exercer uma governança responsável, sua operação já é elegível ao Selo Prata de Certificação ESG!",
+        "81_100_TEXT": "Suas operações demonstram um compromisso exemplar com a sustentabilidade. Você está em conformidade com os pilares ambiental, social e de governança do ESG, tendo um impacto positivo no meio ambiente, na sociedade e em seus negócios. Com base em seus fortes padrões de sustentabilidade, sua operação é elegível para a Certificação ESG Ouro com validação em Blockchain.",
+        "81_100_TEXT2": "Operação com notáveis padrões de sustentabilidade. Contribui com a manutenção e restauração do sistema natural e seus recursos. Sem pegada ambienta e/ou hídrica, suas atividades são conscientes dos riscos climáticos e, portanto, há possibilidade de traçar um plano de ação para resiliência com mitigação de suas emissões. Sua operação é elegível para Certificação ESG Ouro com validação em Blockchain!",
+        "81_100_TEXT3": "O pilar 'Social' do ESG está relacionado com as questões sociais e impactos que uma empresa pode ter na sociedade e nas partes interessadas. Ele engloba uma ampla gama de aspectos ao qual sua empresa está em conformidade e pratica esses pontos, com planos, ações e métricas que compreendem a responsabilidade social corporativa, a valorização de seus empregados, o respeito aos direitos humanos na operação e com parceiros responsáveis, saúde e segurança de todos os envolvidos dentro e fora da empresa, e ética para com os negócios e a comunidade. Sua operação é elegível à certificação ESG Ouro!",
+        "81_100_TEXT4": "Além de ter uma governança corporativa sólida, sua operação demonstra alto desempenho em questões ambientais e sociais. Com essa análise, sua empresa tem um forte compromisso com questões sociais, como a promoção da diversidade e inclusão no local de trabalho, cuidado com a saúde e segurança dos funcionários, respeito aos direitos humanos em sua cadeia de suprimentos e engajamento ativo com as comunidades onde opera. As respostas indicam que sua operação não apenas cumpre com as exigências regulatórias e as expectativas dos investidores, mas também se destaca como uma líder no âmbito ESG, tendo um impacto positivo significativo no meio ambiente, na sociedade e nas suas operações internas, tornando-a elegível ao Selo Ouro de Certificação ESG!"
+    },
+    "LOGGED_PLANS": {
+        "TITLE": "Planos",
+        "SUBTITLE": "Tenha o melhor acompanhamento das práticas ESG da sua Empresa!",
+        "PER_YEAR": "Por ano",
+        "ASSIGN": "Assinar",
+        "SOON": "Em Breve",
+        "SIMULATION_TITLE": "Simulation",
+        "SIMULATION_PRICE": "R$ 99",
+        "SIMULATION_ALL_SUBTITLE": "Tudo do Simulation +",
+        "SIMULATION_ITEM_1": "Simulação de rating",
+        "SIMULATION_ITEM_2": "Perfil ativo em dashboard",
+        "SIMULATION_ITEM_3": "Matriz de aderência ODS",
+        "SOLUTION_TITLE": "Solution",
+        "SOLUTION_PRICE": "R$ 999",
+        "SOLUTION_ALL_SUBTITLE": "Tudo do Solution +",
+        "SOLUTION_ITEM_1": "Simulação de rating",
+        "SOLUTION_ITEM_2": "Pacote completo de recomendações de melhorias ESG",
+        "SOLUTION_ITEM_3": "Validação e certificação anual (com relatório de indicadores)",
+        "SOLUTION_ITEM_4": "Selo TKS para score acima de 60% de aderência",
+        "SOLUTION_ITEM_5": "Perfil ativo em dashboard",
+        "SOLUTION_ITEM_6": "Matriz de aderência ODS",
+        "SOLUTION_ITEM_7": "Registro em blockchain para validação mundial",
+        "SOLUTION_ITEM_8": "Frameworks de análise aderentes a sua operação e cadeia de valor (GRI, SASB, TCFD)",
+        "SUPPLY_CHAIN_TITLE": "Supply Chain",
+        "SUPPLY_CHAIN_PRICE": "R$ 4.999",
+        "SUPPLY_CHAIN_ALL_SUBTITLE": "Tudo do Supply Chain +",
+        "SUPPLY_CHAIN_ITEM_1": "Simulação de rating",
+        "SUPPLY_CHAIN_ITEM_2": "Pacote completo de recomendações de melhorias ESG",
+        "SUPPLY_CHAIN_ITEM_3": "Validação e certificação anual (com relatório de indicadores)",
+        "SUPPLY_CHAIN_ITEM_4": "Selo TKS para score acima de 60% de aderência",
+        "SUPPLY_CHAIN_ITEM_5": "Perfil ativo em dashboard",
+        "SUPPLY_CHAIN_ITEM_6": "Matriz de aderência ODS",
+        "SUPPLY_CHAIN_ITEM_7": "Registro em blockchain para validação mundial",
+        "SUPPLY_CHAIN_ITEM_8": "Certificação de cadeia de suprimentos",
+        "SUPPLY_CHAIN_ITEM_9": "Frameworks de análise aderentes a sua operação e cadeia de valor (GRI, SASB, TCFD)"
+    },
+    "PAYMENT_ORIENTATION": {
+        "TITLE": "Orientações para pagamento",
+        "CHOOSE_METHOD": "Você será redirecionado para o checkout Mercado Pago. Escolha o método de pagamento de preferência e finalize a compra.",
+        "IMPORTANT_DONT_FORGET": "Importante: Não esqueça de clicar para retornar ao Thinksus e concluir sua compra.",
+        "NEXT": "Avançar"
+    },
+    "FORGOT_PASSWORD": {
+        "TITLE": "Esqueceu sua senha?",
+        "SUBTITLE": "Digite seu email e enviaremos um link para você redefinir sua senha.",
+        "SUBTITLE_2": "Entre com sua nova senha",
+        "EMAIL": "Email",
+        "CODE": "Código",
+        "PASSWORD": "Senha",
+        "CONFIRM_PASSWORD": "Confirme a senha",
+        "SEND": "Enviar",
+        "BACK": "Voltar"
     }
 }

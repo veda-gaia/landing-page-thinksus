@@ -22,6 +22,12 @@ export class EsgRatingService extends BaseService {
       .pipe(map(this.extractData), catchError(this.serviceError));
   }
 
+  getByCompany(): Observable<any[]> {
+    return this.httpClient
+      .get(`${this.url}/get-by-company`, this.authorizedHeader())
+      .pipe(map(this.extractData), catchError(this.serviceError));
+  }
+
   getById(id: string): Observable<any> {
     return this.httpClient
       .get(`${this.url}/id/${id}`, this.authorizedHeader())
@@ -34,9 +40,21 @@ export class EsgRatingService extends BaseService {
       .pipe(map(this.extractData), catchError(this.serviceError));
   }
 
+  updateTitleById(id: string, dto: any): Observable<any> {
+    return this.httpClient
+      .put(`${this.url}/update-title/${id}`, dto, this.authorizedHeader())
+      .pipe(map(this.extractData), catchError(this.serviceError));
+  }
+
   register(dto: any): Observable<any> {
     return this.httpClient
       .post(`${this.url}/register`, dto, this.authorizedHeader())
+      .pipe(map(this.extractData), catchError(this.serviceError));
+  }
+
+  donwloadReport() {
+    return this.httpClient
+      .get(`${this.url}/download-report`, this.authorizedHeader())
       .pipe(map(this.extractData), catchError(this.serviceError));
   }
 }

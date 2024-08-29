@@ -6,6 +6,9 @@ import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component'
 import { EsgRatingService } from 'src/app/services/esg-rating.service';
 import { ToastrService } from 'ngx-toastr';
 import { CompanyService } from 'src/app/services/company.service';
+import { TranslateService } from '@ngx-translate/core';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-e-service',
@@ -81,7 +84,8 @@ export class EServiceComponent {
     private modalService: NgbModal,
     private esgRatingService: EsgRatingService,
     private CompanyService: CompanyService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private spinnerService: NgxSpinnerService
   ) {
     this.formArray = this.fb.array([])
     this.formArrayDocuments = this.fb.array([])
@@ -95,8 +99,13 @@ export class EServiceComponent {
         this.checkDoesntApply()
       }
     })
+    this.spinnerService.show();
 
-    this.CompanyService.getByUser().subscribe({
+    this.CompanyService.getByUser().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
         if(data.section !== 'Services') {
           this.toastr.error('Esta avaliação não corresponde ao setor da sua empresa', 'Erro', {progressBar: true});
@@ -112,11 +121,17 @@ export class EServiceComponent {
   }
 
   getAnswersAndFill(companyId: string) {
-    this.esgRatingService.list().subscribe({
+    this.spinnerService.show()
+
+    this.esgRatingService.list().pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
         // Pega o item que pertence a minha empresa
         let myCompanyInfo = data.filter(item => {
-          return item.company._id === companyId
+          return item?.company?._id === companyId
         })[0]
           
         const questionaryAnswers = myCompanyInfo.answers.filter((i: any) => {
@@ -182,10 +197,15 @@ export class EServiceComponent {
               esgNumber: this.questionaryData[index].id,
               answer: control.value,
             }
-          })
+          }),
         }
+        this.spinnerService.show()
 
-        this.esgRatingService.register(dto).subscribe({
+        this.esgRatingService.register(dto).pipe(
+          finalize(() => {
+            this.spinnerService.hide()
+          })
+        ).subscribe({
           next: (data) => {
             this.router.navigate(['/logged/assesment'])
           },
@@ -226,7 +246,7 @@ export class EServiceComponent {
           }
         }}
         else return false
-      })
+      }),
     }
     
     // Filtra as que tem resposta 
@@ -234,8 +254,13 @@ export class EServiceComponent {
       if(!item) return false
       else return true
     })
+    this.spinnerService.show()
     
-    this.esgRatingService.register(dto).subscribe({
+    this.esgRatingService.register(dto).pipe(
+      finalize(() => {
+        this.spinnerService.hide()
+      })
+    ).subscribe({
       next: (data) => {
         this.router.navigate(['/logged/assesment'])
       },

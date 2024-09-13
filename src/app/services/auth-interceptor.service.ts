@@ -8,8 +8,9 @@ import {
 import { Injectable, Injector } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Observable, catchError, of, throwError } from 'rxjs';
+import { Observable, catchError, finalize, of, throwError } from 'rxjs';
 import { AuthenticationService } from './authentication.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -18,7 +19,8 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(
     private router: Router,
     private toast: ToastrService,
-    private injector: Injector
+    private injector: Injector,
+    private spinnerService: NgxSpinnerService
   ) {}
 
   private handleAuthError(err: HttpErrorResponse): Observable<any> {
@@ -36,6 +38,9 @@ export class AuthInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    return next.handle(req).pipe(catchError((x) => this.handleAuthError(x)));
+    return next.handle(req).pipe(
+      catchError((x) => this.handleAuthError(x)),
+      finalize(() => this.spinnerService.hide())
+    );
   }
 }

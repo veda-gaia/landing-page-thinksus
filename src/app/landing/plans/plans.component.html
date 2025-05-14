@@ -223,7 +223,7 @@
                 <a routerLink="/free-test" (click)="scrollToTop()">
                     <button class="brand-outline-btn px-5">{{ 'PLANS.FREE_TEST' | translate }}</button>
                 </a>
-                <button class="brand-btn px-md-5">{{ 'PLANS.GET_YOURS' | translate }}</button>
+                <button [routerLink]="['/logged/plans']" class="brand-btn px-md-5" >{{ 'PLANS.GET_YOURS' | translate }}</button>
             </div>
         </div>
     </div>

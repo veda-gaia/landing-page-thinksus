@@ -103,7 +103,7 @@
                     <!-- <img src="/assets/img/graph-dash.svg" alt="Gráfico exemplo" class="w-100"> -->
                     <plotly-plot *ngIf="list.length > 1" [data]="graphData" [config]="graphConfig"></plotly-plot>
                     <p *ngIf="list.length <= 1" class="primary-text fw-600 f-size-1rem pt-5 mt-5 pb-2">
-                        Avaliações insuficientes para gerar gráfico
+                        {{"RESULTS.RESULT_BODY" | translate}}
                     </p>
                 </div>
             </div>

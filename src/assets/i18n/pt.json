@@ -845,5 +845,8 @@
         "CONFIRM_PASSWORD": "Confirme a senha",
         "SEND": "Enviar",
         "BACK": "Voltar"
+    },
+    "RESULTS": {
+        "BODY_RESULT": "Não há avaliações suficientes para gerar um registro da sua jornada sustentável. Faça uma nova avaliação a partir de XX/XX para criar um histórico de pontuação"
     }
 }

@@ -922,5 +922,8 @@
         "CONFIRM_PASSWORD": "Confirm password",
         "SEND": "Send",
         "BACK": "Back"
+    },
+    "RESULTS": {
+        "BODY_RESULT": "There are not enough assessments to generate a record of your sustainable journey. Please conduct a new assessment starting from XX/XX to create a scoring history"
     }
 }

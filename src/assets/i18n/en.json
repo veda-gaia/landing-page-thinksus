@@ -236,7 +236,7 @@
         "GLOSSARY": "Glossary",
         "EXPAND": "Read more",
         "LIMIT_EXCEDED": "Attention: \"Does not apply\" limit exceeded",
-        "DOCUMENT_NEEDED": "Important: Proof of document required",
+        // "DOCUMENT_NEEDED": "Important: Proof of document required",
         "ANSWER_SUMMARY": "Answer summary",
         "CANNOT_CHANGE": "Important: Once the questionnaire is finalized, you will not be able to change your answers.",
         "REVIEW": "Review questions",

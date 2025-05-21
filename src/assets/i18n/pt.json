@@ -232,7 +232,7 @@
         "GLOSSARY": "Glossário",
         "EXPAND": "Continuar lendo",
         "LIMIT_EXCEDED": "Atenção: Limite de \"Não se aplica\" excedido",
-        // "DOCUMENT_NEEDED": "Importante: Necessário envio de documento comprobatório",
+        "DOCUMENT_NEEDED": "Importante: Necessário envio de documento comprobatório",
         "ANSWER_SUMMARY": "Resumo das respostas",
         "CANNOT_CHANGE": "Importante: Ao finalizar o questionário, você não poderá alterar as respostas.",
         "REVIEW": "Revisar questões",

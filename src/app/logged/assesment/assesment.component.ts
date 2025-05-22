@@ -34,6 +34,7 @@ export class AssesmentComponent {
   governanceProgress = 0
 
   assesmentId = ''
+  userHasContractedPlan = false
 
   constructor(
     private fb: FormBuilder,
@@ -86,6 +87,12 @@ export class AssesmentComponent {
       },
       error: (err) => {
         console.log(err)
+      }
+    })
+
+    this.contractedPlanService.checkContractedPlanByUser().subscribe({
+      next: (data: boolean) => {
+        this.userHasContractedPlan = data
       }
     })
   }

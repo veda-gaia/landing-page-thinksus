@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -55,6 +55,7 @@ export class RegisterComponent implements OnInit {
   countryList: any[] = [];
   sectorList: SectorList[] = [];
   segmentList: SegmentList[] = [];
+  currentLang: string = ''
 
   CompanyRevenueEnum = CompanyRevenueEnum
 
@@ -67,7 +68,8 @@ export class RegisterComponent implements OnInit {
     private toastr: ToastrService,
     private router: Router,
     private modalService: NgbModal,
-    private spinnerService: NgxSpinnerService
+    private spinnerService: NgxSpinnerService,
+    private ChangeDetectorRef: ChangeDetectorRef,
   ) {
     this.form1 = this.fb.group({
       name: ['', Validators.required],
@@ -111,8 +113,8 @@ export class RegisterComponent implements OnInit {
       },
     });
 
-    const currentLang = this.translateService.currentLang;
-    if (currentLang === 'en') {
+    this.currentLang = this.translateService.currentLang;
+    if (this.currentLang === 'en') {
       this.sectorList = enSectorList;
       this.countryList = countryListEn
     } else {
@@ -123,6 +125,7 @@ export class RegisterComponent implements OnInit {
     // Subscribe Language
     this.translateService.onLangChange.subscribe({
       next: (data: any) => {
+        this.currentLang = this.translateService.currentLang;
         if (data.lang === 'en') {
           this.sectorList = enSectorList;
           this.countryList = countryListEn
@@ -131,6 +134,7 @@ export class RegisterComponent implements OnInit {
           this.countryList = countryListPt
         }
 
+        this.ChangeDetectorRef.detectChanges()
         this.handleSegment(this.form2.controls.sector.value);
       },
     });

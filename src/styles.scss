@@ -334,7 +334,7 @@ $alpha-600: rgba(0, 0, 0, .48);
 $alpha-700: rgba(0, 0, 0, .64);
 $alpha-800: rgba(0, 0, 0, .8);
 
-$input-bg: #F8F8F8;
+$input-bg: #f8f8f8;
 $demi-gray: #797979;
 $gray-lines: #DADADA;
 
@@ -1278,6 +1278,16 @@ textarea {
     input {
         padding-right: 3.5rem;
     }
+}
+
+input:-internal-autofill-selected, input::-webkit-input-autofill, input:-webkit-autofill {
+    background-color: $input-bg !important;
+    appearance: unset !important;
+    color: $primary-text !important;
+    box-shadow: none !important;
+
+    -webkit-box-shadow: 0 0 0 30px $input-bg inset !important;
+    -webkit-text-fill-color: $primary-text !important;
 }
 
 // Header

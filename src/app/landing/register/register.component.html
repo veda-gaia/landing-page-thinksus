@@ -22,7 +22,7 @@
                 </div>
             </div>
 
-            <form *ngIf="actualStep === 1" [formGroup]="form1" (submit)="onSubmitStep1()" class="fade-in-right py-5 pb-lg-5 pt-lg-4 max-width-360">
+            <form *ngIf="actualStep === 1" [formGroup]="form1" (submit)="onSubmitStep1()" autocomplete="off" class="fade-in-right py-5 pb-lg-5 pt-lg-4 max-width-360">
                 <h4 class="brand-text fw-700 pb-2">
                     {{ "REGISTER.REGISTER" | translate }}
                 </h4>

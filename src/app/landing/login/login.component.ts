@@ -40,7 +40,7 @@ export class LoginComponent {
       email: this.form.controls['email'].value ? this.form.controls['email'].value : '',
       password: this.form.controls['password'].value ? this.form.controls['password'].value : ''
     }
-
+    
     dto.email = dto.email.toLocaleLowerCase();
     this.spinnerService.show();
     this.authService.login(dto).pipe(
@@ -53,6 +53,7 @@ export class LoginComponent {
         this.router.navigate(['/logged'])
       },
       error: (err) => {
+        console.error(err);
         this.toastr.error('Credenciais inválidas', 'Erro', {progressBar: true});
       }
     })

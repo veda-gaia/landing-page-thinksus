@@ -775,7 +775,7 @@
         "COMPLETED": "You have completed your free trial!",
         "RESULT1": "Your score was",
         "RESULT2": ", which means that your company has an understanding and already practices ESG, despite need to improve some points.",
-        "RESULT3": "Acesse nossa página de Planos e veja as opções que a ThinkSus oferece para evoluir em sua jornada por um mundo mais sustentável.",
+        "RESULT3": "Visit our Plans page and see the options that ThinkSus offers to help you evolve on your journey towards a more sustainable world.",
         "SEAL": "Seal ThinkSus",
         "GOLD": "Gold",
         "SILVER": "Silver",
@@ -922,5 +922,8 @@
         "CONFIRM_PASSWORD": "Confirm password",
         "SEND": "Send",
         "BACK": "Back"
+    },
+    "RESULTS": {
+        "BODY_RESULT": "There are not enough assessments to generate a record of your sustainable journey. Please conduct a new assessment starting from XX/XX to create a scoring history"
     }
 }

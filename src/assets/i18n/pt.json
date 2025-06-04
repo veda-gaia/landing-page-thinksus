@@ -17,7 +17,7 @@
         "SUBJECT_PLACEHOLDER": "Assunto da mensagem",
         "MESSAGE_PLACEHOLDER": "Deixe aqui sua mensagem se tiver dúvidas sobre nossos produtos e planos, sugestões de melhorias, ou reclamações sobre nossos serviços que logo retornaremos seu contato.",
         "SEND_BTN": "Enviar mensagem",
-        "WELCOME": "Seja bem-vindo à ThinkSus! O seu parceiro digital ESG para um mundo mais sustentável.",
+        "WELCOME": "Seja bem-vindo à ThinkSus! A sua parceira digital ESG para um mundo mais sustentável.",
         "RESERVED": "Copyright ©2024 Todos os direitos reservados",
         "PRIVACY_TERMS": "Termos de privacidade"
     },
@@ -29,6 +29,7 @@
         "AVALIATION_TITLE": "Avaliação de performance ESG",
         "AVALIATION_BODY": "Ao simular sua performance ESG em nossa plataforma, você e sua empresa terão mais clareza sobre os aspectos materiais, como riscos socioambientais e de governança da sua operação",
         "ADERENCE_TITLE": "Avaliação de performance ESG",
+        "ODS_TITLE": "Aderência aos ODS",
         "ADERENCE_BODY": "A plataforma ESGers é uma ferramenta para a transparência e responsabilidade socioambiental de sua empresa, indicando como sua operação mais contribui com os Objetivos do Desenvolvimento Sustentável da ONU (ODS)",
         "BLOCKCHAIN_TITLE": "Validação em Blockchain",
         "BLOCKCHAIN_BODY": "Disponibilizamos ferramenta de gestão ESG e rastreio de dados para grandes cadeias de suprimentos. Garanta sua competitividade e continuidade dos negócios deixando transparente a verificação de impactos. Nossa certificação atesta, mediante evidências, a conformidade com as normas ESG",
@@ -42,17 +43,17 @@
         "HAVE_A": "Tenha um posicionamento sustentável e entenda seus impactos na sociedade.",
         "EVOLUTION": "Evolução",
         "BUILD": "Construa uma relação saudável com seus stakeholders, e estabeleça métricas de um propósito sustentável ",
-        "EXAMPLE_1": "Noticias populares",
+        "EXAMPLE_1": "Notícias populares",
         "EXAMPLE_2": "A prática ESG está relacionada à governança ambiental, social e corporativa e são pilares para uma avaliação de consciência coletiva de uma empresa para trazer sustentabilidade aos seus negócios. Por isso desenvolvemos um método de avaliação próprio que reflete as demandas e complexidades dos principais rankings globais.",
         "EXAMPLE_3": "Saiba mais",
         "EXAMPLE_4": "Um compromisso de práticas sustentáveis",
 
-        "EXAMPLE_1_2": "Noticias populares",
+        "EXAMPLE_1_2": "Notícias populares",
         "EXAMPLE_2_2": "A pegada de carbono é a medida da quantidade de gases de efeito estufa que uma pessoa, organização, evento ou produto emite. Esses gases, como dióxido de carbono (CO2), metano (CH4) e óxido nitroso (N2O), contribuem para o aquecimento global e as mudanças climáticas. Alguns exemplos de como você pode reduzir a pegada de carbono: apostar no consumo consciente, deslocamento sustentável, consumo de energia renovável, redução da quantidade de resíduos e opção de embalagens recicláveis, entre outros.",
         "EXAMPLE_3_2": "Saiba mais",
-        "EXAMPLE_4_2": "Pegada de Carbono: o que é e como reduzi-la",
+        "EXAMPLE_4_2": "Pegada de Carbono: o que é e como reduzí-la",
 
-        "EXAMPLE_1_3": "Noticias populares",
+        "EXAMPLE_1_3": "Notícias populares",
         "EXAMPLE_2_3": "A tecnologia blockchain, com sua capacidade de criar registros digitais imutáveis e transparentes, está revolucionando a forma como as empresas gerenciam suas cadeias de suprimentos, garantindo transparência e rastreabilidade, segurança e confiabilidade, eficiência e automação e redução de custos.",
         "EXAMPLE_3_3": "Saiba mais",
         "EXAMPLE_4_3": "A importância da tecnologia blockhain relacionada ao supply chain"
@@ -844,5 +845,8 @@
         "CONFIRM_PASSWORD": "Confirme a senha",
         "SEND": "Enviar",
         "BACK": "Voltar"
+    },
+    "RESULTS": {
+        "BODY_RESULT": "Não há avaliações suficientes para gerar um registro da sua jornada sustentável. Faça uma nova avaliação a partir de XX/XX para criar um histórico de pontuação"
     }
 }

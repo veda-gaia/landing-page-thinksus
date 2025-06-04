@@ -22,7 +22,7 @@
                 </div>
             </div>
 
-            <form *ngIf="actualStep === 1" [formGroup]="form1" (submit)="onSubmitStep1()" class="fade-in-right py-5 pb-lg-5 pt-lg-4 max-width-360">
+            <form *ngIf="actualStep === 1" [formGroup]="form1" (submit)="onSubmitStep1()" autocomplete="off" class="fade-in-right py-5 pb-lg-5 pt-lg-4 max-width-360">
                 <h4 class="brand-text fw-700 pb-2">
                     {{ "REGISTER.REGISTER" | translate }}
                 </h4>
@@ -38,7 +38,7 @@
                 <input type="email" class="w-100 mb-4" formControlName="email" placeholder="email@email.com" autocomplete="off" id="email" name="email">
 
                 <label for="phone" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.PHONE" | translate }}</label>
-                <input type="tel" class="w-100 mb-4" formControlName="phone" mask="(00) 00000-0000" placeholder="(00) 00000-0000" autocomplete="off" id="phone" name="phone">
+                <input type="tel" class="w-100 mb-4" [validation]="currentLang === 'pt'" formControlName="phone" mask="(00) 00000-0000" placeholder="(00) 00000-0000" autocomplete="off" id="phone" name="phone">
 
                 <label for="role" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "REGISTER.ROLE" | translate }}</label>
                 <input type="text" class="w-100 mb-4" formControlName="role" placeholder="{{ 'REGISTER.ROLE_PLACEHOLDER' | translate }}" autocomplete="off" id="role" name="role">

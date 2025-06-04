@@ -24,6 +24,12 @@ export class ContractedPlanService extends BaseService {
       .pipe(map(this.extractData), catchError(this.serviceError));
   }
 
+  checkContractedPlanByUser() {
+    return this.httpClient
+      .get(`${this.url}/verify-contracted-by-user`,this.authorizedHeader())
+      .pipe(map(this.extractData), catchError(this.serviceError));
+  }
+
   getByUser() {
     return this.httpClient
       .get(`${this.url}/verify-plan`,this.authorizedHeader())

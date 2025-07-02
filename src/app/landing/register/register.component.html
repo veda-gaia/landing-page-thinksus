@@ -49,6 +49,28 @@
                     <img *ngIf="showPassword" (click)="showPassword = false" src="/assets/icon/eye.svg" alt="Esconder senha" class="input-icon cursor-pointer">
                     <img *ngIf="!showPassword" (click)="showPassword = true" src="/assets/icon/eye-slash.svg" alt="Mostrar senha" class="input-icon cursor-pointer">
                 </div>
+
+                
+                <label for="confirmPassword" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">
+                    {{ "REGISTER.CONFIRM_PASSWORD" | translate }}
+                 </label>
+
+                <div class="input-container mb-4">
+                     <input [type]="showConfirmPassword ? 'text' : 'password'" class="w-100" formControlName="confirmPassword" placeholder="{{ 'REGISTER.CONFIRMPASSWORD_PLACEHOLDER' | translate }}" autocomplete="off" id="confirmPassword" 
+                            name="confirmPassword">
+                        <img *ngIf="showConfirmPassword" (click)="showConfirmPassword = false" src="/assets/icon/eye.svg"
+                                    alt="Esconder senha" class="input-icon cursor-pointer">
+                        <img *ngIf="!showConfirmPassword" (click)="showConfirmPassword = true" src="/assets/icon/eye-slash.svg"
+                            alt="Mostrar senha" class="input-icon cursor-pointer">                        
+                </div>
+
+                <div *ngIf="form1.get('confirmPassword')?.hasError('passwordNotExact') && form1.get('confirmPassword')?.touched"
+                    class="alert alert-danger mt-2 p-2"
+                    role="alert">
+                        As senhas não conferem.
+                </div>
+                    
+                
                 
                 <div class="mb-5 d-flex align-items-start gap-2">
                     <input type="checkbox" style="width: fit-content;" class="d-inline" formControlName="acceptTerms" placeholder="aceito os termos" id="acceptTerms" name="acceptTerms">

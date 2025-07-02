@@ -34,6 +34,7 @@ import {
 import { TermsAndConditionsModalComponent } from './terms-and-conditions-modal/terms-and-conditions-modal.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { finalize } from 'rxjs';
+import { comparePassword } from 'src/app/util/validators.util';
 
 @Component({
   selector: 'app-register',
@@ -44,6 +45,7 @@ export class RegisterComponent implements OnInit {
   actualStep = 1;
   keepReading = false;
   showPassword = false;
+  showConfirmPassword = false;
   companyEmployeesEnum = CompanyEmployeesEnum;
 
   code = new FormControl('', [Validators.required, Validators.minLength(6)]);
@@ -78,7 +80,11 @@ export class RegisterComponent implements OnInit {
       role: ['', Validators.required],
       password: ['', Validators.required],
       acceptTerms: [false, Validators.requiredTrue],
-    });
+      confirmPassword: ['', ],
+    },{
+          validators:comparePassword('password','confirmPassword')
+        }
+    );
 
     this.form2 = this.fb.group({
       enterpriseName: ['', Validators.required],

@@ -35,7 +35,7 @@ export class FreeTestComponent {
   ) {
     this.form1 = this.fb.group({
       name: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.pattern(/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/)]],
       role: ['', Validators.required],
       companyName: ['', Validators.required],
       acceptTerms: [false, Validators.requiredTrue],

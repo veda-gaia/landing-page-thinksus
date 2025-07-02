@@ -102,7 +102,9 @@
         "ROLE": "Position",
         "ROLE_PLACEHOLDER": "Your position",
         "PASSWORD": "Password",
+        "CONFIRM_PASSWORD": "Confirm Password",
         "PASSWORD_PLACEHOLDER": "Insert 8-character pasword",
+        "CONFIRMPASSWORD_PLACEHOLDER": "Confirm your password",
         "AGREE": "I agree to the",
         "TERMS": "Terms and Conditions and Privacy Policy",
         "NEXT": "Next",
@@ -841,7 +843,8 @@
         "PASSWORD": "Password",
         "EDIT_DATE": "Edited at",
         "BACK": "Back",
-        "SAVE_EDIT": "Save Changes"
+        "SAVE_EDIT": "Save Changes",
+        "CONFIRM_PASSWORD": "Confirm Password",
     },
     "SOLUTION_SIMULATION_TEXT": {
         "0_35_TEXT": "Your operations require a significant transformation to become more sustainable. Process optimization to minimize negative impacts is crucial, as well as internal restructuring with process mapping for more efficient management.",

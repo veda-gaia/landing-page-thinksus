@@ -242,7 +242,9 @@
         "ANSWER_SUMMARY": "Answer summary",
         "CANNOT_CHANGE": "Important: Once the questionnaire is finalized, you will not be able to change your answers.",
         "REVIEW": "Review questions",
-        "DOCUMENT_SEND": "Document submission"
+        "DOCUMENT_SEND": "Document submission",
+        "ADD_FILE":"+ Add File",
+        "REMOVE_FILE":"- Remove File"
     },
     "QUESTIONS": {
         "E1_TITLE": "The quantity of deforestation caused by the company is within the acceptable limits within the extend permitted by law",

@@ -238,7 +238,10 @@
         "ANSWER_SUMMARY": "Resumo das respostas",
         "CANNOT_CHANGE": "Importante: Ao finalizar o questionário, você não poderá alterar as respostas.",
         "REVIEW": "Revisar questões",
-        "DOCUMENT_SEND": "Envio de documentos"
+        "DOCUMENT_SEND": "Envio de documentos",
+        "ADD_FILE":"+ Adicionar Arquivo",
+        "REMOVE_FILE":"- Remover Arquivo"
+
     },
     "QUESTIONS": {
         "E1_TITLE": "O nível atual de desmatamento está dentro do permitido legalmente?",

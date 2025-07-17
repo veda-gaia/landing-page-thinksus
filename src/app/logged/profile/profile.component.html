@@ -202,27 +202,70 @@
           </label>
 
           <div class="input-container p-0">
-            <input type="password" class="w-100" formControlName="password" autocomplete="off" id="password" name="password"
+            <input [type]="showPassword ? 'text' : 'password'" class="w-100" formControlName="password" autocomplete="off" id="password" name="password"
               [readOnly]="!selectedEditInputs.includes('password')">
+
             <img *ngIf="!selectedEditInputs.includes('password')" (click)="addEditInput('password')"
               src="/assets/icon/edit-input.svg" alt="Editar" height="53px" class="input-icon cursor-pointer"
               style="top: 0; right: 0; transform: none !important;">
+
+              <img *ngIf="showPassword && selectedEditInputs.includes('password')" (click)="showPassword = false" src="/assets/icon/eye.svg"
+                        alt="Esconder senha" class="input-icon cursor-pointer">
+            <img *ngIf="!showPassword && selectedEditInputs.includes('password')" (click)="showPassword = true" src="/assets/icon/eye-slash.svg"
+                alt="Mostrar senha" class="input-icon cursor-pointer">
           </div>
         </div>
 
-        <div class="w-100 py-1" *ngIf="editForm.controls['password'].dirty">
+         <div class="w-100 py-1"  *ngIf="selectedEditInputs.includes('password')">
+          <div class="separator-opacity my-2 w-100"></div>
+        </div>
+
+        <!-- Confirm Senha -->
+        <div *ngIf="selectedEditInputs.includes('password')"
+          class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 py-2 py-md-0">
+          <label for="confirmPassword" class="fw-600 f-size-1rem l-spacing-1-68 text-nowrap" style="min-width: 180px;">
+            {{ "PROFILE.CONFIRM_PASSWORD" | translate }}
+          </label>
+
+          <div class="input-container p-0">
+            <input [type]="showConfirmPassword ? 'text' : 'password'" class="w-100" formControlName="confirmPassword" autocomplete="off" id="confirmPassword" 
+                   name="confirmPassword">
+
+             <img *ngIf="showConfirmPassword" (click)="showConfirmPassword = false" src="/assets/icon/eye.svg"
+                        alt="Esconder senha" class="input-icon cursor-pointer">
+            <img *ngIf="!showConfirmPassword" (click)="showConfirmPassword = true" src="/assets/icon/eye-slash.svg"
+                alt="Mostrar senha" class="input-icon cursor-pointer">
+
+            
+          </div>
+          
+        </div>
+
+        <div *ngIf="editForm.get('confirmPassword')?.hasError('passwordNotExact') && editForm.get('confirmPassword')?.touched"
+            class="alert alert-danger mt-2 p-2"
+            role="alert">
+          As senhas não conferem.
+        </div>
+
+        <div class="w-100 py-1" *ngIf="selectedEditInputs.includes('password')">
           <div class="separator-opacity my-2 w-100"></div>
         </div>
 
         <!-- Senha antiga -->
-        <div *ngIf="editForm.controls['password'].dirty"
+        <div *ngIf="selectedEditInputs.includes('password')"
           class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 py-2 py-md-0">
           <label for="password" class="fw-600 f-size-1rem l-spacing-1-68 text-nowrap" style="min-width: 180px;">
             {{ "PROFILE.OLD_PASSWORD" | translate }}
           </label>
 
           <div class="input-container p-0">
-            <input type="password" class="w-100" formControlName="oldPassword" autocomplete="off" id="oldPassword" name="oldPassword">
+            <input [type]="showOldPassword ? 'text' : 'password'" class="w-100" formControlName="oldPassword" autocomplete="off" id="oldPassword" name="oldPassword">
+
+            <img *ngIf="showOldPassword" (click)="showOldPassword = false" src="/assets/icon/eye.svg"
+                        alt="Esconder senha" class="input-icon cursor-pointer">
+            <img *ngIf="!showOldPassword" (click)="showOldPassword = true" src="/assets/icon/eye-slash.svg"
+                alt="Mostrar senha" class="input-icon cursor-pointer">
+
           </div>
         </div>
 
@@ -239,7 +282,7 @@
               {{ "PROFILE.BACK" | translate }}
             </button>
 
-            <button class="brand-btn" (click)="subimt()">
+            <button class="brand-btn" (click)="subimt()" [disabled]="editForm.invalid">
               {{ "PROFILE.SAVE_EDIT" | translate }}
             </button>
           </div>

@@ -104,6 +104,7 @@
         "ROLE_PLACEHOLDER": "Digite seu cargo",
         "PASSWORD": "Senha",
         "PASSWORD_PLACEHOLDER": "Digite sua senha",
+        "CONFIRMPASSWORD_PLACEHOLDER": "Confirme sua senha",
         "AGREE": "Eu li e aceito os",
         "TERMS": "Termos de Uso e Privacidade",
         "NEXT": "Avançar",
@@ -147,7 +148,8 @@
         "ENJOY": "Aproveite o Painel ThinkSus",
         "CLICK_BUTTON": "Você pode clicar no botão abaixo para entrar na aplicação",
         "GO_TO_PANEL": "Ir Para o Painel",
-        "SELECT": "Selecione"
+        "SELECT": "Selecione",
+        "CONFIRM_PASSWORD": "Confirmar Senha"
     },
     "LOGIN": {
         "TITLE": "Login",
@@ -236,7 +238,10 @@
         "ANSWER_SUMMARY": "Resumo das respostas",
         "CANNOT_CHANGE": "Importante: Ao finalizar o questionário, você não poderá alterar as respostas.",
         "REVIEW": "Revisar questões",
-        "DOCUMENT_SEND": "Envio de documentos"
+        "DOCUMENT_SEND": "Envio de documentos",
+        "ADD_FILE":"+ Adicionar Arquivo",
+        "REMOVE_FILE":"- Remover Arquivo"
+
     },
     "QUESTIONS": {
         "E1_TITLE": "O nível atual de desmatamento está dentro do permitido legalmente?",
@@ -771,6 +776,7 @@
         "EMAIL": "Email",
         "OLD_PASSWORD": "Senha Antiga",
         "PASSWORD": "Senha",
+        "CONFIRM_PASSWORD": "Confirmar Senha",
         "EDIT_DATE": "Editado em",
         "BACK": "Voltar",
         "SAVE_EDIT": "Salvar Alterações"

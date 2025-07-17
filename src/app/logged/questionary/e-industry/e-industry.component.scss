@@ -1,0 +1,51 @@
+.custom-file-input {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  cursor: pointer;
+  padding-left: 160px;   
+  width: 100%;
+  color: #212529;          
+  font-size: 14px;
+  height: 60px;
+  line-height: 36px;
+  text-indent: 0;          
+  background-color: #fff;  
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+/* Oculta o botão nativo */
+.custom-file-input::file-selector-button {
+  visibility: hidden;
+  width: 0;
+}
+
+/* Botão visual falso */
+.custom-file-input::before {
+  content: "Escolha o arquivo";
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  color: #28a745;
+  font-weight: 500;
+  font-size: 13px;
+  padding: 6px 10px;
+  border: 1px solid #28a745;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  height: 30px;
+  white-space: nowrap;
+}
+
+/* Hover estilo botão */
+.custom-file-input:hover::before {
+  background-color: #d4edda;
+  color: #1e7e34;
+  border-color: #1e7e34;
+}

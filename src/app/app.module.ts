@@ -23,6 +23,7 @@ import { CepService } from './services/cep.service';
 import { UserService } from './services/user.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { AwsService } from './services/aws.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -61,6 +62,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CepService,
     AuthenticationService,
     UserService,
+    AwsService
   ],
   exports: [TranslateModule],
   bootstrap: [AppComponent]

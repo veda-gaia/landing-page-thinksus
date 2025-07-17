@@ -63,7 +63,9 @@
                                     {{ "QUESTIONARY.BACK" | translate }}
                                 </button>
                                 
-                                <button class="secondary-brand-btn px-lg-5 d-block" [disabled]="(control.invalid) || (this.undefinedAnswers >= ((questionaryData.length / 100) * 30))" type="button" (click)="onSubmitStep(i)">
+                                <button class="secondary-brand-btn px-lg-5 d-block" 
+                                        [disabled]="(control.invalid) || (this.undefinedAnswers >= ((questionaryData.length / 100) * 30))"
+                                        type="button" (click)=" onSubmitStep(i)">
                                     {{ "QUESTIONARY.NEXT" | translate }}
                                 </button>
                             </div>
@@ -110,68 +112,18 @@
                     <p class="f-size-0-85rem l-height-1-25 fw-500 alpha-800-text">{{ "QUESTIONARY.LIMIT_EXCEDED" | translate }}</p>
                 </div>
 
-                <!-- <div *ngIf="questionaryData[i].documentNeeded" class="blue-card p-3 p-lg-4 d-flex align-items-center justify-content-start gap-3 mt-3 mt-lg-4">
+                <div *ngIf="questionaryData[i].documentNeeded" class="blue-card p-3 p-lg-4 d-flex align-items-center justify-content-start gap-3 mt-3 mt-lg-4">
                     <img src="/assets/icon/blue-warning.svg" alt="Warning">
                     <p class="f-size-0-85rem l-height-1-25 fw-500 alpha-800-text">{{ "QUESTIONARY.DOCUMENT_NEEDED" | translate }}</p>
-                </div> -->
+                </div> 
             </div>
         </div>
     </form>
 </section>
 
-<!-- Revisar -->
-<section *ngIf="actualStep == (questionaryData.length + 1)" class="w-100">
-    <div class="fade-in pb-4 w-100">
-        <div class="fade-in row">
-            <div class="col">
-                <h3 class="alpha-800-text f-size-1-5rem fw-700">
-                    {{ "QUESTIONARY.ENVIRONMENTAL_TITLE" | translate }}
-                </h3>
-        
-                <div class="d-flex align-items-center justify-content-between gap-2 pb-4">
-                    <div class="d-flex align-items-center justify-content-start gap-2 pb-2">
-                        <p class="f-size-1rem fw-500 alpha-800-text">
-                            {{ "QUESTIONARY.ANSWER_SUMMARY" | translate }}
-                        </p>
-                    </div>
-                </div>
-        
-                <div class="glossary-card p-3 p-xl-4">
-                    <p class="f-size-1rem alpha-800-text fw-500 l-height-1-25">
-                        {{ "QUESTIONARY.CANNOT_CHANGE" | translate }}
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <ul>
-        <li *ngFor="let item of questionaryData; let index = index" class="pb-2">
-            <p class="d-block w-100 f-size-1rem l-height-1-5rem alpha-700-text fw-700 pb-2">
-                {{ index + 1 }}. {{ "QUESTIONS." + item.id + "_TITLE" | translate }}
-            </p>
-            <p class="d-flex w-100 f-size-1rem l-height-1-25rem alpha-700-text fw-400 gap-1">
-                resposta: &shy;
-                <span *ngIf="formArray.controls[index].value === 'Yes'" class="fw-700">{{ "QUESTIONARY.YES" | translate }}</span>
-                <span *ngIf="formArray.controls[index].value === 'No'" class="fw-700">{{ "QUESTIONARY.NO" | translate }}</span>
-                <span *ngIf="formArray.controls[index].value === 'Not apply'" class="fw-700">{{ "QUESTIONARY.DOESNT_APPLY" | translate }}</span>
-            </p>
-        </li>
-    </ul>
-
-    <div class="w-100 d-flex align-items-center justify-content-end gap-3 pt-4">
-        <button (click)="stepBack()" class="brand-outline-btn bg-transparent x-lg-5 d-block" type="button">
-            {{ "QUESTIONARY.BACK" | translate }}
-        </button>
-        
-        <button class="secondary-brand-btn px-lg-5 d-block" type="button" (click)="submitRevision()">
-            {{ "QUESTIONARY.NEXT" | translate }}
-        </button>
-    </div>
-</section>
 
 <!-- Documentos -->
-<section *ngIf="actualStep == (questionaryData.length + 2)" class="w-100">
+<section *ngIf="actualStep == (questionaryData.length + 1)" class="w-100">
     <form class="fade-in pb-5 w-100">
         <div class="fade-in pb-4 w-100">
             <div class="fade-in row">
@@ -198,20 +150,59 @@
         </div>
 
         <ul>
-            <li *ngFor="let control of formArrayDocuments.controls; let index = index" class="pb-5">
+            <li *ngFor="let control of formArrayDocuments.controls; let indexArrayDocuments = index" class="pb-5">
                 <p class="d-block w-100 f-size-1rem l-height-1-5rem alpha-700-text fw-700 pb-2">
-                    {{ index + 1 }}. {{ "QUESTIONS." + questionaryData[index].id + "_TITLE" | translate }}
+                    {{ indexArrayDocuments + 1 }}. {{ "QUESTIONS." + questionaryData[indexArrayDocuments].id + "_TITLE" | translate }}
                 </p>
                 <p class="d-flex w-100 f-size-1rem l-height-1-25rem alpha-700-text fw-400 gap-1">
                     resposta: &shy;
-                    <span *ngIf="formArray.controls[index].value === 'Yes'" class="fw-700">{{ "QUESTIONARY.YES" | translate }}</span>
-                    <span *ngIf="formArray.controls[index].value === 'No'" class="fw-700">{{ "QUESTIONARY.NO" | translate }}</span>
-                    <span *ngIf="formArray.controls[index].value === 'Not apply'" class="fw-700">{{ "QUESTIONARY.DOESNT_APPLY" | translate }}</span>
+                    <span *ngIf="formArray.controls[indexArrayDocuments].value === 'Yes'" class="fw-700">{{ "QUESTIONARY.YES" | translate }}</span>
+                    <span *ngIf="formArray.controls[indexArrayDocuments].value === 'No'" class="fw-700">{{ "QUESTIONARY.NO" | translate }}</span>
+                    <span *ngIf="formArray.controls[indexArrayDocuments].value === 'Not apply'" class="fw-700">{{ "QUESTIONARY.DOESNT_APPLY" | translate }}</span>
                 </p>
 
-                <div *ngIf="(formArray.controls[index].value === 'yes') && (questionaryData[index].documentNeeded)" class="d-flex align-items-center justify-content-start gap-2 pb-3">
-                    <input [formControl]="control" type="file" class="w-100" [id]="questionaryData[index].id" [name]="questionaryData[index].id">
+                
+                <div *ngIf="(formArray.controls[indexArrayDocuments].value === 'Yes') && (questionaryData[indexArrayDocuments].documentNeeded)"                     
+                    >   
+                    
+                    <div class="d-flex gap-2 mb-3 align-items-center">
+                    <button type="button" 
+                            class="btn btn-outline-success d-flex align-items-center gap-2"
+                            (click)="addFileInput(indexArrayDocuments)" 
+                            [disabled]="control.controls.length >= 5">
+                            <i class="fa fa-plus-circle"></i>
+                           
+                            {{ "QUESTIONARY.ADD_FILE" | translate }}
+                        </button>
+
+                    <button type="button" 
+                            class="btn btn-outline-danger d-flex align-items-center gap-2"
+                            (click)="removeFileInput(indexArrayDocuments)" 
+                            *ngIf="control.controls.length > 1"
+                            >
+                            <i class="fa fa-trash-alt"></i>
+                            
+                            {{ "QUESTIONARY.REMOVE_FILE" | translate }}
+                    </button>
+                    </div>
+
+                    <div *ngFor="let fileControl of control.controls; let j = index" 
+                        class="d-flex align-items-center justify-content-start gap-2 pb-3">   
+                        
+                                          
+                        <input type="file"
+                                class="w-100 custom-file-input"
+                                title=""
+                                [id]="questionaryData[indexArrayDocuments].id + '_' + j" 
+                                [name]="questionaryData[indexArrayDocuments].id + '_' + j"         
+                                (change)="onFileChange($event, indexArrayDocuments, j)"
+                                />
+                    </div>
+
+                    
                 </div>
+
+                
             </li>
         </ul>
     
@@ -219,8 +210,14 @@
             <button (click)="continueLater()" type="button"class="brand-outline-btn bg-transparent x-lg-5 d-block" type="button">
                 {{ "QUESTIONARY.CONTINUE_LATER" | translate }}
             </button>
+             <button (click)="stepBack()" class="brand-outline-btn bg-transparent x-lg-5 d-block" type="button">
+                {{ "QUESTIONARY.BACK" | translate }}
+            </button>
             
-            <button class="secondary-brand-btn px-lg-5 d-block" type="button" (click)="submitDocuments()">
+            <button class="secondary-brand-btn px-lg-5 d-block" 
+                    [disabled]="(this.formArrayDocuments.invalid)"
+                    type="button" 
+                    (click)="submitDocuments()">
                 {{ "QUESTIONARY.NEXT" | translate }}
             </button>
         </div>

@@ -17,7 +17,7 @@
                 <input type="text" class="w-100 mb-4" formControlName="name" placeholder="{{ 'FREE_TEST.NAME_PLACEHOLDER' | translate }}" autocomplete="off" id="name" name="name">
 
                 <label for="email" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "FREE_TEST.EMAIL" | translate }}</label>
-                <input type="text" mask="A*@A*.SSS" [validation]="true" [dropSpecialCharacters]="false" class="w-100 mb-4" formControlName="email" placeholder="{{ 'FREE_TEST.EMAIL_PLACEHOLDER' | translate }}" autocomplete="off" id="email" name="email">
+                <input type="email"  class="w-100 mb-4" formControlName="email" placeholder="{{ 'FREE_TEST.EMAIL_PLACEHOLDER' | translate }}" autocomplete="off" id="email" name="email">
 
                 <label for="role" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{ "FREE_TEST.ROLE" | translate }}</label>
                 <input type="text" class="w-100 mb-4" formControlName="role" placeholder="{{ 'FREE_TEST.ROLE_PLACEHOLDER' | translate }}" autocomplete="off" id="role" name="role">

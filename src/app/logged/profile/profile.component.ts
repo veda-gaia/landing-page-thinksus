@@ -6,6 +6,7 @@ import { UserUpdateRequestDto } from 'src/app/dtos/user-update-request.dto';
 import { UserInterface } from 'src/app/interfaces/user/user.interface';
 import { CompanyService } from 'src/app/services/company.service';
 import { UserService } from 'src/app/services/user.service';
+import { comparePassword } from 'src/app/util/validators.util';
 
 @Component({
   selector: 'app-profile',
@@ -17,6 +18,9 @@ export class ProfileComponent {
 
   showEditForm = false;
   editForm: FormGroup;
+  showPassword = false;
+  showConfirmPassword = false;
+  showOldPassword = false;
 
   loading = true;
   user!: UserInterface;
@@ -36,9 +40,13 @@ export class ProfileComponent {
       section: ['', Validators.required],
       // country: ['', Validators.required],
       email: ['', Validators.required],
-      oldPassword: ['', Validators.required],
-      password: ['', Validators.required],
-    });
+      oldPassword: ['', ],
+      password: ['', ],
+      confirmPassword: ['', ],
+    },{
+      validators:comparePassword('password','confirmPassword')
+    }
+    );
   }
 
   ngOnInit() {
@@ -65,6 +73,10 @@ export class ProfileComponent {
         this.editForm.controls['companyName'].setValue(data.company);
         this.editForm.controls['section'].setValue(data.section);
       },
+    });
+
+    this.editForm.get('password')?.valueChanges.subscribe(() => {
+      this.onPasswordChanged();
     });
   }
 
@@ -101,5 +113,23 @@ export class ProfileComponent {
         console.error(error);
       },
     });
+  }
+
+    onPasswordChanged(): void {
+      const password = this.editForm.get('password')?.value;
+
+      if (password) {
+        this.editForm.get('password')?.setValidators(Validators.required);
+        this.editForm.get('oldPassword')?.setValidators(Validators.required);
+        this.editForm.get('confirmPassword')?.setValidators(Validators.required);
+      } else {
+        this.editForm.get('oldPassword')?.clearValidators();
+        this.editForm.get('confirmPassword')?.clearValidators();
+        this.editForm.get('password')?.setValidators(Validators.required);
+      }
+
+      this.editForm.get('oldPassword')?.updateValueAndValidity();
+      this.editForm.get('confirmPassword')?.updateValueAndValidity();
+      this.editForm.get('password')?.setValidators(Validators.required);
   }
 }

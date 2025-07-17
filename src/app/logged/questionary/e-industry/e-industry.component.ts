@@ -9,6 +9,8 @@ import { ToastrService } from 'ngx-toastr';
 import { TranslateService } from '@ngx-translate/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { finalize } from 'rxjs';
+import { AwsService } from 'src/app/services/aws.service';
+import { AwsS3FileInterface } from 'src/app/interfaces/aws/aws-s3-file.interface'
 
 @Component({
   selector: 'app-e-industry',
@@ -19,6 +21,7 @@ export class EIndustryComponent {
   actualStep = 1
   undefinedAnswers = 0
   keepReading = false
+
   
   questionaryData = [
     {
@@ -72,7 +75,7 @@ export class EIndustryComponent {
   ]
 
   formArray: FormArray<FormControl<any>>
-  formArrayDocuments: FormArray<FormControl<any>>
+  formArrayDocuments: FormArray<FormArray<FormControl<File | null>>>
 
   constructor(
     private fb: FormBuilder,
@@ -81,10 +84,11 @@ export class EIndustryComponent {
     private esgRatingService: EsgRatingService,
     private CompanyService: CompanyService,
     private toastr: ToastrService,
-    private spinnerService: NgxSpinnerService
+    private spinnerService: NgxSpinnerService,
+    private awsService: AwsService 
   ) {
     this.formArray = this.fb.array([])
-    this.formArrayDocuments = this.fb.array([])
+    this.formArrayDocuments = this.fb.array<FormArray<FormControl<File | null>>>([]);
 
     this.questionaryData.forEach((item) => {
       this.formArray.push(new FormControl('', Validators.required))
@@ -134,8 +138,6 @@ export class EIndustryComponent {
           return i.questionNumber.startsWith("E")
         })
 
-        console.log(questionaryAnswers)
-
         if(questionaryAnswers.length) {
           questionaryAnswers.forEach((answer: any, index: number) => {
             this.formArray.at(index).setValue(answer.answer)
@@ -155,28 +157,89 @@ export class EIndustryComponent {
   }
 
   onSubmitStep(step: number) {
-    if(this.formArray.at(step).invalid) return
+    if(this.formArray.at(step).invalid) return;
 
-    this.actualStep = step + 2
-    // this.checkDoesntApply()
+     if(step + 1 === this.questionaryData.length ){
+       this.submitRevision();
+      return;
+    }
+
+    this.actualStep = step + 2;   
+   
   }
 
+  onFileChange(event: Event, indexArrayDocument: number, indexFileInput: number) {
+    const input = event.target as HTMLInputElement;
+    const file = input.files?.[0];
+
+    if (file) {
+      const fileInputArray = this.formArrayDocuments.at(indexArrayDocument) as FormArray;
+      const control = fileInputArray.at(indexFileInput) as FormControl;
+
+      control.setValue(file); 
+    }
+}
+
+
   submitRevision() {
+    this.formArrayDocuments.clear();
+
     this.formArray.controls.forEach((control, index) => {
+      const fileArray = new FormArray<FormControl<File | null>>([]);
+
       if(this.questionaryData[index].documentNeeded && control.value === 'Yes') {
-        this.formArrayDocuments.push(new FormControl('', Validators.required))
+        fileArray.push(new FormControl<File | null>(null, Validators.required));                
       } else {
-        this.formArrayDocuments.push(new FormControl(''))
+        fileArray.push(new FormControl<File | null>(null));        
       }
+
+      this.formArrayDocuments.push(fileArray);
+
     })
     
     this.actualStep = this.actualStep + 1
   }
 
+  addFileInput(index: number) {
+    const fileArray = this.formArrayDocuments.at(index) as FormArray;
+    if (fileArray.length < 5) {
+      fileArray.push(new FormControl<File | null>(null, Validators.required));
+    }
+  }
+
+  removeFileInput(index: number) {
+    const fileArray = this.formArrayDocuments.at(index) as FormArray;
+    if (fileArray.length > 1) {
+      fileArray.removeAt(fileArray.length - 1);
+    }
+  }
+
   submitDocuments() {
-    // if(this.formArrayDocuments.invalid) return
+    if(this.formArrayDocuments.invalid) return
 
     this.finish()
+  }
+
+  
+
+
+  getDocumentsFile(): FormData{
+    const formData = new FormData();
+
+  this.formArrayDocuments.controls.forEach((fileArrayControl, i) => {       
+    
+    const fileInputArray = fileArrayControl as FormArray;
+    
+    (fileInputArray.controls as FormControl[]).forEach((fileInput, j: number) => {      
+      const fileControl = fileInput.value;
+      if (fileControl instanceof File) {    
+        formData.append(this.questionaryData[i].id, fileControl, fileControl.name);
+      }
+    });
+  });
+
+
+  return formData;
   }
 
   finish() {
@@ -186,25 +249,44 @@ export class EIndustryComponent {
     // Se inscreve na resposta do usuário
     modalRef.componentInstance.accepted.subscribe((closed: boolean) => {
       if (closed) {
-        // Enviar forms para o backend
-        const dto = {
-          answers: this.formArray.controls.map((control, index) => {
-            return {
-              esgNumber: this.questionaryData[index].id,
-              answer: control.value,
-            }
-          }),
-        }
+        var documentsControl = this.getDocumentsFile();
 
-        this.esgRatingService.register(dto).subscribe({
-          next: (data) => {
-            this.router.navigate(['/logged/assesment'])
+        let filesDocuments : AwsS3FileInterface[] = [];
+
+       
+        this.awsService.uploadFilesS3(documentsControl).subscribe({
+          next:(data)=>{
+            // Enviar forms para o backend
+                const dto = {
+                answers: this.formArray.controls.map((control, index) => {
+                  return {
+                    esgNumber: this.questionaryData[index].id,
+                    answer: control.value,
+                    documentsPath:this.questionaryData[index].documentNeeded ?
+                    data.filter(item => item.name == this.questionaryData[index].id)
+                    .map(item => item.url) :
+                    null
+                  }
+                }),
+              };
+
+              
+            this.esgRatingService.register(dto).subscribe({
+                next: (data) => {
+                  this.router.navigate(['/logged/assesment'])
+                },
+                error: (err) => {
+                  console.log(err)
+                }
+              });
+              
           },
-          error: (err) => {
-            console.log(err)
+          error:(err) =>{
+            console.log('Error ao fazer o upload')
           }
-        })
-
+        });
+        
+        
       }
     });
   }

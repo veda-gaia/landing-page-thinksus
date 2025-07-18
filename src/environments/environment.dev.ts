@@ -2,6 +2,7 @@ export const environment = {
   production: false,
 
   api: {
+    // path: 'https://thinksus-api.com',
     path: 'http://localhost:6001',
   },
 

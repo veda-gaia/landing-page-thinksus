@@ -15,26 +15,26 @@ import { finalize } from 'rxjs';
 @Component({
   selector: 'app-assesment',
   templateUrl: './assesment.component.html',
-  styleUrls: ['./assesment.component.scss']
+  styleUrls: ['./assesment.component.scss'],
 })
 export class AssesmentComponent {
   @ViewChild('contentModal') contentModal: any;
 
-  form: FormGroup
+  form: FormGroup;
 
-  companySection = 'agro'
-  loading = true
+  companySection = 'agro';
+  loading = true;
 
-  environmentalQuestions = 0
-  socialQuestions = 0
-  governanceQuestions = 0
+  environmentalQuestions = 0;
+  socialQuestions = 0;
+  governanceQuestions = 0;
 
-  environmentalProgress = 0
-  socialProgress = 0
-  governanceProgress = 0
+  environmentalProgress = 0;
+  socialProgress = 0;
+  governanceProgress = 0;
 
-  assesmentId = ''
-  userHasContractedPlan = false
+  assesmentId = '';
+  userHasContractedPlan = false;
 
   constructor(
     private fb: FormBuilder,
@@ -47,139 +47,174 @@ export class AssesmentComponent {
     private translateService: TranslateService,
     private spinnerService: NgxSpinnerService
   ) {
-
     this.form = this.fb.group({
-      title: ['', Validators.required]
-    })
-    this.spinnerService.show()
+      title: ['', Validators.required],
+    });
+    this.spinnerService.show();
 
-    this.CompanyService.getByUser().pipe(
-      finalize(() => {
-        this.spinnerService.hide()
-      })
-    ).subscribe({
-      next: (data) => {
-        if(data.section === 'Agribusiness') {
-          this.environmentalQuestions = 13
-          this.socialQuestions = 15
-          this.governanceQuestions = 14
+    this.CompanyService.getByUser()
+      .pipe(
+        finalize(() => {
+          this.spinnerService.hide();
+        })
+      )
+      .subscribe({
+        next: (data) => {
+          if (data.section === 'Agribusiness') {
+            this.environmentalQuestions = 13;
+            this.socialQuestions = 15;
+            this.governanceQuestions = 14;
 
-          this.companySection = 'agro'
-        }
+            this.companySection = 'agro';
+          }
 
-        if(data.section === 'Industry') {
-          this.environmentalQuestions = 12
-          this.socialQuestions = 15
-          this.governanceQuestions = 14
+          if (data.section === 'Industry') {
+            this.environmentalQuestions = 12;
+            this.socialQuestions = 15;
+            this.governanceQuestions = 14;
 
-          this.companySection = 'industry'
-        }
+            this.companySection = 'industry';
+          }
 
-        if(data.section === 'Services') {
-          this.environmentalQuestions = 13
-          this.socialQuestions = 15
-          this.governanceQuestions = 14
+          if (data.section === 'Services') {
+            this.environmentalQuestions = 13;
+            this.socialQuestions = 15;
+            this.governanceQuestions = 14;
 
-          this.companySection = 'service'
-        }
-        
-        this.handleInfo(data._id, data.section)
-      },
-      error: (err) => {
-        console.log(err)
-      }
-    })
+            this.companySection = 'service';
+          }
+
+          this.handleInfo(data._id, data.section);
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
 
     this.contractedPlanService.checkContractedPlanByUser().subscribe({
       next: (data: boolean) => {
-        this.userHasContractedPlan = data
-      }
-    })
+        this.userHasContractedPlan = data;
+      },
+    });
   }
 
   handleInfo(companyId: string, section: string) {
-    this.spinnerService.show()
-    this.EsgRatingService.list().pipe(
-      finalize(() => {
-        this.spinnerService.hide()
-      })
-    ).subscribe({
-      next: (data) => {
-        // Pega o item que pertence a minha empresa
-        let myCompanyInfo = data.filter(item => {
-          return item?.company?._id === companyId && item?.status === "IN_PROGRESS"
-        })[0]
-        
-        console.log(data)
+    this.spinnerService.show();
+    this.EsgRatingService.list()
+      .pipe(
+        finalize(() => {
+          this.spinnerService.hide();
+        })
+      )
+      .subscribe({
+        next: (data) => {
+          // Pega o item que pertence a minha empresa
+          let myCompanyInfo = data.filter((item) => {
+            return (
+              item?.company?._id === companyId && item?.status === 'IN_PROGRESS'
+            );
+          })[0];
 
-        if(myCompanyInfo) {
-          const environmentalAnswers = myCompanyInfo.answers.filter((i: any) => {
-            return i.questionNumber.startsWith("E")
-          })
-          
-          const socialAnswers = myCompanyInfo.answers.filter((i: any) => {
-            return i.questionNumber.startsWith("S")
-          })
-          
-          const governanceAnswers = myCompanyInfo.answers.filter((i: any) => {
-            return i.questionNumber.startsWith("G")
-          })
+          console.log(data);
 
-          if(environmentalAnswers.length) {
-            this.environmentalProgress = +((environmentalAnswers.length / this.environmentalQuestions) * 100).toFixed(0)
+          if (myCompanyInfo) {
+            const environmentalAnswers = myCompanyInfo.answers.filter(
+              (i: any) => {
+                return i.questionNumber.startsWith('E');
+              }
+            );
+
+            const socialAnswers = myCompanyInfo.answers.filter((i: any) => {
+              return i.questionNumber.startsWith('S');
+            });
+
+            const governanceAnswers = myCompanyInfo.answers.filter((i: any) => {
+              return i.questionNumber.startsWith('G');
+            });
+
+            if (environmentalAnswers.length) {
+              this.environmentalProgress = +(
+                (environmentalAnswers.length / this.environmentalQuestions) *
+                100
+              ).toFixed(0);
+            }
+
+            if (socialAnswers.length) {
+              this.socialProgress = +(
+                (socialAnswers.length / this.socialQuestions) *
+                100
+              ).toFixed(0);
+            }
+
+            if (governanceAnswers.length) {
+              this.governanceProgress = +(
+                (governanceAnswers.length / this.governanceQuestions) *
+                100
+              ).toFixed(0);
+            }
+
+            this.assesmentId = myCompanyInfo._id;
           }
-          
-          if(socialAnswers.length) {
-            this.socialProgress = +((socialAnswers.length / this.socialQuestions) * 100).toFixed(0)
-          }
-          
-          if(governanceAnswers.length) {
-            this.governanceProgress = +((governanceAnswers.length / this.governanceQuestions) * 100).toFixed(0)
-          }
 
-          this.assesmentId = myCompanyInfo._id
-        }
-
-        this.loading = false
-      },
-      error: (err) => {
-        console.log(err)
-      }
-    })
+          this.loading = false;
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
   }
 
   onSubmit() {
-    if(this.form.invalid || !this.assesmentId.length) return
+    if (this.form.invalid || !this.assesmentId.length) return;
 
     const dto: updateStatusDto = {
       status: 'COMPLETED',
-      lang: this.translateService.currentLang
-    }
+      lang: this.translateService.currentLang,
+    };
     const titleDto: any = {
-      title: this.form.controls['title'].value
-    }
-    this.spinnerService.show()
+      title: this.form.controls['title'].value,
+    };
+    this.spinnerService.show();
 
-    this.EsgRatingService.updateStatusById(this.assesmentId, dto).pipe(
-      finalize(() => {
-        this.spinnerService.hide()
-      })
-    ).subscribe({
-      next: (data) => {
-        setTimeout(() => {
-          this.EsgRatingService.updateTitleById(this.assesmentId, titleDto).subscribe({
-            next: (data) => {
-              this.toastr.success('Pontuação gerada com sucesso', 'Sucesso', {progressBar: true});
-      
-                this.router.navigate(['/logged/results'])
-              }
-          })
-        }, 100)
-      },
-      error: (err) => {
-        console.log(err)
-      }
-    })
+    this.EsgRatingService.updateStatusById(this.assesmentId, dto)
+      .pipe(
+        finalize(() => {
+          this.spinnerService.hide();
+        })
+      )
+      .subscribe({
+        next: (data) => {
+          setTimeout(() => {
+            this.EsgRatingService.updateTitleById(
+              this.assesmentId,
+              titleDto
+            ).subscribe({
+              next: (data) => {
+                this.toastr.success('Pontuação gerada com sucesso', 'Sucesso', {
+                  progressBar: true,
+                });
+
+                this.router.navigate(['/logged/home']);
+              },
+            });
+          }, 100);
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
+  }
+
+  getDisabledReason(): string {
+    const reasons = [];
+    if (this.form.invalid) reasons.push('Título não preenchido');
+    if (this.environmentalProgress !== 100)
+      reasons.push(`Ambiental (${this.environmentalProgress}%)`);
+    if (this.socialProgress !== 100)
+      reasons.push(`Social (${this.socialProgress}%)`);
+    if (this.governanceProgress !== 100)
+      reasons.push(`Governança (${this.governanceProgress}%)`);
+    return reasons.join(', ');
   }
 
   navigateToSimulation() {
@@ -187,36 +222,44 @@ export class AssesmentComponent {
   }
 
   verifyPossibility(symbol: string) {
-    this.spinnerService.show()
+    this.spinnerService.show();
 
-    this.contractedPlanService.getByUser().pipe(
-      finalize(() => {
-        this.spinnerService.hide()
-      })
-    ).subscribe({
-      next: data => {
-        if(!data.verify) {
-          this.modalService.open(ScoreWarningComponent, {centered: true, size: 'sm'})
-        } else {
-          this.router.navigate(['/logged/assesment/' + symbol + '-' + this.companySection])
-        }
-      },
-      error: error => {
-        if(error.error.errors.includes('Contrate um plano')) {
-          this.toastr.warning('Contrate um plano antes de iniciar avaliação!', 'Atenção', {progressBar: true})
-          this.router.navigate(['/logged/plans'])
-        }
-      }
-    })
+    this.contractedPlanService
+      .getByUser()
+      .pipe(
+        finalize(() => {
+          this.spinnerService.hide();
+        })
+      )
+      .subscribe({
+        next: (data) => {
+          if (!data.verify) {
+            this.modalService.open(ScoreWarningComponent, {
+              centered: true,
+              size: 'sm',
+            });
+          } else {
+            this.router.navigate([
+              '/logged/assesment/' + symbol + '-' + this.companySection,
+            ]);
+          }
+        },
+        error: (error) => {
+          if (error.error.errors.includes('Contrate um plano')) {
+            this.toastr.warning(
+              'Contrate um plano antes de iniciar avaliação!',
+              'Atenção',
+              { progressBar: true }
+            );
+            this.router.navigate(['/logged/plans']);
+          }
+        },
+      });
   }
 
   close() {
     this.modalService.dismissAll();
   }
 
-  getSymbolCompanySection() {
-
-
-  }
-
+  getSymbolCompanySection() {}
 }

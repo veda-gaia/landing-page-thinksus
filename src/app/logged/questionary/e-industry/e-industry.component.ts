@@ -168,16 +168,21 @@ export class EIndustryComponent {
    
   }
 
-  onFileChange(event: Event, indexArrayDocument: number, indexFileInput: number) {
-    const input = event.target as HTMLInputElement;
-    const file = input.files?.[0];
+  onFilesSelected(event: Event, index: number): void {
+  const input = event.target as HTMLInputElement;
+  const files = Array.from(input.files ?? []);
+  const fileArray = this.formArrayDocuments.at(index) as FormArray;
 
-    if (file) {
-      const fileInputArray = this.formArrayDocuments.at(indexArrayDocument) as FormArray;
-      const control = fileInputArray.at(indexFileInput) as FormControl;
+  files.slice(0, 5 - fileArray.length).forEach(file =>
+    fileArray.push(new FormControl<File>(file))
+  );
 
-      control.setValue(file); 
-    }
+  input.value = ''; // limpa o input
+}
+
+removeFile(questionIndex: number, fileIndex: number): void {
+  const fileArray = this.formArrayDocuments.at(questionIndex) as FormArray;
+  fileArray.removeAt(fileIndex);
 }
 
 
@@ -198,20 +203,6 @@ export class EIndustryComponent {
     })
     
     this.actualStep = this.actualStep + 1
-  }
-
-  addFileInput(index: number) {
-    const fileArray = this.formArrayDocuments.at(index) as FormArray;
-    if (fileArray.length < 5) {
-      fileArray.push(new FormControl<File | null>(null, Validators.required));
-    }
-  }
-
-  removeFileInput(index: number) {
-    const fileArray = this.formArrayDocuments.at(index) as FormArray;
-    if (fileArray.length > 1) {
-      fileArray.removeAt(fileArray.length - 1);
-    }
   }
 
   submitDocuments() {

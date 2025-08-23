@@ -307,7 +307,7 @@
 
           <button
             type="button"
-            class="btn btn-outline-success d-flex align-items-center gap-2"
+            class="secondary-brand-btn d-flex align-items-center gap-2 mb-2"
             (click)="fileInput.click()"
             [disabled]="control.controls.length >= 5"
           >
@@ -318,15 +318,14 @@
           <div class="files-container">
             <div
               *ngFor="let fileCtrl of control.controls; let j = index"
-              class="darker-card-logged w-100 p-3 p-xl-4 d-flex flex-column flex-xl-row align-items-start align-items-xl-center justify-content-between gap-4"
+              class="card-logged w-100 p-1 p-xl-2 mt-2 d-flex flex-column flex-xl-row align-items-start align-items-xl-center justify-content-between gap-4"
             >
               <span class="ds-file-name">{{ fileCtrl.value?.name }}</span>
               <button
                 type="button"
-        class="brand-outline-btn bg-transparent x-lg-5 d-block"
+                class="btn-remove-file"
                 (click)="removeFile(indexArrayDocuments, j)"
-              >
-                <i class="fa fa-times"></i>
+                >
               </button>
             </div>
           </div>

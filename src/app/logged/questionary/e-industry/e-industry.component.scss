@@ -49,3 +49,22 @@
   color: #1e7e34;
   border-color: #1e7e34;
 }
+
+.files-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-spacing-xs);
+}
+
+.ds-file-box {
+  @extend .ds-card !optional;                 // ou o componente-box do DS
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--ds-spacing-xs);
+}
+
+.ds-icon-btn {
+  @extend .ds-btn-icon;             // botão/ícone de fechar do DS
+}
+

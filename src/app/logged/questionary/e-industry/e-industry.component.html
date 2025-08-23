@@ -315,18 +315,20 @@
             {{ "QUESTIONARY.ADD_FILE" | translate }}
           </button>
 
-          <div
-            *ngFor="let fileCtrl of control.controls; let j = index"
-            class="file-box"
-          >
-            <span>{{ fileCtrl.value?.name }}</span>
-            <button
-              type="button"
-              class="remove-btn"
-              (click)="removeFile(indexArrayDocuments, j)"
+          <div class="files-container">
+            <div
+              *ngFor="let fileCtrl of control.controls; let j = index"
+              class="ds-file-box"
             >
-              ×
-            </button>
+              <span class="ds-file-name">{{ fileCtrl.value?.name }}</span>
+              <button
+                type="button"
+                class="ds-icon-btn"
+                (click)="removeFile(indexArrayDocuments, j)"
+              >
+                <i class="fa fa-times"></i>
+              </button>
+            </div>
           </div>
         </div>
       </li>

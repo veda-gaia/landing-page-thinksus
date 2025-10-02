@@ -1,80 +1,88 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { AddSupplierModalComponent } from '../add-supplier-modal/add-supplier-modal.component';
+import { UserService } from 'src/app/services/user.service';
+
+export interface Supplier {
+  name: string;
+  buyValue: number;
+  //currency: string;
+  esgScore: number;
+  document: string;
+}
 
 @Component({
   selector: 'app-suppliers',
   templateUrl: './suppliers.component.html',
-  styleUrls: ['./suppliers.component.scss']
+  styleUrls: ['./suppliers.component.scss'],
 })
-export class SuppliersComponent {
-  form: FormGroup
-  list: any[] = []
-  filteredList: any[] = []
+export class SuppliersComponent implements OnInit {
+  form: FormGroup;
+  displayedColumns: string[] = [
+    'seal',
+    'name',
+    'buyValue',
+    'esgScore',
+    'document',
+    'actions',
+  ];
+  dataSource = new MatTableDataSource<Supplier>([]);
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(
     private fb: FormBuilder,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private userService: UserService
   ) {
     this.form = fb.group({
       search: [''],
       orderBy: [''],
-    })
+    });
+  }
 
-    this.loadList()
+  ngOnInit(): void {
+    this.loadList();
   }
 
   loadList() {
-    this.list = [
-      {
-        name: 'Matéria prima - Produção',
-        buyValue: 550000,
-        currency: 'USD',
-        esgScore: 51,
-        document: '000000000000'
+    this.userService.listUserSuppliers().subscribe({
+      next: (data) => {
+        this.dataSource = new MatTableDataSource<any>(data);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
       },
-      {
-        name: 'Material de Consumo',
-        buyValue: 150000,
-        currency: 'BRL',
-        esgScore: 54.3,
-        document: '11111111111'
-      },
-      {
-        name: 'Serviços Operacionais',
-        buyValue: 1000000,
-        currency: 'BRL',
-        esgScore: 65.3,
-        document: '22222222222'
-      },
-      {
-        name: 'Energia e Recursos',
-        buyValue: 135000,
-        currency: 'BRL',
-        esgScore: 81.3,
-        document: '33333333333'
-      },
-      {
-        name: 'Frete e serviços externos',
-        buyValue: 65000,
-        currency: 'BRL',
-        esgScore: 55.7,
-        document: '444.444.444/44'
-      },
-    ]
-    this.filteredList = this.list
+    });
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   openAddSupplier() {
-    // Abre o modal do formulário
-    const modalRef = this.modalService.open(AddSupplierModalComponent, {centered: true});
-
-    // Se inscreve no status do modal
+    const modalRef = this.modalService.open(AddSupplierModalComponent, {
+      centered: true,
+    });
     modalRef.componentInstance.submitted.subscribe((closed: boolean) => {
       if (closed) {
-        // Reload da lista
-        this.loadList()
+        this.loadList();
+      }
+    });
+  }
+
+  openUserEditModal(userSupplerId: string): void {
+    const dialogUser = this.modalService.open(AddSupplierModalComponent);
+    dialogUser.componentInstance.userSupplerId = userSupplerId;
+    dialogUser.result.then((result) => {
+      console.log('openUserEditModal' + result);
+      if (result === 'updated') {
+        this.loadList();
       }
     });
   }

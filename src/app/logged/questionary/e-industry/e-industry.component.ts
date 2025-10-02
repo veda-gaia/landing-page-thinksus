@@ -37,43 +37,43 @@ export class EIndustryComponent {
       id: 'E4',
     },
     {
-      documentNeeded: true,
+      documentNeeded: false,
       id: 'E5',
     },
     {
-      documentNeeded: true,
+      documentNeeded: false,
       id: 'E6',
     },
     {
-      documentNeeded: true,
+      documentNeeded: false,
       id: 'E7',
     },
     {
-      documentNeeded: true,
+      documentNeeded: false,
       id: 'E8',
     },
     {
-      documentNeeded: true,
+      documentNeeded: false,
       id: 'E9',
     },
     {
-      documentNeeded: true,
+      documentNeeded: false,
       id: 'E10',
     },
     {
-      documentNeeded: true,
+      documentNeeded: false,
       id: 'E11',
     },
     {
-      documentNeeded: true,
+      documentNeeded: false,
       id: 'E13',
     },
     {
-      documentNeeded: true,
+      documentNeeded: false,
       id: 'E14',
     },
     {
-      documentNeeded: true,
+      documentNeeded: false,
       id: 'E15',
     },
   ];
@@ -182,21 +182,22 @@ export class EIndustryComponent {
     this.actualStep = step + 2;
   }
 
-  onFilesSelected(event: Event, index: number): void {
+  onFileChange(
+    event: Event,
+    indexArrayDocument: number,
+    indexFileInput: number
+  ) {
     const input = event.target as HTMLInputElement;
-    const files = Array.from(input.files ?? []);
-    const fileArray = this.formArrayDocuments.at(index) as FormArray;
+    const file = input.files?.[0];
 
-    files
-      .slice(0, 5 - fileArray.length)
-      .forEach((file) => fileArray.push(new FormControl<File>(file)));
+    if (file) {
+      const fileInputArray = this.formArrayDocuments.at(
+        indexArrayDocument
+      ) as FormArray;
+      const control = fileInputArray.at(indexFileInput) as FormControl;
 
-    input.value = ''; // limpa o input
-  }
-
-  removeFile(questionIndex: number, fileIndex: number): void {
-    const fileArray = this.formArrayDocuments.at(questionIndex) as FormArray;
-    fileArray.removeAt(fileIndex);
+      control.setValue(file);
+    }
   }
 
   submitRevision() {
@@ -209,13 +210,29 @@ export class EIndustryComponent {
         this.questionaryData[index].documentNeeded &&
         control.value === 'Yes'
       ) {
-        fileArray.setValidators(Validators.required);
+        fileArray.push(new FormControl<File | null>(null, Validators.required));
+      } else {
+        fileArray.push(new FormControl<File | null>(null));
       }
 
       this.formArrayDocuments.push(fileArray);
     });
 
     this.actualStep = this.actualStep + 1;
+  }
+
+  addFileInput(index: number) {
+    const fileArray = this.formArrayDocuments.at(index) as FormArray;
+    if (fileArray.length < 5) {
+      fileArray.push(new FormControl<File | null>(null, Validators.required));
+    }
+  }
+
+  removeFileInput(index: number) {
+    const fileArray = this.formArrayDocuments.at(index) as FormArray;
+    if (fileArray.length > 1) {
+      fileArray.removeAt(fileArray.length - 1);
+    }
   }
 
   submitDocuments() {

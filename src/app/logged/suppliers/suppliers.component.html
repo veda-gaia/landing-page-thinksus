@@ -1,79 +1,151 @@
 <section class="w-100">
-    <div class="row pb-4 pt-4">
-        <div class="col d-flex flex-column flex-md-row align-item-center justify-content-between gap-3 pb-4">
-            <h3 class="alpha-800-text f-size-1-5rem fw-800">
-                {{ "SUPPLIERS.LIST_TITLE" | translate }}
-            </h3>
+  <div class="row pb-4 pt-4">
+    <div
+      class="col d-flex flex-column flex-md-row align-item-center justify-content-between gap-3 pb-4"
+    >
+      <h3 class="alpha-800-text f-size-1-5rem fw-800">
+        {{ "SUPPLIERS.LIST_TITLE" | translate }}
+      </h3>
 
-            <button class="brand-btn px-3" (click)="openAddSupplier()">
-                {{ "SUPPLIERS.ADD_SUPPLIER" | translate }}
-            </button>
-        </div>
+      <button class="brand-btn px-3" (click)="openAddSupplier()">
+        {{ "SUPPLIERS.ADD_SUPPLIER" | translate }}
+      </button>
     </div>
+  </div>
 
-    <div class="row pb-4">
-        <form [formGroup]="form" class="col pb-4 d-flex flex-column flex-sm-row align-item-center justify-content-between gap-3">
-            <div class="input-container" style="max-height: 53px;">
-                <input type="text" class="white-bg" formControlName="search" placeholder="{{ 'SUPPLIERS.SEARCH' | translate }}" name="search" id="search">
-                <img src="/assets/icon/search.svg" class="input-icon" alt="Pesquisar" width="20px">
-            </div>
+  <div class="row">
+    <div class="col">
+      <div class="w-100 pb-2 mat-elevation-z8">
+        <table
+          mat-table
+          [dataSource]="dataSource"
+          matSort
+          class="mat-table-custom white-bg border-radius-10 pt-2 w-100"
+        >
+          <!-- Seal -->
+          <ng-container matColumnDef="seal">
+            <th mat-header-cell *matHeaderCellDef>
+              {{ "SUPPLIERS.SEAL" | translate }}
+            </th>
+            <td mat-cell *matCellDef="let item">
+              <img
+                *ngIf="
+                  item.esgRatings?.length == 0 || item.esgRatings.esgScore <= 35
+                "
+                src="/assets/icon/none-seal.svg"
+                alt="Sem Selo"
+                title="Sem Selo"
+                width="20px"
+              />
+              <img
+                *ngIf="
+                  item.esgRatings.esgScore > 35 &&
+                  item.esgRatings.esgScore <= 60
+                "
+                src="/assets/icon/seal-bronze.svg"
+                alt="Selo de Bronze"
+                title="Selo de Bronze"
+                width="20px"
+              />
+              <img
+                *ngIf="
+                  item.esgRatings.esgScore > 60 &&
+                  item.esgRatings.esgScore <= 80
+                "
+                src="/assets/icon/seal-silver.svg"
+                alt="Selo de Prata"
+                title="Selo de Prata"
+                width="20px"
+              />
+              <img
+                *ngIf="item.esgRatings.esgScore > 80"
+                src="/assets/icon/seal-gold.svg"
+                alt="Selo de Ouro"
+                title="Selo de Ouro"
+                width="20px"
+              />
+            </td>
+          </ng-container>
 
-            <select name="orderBy" id="orderBy" formControlName="orderBy" class="d-block white-bg">
-                <option value="" disabled>{{ "SUPPLIERS.ORDER_BY" | translate }}</option>
-                <option value="seal">{{ "SUPPLIERS.SEAL" | translate }}</option>
-                <option value="alphabetical">{{ "SUPPLIERS.LETTER_ORDER" | translate }}</option>
-            </select>
-        </form>
+          <!-- Supplier -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              {{ "SUPPLIERS.SUPPLIER" | translate }}
+            </th>
+            <td mat-cell *matCellDef="let item">{{ item.company.company }}</td>
+          </ng-container>
+
+          <!-- Buy Value -->
+          <ng-container matColumnDef="buyValue">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              {{ "SUPPLIERS.BUY_VALUE" | translate }}
+            </th>
+            <td mat-cell *matCellDef="let item">
+              {{ item.company.revenue | companyRevenue | translate }}
+            </td>
+          </ng-container>
+
+          <!-- ESG Score -->
+          <ng-container matColumnDef="esgScore">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              {{ "SUPPLIERS.SCORE" | translate }}
+            </th>
+            <td
+              mat-cell
+              *matCellDef="let item"
+              class="fw-700"
+              [class.brand-text-clear]="item.esgRatings?.[0]?.esgScore > 50"
+              [class.yellow-500-text]="
+                item.esgRatings?.[0]?.esgScore <= 50 && item.esgRatings?.[0]?.esgScore >= 30
+              "
+              [class.danger-text]="item.esgRatings?.[0]?.esgScore <= 30"
+            >
+              {{ item.esgRatings?.[0]?.esgScore }}
+            </td>
+          </ng-container>
+
+          <!-- CNPJ -->
+          <ng-container matColumnDef="document">
+            <th mat-header-cell *matHeaderCellDef>
+              {{ "SUPPLIERS.CNPJ" | translate }}
+            </th>
+            <td mat-cell *matCellDef="let item">
+              {{ item.company.cnpj | cnpj }}
+            </td>
+          </ng-container>
+
+          <!-- Actions -->
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>
+              {{ "SUPPLIERS.ACTIONS" | translate }}
+            </th>
+            <td mat-cell *matCellDef="let item">
+              <button
+                mat-icon-button
+                (click)="openUserEditModal(item.company._id)"
+              >
+                <mat-icon>edit</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <!-- Header and Rows -->
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+
+        <mat-paginator
+          [pageSizeOptions]="[5, 10, 20]"
+          showFirstLastButtons
+        ></mat-paginator>
+      </div>
+
+      <p
+        *ngIf="!dataSource.data.length"
+        class="w-100 text-center py-4 py-xl-5 color-app-300 font-s-09rem d-flex align-items-center justify-content-center gap-2"
+      >
+        {{ "SUPPLIERS.NO_RESULTS" | translate }}
+      </p>
     </div>
-
-    <div class="row">
-        <div class="col">
-            <div class="w-100 pb-2">
-                <div class="table-container-real">
-                    <table class="white-bg border-radius-10 pt-2">
-                        <tr class="header-row-tr">
-                            <th>{{ "SUPPLIERS.SEAL" | translate }}</th>
-                            <th>{{ "SUPPLIERS.SUPPLIER" | translate }}</th>
-                            <th>{{ "SUPPLIERS.BUY_VALUE" | translate }}</th>
-                            <th>{{ "SUPPLIERS.SCORE" | translate }}</th>
-                            <th>{{ "SUPPLIERS.CNPJ" | translate }}</th>
-                            <th>{{ "SUPPLIERS.ACTIONS" | translate }}</th>
-                        </tr>
-                        <tr *ngFor="let item of filteredList" class="body-row-tr">
-                            <td class="">
-                                <img *ngIf="item.esgScore <= 35" src="/assets/icon/none-seal.svg" alt="Sem Selo" title="Sem Selo" width="20px">
-                                <img *ngIf="item.esgScore > 35 && item.esgScore <= 60" src="/assets/icon/seal-bronze.svg" alt="Selo de Bronze" title="Selo de Bronze" width="20px">
-                                <img *ngIf="item.esgScore > 60 && item.esgScore <= 80" src="/assets/icon/seal-silver.svg" alt="Selo de Prata" title="Selo de Prata" width="20px">
-                                <img *ngIf="item.esgScore > 80" src="/assets/icon/seal-gold.svg" alt="Selo de Ouro" title="Selo de Ouro" width="20px">
-                            </td>
-                            <td class="">
-                                {{ item.name }}
-                            </td>
-                            <td class="">
-                                {{ item.buyValue }}
-                            </td>
-                            <td class="fw-700" [class.brand-text-clear]="item.esgScore > 50" [class.yellow-500-text]="item.esgScore <= 50 && item.esgScore >= 30" [class.danger-text]="item.esgScore <= 30">
-                                {{ item.esgScore }}
-                            </td>
-                            <td class="">
-                                {{ item.document }}
-                            </td>
-                            <td class="">
-                                <button class="bg-transparent border-0 shadow-none p-2" title="Detalhes">
-                                    <img src="/assets/icon/info.svg" width="20px" alt="Detalhes">
-                                </button>
-                                <button class="bg-transparent border-0 shadow-none p-2" title="Minus">
-                                    <img src="/assets/icon/minus.svg" width="20px" alt="Minus">
-                                </button>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-
-                <p *ngIf="!filteredList.length" class="w-100 text-center py-4 py-xl-5 color-app-300 font-s-09rem d-flex align-items-center justify-content-center gap-2">
-                    {{ "SUPPLIERS.NO_RESULTS" | translate }}
-                </p>
-            </div>
-        </div>
-    </div>
+  </div>
 </section>

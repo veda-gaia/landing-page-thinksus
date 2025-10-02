@@ -1,15 +1,16 @@
-import { CompanyEmployeesEnum } from "src/app/enums/company-employees.enum";
-import { CompanyRevenueEnum } from "src/app/enums/company-revenue.enum";
-import { CompanySectionEnum } from "src/app/enums/company-section.enum";
-import { CompanySegmentEnum } from "src/app/enums/company-segment.enum";
+import { CompanyEmployeesEnum } from 'src/app/enums/company-employees.enum';
+import { CompanyRevenueEnum } from 'src/app/enums/company-revenue.enum';
+import { CompanySectionEnum } from 'src/app/enums/company-section.enum';
+import { CompanySegmentEnum } from 'src/app/enums/company-segment.enum';
 
 export interface UserRegisterRequestDto {
   user: UserRegisterDto;
   company: CompanyRegisterDto;
-  lang: string
+  lang: string;
 }
 
 interface UserRegisterDto {
+  id: string;
   name: string;
   email: string;
   password: string;
@@ -24,7 +25,7 @@ interface CompanyRegisterDto {
   segment: CompanySegmentEnum;
   section: CompanySectionEnum;
   numberEmployees: CompanyEmployeesEnum;
-  revenue?: CompanyRevenueEnum
+  revenue?: CompanyRevenueEnum;
 }
 
 interface CompanyAdressRegisterRequestDto {

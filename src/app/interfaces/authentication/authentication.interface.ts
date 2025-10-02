@@ -3,6 +3,7 @@ export default interface AuthorizationInterface {
   name: string;
   id: string;
   token: string;
+  positionRole?: string;
 }
 
 export interface LoginInterface {

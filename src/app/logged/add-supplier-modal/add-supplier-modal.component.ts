@@ -2,6 +2,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { finalize } from 'rxjs';
 import { CompanyRevenueEnum } from 'src/app/enums/company-revenue.enum';
 import { UserSupplierRegisterDto } from 'src/app/interfaces/user/user-supplier-register-request.dto';
 import { CompanyService } from 'src/app/services/company.service';
@@ -25,7 +27,8 @@ export class AddSupplierModalComponent implements OnInit {
     private fb: FormBuilder,
     private userService: UserService,
     private translateService: TranslateService,
-    private companyService: CompanyService
+    private companyService: CompanyService,
+    private spinnerService: NgxSpinnerService
   ) {
     this.form = this.fb.group({
       id: [null],
@@ -40,21 +43,29 @@ export class AddSupplierModalComponent implements OnInit {
     this.selectedLanguage = this.translateService.currentLang;
 
     if (this.userSupplerId) {
-      this.companyService.getById(this.userSupplerId).subscribe({
-        next: (company) => {
-          this.form.patchValue({
-            id: company._id,
-            name: company.user.name,
-            document: company.cnpj,
-            email: company.user.email,
-            buyValue: company.revenue,
-          });
-        },
-        error: (err) => {
-          alert('Erro ao carregar os dados do usuário.');
-          this.modalService.close('updated');
-        },
-      });
+      this.spinnerService.show();
+      this.companyService
+        .getById(this.userSupplerId)
+        .pipe(
+          finalize(() => {
+            this.spinnerService.hide();
+          })
+        )
+        .subscribe({
+          next: (company) => {
+            this.form.patchValue({
+              id: company._id,
+              name: company.user.name,
+              document: company.cnpj,
+              email: company.user.email,
+              buyValue: company.buyValue,
+            });
+          },
+          error: (err) => {
+            alert('Erro ao carregar os dados do usuário.');
+            this.modalService.close('updated');
+          },
+        });
     }
   }
 
@@ -68,17 +79,24 @@ export class AddSupplierModalComponent implements OnInit {
       cnpj: formValue.document,
       name: formValue.name,
       email: formValue.email,
-      revenue: formValue.buyValue,
+      buyValue: formValue.buyValue,
     };
 
     if (dto.companyId == null) {
-      this.userService.registerSupplier(dto).subscribe({
-        next: () => this.modalService.close('updated'),
-        error: (err) => {
-          console.error('Erro ao registrar supplier', err);
-          this.modalService.close('error');
-        },
-      });
+      this.userService
+        .registerSupplier(dto)
+        .pipe(
+          finalize(() => {
+            this.spinnerService.hide();
+          })
+        )
+        .subscribe({
+          next: () => this.modalService.close('updated'),
+          error: (err) => {
+            console.error('Erro ao registrar supplier', err);
+            this.modalService.close('error');
+          },
+        });
     } else {
       this.userService.updateUserSupplier(dto.companyId, dto).subscribe({
         next: () => this.modalService.close('updated'),

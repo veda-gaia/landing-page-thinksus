@@ -292,43 +292,41 @@
           >
         </p>
 
-        <div *ngIf="questionaryData[indexArrayDocuments].documentNeeded">
-          <div class="d-flex gap-2 mb-3 align-items-center">
-            <button
-              type="button"
-              class="btn btn-outline-success d-flex align-items-center gap-2"
-              (click)="addFileInput(indexArrayDocuments)"
-              [disabled]="control.controls.length >= 5"
-            >
-              <i class="fa fa-plus-circle"></i>
+        <div
+          *ngIf="
+            formArray.controls[indexArrayDocuments].value === 'Yes' &&
+            questionaryData[indexArrayDocuments].documentNeeded
+          "
+        >
+          <input
+            type="file"
+            #fileInput
+            hidden
+            (change)="onFilesSelected($event, indexArrayDocuments)"
+          />
 
-              {{ "QUESTIONARY.ADD_FILE" | translate }}
-            </button>
-
-            <button
-              type="button"
-              class="btn btn-outline-danger d-flex align-items-center gap-2"
-              (click)="removeFileInput(indexArrayDocuments)"
-              *ngIf="control.controls.length > 1"
-            >
-              <i class="fa fa-trash-alt"></i>
-
-              {{ "QUESTIONARY.REMOVE_FILE" | translate }}
-            </button>
-          </div>
-
-          <div
-            *ngFor="let fileControl of control.controls; let j = index"
-            class="d-flex align-items-center justify-content-start gap-2 pb-3"
+          <button
+            type="button"
+            class="secondary-brand-btn d-flex align-items-center gap-2 mb-2"
+            (click)="fileInput.click()"
+            [disabled]="control.controls.length >= 5"
           >
-            <input
-              type="file"
-              class="w-100 custom-file-input"
-              title=""
-              [id]="questionaryData[indexArrayDocuments].id + '_' + j"
-              [name]="questionaryData[indexArrayDocuments].id + '_' + j"
-              (change)="onFileChange($event, indexArrayDocuments, j)"
-            />
+            <i class="fa fa-plus-circle"></i>
+            {{ "QUESTIONARY.ADD_FILE" | translate }}
+          </button>
+
+          <div class="files-container">
+            <div
+              *ngFor="let fileCtrl of control.controls; let j = index"
+              class="card-logged w-100 p-1 p-xl-2 mt-2 d-flex flex-column flex-xl-row align-items-start align-items-xl-center justify-content-between gap-4"
+            >
+              <span class="ds-file-name">{{ fileCtrl.value?.name }}</span>
+              <button
+                type="button"
+                class="btn-remove-file"
+                (click)="removeFile(indexArrayDocuments, j)"
+              ></button>
+            </div>
           </div>
         </div>
       </li>

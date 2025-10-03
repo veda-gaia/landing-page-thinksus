@@ -27,6 +27,7 @@ import { AwsService } from './services/aws.service';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatIconModule } from '@angular/material/icon';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -55,6 +56,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatIconModule,
   ],
   providers: [
     provideEnvironmentNgxMask(),

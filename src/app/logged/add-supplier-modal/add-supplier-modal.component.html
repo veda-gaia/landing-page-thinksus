@@ -60,27 +60,21 @@
       <label for="buyValue" class="pb-2 fw-600 f-size-1rem l-spacing-1-68">{{
         "ADD_SUPPLIER.BUY_VALUE" | translate
       }}</label>
-      <select
-        *ngIf="selectedLanguage === 'pt'"
-        name="invoicing"
-        id="invoicing"
+      <input
+        type="tel"
+        currencyMask
+        [options]="{
+          prefix: 'R$ ',
+          thousands: '.',
+          decimal: ',',
+          align: 'left'
+        }"
+        class="w-100 mb-4"
         formControlName="buyValue"
-        class="d-block mb-4"
-      >
-        <option value="" disabled>{{ "REGISTER.SELECT" | translate }}</option>
-        <option [value]="CompanyRevenueEnum.under_360k">
-          {{ "REGISTER.BRL_INVOICING_1" | translate }}
-        </option>
-        <option [value]="CompanyRevenueEnum.between_360k_4_8M">
-          {{ "REGISTER.BRL_INVOICING_2" | translate }}
-        </option>
-        <option [value]="CompanyRevenueEnum.between_4_8M_20M">
-          {{ "REGISTER.BRL_INVOICING_3" | translate }}
-        </option>
-        <option [value]="CompanyRevenueEnum.above_20M">
-          {{ "REGISTER.BRL_INVOICING_4" | translate }}
-        </option>
-      </select>
+        autocomplete="off"
+        id="buyValue"
+        name="buyValue"
+      />
 
       <select
         *ngIf="selectedLanguage !== 'pt'"

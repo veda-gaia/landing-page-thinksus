@@ -6,6 +6,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { AddSupplierModalComponent } from '../add-supplier-modal/add-supplier-modal.component';
 import { UserService } from 'src/app/services/user.service';
+import { finalize } from 'rxjs';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 export interface Supplier {
   name: string;
@@ -38,7 +40,8 @@ export class SuppliersComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private modalService: NgbModal,
-    private userService: UserService
+    private userService: UserService,
+    private spinnerService: NgxSpinnerService
   ) {
     this.form = fb.group({
       search: [''],
@@ -51,13 +54,21 @@ export class SuppliersComponent implements OnInit {
   }
 
   loadList() {
-    this.userService.listUserSuppliers().subscribe({
-      next: (data) => {
-        this.dataSource = new MatTableDataSource<any>(data);
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
-      },
-    });
+    this.spinnerService.show();
+    this.userService
+      .listUserSuppliers()
+      .pipe(
+        finalize(() => {
+          this.spinnerService.hide();
+        })
+      )
+      .subscribe({
+        next: (data) => {
+          this.dataSource = new MatTableDataSource<any>(data);
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+        },
+      });
   }
 
   applyFilter(event: Event) {

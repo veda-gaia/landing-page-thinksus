@@ -82,7 +82,7 @@
             {{ "SIDEBAR.ODS" | translate }}
           </a>
         </li>
-        <li class="w-100">
+        <li class="w-100" *ngIf="isContractedPlan">
           <a
             class="nav-link-btn"
             routerLink="/logged/control-panel"
@@ -92,7 +92,7 @@
             {{ "SIDEBAR.CONTROL_PANEL" | translate }}
           </a>
         </li>
-        <li class="w-100">
+        <li class="w-100" *ngIf="isContractedPlan">
           <a
             class="nav-link-btn"
             routerLink="/logged/suppliers"

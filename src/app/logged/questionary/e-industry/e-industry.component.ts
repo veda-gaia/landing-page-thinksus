@@ -30,7 +30,7 @@ export class EIndustryComponent {
   questionaryData = [
     {
       documentNeeded: true,
-      id: 'E3',
+      id: 'E31',
     },
     {
       documentNeeded: true,
@@ -182,22 +182,17 @@ export class EIndustryComponent {
     this.actualStep = step + 2;
   }
 
-  onFileChange(
-    event: Event,
-    indexArrayDocument: number,
-    indexFileInput: number
-  ) {
+  onFilesSelected(event: Event, index: number): void {
     const input = event.target as HTMLInputElement;
     const file = input.files?.[0];
+    const files = Array.from(input.files ?? []);
+    const fileArray = this.formArrayDocuments.at(index) as FormArray;
 
-    if (file) {
-      const fileInputArray = this.formArrayDocuments.at(
-        indexArrayDocument
-      ) as FormArray;
-      const control = fileInputArray.at(indexFileInput) as FormControl;
+    files
+      .slice(0, 5 - fileArray.length)
+      .forEach((file) => fileArray.push(new FormControl<File>(file)));
 
-      control.setValue(file);
-    }
+    input.value = '';
   }
 
   submitRevision() {
@@ -228,11 +223,9 @@ export class EIndustryComponent {
     }
   }
 
-  removeFileInput(index: number) {
-    const fileArray = this.formArrayDocuments.at(index) as FormArray;
-    if (fileArray.length > 1) {
-      fileArray.removeAt(fileArray.length - 1);
-    }
+  removeFile(questionIndex: number, fileIndex: number): void {
+    const fileArray = this.formArrayDocuments.at(questionIndex) as FormArray;
+    fileArray.removeAt(fileIndex);
   }
 
   submitDocuments() {

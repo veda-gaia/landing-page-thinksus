@@ -59,7 +59,7 @@ export class LoginComponent {
         next: (data) => {
           this.authService.setAuthUser(data);
 
-          if (data.positionRole?.toUpperCase() == 'SUPPLIER') {
+          if (data.isSupplier && !data.isCompletedRegister) {
             this.router.navigate(['/register'], {
               queryParams: { id: data.id },
             });

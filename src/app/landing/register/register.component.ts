@@ -174,10 +174,6 @@ export class RegisterComponent implements OnInit {
             enterpriseName: company.company,
           });
 
-          this.form3.patchValue({
-            invoicing: company.revenue,
-          });
-
           if (company.user._id) {
             this.form1.get('email')?.disable();
           } else {

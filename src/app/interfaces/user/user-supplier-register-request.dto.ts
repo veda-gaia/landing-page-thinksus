@@ -3,5 +3,5 @@ export interface UserSupplierRegisterDto {
   name: string;
   email: string;
   cnpj: string;
-  revenue: string;
+  buyValue: number;
 }

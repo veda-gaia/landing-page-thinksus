@@ -3,7 +3,8 @@ export default interface AuthorizationInterface {
   name: string;
   id: string;
   token: string;
-  positionRole?: string;
+  isSupplier?: boolean;
+  isCompletedRegister: boolean;
 }
 
 export interface LoginInterface {

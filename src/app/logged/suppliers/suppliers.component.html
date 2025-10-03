@@ -81,7 +81,10 @@
               {{ "SUPPLIERS.BUY_VALUE" | translate }}
             </th>
             <td mat-cell *matCellDef="let item">
-              {{ item.company.revenue | companyRevenue | translate }}
+              {{
+                item.company.buyValue
+                  | currency : "BRL" : "symbol" : "1.2-2" : "pt-BR"
+              }}
             </td>
           </ng-container>
 
@@ -100,7 +103,7 @@
               "
               [class.danger-text]="item.esgRatings?.[0]?.esgScore <= 30"
             >
-              {{ item.esgRatings?.[0]?.esgScore }}
+              {{ item.esgRatings?.[0]?.esgScore | number:'1.2-2' }}
             </td>
           </ng-container>
 

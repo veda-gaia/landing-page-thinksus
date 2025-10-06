@@ -55,7 +55,7 @@ export class AddSupplierModalComponent implements OnInit {
           next: (company) => {
             this.form.patchValue({
               id: company._id,
-              name: company.user.name,
+              name: company.company,
               document: company.cnpj,
               email: company.user.email,
               buyValue: company.buyValue,

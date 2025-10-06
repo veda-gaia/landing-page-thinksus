@@ -30,7 +30,8 @@
             <td mat-cell *matCellDef="let item">
               <img
                 *ngIf="
-                  item.esgRatings?.length == 0 || item.esgRatings.esgScore <= 35
+                  item.esgRatings?.length == 0 ||
+                  item.esgRatings?.esgScore <= 35
                 "
                 src="/assets/icon/none-seal.svg"
                 alt="Sem Selo"
@@ -39,8 +40,8 @@
               />
               <img
                 *ngIf="
-                  item.esgRatings.esgScore > 35 &&
-                  item.esgRatings.esgScore <= 60
+                  item.esgRatings?.esgScore > 35 &&
+                  item.esgRatings?.esgScore <= 60
                 "
                 src="/assets/icon/seal-bronze.svg"
                 alt="Selo de Bronze"
@@ -49,8 +50,8 @@
               />
               <img
                 *ngIf="
-                  item.esgRatings.esgScore > 60 &&
-                  item.esgRatings.esgScore <= 80
+                  item.esgRatings?.esgScore > 60 &&
+                  item.esgRatings?.esgScore <= 80
                 "
                 src="/assets/icon/seal-silver.svg"
                 alt="Selo de Prata"
@@ -58,7 +59,7 @@
                 width="20px"
               />
               <img
-                *ngIf="item.esgRatings.esgScore > 80"
+                *ngIf="item.esgRatings?.esgScore > 80"
                 src="/assets/icon/seal-gold.svg"
                 alt="Selo de Ouro"
                 title="Selo de Ouro"
@@ -72,7 +73,7 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header>
               {{ "SUPPLIERS.SUPPLIER" | translate }}
             </th>
-            <td mat-cell *matCellDef="let item">{{ item.company.company }}</td>
+            <td mat-cell *matCellDef="let item">{{ item.company }}</td>
           </ng-container>
 
           <!-- Buy Value -->
@@ -82,8 +83,7 @@
             </th>
             <td mat-cell *matCellDef="let item">
               {{
-                item.company.buyValue
-                  | currency : "BRL" : "symbol" : "1.2-2" : "pt-BR"
+                item.buyValue | currency : "BRL" : "symbol" : "1.2-2" : "pt-BR"
               }}
             </td>
           </ng-container>
@@ -113,7 +113,7 @@
               {{ "SUPPLIERS.CNPJ" | translate }}
             </th>
             <td mat-cell *matCellDef="let item">
-              {{ item.company.cnpj | cnpj }}
+              {{ item.cnpj | cnpj }}
             </td>
           </ng-container>
 
@@ -123,10 +123,7 @@
               {{ "SUPPLIERS.ACTIONS" | translate }}
             </th>
             <td mat-cell *matCellDef="let item">
-              <button
-                mat-icon-button
-                (click)="openUserEditModal(item.company._id)"
-              >
+              <button mat-icon-button (click)="openUserEditModal(item._id)">
                 <mat-icon>edit</mat-icon>
               </button>
             </td>

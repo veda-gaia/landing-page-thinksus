@@ -72,6 +72,8 @@ export class AddSupplierModalComponent implements OnInit {
   onSubmit() {
     if (this.form.invalid) return;
 
+    this.spinnerService.show();
+
     const formValue = this.form.value;
 
     const dto: UserSupplierRegisterDto = {
@@ -83,31 +85,47 @@ export class AddSupplierModalComponent implements OnInit {
     };
 
     if (dto.companyId == null) {
+      const registerPayload: UserSupplierRegisterDto = {
+        ...dto,
+        active: false,
+      };
+
       this.userService
-        .registerSupplier(dto)
+        .registerSupplier(registerPayload)
         .pipe(
           finalize(() => {
             this.spinnerService.hide();
           })
         )
         .subscribe({
-          next: () => this.modalService.close('updated'),
+          next: () => {
+            this.submitted.emit(true);
+            this.modalService.close('updated');
+          },
           error: (err) => {
             console.error('Erro ao registrar supplier', err);
             this.modalService.close('error');
           },
         });
     } else {
-      this.userService.updateUserSupplier(dto.companyId, dto).subscribe({
-        next: () => this.modalService.close('updated'),
-        error: (err) => {
-          console.error('Erro ao atualizar supplier', err);
-          this.modalService.close('error');
-        },
-      });
+      this.userService
+        .updateUserSupplier(dto.companyId, dto)
+        .pipe(
+          finalize(() => {
+            this.spinnerService.hide();
+          })
+        )
+        .subscribe({
+          next: () => {
+            this.submitted.emit(true);
+            this.modalService.close('updated');
+          },
+          error: (err) => {
+            console.error('Erro ao atualizar supplier', err);
+            this.modalService.close('error');
+          },
+        });
     }
-
-    this.submitted.emit(true);
   }
 
   exit() {

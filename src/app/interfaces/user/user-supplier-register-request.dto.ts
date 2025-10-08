@@ -4,4 +4,5 @@ export interface UserSupplierRegisterDto {
   email: string;
   cnpj: string;
   buyValue: number;
+  active?: boolean;
 }

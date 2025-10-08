@@ -41,6 +41,15 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { PlansComponent } from './plans/plans.component';
 import { PaymentOrientationModalComponent } from './plans/payment-orientation-modal/payment-orientation-modal.component';
 import { ScoreWarningComponent } from './score-warning/score-warning.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { CnpjPipe } from '../pipes/cnpj-format.pipe';
+import { CompanyRevenuePipe } from '../pipes/company-revenue.pipe';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -76,6 +85,8 @@ PlotlyModule.plotlyjs = PlotlyJS;
     PlansComponent,
     PaymentOrientationModalComponent,
     ScoreWarningComponent,
+    CnpjPipe,
+    CompanyRevenuePipe,
   ],
   imports: [
     CommonModule,
@@ -87,11 +98,15 @@ PlotlyModule.plotlyjs = PlotlyJS;
     NgbModule,
     CurrencyMaskModule,
     NgxDocViewerModule,
-    PlotlyModule
+    PlotlyModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule,
   ],
-  providers: [
-    EsgRatingService,
-    DateFormatPipe
-  ]
+  providers: [EsgRatingService, DateFormatPipe],
 })
-export class LoggedModule { }
+export class LoggedModule {}

@@ -115,8 +115,6 @@ export class AssesmentComponent {
             );
           })[0];
 
-          console.log(data);
-
           if (myCompanyInfo) {
             const environmentalAnswers = myCompanyInfo.answers.filter(
               (i: any) => {
@@ -168,7 +166,8 @@ export class AssesmentComponent {
     if (this.form.invalid || !this.assesmentId.length) return;
 
     const dto: updateStatusDto = {
-      status: 'COMPLETED',
+      status: 'UNDER_ANALYSIS',
+
       lang: this.translateService.currentLang,
     };
     const titleDto: any = {

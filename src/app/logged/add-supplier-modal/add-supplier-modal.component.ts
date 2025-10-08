@@ -71,7 +71,7 @@ export class AddSupplierModalComponent implements OnInit {
 
   onSubmit() {
     if (this.form.invalid) return;
-
+    this.spinnerService.show();
     const formValue = this.form.value;
 
     const dto: UserSupplierRegisterDto = {
@@ -91,7 +91,10 @@ export class AddSupplierModalComponent implements OnInit {
           })
         )
         .subscribe({
-          next: () => this.modalService.close('updated'),
+          next: () => {
+            this.submitted.emit(true);
+            this.modalService.close('updated');
+          },
           error: (err) => {
             console.error('Erro ao registrar supplier', err);
             this.modalService.close('error');

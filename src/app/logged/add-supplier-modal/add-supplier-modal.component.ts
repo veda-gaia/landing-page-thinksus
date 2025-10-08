@@ -102,7 +102,7 @@ export class AddSupplierModalComponent implements OnInit {
         next: () => this.modalService.close('updated'),
         error: (err) => {
           console.error('Erro ao atualizar supplier', err);
-          this.modalService.close('error');
+          //this.modalService.close('error');
         },
       });
     }

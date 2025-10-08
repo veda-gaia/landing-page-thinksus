@@ -30,50 +30,50 @@ export class EIndustryComponent {
   questionaryData = [
     {
       documentNeeded: true,
-      id: 'E31',
+      id: 'E3',
     },
     {
       documentNeeded: true,
       id: 'E4',
     },
     {
-      documentNeeded: false,
+      documentNeeded: true,
       id: 'E5',
     },
     {
-      documentNeeded: false,
+      documentNeeded: true,
       id: 'E6',
     },
     {
-      documentNeeded: false,
+      documentNeeded: true,
       id: 'E7',
     },
     {
-      documentNeeded: false,
+      documentNeeded: true,
       id: 'E8',
     },
     {
-      documentNeeded: false,
+      documentNeeded: true,
       id: 'E9',
     },
     {
-      documentNeeded: false,
+      documentNeeded: true,
       id: 'E10',
     },
     {
-      documentNeeded: false,
+      documentNeeded: true,
       id: 'E11',
     },
     {
-      documentNeeded: false,
+      documentNeeded: true,
       id: 'E13',
     },
     {
-      documentNeeded: false,
+      documentNeeded: true,
       id: 'E14',
     },
     {
-      documentNeeded: false,
+      documentNeeded: true,
       id: 'E15',
     },
   ];
@@ -184,7 +184,6 @@ export class EIndustryComponent {
 
   onFilesSelected(event: Event, index: number): void {
     const input = event.target as HTMLInputElement;
-    const file = input.files?.[0];
     const files = Array.from(input.files ?? []);
     const fileArray = this.formArrayDocuments.at(index) as FormArray;
 
@@ -192,7 +191,12 @@ export class EIndustryComponent {
       .slice(0, 5 - fileArray.length)
       .forEach((file) => fileArray.push(new FormControl<File>(file)));
 
-    input.value = '';
+    input.value = ''; // limpa o input
+  }
+
+  removeFile(questionIndex: number, fileIndex: number): void {
+    const fileArray = this.formArrayDocuments.at(questionIndex) as FormArray;
+    fileArray.removeAt(fileIndex);
   }
 
   submitRevision() {
@@ -205,27 +209,13 @@ export class EIndustryComponent {
         this.questionaryData[index].documentNeeded &&
         control.value === 'Yes'
       ) {
-        fileArray.push(new FormControl<File | null>(null, Validators.required));
-      } else {
-        fileArray.push(new FormControl<File | null>(null));
+        fileArray.setValidators(Validators.required);
       }
 
       this.formArrayDocuments.push(fileArray);
     });
 
     this.actualStep = this.actualStep + 1;
-  }
-
-  addFileInput(index: number) {
-    const fileArray = this.formArrayDocuments.at(index) as FormArray;
-    if (fileArray.length < 5) {
-      fileArray.push(new FormControl<File | null>(null, Validators.required));
-    }
-  }
-
-  removeFile(questionIndex: number, fileIndex: number): void {
-    const fileArray = this.formArrayDocuments.at(questionIndex) as FormArray;
-    fileArray.removeAt(fileIndex);
   }
 
   submitDocuments() {

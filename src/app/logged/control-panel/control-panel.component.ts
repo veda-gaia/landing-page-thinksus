@@ -21,6 +21,27 @@ export class ControlPanelComponent implements OnInit {
 
   supplierScoresArray: any[] = [];
 
+  environmentalAreaScores: any = {
+    environmental_NatureScore: 0,
+    environmental_Natural_ResourcesScore: 0,
+    environmental_Waste_ManagementScore: 0,
+    environmental_Climate_RiskScore: 0,
+  };
+
+  socialAreaScores: any = {
+    social_Fair_WorkScore: 0,
+    social_CommunityScore: 0,
+    social_SocietyScore: 0,
+    social_Value_ChainScore: 0,
+  };
+
+  governanceAreaScores: any = {
+    governance_RiskScore: 0,
+    governance_ManagementScore: 0,
+    governance_TransparencyScore: 0,
+    governance_EconomicScore: 0,
+  };
+
   performanceScores: any = {
     environmentScore: 0,
     socialScore: 0,
@@ -72,6 +93,33 @@ export class ControlPanelComponent implements OnInit {
           this.performanceScores.governanceScore = data.governanceScore;
           this.odsScoreArray = data.odsScores;
           this.performanceScores.esgScore = data.esgScore;
+
+          this.environmentalAreaScores.environmental_NatureScore =
+            data.environmentalAreaScores?.environmental_NatureScore;
+          this.environmentalAreaScores.environmental_Natural_ResourcesScore =
+            data.environmentalAreaScores?.environmental_Natural_ResourcesScore;
+          this.environmentalAreaScores.environmental_Waste_ManagementScore =
+            data.environmentalAreaScores?.environmental_Waste_ManagementScore;
+          this.environmentalAreaScores.environmental_Climate_RiskScore =
+            data.environmentalAreaScores?.environmental_Climate_RiskScore;
+
+          this.socialAreaScores.social_Fair_WorkScore =
+            data.socialAreaScores?.social_Fair_WorkScore;
+          this.socialAreaScores.social_CommunityScore =
+            data.socialAreaScores?.social_CommunityScore;
+          this.socialAreaScores.social_SocietyScore =
+            data.socialAreaScores?.social_SocietyScore;
+          this.socialAreaScores.social_Value_ChainScore =
+            data.socialAreaScores?.social_Value_ChainScore;
+
+          this.governanceAreaScores.governance_RiskScore =
+            data.governanceAreaScores?.governance_RiskScore;
+          this.governanceAreaScores.governance_ManagementScore =
+            data.governanceAreaScores?.governance_ManagementScore;
+          this.governanceAreaScores.governance_TransparencyScore =
+            data.governanceAreaScores?.governance_TransparencyScore;
+          this.governanceAreaScores.governance_EconomicScore =
+            data.governanceAreaScores?.governance_EconomicScore;
         },
       });
   }

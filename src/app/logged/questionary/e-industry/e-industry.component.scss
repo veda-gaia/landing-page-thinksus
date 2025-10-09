@@ -49,3 +49,18 @@
   color: #1e7e34;
   border-color: #1e7e34;
 }
+
+.files-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-spacing-xs);
+}
+
+.btn-remove-file {
+  width: 24px;
+  height: 24px;
+  background: url('/assets/icon/table-not.svg') no-repeat center;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+}

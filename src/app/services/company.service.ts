@@ -27,9 +27,18 @@ export class CompanyService extends BaseService {
       .pipe(map(this.extractData), catchError(this.serviceError));
   }
 
-  getByUser(): Observable<CompanyInterface> {
+  getByUser(userId?: string): Observable<CompanyInterface> {
     return this.httpClient
-      .get(`${this.url}/get-by-user`, this.authorizedHeader())
+      .get<CompanyInterface>(`${this.url}/get-by-user`, {
+        ...this.authorizedHeader(),
+        params: userId ? { userId } : {},
+      })
+      .pipe(map(this.extractData), catchError(this.serviceError));
+  }
+
+  buildAggregatedReportEsgResult(): Observable<any> {
+    return this.httpClient
+      .get(`${this.url}/build-aggregated-report`, this.authorizedHeader())
       .pipe(map(this.extractData), catchError(this.serviceError));
   }
 }

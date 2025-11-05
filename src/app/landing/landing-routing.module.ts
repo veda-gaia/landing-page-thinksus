@@ -11,7 +11,6 @@ import { RegisterComponent } from './register/register.component';
 import { LandingComponent } from './landing.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -20,7 +19,7 @@ const routes: Routes = [
       {
         path: '',
         redirectTo: 'home',
-        pathMatch: 'full'
+        pathMatch: 'full',
       },
       {
         path: 'home',
@@ -55,19 +54,23 @@ const routes: Routes = [
         component: RegisterComponent,
       },
       {
+        path: 'register/:id',
+        component: RegisterComponent,
+      },
+      {
         path: 'login',
         component: LoginComponent,
       },
       {
         path: 'forgot-password',
-        component: ForgotPasswordComponent
-      }
-    ]
-  }
+        component: ForgotPasswordComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class LandingRoutingModule { }
+export class LandingRoutingModule {}

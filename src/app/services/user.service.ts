@@ -8,6 +8,7 @@ import { UserInterface } from '../interfaces/user/user.interface';
 import { BaseService } from './base.service';
 import { UserUpdateRequestDto } from '../dtos/user-update-request.dto';
 import { UserResetPasswordRequestDto } from '../dtos/user-reset-password-request.dto';
+import { UserSupplierRegisterDto } from '../interfaces/user/user-supplier-register-request.dto';
 
 @Injectable({
   providedIn: 'root',
@@ -40,12 +41,35 @@ export class UserService extends BaseService {
   getUserFromApi(): Observable<UserInterface> {
     return this.httpClient
       .get(`${this.authUrl}/authenticated`, this.authorizedHeader())
-      .pipe(map(this.extractData), catchError(this.serviceError))
+      .pipe(map(this.extractData), catchError(this.serviceError));
   }
 
   register(dto: UserRegisterRequestDto): Observable<UserInterface> {
     return this.httpClient
       .post(`${this.url}/register`, this.encrypt(dto), this.anonymousHeader())
+      .pipe(map(this.extractData), catchError(this.serviceError));
+  }
+
+  registerSupplier(dto: UserSupplierRegisterDto): Observable<UserInterface> {
+    return this.httpClient
+      .post(
+        `${this.url}/register-supplier`,
+        this.encrypt(dto),
+        this.authorizedHeader()
+      )
+      .pipe(map(this.extractData), catchError(this.serviceError));
+  }
+
+  updateUserSupplier(
+    id: string,
+    dto: UserUpdateRequestDto
+  ): Observable<UserInterface> {
+    return this.httpClient
+      .put(
+        `${this.url}/update-user-supplier/${id}`,
+        this.encrypt(dto),
+        this.authorizedHeader()
+      )
       .pipe(map(this.extractData), catchError(this.serviceError));
   }
 
@@ -69,7 +93,11 @@ export class UserService extends BaseService {
 
   update(id: string, dto: UserUpdateRequestDto): Observable<UserInterface> {
     return this.httpClient
-      .put(`${this.url}/update/${id}`, this.encrypt(dto), this.authorizedHeader())
+      .put(
+        `${this.url}/update/${id}`,
+        this.encrypt(dto),
+        this.authorizedHeader()
+      )
       .pipe(map(this.extractData), catchError(this.serviceError));
   }
 
@@ -81,7 +109,17 @@ export class UserService extends BaseService {
 
   resetPassword(dto: UserResetPasswordRequestDto): Observable<any> {
     return this.httpClient
-      .post(`${this.url}/reset-password`, this.encrypt(dto), this.anonymousHeader())
+      .post(
+        `${this.url}/reset-password`,
+        this.encrypt(dto),
+        this.anonymousHeader()
+      )
+      .pipe(map(this.extractData), catchError(this.serviceError));
+  }
+
+  listUserSuppliers(): Observable<any> {
+    return this.httpClient
+      .get(`${this.url}/list-users-suppliers`, this.authorizedHeader())
       .pipe(map(this.extractData), catchError(this.serviceError));
   }
 }

@@ -1,10 +1,6 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  Validators
-} from '@angular/forms';
-import { Router } from '@angular/router';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
@@ -35,6 +31,7 @@ import { TermsAndConditionsModalComponent } from './terms-and-conditions-modal/t
 import { NgxSpinnerService } from 'ngx-spinner';
 import { finalize } from 'rxjs';
 import { comparePassword } from 'src/app/util/validators.util';
+import { CompanyService } from 'src/app/services/company.service';
 
 @Component({
   selector: 'app-register',
@@ -57,9 +54,11 @@ export class RegisterComponent implements OnInit {
   countryList: any[] = [];
   sectorList: SectorList[] = [];
   segmentList: SegmentList[] = [];
-  currentLang: string = ''
+  currentLang: string = '';
 
-  CompanyRevenueEnum = CompanyRevenueEnum
+  CompanyRevenueEnum = CompanyRevenueEnum;
+
+  userCompanyId: string = '';
 
   constructor(
     private fb: FormBuilder,
@@ -72,18 +71,23 @@ export class RegisterComponent implements OnInit {
     private modalService: NgbModal,
     private spinnerService: NgxSpinnerService,
     private ChangeDetectorRef: ChangeDetectorRef,
+    private companyService: CompanyService,
+    private route: ActivatedRoute
   ) {
-    this.form1 = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
-      phone: ['', Validators.required],
-      role: ['', Validators.required],
-      password: ['', Validators.required],
-      acceptTerms: [false, Validators.requiredTrue],
-      confirmPassword: ['', ],
-    },{
-          validators:comparePassword('password','confirmPassword')
-        }
+    this.form1 = this.fb.group(
+      {
+        id: [''],
+        name: ['', Validators.required],
+        email: ['', Validators.required],
+        phone: ['', Validators.required],
+        role: ['', Validators.required],
+        password: ['', Validators.required],
+        acceptTerms: [false, Validators.requiredTrue],
+        confirmPassword: [''],
+      },
+      {
+        validators: comparePassword('password', 'confirmPassword'),
+      }
     );
 
     this.form2 = this.fb.group({
@@ -122,10 +126,10 @@ export class RegisterComponent implements OnInit {
     this.currentLang = this.translateService.currentLang;
     if (this.currentLang === 'en') {
       this.sectorList = enSectorList;
-      this.countryList = countryListEn
+      this.countryList = countryListEn;
     } else {
       this.sectorList = ptSectorList;
-      this.countryList = countryListPt
+      this.countryList = countryListPt;
     }
 
     // Subscribe Language
@@ -134,13 +138,13 @@ export class RegisterComponent implements OnInit {
         this.currentLang = this.translateService.currentLang;
         if (data.lang === 'en') {
           this.sectorList = enSectorList;
-          this.countryList = countryListEn
+          this.countryList = countryListEn;
         } else {
           this.sectorList = ptSectorList;
-          this.countryList = countryListPt
+          this.countryList = countryListPt;
         }
 
-        this.ChangeDetectorRef.detectChanges()
+        this.ChangeDetectorRef.detectChanges();
         this.handleSegment(this.form2.controls.sector.value);
       },
     });
@@ -152,6 +156,35 @@ export class RegisterComponent implements OnInit {
         this.handleSegment(data);
       },
     });
+
+    this.route.queryParams.subscribe((params) => {
+      this.userCompanyId = params['id'];
+    });
+
+    if (this.userCompanyId) {
+      this.companyService.getByUser(this.userCompanyId).subscribe({
+        next: (company) => {
+          this.form1.patchValue({
+            id: company.user._id,
+            email: company.user.email,
+          });
+
+          this.form2.patchValue({
+            document: company.cnpj,
+            enterpriseName: company.company,
+          });
+
+          if (company.user._id) {
+            this.form1.get('email')?.disable();
+          } else {
+            this.form1.get('email')?.enable();
+          }
+        },
+        error: (err) => {
+          alert('Erro ao carregar os dados do usuário.');
+        },
+      });
+    }
   }
 
   handleSegment(data: any) {
@@ -211,75 +244,103 @@ export class RegisterComponent implements OnInit {
         section: this.form2.controls['sector'].value as CompanySectionEnum,
         numberEmployees: this.form3.controls['collaboratorsAmmount']
           .value as CompanyEmployeesEnum,
-        revenue: this.form3.controls['invoicing'].value as CompanyRevenueEnum
+        revenue: this.form3.controls['invoicing'].value as CompanyRevenueEnum,
       },
       user: {
+        id: this.userId.value,
         name: this.name.value,
         email: this.email.value.toLowerCase(),
         password: this.form1.controls['password'].value as string,
         phone: this.form1.controls['phone'].value as string,
         positionRole: this.form1.controls['role'].value as string,
       },
-      lang: this.translateService.currentLang
+      lang: this.translateService.currentLang,
     };
+
     this.spinnerService.show();
-    this.userService.register(dto).pipe(
-      finalize(() => {
-        this.spinnerService.hide()
-      })
-    ).subscribe({
-      next: (data) => {
-        this.actualStep = 4;
-      },
-      error: (err) => {
-        console.error(err);
-        this.toastr.error('Erro ao cadastrar usuário/empresa', 'Erro', {progressBar: true});
-        if(err.error.errors.includes('cnpj') && err.error.errors.includes('dup key')) {
-          this.toastr.error('Já existe uma empresa cadastrada com o CNPJ informado', 'Erro', {progressBar: true});
-        }
-      },
-    });
+    this.userService
+      .register(dto)
+      .pipe(
+        finalize(() => {
+          this.spinnerService.hide();
+        })
+      )
+      .subscribe({
+        next: (data) => {
+          this.actualStep = 4;
+        },
+        error: (err) => {
+          console.error(err);
+          this.toastr.error('Erro ao cadastrar usuário/empresa', 'Erro', {
+            progressBar: true,
+          });
+          if (
+            err.error.errors.includes('cnpj') &&
+            err.error.errors.includes('dup key')
+          ) {
+            this.toastr.error(
+              'Já existe uma empresa cadastrada com o CNPJ informado',
+              'Erro',
+              { progressBar: true }
+            );
+          }
+        },
+      });
   }
 
   onSubmitStep4() {
     if (this.code.invalid || !this.code.value) return;
     this.spinnerService.show();
-    this.userService.activeUser({email: this.email.value, code: +this.code.value}).pipe(
-      finalize(() => {
-        this.spinnerService.hide()
-      })
-    ).subscribe({
-      next: (data) => {
-        console.log(data);
-        this.actualStep = 5;
-      },
-      error: (err) => {
-        console.error(err);
-        this.toastr.error(err.error.errors, 'Error', {progressBar: true});
-      },
-    });
+    this.userService
+      .activeUser({ email: this.email.value, code: +this.code.value })
+      .pipe(
+        finalize(() => {
+          this.spinnerService.hide();
+        })
+      )
+      .subscribe({
+        next: (data) => {
+          console.log(data);
+          this.actualStep = 5;
+        },
+        error: (err) => {
+          console.error(err);
+          this.toastr.error(err.error.errors, 'Error', { progressBar: true });
+        },
+      });
   }
 
   loginAndEnter() {
     const dto: LoginInterface = {
-      email: this.form1.controls['email'].value ? this.form1.controls['email'].value : '',
-      password: this.form1.controls['password'].value ? this.form1.controls['password'].value : ''
-    }
+      email: this.form1.controls['email'].value
+        ? this.form1.controls['email'].value
+        : '',
+      password: this.form1.controls['password'].value
+        ? this.form1.controls['password'].value
+        : '',
+    };
     this.spinnerService.show();
-    this.authService.login(dto).pipe(
-      finalize(() => {
-        this.spinnerService.hide()
-      })
-    ).subscribe({
-      next: (data) => {
-        this.authService.setAuthUser(data);
-        this.router.navigate(['/logged'])
-      }
-    })
+    this.authService
+      .login(dto)
+      .pipe(
+        finalize(() => {
+          this.spinnerService.hide();
+        })
+      )
+      .subscribe({
+        next: (data) => {
+          this.authService.setAuthUser(data);
+          this.router.navigate(['/logged']);
+        },
+      });
   }
 
   stepBack() {
     this.actualStep = this.actualStep - 1;
+  }
+
+  get userId() {
+    return this.form1.controls['id'] as FormControl;
   }
 
   get email() {
@@ -311,6 +372,6 @@ export class RegisterComponent implements OnInit {
   }
 
   openPdf() {
-    this.modalService.open(TermsAndConditionsModalComponent)
+    this.modalService.open(TermsAndConditionsModalComponent);
   }
 }

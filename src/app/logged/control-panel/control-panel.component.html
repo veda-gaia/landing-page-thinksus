@@ -1,377 +1,693 @@
 <section class="w-100 pb-4" *ngIf="!loading">
-    <div class="row pb-4">
-        <div class="col">
-            <h3 class="alpha-800-text f-size-1-5rem l-height-1-5rem pb-1 fw-800">
-                {{ "CONTROL_PANEL.TITLE" | translate }}
-            </h3>
-        </div>
+  <div class="row pb-4">
+    <div class="col">
+      <h3 class="alpha-800-text f-size-1-5rem l-height-1-5rem pb-1 fw-800">
+        {{ "CONTROL_PANEL.TITLE" | translate }}
+      </h3>
     </div>
+  </div>
 
-    <div class="row fade-in pb-xxl-4">
-        <div class="col-12 pt-4 pt-xl-0">
-            <div class="card-logged p-3 p-lg-4 mb-xl-4 mb-xxl-0">
-                <form [formGroup]="form" class="d-flex flex-column flex-md-row align-item-start justify-content-between gap-3 pb-4 mb-2">
-                    <h4 class="primary-text f-size-1-25rem l-height-1-25 fw-700 pb-2 flex-grow-1">
-                        {{ "CONTROL_PANEL.PERFORMANCE_TITLE" | translate }}
-                    </h4>
-                </form>
+  <div class="row fade-in pb-xxl-4">
+    <div class="col-12 pt-4 pt-xl-0">
+      <div class="card-logged p-3 p-lg-4 mb-xl-4 mb-xxl-0">
+        <form
+          [formGroup]="form"
+          class="d-flex flex-column flex-md-row align-item-start justify-content-between gap-3 pb-4 mb-2"
+        >
+          <h4
+            class="primary-text f-size-1-25rem l-height-1-25 fw-700 pb-2 flex-grow-1"
+          >
+            {{ "CONTROL_PANEL.PERFORMANCE_TITLE" | translate }}
+          </h4>
+        </form>
 
-                <div class="d-flex flex-column flex-md-row align-items-end align-items-md-start justify-content-between w-100 pb-3 gap-4">
-                    <div class="d-flex flex-column w-100 align-item-start justify-content-start gap-2">
-                        <!-- Accordion container 1 -->
-                        <div class="card-logged input-bg custom-accordion w-100 p-3 pe-2 mb-2" [class.active]="openAccordions.includes(1)">
+        <div
+          class="d-flex flex-column flex-md-row align-items-end align-items-md-start justify-content-between w-100 pb-3 gap-4"
+        >
+          <div
+            class="d-flex flex-column w-100 align-item-start justify-content-start gap-2"
+          >
+            <!-- Accordion container 1 -->
+            <div
+              class="card-logged input-bg custom-accordion w-100 p-3 pe-2 mb-2"
+              [class.active]="openAccordions.includes(1)"
+            >
+              <!-- Accordion title -->
+              <div
+                class="cursor-pointer d-flex align-items-center justify-content-between"
+                (click)="toggleAccordion(1)"
+              >
+                <div
+                  class="d-flex flex-column align-item-start justify-content-start pb-1 w-100"
+                >
+                  <div
+                    class="d-flex align-item-end justify-content-between w-100"
+                  >
+                    <p
+                      class="secondary-text l-height-1-25rem f-size-14px fw-600"
+                    >
+                      Ambiental
+                    </p>
 
-                            <!-- Accordion title -->
-                            <div class="cursor-pointer d-flex align-items-center justify-content-between" (click)="toggleAccordion(1)">
-                                <div class="d-flex flex-column align-item-start justify-content-start pb-1 w-100">
-                                    <div class="d-flex align-item-end justify-content-between w-100">
-                                        <p class="secondary-text l-height-1-25rem f-size-14px fw-600 ">
-                                            Ambiental
-                                        </p>
-                                        
-                                        <p class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500">
-                                            Nota 
-                                            <span class="fw-700 d-inline alpha-800-text f-size-0-85rem">{{ performanceScores.environmentScore }}</span>
-                                        </p>
-                                    </div>
-                                    
-                                    <div class="score-progress-container green-100-bg">
-                                      <div class="score-progress green-400-bg gap-2" [style]="'width: ' + performanceScores.environmentScore + '%;'">
-                                      </div>
-                                    </div>
-                                </div>
-            
-                                <img src="/assets/icon/open-close.svg" alt="Icon" class="open-close-icon ms-2">
-                            </div>
-            
-                            <!-- Accordion content -->
-                            <div class="content-custom-accordion">
-                                <div class="separator-opacity mt-3"></div>
-                                <div class="d-flex flex-column flex-lg-row align-items-start gap-3 pt-3" style="max-width: calc(100% - 42px);">
-                                    <div class="d-flex flex-column gap-3 w-100">
-                                        <!-- Item 1 -->
-                                        <div class="d-flex flex-column align-item-start justify-content-start pb-1 w-100">
-                                            <div class="d-flex align-item-end justify-content-between w-100">
-                                                <p class="secondary-text l-height-1-25rem f-size-14px fw-600 ">
-                                                    Natureza
-                                                </p>
-                                                
-                                                <p class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500">
-                                                    Nota 
-                                                    <span class="fw-700 d-inline alpha-800-text f-size-0-85rem">70</span>
-                                                </p>
-                                            </div>
-                                            
-                                            <div class="score-progress-container green-100-bg">
-                                              <div class="score-progress green-300-bg gap-2" [style]="'width: ' + 70 + '%;'">
-                                              </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Item 3 -->
-                                        <div class="d-flex flex-column align-item-start justify-content-start pb-1 w-100">
-                                            <div class="d-flex align-item-end justify-content-between w-100">
-                                                <p class="secondary-text l-height-1-25rem f-size-14px fw-600 ">
-                                                    Recursos Naturais
-                                                </p>
-                                                
-                                                <p class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500">
-                                                    Nota 
-                                                    <span class="fw-700 d-inline alpha-800-text f-size-0-85rem">70</span>
-                                                </p>
-                                            </div>
-                                            
-                                            <div class="score-progress-container green-100-bg">
-                                              <div class="score-progress green-300-bg gap-2" [style]="'width: ' + 70 + '%;'">
-                                              </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                    <p
+                      class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500"
+                    >
+                      Nota
+                      <span
+                        class="fw-700 d-inline alpha-800-text f-size-0-85rem"
+                        >{{ performanceScores.environmentScore }}</span
+                      >
+                    </p>
+                  </div>
 
-                                    <div class="d-flex flex-column gap-3 w-100">
-                                        <!-- Item 2 -->
-                                        <div class="d-flex flex-column align-item-start justify-content-start pb-1 w-100">
-                                            <div class="d-flex align-item-end justify-content-between w-100">
-                                                <p class="secondary-text l-height-1-25rem f-size-14px fw-600 ">
-                                                    Gestão de Resíduos e Poluição
-                                                </p>
-                                                
-                                                <p class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500">
-                                                    Nota 
-                                                    <span class="fw-700 d-inline alpha-800-text f-size-0-85rem">70</span>
-                                                </p>
-                                            </div>
-                                            
-                                            <div class="score-progress-container green-100-bg">
-                                              <div class="score-progress green-300-bg gap-2" [style]="'width: ' + 70 + '%;'">
-                                              </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Item 4 -->
-                                        <div class="d-flex flex-column align-item-start justify-content-start pb-1 w-100">
-                                            <div class="d-flex align-item-end justify-content-between w-100">
-                                                <p class="secondary-text l-height-1-25rem f-size-14px fw-600 ">
-                                                    Clima & Risco
-                                                </p>
-                                                
-                                                <p class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500">
-                                                    Nota 
-                                                    <span class="fw-700 d-inline alpha-800-text f-size-0-85rem">70</span>
-                                                </p>
-                                            </div>
-                                            
-                                            <div class="score-progress-container green-100-bg">
-                                              <div class="score-progress green-300-bg gap-2" [style]="'width: ' + 70 + '%;'">
-                                              </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                  <div class="score-progress-container green-100-bg">
+                    <div
+                      class="score-progress green-400-bg gap-2"
+                      [style]="
+                        'width: ' + performanceScores.environmentScore + '%;'
+                      "
+                    ></div>
+                  </div>
+                </div>
 
-                        <!-- Accordion container 2 -->
-                        <div class="card-logged input-bg custom-accordion w-100 p-3 pe-2 mb-2" [class.active]="openAccordions.includes(2)">
+                <img
+                  src="/assets/icon/open-close.svg"
+                  alt="Icon"
+                  class="open-close-icon ms-2"
+                />
+              </div>
 
-                            <!-- Accordion title -->
-                            <div class="cursor-pointer d-flex align-items-center justify-content-between" (click)="toggleAccordion(2)">
-                                <div class="d-flex flex-column align-item-start justify-content-start pb-1 w-100">
-                                    <div class="d-flex align-item-end justify-content-between w-100">
-                                        <p class="secondary-text l-height-1-25rem f-size-14px fw-600 ">
-                                            Social
-                                        </p>
-                                        
-                                        <p class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500">
-                                            Nota 
-                                            <span class="fw-700 d-inline alpha-800-text f-size-0-85rem">{{ performanceScores.socialScore }}</span>
-                                        </p>
-                                    </div>
-                                    
-                                    <div class="score-progress-container purple-100-bg">
-                                      <div class="score-progress purple-600-bg gap-2" [style]="'width: ' + performanceScores.socialScore + '%;'">
-                                      </div>
-                                    </div>
-                                </div>
-            
-                                <img src="/assets/icon/open-close.svg" alt="Icon" class="open-close-icon ms-2">
-                            </div>
-            
-                            <!-- Accordion content -->
-                            <div class="content-custom-accordion">
-                                <div class="separator-opacity mt-3"></div>
-                                <div class="d-flex flex-column flex-lg-row align-items-start gap-3 pt-3" style="max-width: calc(100% - 42px);">
-                                    <div class="d-flex flex-column gap-3 w-100">
-                                        <!-- Item 1 -->
-                                        <div class="d-flex flex-column align-item-start justify-content-start pb-1 w-100">
-                                            <div class="d-flex align-item-end justify-content-between w-100">
-                                                <p class="secondary-text l-height-1-25rem f-size-14px fw-600 ">
-                                                    Natureza
-                                                </p>
-                                                
-                                                <p class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500">
-                                                    Nota 
-                                                    <span class="fw-700 d-inline alpha-800-text f-size-0-85rem">70</span>
-                                                </p>
-                                            </div>
-                                            
-                                            <div class="score-progress-container purple-100-bg">
-                                              <div class="score-progress purple-500-bg gap-2" [style]="'width: ' + 70 + '%;'">
-                                              </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Item 3 -->
-                                        <div class="d-flex flex-column align-item-start justify-content-start pb-1 w-100">
-                                            <div class="d-flex align-item-end justify-content-between w-100">
-                                                <p class="secondary-text l-height-1-25rem f-size-14px fw-600 ">
-                                                    Recursos Naturais
-                                                </p>
-                                                
-                                                <p class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500">
-                                                    Nota 
-                                                    <span class="fw-700 d-inline alpha-800-text f-size-0-85rem">70</span>
-                                                </p>
-                                            </div>
-                                            
-                                            <div class="score-progress-container purple-100-bg">
-                                              <div class="score-progress purple-500-bg gap-2" [style]="'width: ' + 70 + '%;'">
-                                              </div>
-                                            </div>
-                                        </div>
-                                    </div>
+              <!-- Accordion content -->
+              <div class="content-custom-accordion">
+                <div class="separator-opacity mt-3"></div>
+                <div
+                  class="d-flex flex-column flex-lg-row align-items-start gap-3 pt-3"
+                  style="max-width: calc(100% - 42px)"
+                >
+                  <div class="d-flex flex-column gap-3 w-100">
+                    <!-- Item 1 -->
+                    <div
+                      class="d-flex flex-column align-item-start justify-content-start pb-1 w-100"
+                    >
+                      <div
+                        class="d-flex align-item-end justify-content-between w-100"
+                      >
+                        <p
+                          class="secondary-text l-height-1-25rem f-size-14px fw-600"
+                        >
+                          Natureza
+                        </p>
 
-                                    <div class="d-flex flex-column gap-3 w-100">
-                                        <!-- Item 2 -->
-                                        <div class="d-flex flex-column align-item-start justify-content-start pb-1 w-100">
-                                            <div class="d-flex align-item-end justify-content-between w-100">
-                                                <p class="secondary-text l-height-1-25rem f-size-14px fw-600 ">
-                                                    Gestão de Resíduos e Poluição
-                                                </p>
-                                                
-                                                <p class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500">
-                                                    Nota 
-                                                    <span class="fw-700 d-inline alpha-800-text f-size-0-85rem">70</span>
-                                                </p>
-                                            </div>
-                                            
-                                            <div class="score-progress-container purple-100-bg">
-                                              <div class="score-progress purple-500-bg gap-2" [style]="'width: ' + 70 + '%;'">
-                                              </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Item 4 -->
-                                        <div class="d-flex flex-column align-item-start justify-content-start pb-1 w-100">
-                                            <div class="d-flex align-item-end justify-content-between w-100">
-                                                <p class="secondary-text l-height-1-25rem f-size-14px fw-600 ">
-                                                    Clima & Risco
-                                                </p>
-                                                
-                                                <p class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500">
-                                                    Nota 
-                                                    <span class="fw-700 d-inline alpha-800-text f-size-0-85rem">70</span>
-                                                </p>
-                                            </div>
-                                            
-                                            <div class="score-progress-container purple-100-bg">
-                                              <div class="score-progress purple-500-bg gap-2" [style]="'width: ' + 70 + '%;'">
-                                              </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <p
+                          class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500"
+                        >
+                          Nota
+                          <span
+                            class="fw-700 d-inline alpha-800-text f-size-0-85rem"
+                            >{{
+                              environmentalAreaScores.environmental_NatureScore
+                            }}</span
+                          >
+                        </p>
+                      </div>
 
-                        <!-- Accordion container 3 -->
-                        <div class="card-logged input-bg custom-accordion w-100 p-3 pe-2 mb-2" [class.active]="openAccordions.includes(3)">
-
-                            <!-- Accordion title -->
-                            <div class="cursor-pointer d-flex align-items-center justify-content-between" (click)="toggleAccordion(3)">
-                                <div class="d-flex flex-column align-item-start justify-content-start pb-1 w-100">
-                                    <div class="d-flex align-item-end justify-content-between w-100">
-                                        <p class="secondary-text l-height-1-25rem f-size-14px fw-600 ">
-                                            Governança
-                                        </p>
-                                        
-                                        <p class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500">
-                                            Nota 
-                                            <span class="fw-700 d-inline alpha-800-text f-size-0-85rem">{{ performanceScores.governanceScore }}</span>
-                                        </p>
-                                    </div>
-                                    
-                                    <div class="score-progress-container blue-100-bg">
-                                      <div class="score-progress blue-500-bg gap-2" [style]="'width: ' + performanceScores.governanceScore + '%;'">
-                                      </div>
-                                    </div>
-                                </div>
-            
-                                <img src="/assets/icon/open-close.svg" alt="Icon" class="open-close-icon ms-2">
-                            </div>
-            
-                            <!-- Accordion content -->
-                            <div class="content-custom-accordion">
-                                <div class="separator-opacity mt-3"></div>
-                                <div class="d-flex flex-column flex-lg-row align-items-start gap-3 pt-3" style="max-width: calc(100% - 42px);">
-                                    <div class="d-flex flex-column gap-3 w-100">
-                                        <!-- Item 1 -->
-                                        <div class="d-flex flex-column align-item-start justify-content-start pb-1 w-100">
-                                            <div class="d-flex align-item-end justify-content-between w-100">
-                                                <p class="secondary-text l-height-1-25rem f-size-14px fw-600 ">
-                                                    Natureza
-                                                </p>
-                                                
-                                                <p class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500">
-                                                    Nota 
-                                                    <span class="fw-700 d-inline alpha-800-text f-size-0-85rem">70</span>
-                                                </p>
-                                            </div>
-                                            
-                                            <div class="score-progress-container blue-100-bg">
-                                              <div class="score-progress blue-400-bg gap-2" [style]="'width: ' + 70 + '%;'">
-                                              </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Item 3 -->
-                                        <div class="d-flex flex-column align-item-start justify-content-start pb-1 w-100">
-                                            <div class="d-flex align-item-end justify-content-between w-100">
-                                                <p class="secondary-text l-height-1-25rem f-size-14px fw-600 ">
-                                                    Recursos Naturais
-                                                </p>
-                                                
-                                                <p class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500">
-                                                    Nota 
-                                                    <span class="fw-700 d-inline alpha-800-text f-size-0-85rem">70</span>
-                                                </p>
-                                            </div>
-                                            
-                                            <div class="score-progress-container blue-100-bg">
-                                              <div class="score-progress blue-400-bg gap-2" [style]="'width: ' + 70 + '%;'">
-                                              </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="d-flex flex-column gap-3 w-100">
-                                        <!-- Item 2 -->
-                                        <div class="d-flex flex-column align-item-start justify-content-start pb-1 w-100">
-                                            <div class="d-flex align-item-end justify-content-between w-100">
-                                                <p class="secondary-text l-height-1-25rem f-size-14px fw-600 ">
-                                                    Gestão de Resíduos e Poluição
-                                                </p>
-                                                
-                                                <p class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500">
-                                                    Nota 
-                                                    <span class="fw-700 d-inline alpha-800-text f-size-0-85rem">70</span>
-                                                </p>
-                                            </div>
-                                            
-                                            <div class="score-progress-container blue-100-bg">
-                                              <div class="score-progress blue-400-bg gap-2" [style]="'width: ' + 70 + '%;'">
-                                              </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Item 4 -->
-                                        <div class="d-flex flex-column align-item-start justify-content-start pb-1 w-100">
-                                            <div class="d-flex align-item-end justify-content-between w-100">
-                                                <p class="secondary-text l-height-1-25rem f-size-14px fw-600 ">
-                                                    Clima & Risco
-                                                </p>
-                                                
-                                                <p class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500">
-                                                    Nota 
-                                                    <span class="fw-700 d-inline alpha-800-text f-size-0-85rem">70</span>
-                                                </p>
-                                            </div>
-                                            
-                                            <div class="score-progress-container blue-100-bg">
-                                              <div class="score-progress blue-400-bg gap-2" [style]="'width: ' + 70 + '%;'">
-                                              </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                      <div class="score-progress-container green-100-bg">
+                        <div
+                          class="score-progress green-300-bg gap-2"
+                          [style]="
+                            'width: ' +
+                            environmentalAreaScores.environmental_NatureScore +
+                            '%;'
+                          "
+                        ></div>
+                      </div>
                     </div>
 
-                    <div class="h-100 pb-4 pt-4 pt-md-0 pb-md-0 d-flex flex-column gap-4 align-items-end justify-content-between">
-                        <div>
-                            <p class="text-end text-nowrap f-size-1rem fw-800 l-height-1-25 primary-text">
-                                {{ "CONTROL_PANEL.AVERAGE_AVALIATION_TITLE" | translate }}
-                            </p>
-                            
-                            <p class="text-end f-size-0-85rem fw-500 l-height-1-25 secondary-text">
-                                {{ "CONTROL_PANEL.AVERAGE_AVALIATION_SUBTITLE" | translate }}
-                            </p>
-                        </div>
+                    <!-- Item 3 -->
+                    <div
+                      class="d-flex flex-column align-item-start justify-content-start pb-1 w-100"
+                    >
+                      <div
+                        class="d-flex align-item-end justify-content-between w-100"
+                      >
+                        <p
+                          class="secondary-text l-height-1-25rem f-size-14px fw-600"
+                        >
+                          Recursos Naturais
+                        </p>
 
-                        <div>
-                            <div class="d-flex align-items-end justify-content-end gap-4">
-                                <!-- <p  *ngIf="postAvaliationInfo.esgScore.toFixed() > 35 && postAvaliationInfo.esgScore.toFixed() <= 59"
+                        <p
+                          class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500"
+                        >
+                          Nota
+                          <span
+                            class="fw-700 d-inline alpha-800-text f-size-0-85rem"
+                            >{{
+                              environmentalAreaScores.environmental_Natural_ResourcesScore
+                            }}</span
+                          >
+                        </p>
+                      </div>
+
+                      <div class="score-progress-container green-100-bg">
+                        <div
+                          class="score-progress green-300-bg gap-2"
+                          [style]="
+                            'width: ' +
+                            environmentalAreaScores.environmental_Natural_ResourcesScore +
+                            '%;'
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-column gap-3 w-100">
+                    <!-- Item 2 -->
+                    <div
+                      class="d-flex flex-column align-item-start justify-content-start pb-1 w-100"
+                    >
+                      <div
+                        class="d-flex align-item-end justify-content-between w-100"
+                      >
+                        <p
+                          class="secondary-text l-height-1-25rem f-size-14px fw-600"
+                        >
+                          Gestão de Resíduos e Poluição
+                        </p>
+
+                        <p
+                          class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500"
+                        >
+                          Nota
+                          <span
+                            class="fw-700 d-inline alpha-800-text f-size-0-85rem"
+                            >{{
+                              environmentalAreaScores.environmental_Waste_ManagementScore
+                            }}</span
+                          >
+                        </p>
+                      </div>
+
+                      <div class="score-progress-container green-100-bg">
+                        <div
+                          class="score-progress green-300-bg gap-2"
+                          [style]="
+                            'width: ' +
+                            environmentalAreaScores.environmental_Waste_ManagementScore +
+                            '%;'
+                          "
+                        ></div>
+                      </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div
+                      class="d-flex flex-column align-item-start justify-content-start pb-1 w-100"
+                    >
+                      <div
+                        class="d-flex align-item-end justify-content-between w-100"
+                      >
+                        <p
+                          class="secondary-text l-height-1-25rem f-size-14px fw-600"
+                        >
+                          Clima & Risco
+                        </p>
+
+                        <p
+                          class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500"
+                        >
+                          Nota
+                          <span
+                            class="fw-700 d-inline alpha-800-text f-size-0-85rem"
+                            >{{
+                              environmentalAreaScores.environmental_Climate_RiskScore
+                            }}</span
+                          >
+                        </p>
+                      </div>
+
+                      <div class="score-progress-container green-100-bg">
+                        <div
+                          class="score-progress green-300-bg gap-2"
+                          [style]="
+                            'width: ' +
+                            environmentalAreaScores.environmental_Climate_RiskScore +
+                            '%;'
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Accordion container 2 -->
+            <div
+              class="card-logged input-bg custom-accordion w-100 p-3 pe-2 mb-2"
+              [class.active]="openAccordions.includes(2)"
+            >
+              <!-- Accordion title -->
+              <div
+                class="cursor-pointer d-flex align-items-center justify-content-between"
+                (click)="toggleAccordion(2)"
+              >
+                <div
+                  class="d-flex flex-column align-item-start justify-content-start pb-1 w-100"
+                >
+                  <div
+                    class="d-flex align-item-end justify-content-between w-100"
+                  >
+                    <p
+                      class="secondary-text l-height-1-25rem f-size-14px fw-600"
+                    >
+                      Social
+                    </p>
+
+                    <p
+                      class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500"
+                    >
+                      Nota
+                      <span
+                        class="fw-700 d-inline alpha-800-text f-size-0-85rem"
+                        >{{ performanceScores.socialScore }}</span
+                      >
+                    </p>
+                  </div>
+
+                  <div class="score-progress-container purple-100-bg">
+                    <div
+                      class="score-progress purple-600-bg gap-2"
+                      [style]="'width: ' + performanceScores.socialScore + '%;'"
+                    ></div>
+                  </div>
+                </div>
+
+                <img
+                  src="/assets/icon/open-close.svg"
+                  alt="Icon"
+                  class="open-close-icon ms-2"
+                />
+              </div>
+
+              <!-- Accordion content -->
+              <div class="content-custom-accordion">
+                <div class="separator-opacity mt-3"></div>
+                <div
+                  class="d-flex flex-column flex-lg-row align-items-start gap-3 pt-3"
+                  style="max-width: calc(100% - 42px)"
+                >
+                  <div class="d-flex flex-column gap-3 w-100">
+                    <!-- Item 1 -->
+                    <div
+                      class="d-flex flex-column align-item-start justify-content-start pb-1 w-100"
+                    >
+                      <div
+                        class="d-flex align-item-end justify-content-between w-100"
+                      >
+                        <p
+                          class="secondary-text l-height-1-25rem f-size-14px fw-600"
+                        >
+                          Comunidade
+                        </p>
+
+                        <p
+                          class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500"
+                        >
+                          Nota
+                          <span
+                            class="fw-700 d-inline alpha-800-text f-size-0-85rem"
+                            >{{ socialAreaScores.social_CommunityScore }}</span
+                          >
+                        </p>
+                      </div>
+
+                      <div class="score-progress-container purple-100-bg">
+                        <div
+                          class="score-progress purple-500-bg gap-2"
+                          [style]="
+                            'width: ' +
+                            socialAreaScores.social_CommunityScore +
+                            '%;'
+                          "
+                        ></div>
+                      </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div
+                      class="d-flex flex-column align-item-start justify-content-start pb-1 w-100"
+                    >
+                      <div
+                        class="d-flex align-item-end justify-content-between w-100"
+                      >
+                        <p
+                          class="secondary-text l-height-1-25rem f-size-14px fw-600"
+                        >
+                          Sociedade
+                        </p>
+
+                        <p
+                          class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500"
+                        >
+                          Nota
+                          <span
+                            class="fw-700 d-inline alpha-800-text f-size-0-85rem"
+                            >{{ socialAreaScores.social_SocietyScore }}</span
+                          >
+                        </p>
+                      </div>
+
+                      <div class="score-progress-container purple-100-bg">
+                        <div
+                          class="score-progress purple-500-bg gap-2"
+                          [style]="
+                            'width: ' +
+                            socialAreaScores.social_SocietyScore +
+                            '%;'
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-column gap-3 w-100">
+                    <!-- Item 2 -->
+                    <div
+                      class="d-flex flex-column align-item-start justify-content-start pb-1 w-100"
+                    >
+                      <div
+                        class="d-flex align-item-end justify-content-between w-100"
+                      >
+                        <p
+                          class="secondary-text l-height-1-25rem f-size-14px fw-600"
+                        >
+                          Cadeia de valor
+                        </p>
+
+                        <p
+                          class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500"
+                        >
+                          Nota
+                          <span
+                            class="fw-700 d-inline alpha-800-text f-size-0-85rem"
+                            >{{
+                              socialAreaScores.social_Value_ChainScore
+                            }}</span
+                          >
+                        </p>
+                      </div>
+
+                      <div class="score-progress-container purple-100-bg">
+                        <div
+                          class="score-progress purple-500-bg gap-2"
+                          [style]="
+                            'width: ' +
+                            socialAreaScores.social_Value_ChainScore +
+                            '%;'
+                          "
+                        ></div>
+                      </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div
+                      class="d-flex flex-column align-item-start justify-content-start pb-1 w-100"
+                    >
+                      <div
+                        class="d-flex align-item-end justify-content-between w-100"
+                      >
+                        <p
+                          class="secondary-text l-height-1-25rem f-size-14px fw-600"
+                        >
+                          Trabalho justo
+                        </p>
+
+                        <p
+                          class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500"
+                        >
+                          Nota
+                          <span
+                            class="fw-700 d-inline alpha-800-text f-size-0-85rem"
+                            >{{ socialAreaScores.social_Fair_WorkScore }}</span
+                          >
+                        </p>
+                      </div>
+
+                      <div class="score-progress-container purple-100-bg">
+                        <div
+                          class="score-progress purple-500-bg gap-2"
+                          [style]="
+                            'width: ' +
+                            socialAreaScores.social_Fair_WorkScore +
+                            '%;'
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Accordion container 3 -->
+            <div
+              class="card-logged input-bg custom-accordion w-100 p-3 pe-2 mb-2"
+              [class.active]="openAccordions.includes(3)"
+            >
+              <!-- Accordion title -->
+              <div
+                class="cursor-pointer d-flex align-items-center justify-content-between"
+                (click)="toggleAccordion(3)"
+              >
+                <div
+                  class="d-flex flex-column align-item-start justify-content-start pb-1 w-100"
+                >
+                  <div
+                    class="d-flex align-item-end justify-content-between w-100"
+                  >
+                    <p
+                      class="secondary-text l-height-1-25rem f-size-14px fw-600"
+                    >
+                      Governança
+                    </p>
+
+                    <p
+                      class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500"
+                    >
+                      Nota
+                      <span
+                        class="fw-700 d-inline alpha-800-text f-size-0-85rem"
+                        >{{ performanceScores.governanceScore }}</span
+                      >
+                    </p>
+                  </div>
+
+                  <div class="score-progress-container blue-100-bg">
+                    <div
+                      class="score-progress blue-500-bg gap-2"
+                      [style]="
+                        'width: ' + performanceScores.governanceScore + '%;'
+                      "
+                    ></div>
+                  </div>
+                </div>
+
+                <img
+                  src="/assets/icon/open-close.svg"
+                  alt="Icon"
+                  class="open-close-icon ms-2"
+                />
+              </div>
+
+              <!-- Accordion content -->
+              <div class="content-custom-accordion">
+                <div class="separator-opacity mt-3"></div>
+                <div
+                  class="d-flex flex-column flex-lg-row align-items-start gap-3 pt-3"
+                  style="max-width: calc(100% - 42px)"
+                >
+                  <div class="d-flex flex-column gap-3 w-100">
+                    <!-- Item 1 -->
+                    <div
+                      class="d-flex flex-column align-item-start justify-content-start pb-1 w-100"
+                    >
+                      <div
+                        class="d-flex align-item-end justify-content-between w-100"
+                      >
+                        <p
+                          class="secondary-text l-height-1-25rem f-size-14px fw-600"
+                        >
+                          Risco
+                        </p>
+
+                        <p
+                          class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500"
+                        >
+                          Nota
+                          <span
+                            class="fw-700 d-inline alpha-800-text f-size-0-85rem"
+                            >{{
+                              governanceAreaScores.governance_RiskScore
+                            }}</span
+                          >
+                        </p>
+                      </div>
+
+                      <div class="score-progress-container blue-100-bg">
+                        <div
+                          class="score-progress blue-400-bg gap-2"
+                          [style]="
+                            'width: ' +
+                            governanceAreaScores.governance_RiskScore +
+                            '%;'
+                          "
+                        ></div>
+                      </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div
+                      class="d-flex flex-column align-item-start justify-content-start pb-1 w-100"
+                    >
+                      <div
+                        class="d-flex align-item-end justify-content-between w-100"
+                      >
+                        <p
+                          class="secondary-text l-height-1-25rem f-size-14px fw-600"
+                        >
+                          Gestão
+                        </p>
+
+                        <p
+                          class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500"
+                        >
+                          Nota
+                          <span
+                            class="fw-700 d-inline alpha-800-text f-size-0-85rem"
+                            >{{
+                              governanceAreaScores.governance_ManagementScore
+                            }}</span
+                          >
+                        </p>
+                      </div>
+
+                      <div class="score-progress-container blue-100-bg">
+                        <div
+                          class="score-progress blue-400-bg gap-2"
+                          [style]="
+                            'width: ' +
+                            governanceAreaScores.governance_ManagementScore +
+                            '%;'
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-column gap-3 w-100">
+                    <!-- Item 2 -->
+                    <div
+                      class="d-flex flex-column align-item-start justify-content-start pb-1 w-100"
+                    >
+                      <div
+                        class="d-flex align-item-end justify-content-between w-100"
+                      >
+                        <p
+                          class="secondary-text l-height-1-25rem f-size-14px fw-600"
+                        >
+                          Transparência
+                        </p>
+
+                        <p
+                          class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500"
+                        >
+                          Nota
+                          <span
+                            class="fw-700 d-inline alpha-800-text f-size-0-85rem"
+                            >{{
+                              governanceAreaScores.governance_TransparencyScore
+                            }}</span
+                          >
+                        </p>
+                      </div>
+
+                      <div class="score-progress-container blue-100-bg">
+                        <div
+                          class="score-progress blue-400-bg gap-2"
+                          [style]="
+                            'width: ' +
+                            governanceAreaScores.governance_TransparencyScore +
+                            '%;'
+                          "
+                        ></div>
+                      </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div
+                      class="d-flex flex-column align-item-start justify-content-start pb-1 w-100"
+                    >
+                      <div
+                        class="d-flex align-item-end justify-content-between w-100"
+                      >
+                        <p
+                          class="secondary-text l-height-1-25rem f-size-14px fw-600"
+                        >
+                          Econômica
+                        </p>
+
+                        <p
+                          class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500"
+                        >
+                          Nota
+                          <span
+                            class="fw-700 d-inline alpha-800-text f-size-0-85rem"
+                            >{{
+                              governanceAreaScores.governance_EconomicScore
+                            }}</span
+                          >
+                        </p>
+                      </div>
+
+                      <div class="score-progress-container blue-100-bg">
+                        <div
+                          class="score-progress blue-400-bg gap-2"
+                          [style]="
+                            'width: ' +
+                            governanceAreaScores.governance_EconomicScore +
+                            '%;'
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="h-100 pb-4 pt-4 pt-md-0 pb-md-0 d-flex flex-column gap-4 align-items-end justify-content-between"
+          >
+            <div>
+              <p
+                class="text-end text-nowrap f-size-1rem fw-800 l-height-1-25 primary-text"
+              >
+                {{ "CONTROL_PANEL.AVERAGE_AVALIATION_TITLE" | translate }}
+              </p>
+
+              <p
+                class="text-end f-size-0-85rem fw-500 l-height-1-25 secondary-text"
+              >
+                {{ "CONTROL_PANEL.AVERAGE_AVALIATION_SUBTITLE" | translate }}
+              </p>
+            </div>
+
+            <div>
+              <div class="d-flex align-items-end justify-content-end gap-4">
+                <!-- <p  *ngIf="postAvaliationInfo.esgScore.toFixed() > 35 && postAvaliationInfo.esgScore.toFixed() <= 59"
                                     class="d-block bronze-text f-size-12px l-height-1-25 fw-700">
                                     BRONZE
                                 </p>
@@ -381,102 +697,155 @@
                                     PRATA
                                 </p> -->
 
-                                <!-- <p  *ngIf="postAvaliationInfo.esgScore.toFixed() >= 81" -->
-                                <p
-                                    class="d-block yellow-500-text f-size-12px l-height-1-25 fw-700">
-                                    OURO
-                                </p>
+                <!-- <p  *ngIf="postAvaliationInfo.esgScore.toFixed() >= 81" -->
+                <p
+                  class="d-block yellow-500-text f-size-12px l-height-1-25 fw-700"
+                >
+                  OURO
+                </p>
 
-                                <h4 class="text-end fw-800 yellow-500-text f-size-3rem l-height-3">
-                                    <!-- {{ averageResult.averageScore.toFixed() }} -->
-                                    63,3
-                                </h4>
-                            </div>
-
-                            <p class="f-size-12px l-height-1-5rem fw-500 secondary-text">
-                                Gerado em 28/08/2024
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row fade-in pb-xl-4">
-        <div class="col-12 pt-4 pt-xl-0">
-            <div class="card-logged p-3 p-lg-4 pt-lg-3">
-                <h4 class="primary-text f-size-1-25rem l-height-1-25 fw-700 pb-4 flex-grow-1">
-                    {{ "DASHBOARD.ADERENCE_LEVEL" | translate }}
+                <h4
+                  class="text-end fw-800 yellow-500-text f-size-3rem l-height-3"
+                >
+                  <!-- {{ averageResult.averageScore.toFixed() }} -->
+                  63,3
                 </h4>
-
-                <div class="w-100 d-flex flex-column flex-xl-row align-items-center justify-content-between gap-3">
-                    <div class="high-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2"
-                        style="min-height: 50px;">
-                        <div class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
-                            <div *ngFor="let ods of odsScoreArray" [class.d-none]="!(ods.score > 70)">
-                                <img *ngIf="ods.score > 70" src="/assets/icon/selos-ods/{{ ods.ods }}.svg"
-                                    alt="{{ ods.ods }}" title="{{ ods.ods }}">
-                            </div>
-                        </div>
-                        <p class="f-size-12px fw-500 pb-1">{{ "DASHBOARD.HIGH" | translate }}</p>
-                    </div>
-    
-                    <div class="intermediate-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2"
-                        style="min-height: 50px;">
-                        <div class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
-                            <div *ngFor="let ods of odsScoreArray"
-                                [class.d-none]="!((ods.score <= 70) && (ods.score > 35))">
-                                <img *ngIf="(ods.score <= 70) && (ods.score > 35)"
-                                    src="/assets/icon/selos-ods/{{ ods.ods }}.svg" alt="{{ ods.ods }}"
-                                    title="{{ ods.ods }}">
-                            </div>
-                        </div>
-                        <p class="f-size-12px fw-500 pb-1">{{ "DASHBOARD.INTERMEDIATE" | translate }}</p>
-                    </div>
-    
-                    <div class="low-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2"
-                        style="min-height: 50px;">
-                        <div class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2">
-                            <div *ngFor="let ods of odsScoreArray" [class.d-none]="!(ods.score <= 35)">
-                                <img *ngIf="ods.score <= 35" src="/assets/icon/selos-ods/{{ ods.ods }}.svg"
-                                    alt="{{ ods.ods }}" title="{{ ods.ods }}">
-                            </div>
-                        </div>
-                        <p class="f-size-12px fw-500 pb-1">{{ "DASHBOARD.LOW" | translate }}</p>
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <div class="row fade-in">
-        <div class="col-12 pt-4 pt-xl-0">
-            <div class="card-logged p-3 p-lg-4">
-                <h4 class="primary-text f-size-1-25rem l-height-1-25 fw-700 pb-4 flex-grow-1">
-                    Avaliação dos fornecedores
-                </h4>
+  <div class="row fade-in pb-xl-4">
+    <div class="col-12 pt-4 pt-xl-0">
+      <div class="card-logged p-3 p-lg-4 pt-lg-3">
+        <h4
+          class="primary-text f-size-1-25rem l-height-1-25 fw-700 pb-4 flex-grow-1"
+        >
+          {{ "DASHBOARD.ADERENCE_LEVEL" | translate }}
+        </h4>
 
-                <div class="d-flex flex-column align-item-start justify-content-start gap-2">
-                    <div *ngFor="let i of supplierScoresArray" class="d-flex flex-column align-item-start justify-content-start pb-1">
-                        <div class="d-flex align-item-end justify-content-between w-100">
-                            <p class="secondary-text l-height-1-25rem f-size-0-85rem fw-600 ">
-                                {{ i.name }}
-                            </p>
-                            
-                            <p class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500">
-                                Nota 
-                                <span class="fw-700 d-inline alpha-800-text f-size-0-85rem">{{ i.score }}</span>
-                            </p>
-                        </div>
-
-                        <div class="score-progress-container teal-100-bg">
-                          <div class="score-progress teal-400-bg gap-2" [style]="'width: ' + i.score + '%;'">
-                          </div>
-                        </div>
-                    </div>
-                </div>
+        <div
+          class="w-100 d-flex flex-column flex-xl-row align-items-center justify-content-between gap-3"
+        >
+          <div
+            class="high-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2"
+            style="min-height: 50px"
+          >
+            <div
+              class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2"
+            >
+              <div
+                *ngFor="let ods of odsScoreArray"
+                [class.d-none]="!(ods.score > 70)"
+              >
+                <img
+                  *ngIf="ods.score > 70"
+                  src="/assets/icon/selos-ods/{{ ods.ods }}.svg"
+                  alt="{{ ods.ods }}"
+                  title="{{ ods.ods }}"
+                />
+              </div>
             </div>
+            <p class="f-size-12px fw-500 pb-1">
+              {{ "DASHBOARD.HIGH" | translate }}
+            </p>
+          </div>
+
+          <div
+            class="intermediate-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2"
+            style="min-height: 50px"
+          >
+            <div
+              class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2"
+            >
+              <div
+                *ngFor="let ods of odsScoreArray"
+                [class.d-none]="!(ods.score <= 70 && ods.score > 35)"
+              >
+                <img
+                  *ngIf="ods.score <= 70 && ods.score > 35"
+                  src="/assets/icon/selos-ods/{{ ods.ods }}.svg"
+                  alt="{{ ods.ods }}"
+                  title="{{ ods.ods }}"
+                />
+              </div>
+            </div>
+            <p class="f-size-12px fw-500 pb-1">
+              {{ "DASHBOARD.INTERMEDIATE" | translate }}
+            </p>
+          </div>
+
+          <div
+            class="low-border rounded d-flex align-items-end justify-content-between gap-3 w-100 p-2"
+            style="min-height: 50px"
+          >
+            <div
+              class="flex-grow-1 flex-wrap d-flex align-item-center justify-content-start gap-2"
+            >
+              <div
+                *ngFor="let ods of odsScoreArray"
+                [class.d-none]="!(ods.score <= 35)"
+              >
+                <img
+                  *ngIf="ods.score <= 35"
+                  src="/assets/icon/selos-ods/{{ ods.ods }}.svg"
+                  alt="{{ ods.ods }}"
+                  title="{{ ods.ods }}"
+                />
+              </div>
+            </div>
+            <p class="f-size-12px fw-500 pb-1">
+              {{ "DASHBOARD.LOW" | translate }}
+            </p>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+
+  <div class="row fade-in">
+    <div class="col-12 pt-4 pt-xl-0">
+      <div class="card-logged p-3 p-lg-4">
+        <h4
+          class="primary-text f-size-1-25rem l-height-1-25 fw-700 pb-4 flex-grow-1"
+        >
+          Avaliação dos fornecedores
+        </h4>
+
+        <div
+          class="d-flex flex-column align-item-start justify-content-start gap-2"
+        >
+          <div
+            *ngFor="let i of supplierScoresArray"
+            class="d-flex flex-column align-item-start justify-content-start pb-1"
+          >
+            <div class="d-flex align-item-end justify-content-between w-100">
+              <p class="secondary-text l-height-1-25rem f-size-0-85rem fw-600">
+                {{ i.nameSupplier }}
+              </p>
+
+              <p
+                class="secondary-text l-height-1-25rem f-size-0-671875rem fw-500"
+              >
+                Nota
+                <span class="fw-700 d-inline alpha-800-text f-size-0-85rem">{{
+                  i.esgScoreSupplier
+                }}</span>
+              </p>
+            </div>
+
+            <div class="score-progress-container teal-100-bg">
+              <div
+                class="score-progress teal-400-bg gap-2"
+                [style]="'width: ' + i.esgScoreSupplier + '%;'"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

@@ -1,94 +1,149 @@
 <button class="open-btn" [class.active]="sidebarOpen" (click)="toggleSidebar()">
-    <img src="/assets/icon/sidebar-btn.svg" alt="Abrir navegação">
+  <img src="/assets/icon/sidebar-btn.svg" alt="Abrir navegação" />
 </button>
 
 <aside class="sidebar-logged h-100" [class.active]="sidebarOpen">
-    <div class="w-100">
-        <button class="bg-transparent p-3 pt-0 ps-0 border-0 shadow-none" [class.active]="sidebarOpen" (click)="toggleSidebar()">
-            <img src="/assets/icon/sidebar-btn.svg" alt="Abrir navegação">
-        </button>
-    
-        <!-- Sidebar sem nota -->
-        <a *ngIf="!companyScoreResponse" routerLink="/logged/assesment" class="fade-in d-flex align-items-center justify-content-between gap-3 py-3 cursor-pointer">
-            <p class="f-size-12px white-text fw-500 l-height-1rem">
-                {{ 'SIDEBAR.TAKE_ASSESMENT' | translate }}
-            </p>
-            <img src="/assets/icon/plus.svg" alt="Fazer Avaliação">
-        </a>
+  <div class="w-100">
+    <button
+      class="bg-transparent p-3 pt-0 ps-0 border-0 shadow-none"
+      [class.active]="sidebarOpen"
+      (click)="toggleSidebar()"
+    >
+      <img src="/assets/icon/sidebar-btn.svg" alt="Abrir navegação" />
+    </button>
 
-        <!-- Sidebar com nota -->
-        <div *ngIf="companyScoreResponse" class="fade-in py-2 cursor-pointer d-flex align-items-center justify-content-between px-3" [class]="getClassPerScore()">
-            <p class="fw-700 l-height-28 f-size-20px pb-1 mb-0 gray-text">
-                {{ getScore() }}
-            </p>
-            <span class="fw-700 l-height-20px f-size-14px gray-text">
-                {{ getTitle() }}
-            </span>
-        </div>
-    
-        <nav class="pt-3 w-100" (click)="toggleSidebar()">
-            <ul class="m-0 p-0 d-flex align-items-start justify-content-start flex-column gap-2 w-100">
-                <li class="w-100">
-                    <a class="nav-link-btn" routerLink="/logged/dashboard" routerLinkActive="active">
-                        <img src="/assets/icon/home.svg" alt="Home">
-                        {{ 'SIDEBAR.HOME' | translate }}
-                    </a>
-                </li>
-                <li class="w-100">
-                    <a class="nav-link-btn" routerLink="/logged/assesment" routerLinkActive="active">
-                        <img src="/assets/icon/assesment.svg" alt="Avaliação">
-                        {{ 'SIDEBAR.AVALIATION' | translate }}
-                    </a>
-                </li>
-                <li class="w-100">
-                    <a class="nav-link-btn" routerLink="/logged/results" routerLinkActive="active">
-                        <img src="/assets/icon/results.svg" alt="Home">
-                        {{ 'SIDEBAR.RESULTS' | translate }}
-                    </a>
-                </li>
-                <li class="w-100">
-                    <a class="nav-link-btn" routerLink="/logged/ods" routerLinkActive="active">
-                        <img src="/assets/icon/ods.svg" alt="ODS">
-                        {{ 'SIDEBAR.ODS' | translate }}
-                    </a>
-                </li>
-                <!-- <li class="w-100">
-                    <a class="nav-link-btn" routerLink="/logged/control-panel" routerLinkActive="active">
-                        <img src="/assets/icon/control-panel-ico.svg" alt="Control-panel">
-                        {{ 'SIDEBAR.CONTROL_PANEL' | translate }}
-                    </a>
-                </li>
-                <li class="w-100">
-                    <a class="nav-link-btn" routerLink="/logged/suppliers" routerLinkActive="active">
-                        <img src="/assets/icon/suppliers.svg" alt="Suppliers">
-                        {{ 'SIDEBAR.SUPPLIERS' | translate }}
-                    </a>
-                </li> -->
-                <li class="w-100">
-                    <a class="nav-link-btn" routerLink="/logged/use-instructions" routerLinkActive="active">
-                        <img src="/assets/icon/use-instructions.svg" alt="use-instructions">
-                        {{ 'SIDEBAR.INSTRUCTIONS' | translate }}
-                    </a>
-                </li>
-                <li class="w-100">
-                    <a class="nav-link-btn cursor-pointer" (click)="logout()">
-                        <img src="/assets/icon/logout.svg" alt="Sair">
-                        {{ 'SIDEBAR.LOGOUT' | translate }}
-                    </a>
-                </li>
-            </ul>
-        </nav>
+    <!-- Sidebar sem nota -->
+    <a
+      *ngIf="!companyScoreResponse"
+      routerLink="/logged/assesment"
+      class="fade-in d-flex align-items-center justify-content-between gap-3 py-3 cursor-pointer"
+    >
+      <p class="f-size-12px white-text fw-500 l-height-1rem">
+        {{ "SIDEBAR.TAKE_ASSESMENT" | translate }}
+      </p>
+      <img src="/assets/icon/plus.svg" alt="Fazer Avaliação" />
+    </a>
+
+    <!-- Sidebar com nota -->
+    <div
+      *ngIf="companyScoreResponse"
+      class="fade-in py-2 cursor-pointer d-flex align-items-center justify-content-between px-3"
+      [class]="getClassPerScore()"
+    >
+      <p class="fw-700 l-height-28 f-size-20px pb-1 mb-0 gray-text">
+        {{ getScore() }}
+      </p>
+      <span class="fw-700 l-height-20px f-size-14px gray-text">
+        {{ getTitle() }}
+      </span>
     </div>
 
-    <div>
-        <p class="brand-50-text f-size-0-8rem l-height-1-25 fw-700">{{ 'SIDEBAR.WANT_MORE' | translate }}</p>
-        <p class="brand-50-text f-size-0-8rem l-height-1-25 fw-400">{{ 'SIDEBAR.HAVE_ACCESS' | translate }}</p>
+    <nav class="pt-3 w-100" (click)="toggleSidebar()">
+      <ul
+        class="m-0 p-0 d-flex align-items-start justify-content-start flex-column gap-2 w-100"
+      >
+        <li class="w-100">
+          <a
+            class="nav-link-btn"
+            routerLink="/logged/dashboard"
+            routerLinkActive="active"
+          >
+            <img src="/assets/icon/home.svg" alt="Home" />
+            {{ "SIDEBAR.HOME" | translate }}
+          </a>
+        </li>
+        <li class="w-100">
+          <a
+            class="nav-link-btn"
+            routerLink="/logged/assesment"
+            routerLinkActive="active"
+          >
+            <img src="/assets/icon/assesment.svg" alt="Avaliação" />
+            {{ "SIDEBAR.AVALIATION" | translate }}
+          </a>
+        </li>
+        <li class="w-100">
+          <a
+            class="nav-link-btn"
+            routerLink="/logged/results"
+            routerLinkActive="active"
+          >
+            <img src="/assets/icon/results.svg" alt="Home" />
+            {{ "SIDEBAR.RESULTS" | translate }}
+          </a>
+        </li>
+        <li class="w-100">
+          <a
+            class="nav-link-btn"
+            routerLink="/logged/ods"
+            routerLinkActive="active"
+          >
+            <img src="/assets/icon/ods.svg" alt="ODS" />
+            {{ "SIDEBAR.ODS" | translate }}
+          </a>
+        </li>
+        <li class="w-100" *ngIf="isContractedPlan">
+          <a
+            class="nav-link-btn"
+            routerLink="/logged/control-panel"
+            routerLinkActive="active"
+          >
+            <img src="/assets/icon/control-panel-ico.svg" alt="Control-panel" />
+            {{ "SIDEBAR.CONTROL_PANEL" | translate }}
+          </a>
+        </li>
+        <li class="w-100" *ngIf="isContractedPlan">
+          <a
+            class="nav-link-btn"
+            routerLink="/logged/suppliers"
+            routerLinkActive="active"
+          >
+            <img src="/assets/icon/suppliers.svg" alt="Suppliers" />
+            {{ "SIDEBAR.SUPPLIERS" | translate }}
+          </a>
+        </li>
+        <li class="w-100">
+          <a
+            class="nav-link-btn"
+            routerLink="/logged/use-instructions"
+            routerLinkActive="active"
+          >
+            <img
+              src="/assets/icon/use-instructions.svg"
+              alt="use-instructions"
+            />
+            {{ "SIDEBAR.INSTRUCTIONS" | translate }}
+          </a>
+        </li>
+        <li class="w-100">
+          <a class="nav-link-btn cursor-pointer" (click)="logout()">
+            <img src="/assets/icon/logout.svg" alt="Sair" />
+            {{ "SIDEBAR.LOGOUT" | translate }}
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 
-        <a routerLink="/logged/plans" class="w-100 p-0 m-0" (click)="toggleSidebar()">
-            <button class="white-outline-btn d-flex align-items-center justify-content-between mt-3 w-100">
-                {{ 'SIDEBAR.SEE_PLANS' | translate }}
-                <img src="/assets/icon/tag.svg" alt="Planos">
-            </button>
-        </a>
-    </div>
+  <div>
+    <p class="brand-50-text f-size-0-8rem l-height-1-25 fw-700">
+      {{ "SIDEBAR.WANT_MORE" | translate }}
+    </p>
+    <p class="brand-50-text f-size-0-8rem l-height-1-25 fw-400">
+      {{ "SIDEBAR.HAVE_ACCESS" | translate }}
+    </p>
+
+    <a
+      routerLink="/logged/plans"
+      class="w-100 p-0 m-0"
+      (click)="toggleSidebar()"
+    >
+      <button
+        class="white-outline-btn d-flex align-items-center justify-content-between mt-3 w-100"
+      >
+        {{ "SIDEBAR.SEE_PLANS" | translate }}
+        <img src="/assets/icon/tag.svg" alt="Planos" />
+      </button>
+    </a>
+  </div>
 </aside>

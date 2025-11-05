@@ -6,15 +6,16 @@ import { ToastrService } from 'ngx-toastr';
 import { finalize } from 'rxjs';
 import { LoginInterface } from 'src/app/interfaces/authentication/authentication.interface';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { CompanyService } from 'src/app/services/company.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  form: FormGroup
-  showPassword = false
+  form: FormGroup;
+  showPassword = false;
 
   constructor(
     private fb: FormBuilder,
@@ -26,39 +27,56 @@ export class LoginComponent {
     this.form = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
-    })
+    });
   }
 
   ngOnInit() {
-    this.scrollToTop()
+    this.scrollToTop();
   }
 
   onSubmit() {
-    if(this.form.invalid) return
+    if (this.form.invalid) return;
 
     const dto: LoginInterface = {
-      email: this.form.controls['email'].value ? this.form.controls['email'].value : '',
-      password: this.form.controls['password'].value ? this.form.controls['password'].value : ''
-    }
-    
+      email: this.form.controls['email'].value
+        ? this.form.controls['email'].value
+        : '',
+      password: this.form.controls['password'].value
+        ? this.form.controls['password'].value
+        : '',
+    };
+
     dto.email = dto.email.toLocaleLowerCase();
     this.spinnerService.show();
-    this.authService.login(dto).pipe(
-      finalize(() => {
-        this.spinnerService.hide()
-      })
-    ).subscribe({
-      next: (data) => {
-        this.authService.setAuthUser(data);
-        this.router.navigate(['/logged'])
-      },
-      error: (err) => {
-        console.error(err);
-        this.toastr.error('Credenciais inválidas', 'Erro', {progressBar: true});
-      }
-    })
+    this.authService
+      .login(dto)
+      .pipe(
+        finalize(() => {
+          this.spinnerService.hide();
+        })
+      )
+      .subscribe({
+        next: (data) => {
+          this.authService.setAuthUser(data);
+
+          if (data.isSupplier && !data.isCompletedRegister) {
+            this.router.navigate(['/register'], {
+              queryParams: { id: data.id },
+            });
+            return;
+          }
+
+          this.router.navigate(['/logged']);
+        },
+        error: (err) => {
+          console.error(err);
+          this.toastr.error('Credenciais inválidas', 'Erro', {
+            progressBar: true,
+          });
+        },
+      });
   }
-  
+
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }

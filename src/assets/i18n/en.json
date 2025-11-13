@@ -449,6 +449,7 @@
     "LOW": "Low"
   },
   "ASSESMENT": {
+    "TITLE_REQUIRED": "Please enter a title for the assessment",
     "YOU_CAN": "You can perform a free assessment!",
     "SIMULATE": "Simulate how our evaluation system works for free.",
     "INIT_SIMULATION": "Start simulation",

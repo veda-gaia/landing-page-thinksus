@@ -76,28 +76,6 @@
         name="buyValue"
       />
 
-      <select
-        *ngIf="selectedLanguage !== 'pt'"
-        name="invoicing"
-        id="invoicing"
-        formControlName="buyValue"
-        class="d-block mb-4"
-      >
-        <option value="" disabled>{{ "REGISTER.SELECT" | translate }}</option>
-        <option [value]="CompanyRevenueEnum.under_360k">
-          {{ "REGISTER.USD_INVOICING_1" | translate }}
-        </option>
-        <option [value]="CompanyRevenueEnum.between_360k_4_8M">
-          {{ "REGISTER.USD_INVOICING_2" | translate }}
-        </option>
-        <option [value]="CompanyRevenueEnum.between_4_8M_20M">
-          {{ "REGISTER.USD_INVOICING_3" | translate }}
-        </option>
-        <option [value]="CompanyRevenueEnum.above_20M">
-          {{ "REGISTER.USD_INVOICING_4" | translate }}
-        </option>
-      </select>
-
       <div class="d-flex align-items-center justify-content-between gap-4 pt-2">
         <button
           class="brand-outline-btn w-75"

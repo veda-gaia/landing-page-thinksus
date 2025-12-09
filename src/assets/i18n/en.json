@@ -467,7 +467,8 @@
     "SOCIAL_DESCRIPTION": "How the company acts when it comes to taking actions related to social matters intended to employees and suppliers.",
     "GOVERNAMENTAL": "Governance",
     "GOVERNAMENTAL_DESCRIPTION": "How the company acts according to its management and administration related to business, employees, shareholders and clients",
-    "GENERATE_RELATORY": "Generate result"
+    "GENERATE_RELATORY": "Send for review",
+    "UNDER_REVIEW": "Under review"
   },
   "SCORE": {
     "TITLE": "Score",
@@ -488,7 +489,10 @@
     "SCORE_TABLE": "ThinkSus Score",
     "GENERATED_AT_TABLE": "Generated in",
     "ACTIONS": "Actions",
-    "NO_RESULTS": "No results"
+    "NO_RESULTS": "No results",
+    "IN_ANALYSIS": "Your evaluation is under review.",
+    "IN_ANALYSIS_SUBTITLE": "Please wait for our team to contact you by email to continue.",
+    "STATUS": "Status"
   },
   "SUPPLIERS": {
     "LIST_TITLE": "Supplier list",

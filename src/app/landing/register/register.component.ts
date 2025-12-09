@@ -29,9 +29,13 @@ import {
 } from 'src/app/util/pt-segment';
 import { TermsAndConditionsModalComponent } from './terms-and-conditions-modal/terms-and-conditions-modal.component';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { finalize } from 'rxjs';
+import { finalize, Observable, tap } from 'rxjs';
 import { comparePassword } from 'src/app/util/validators.util';
 import { CompanyService } from 'src/app/services/company.service';
+import { SectionInterface } from 'src/app/forms/section.interface';
+import { SegmentInterface } from 'src/app/forms/segment.interface';
+import { SectionService } from 'src/app/services/sections.service';
+import { SegmentService } from 'src/app/services/segment.service';
 
 @Component({
   selector: 'app-register',
@@ -59,6 +63,8 @@ export class RegisterComponent implements OnInit {
   CompanyRevenueEnum = CompanyRevenueEnum;
 
   userCompanyId: string = '';
+  sections$!: Observable<SectionInterface[]>;
+  segments$!: Observable<SegmentInterface[]>;
 
   constructor(
     private fb: FormBuilder,
@@ -72,7 +78,9 @@ export class RegisterComponent implements OnInit {
     private spinnerService: NgxSpinnerService,
     private ChangeDetectorRef: ChangeDetectorRef,
     private companyService: CompanyService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private _sectionService: SectionService,
+    private _segmentService: SegmentService
   ) {
     this.form1 = this.fb.group(
       {
@@ -123,6 +131,12 @@ export class RegisterComponent implements OnInit {
       },
     });
 
+    this.form2.controls.sector.valueChanges.subscribe({
+      next: (data) => {
+        this.segments$ = this._segmentService.getbySection('0', data ?? '');
+      },
+    });
+
     this.currentLang = this.translateService.currentLang;
     if (this.currentLang === 'en') {
       this.sectorList = enSectorList;
@@ -146,14 +160,6 @@ export class RegisterComponent implements OnInit {
 
         this.ChangeDetectorRef.detectChanges();
         this.handleSegment(this.form2.controls.sector.value);
-      },
-    });
-
-    // Subscribe Sector
-    this.form2.controls.sector.valueChanges.subscribe({
-      next: (data) => {
-        if (!data) return;
-        this.handleSegment(data);
       },
     });
 
@@ -185,6 +191,8 @@ export class RegisterComponent implements OnInit {
         },
       });
     }
+
+    this.loadSection();
   }
 
   handleSegment(data: any) {
@@ -373,5 +381,22 @@ export class RegisterComponent implements OnInit {
 
   openPdf() {
     this.modalService.open(TermsAndConditionsModalComponent);
+  }
+
+  loadSection() {
+    this.sections$ = this._sectionService.list();
+  }
+
+  loadSegment() {
+    const esgFormValues = this.form2.value;
+    //this.spinnerService.show();
+
+    this.segments$ = this._segmentService
+      .getbySection('', esgFormValues.sector?.toString() ?? '')
+      .pipe(
+        finalize(() => {
+          this.spinnerService.hide();
+        })
+      );
   }
 }

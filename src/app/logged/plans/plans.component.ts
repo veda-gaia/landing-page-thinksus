@@ -7,6 +7,7 @@ import SubscriptionInterface from '../../interfaces/subscription/subscription.in
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { finalize } from 'rxjs';
+import { ConfirmationComponent } from '../confirmation/confirmation.component';
 
 @Component({
   selector: 'app-plans',
@@ -16,9 +17,9 @@ import { finalize } from 'rxjs';
 export class PlansComponent {
   subscriptions: SubscriptionInterface[] = [];
 
-  subscriptionsSimulation:SubscriptionInterface | undefined = undefined;
-  subscriptionsSolution:SubscriptionInterface | undefined = undefined;
-  subscriptionsSupplyChain:SubscriptionInterface | undefined = undefined;
+  subscriptionsSimulation: SubscriptionInterface | undefined = undefined;
+  subscriptionsSolution: SubscriptionInterface | undefined = undefined;
+  subscriptionsSupplyChain: SubscriptionInterface | undefined = undefined;
 
   constructor(
     private modalService: NgbModal,
@@ -29,33 +30,44 @@ export class PlansComponent {
   ) {}
 
   ngOnInit() {
-    this.spinnerService.show()
-    this.subscriptionService.list().pipe(
-      finalize(() => {
-        this.spinnerService.hide()
-      })
-    ).subscribe({
-      next: (data) => {
-        this.subscriptions = data;
-        this.subscriptionsSimulation = data.find(subscription => subscription.name === 'Simulation');
-        this.subscriptionsSolution = data.find(subscription => subscription.name === 'Solution');
-        this.subscriptionsSupplyChain = data.find(subscription => subscription.name === 'Supply Chain');
-
-      },
-    });
+    this.spinnerService.show();
+    this.subscriptionService
+      .list()
+      .pipe(
+        finalize(() => {
+          this.spinnerService.hide();
+        })
+      )
+      .subscribe({
+        next: (data) => {
+          this.subscriptions = data;
+          this.subscriptionsSimulation = data.find(
+            (subscription) => subscription.name === 'Simulation'
+          );
+          this.subscriptionsSolution = data.find(
+            (subscription) => subscription.name === 'Solution'
+          );
+          this.subscriptionsSupplyChain = data.find(
+            (subscription) => subscription.name === 'Supply Chain'
+          );
+        },
+      });
   }
 
   goToPlan(mercadoPagoPlanId?: string) {
-    if(!mercadoPagoPlanId) {
+    if (!mercadoPagoPlanId) {
       this.toastr.error('O plano não está disponível no momento');
-      return
+      return;
     }
 
     // Abre o modal do formulário
-    const modalRef = this.modalService.open(PaymentOrientationModalComponent, {
+    const modalRef = this.modalService.open(ConfirmationComponent, {
       centered: true,
     });
 
+    modalRef.componentInstance.preapproval_id = mercadoPagoPlanId;
+
+    /*
     // Se inscreve no status do modal
     modalRef.componentInstance.submitted.subscribe((next: boolean) => {
       if (next) {
@@ -68,5 +80,6 @@ export class PlansComponent {
         );
       }
     });
+    */
   }
 }

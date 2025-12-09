@@ -50,6 +50,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { CnpjPipe } from '../pipes/cnpj-format.pipe';
 import { CompanyRevenuePipe } from '../pipes/company-revenue.pipe';
+import { QuestionaryComponent } from './questionary/questionary/questionary.component';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -87,6 +88,7 @@ PlotlyModule.plotlyjs = PlotlyJS;
     ScoreWarningComponent,
     CnpjPipe,
     CompanyRevenuePipe,
+    QuestionaryComponent,
   ],
   imports: [
     CommonModule,

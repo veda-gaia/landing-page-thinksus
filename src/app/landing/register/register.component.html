@@ -369,11 +369,8 @@
               formControlName="sector"
               class="d-block mb-4 w-100"
             >
-              <option value="" disabled>
-                {{ "REGISTER.FIELD_PLACEHOLDER" | translate }}
-              </option>
-              <option *ngFor="let sector of sectorList" [value]="sector.value">
-                {{ sector.label }}
+              <option *ngFor="let sec of sections$ | async" [value]="sec._id">
+                {{ sec.name }}
               </option>
             </select>
             <!-- <input type="text" class="w-100 mb-4" formControlName="sector" placeholder="{{ 'REGISTER.FIELD_PLACEHOLDER' | translate }}" autocomplete="off" id="sector" name="sector"> -->
@@ -395,11 +392,9 @@
               <option value="" disabled>
                 {{ "REGISTER.SEGMENT_PLACEHOLDER" | translate }}
               </option>
-              <option
-                *ngFor="let segment of segmentList"
-                [value]="segment.value"
-              >
-                {{ segment.label }}
+
+              <option *ngFor="let seg of segments$ | async" [value]="seg._id">
+                {{ seg.name }}
               </option>
             </select>
             <!-- <input type="text" class="w-100 mb-4" formControlName="segment" placeholder="{{ 'REGISTER.SEGMENT_PLACEHOLDER' | translate }}" autocomplete="off" id="segment" name="segment"> -->

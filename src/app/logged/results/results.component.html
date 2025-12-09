@@ -1,159 +1,291 @@
-<ng-container *ngIf="avaliationStatus === 'pre-avaliation' else postAvaliation">
-    <section class="w-100">
-        <div class="row pb-4">
-            <div class="col">
-                <h3 class="alpha-800-text f-size-1-5rem l-height-1-5rem pb-1 fw-800">
-                    {{ "SCORE.TITLE" | translate }}
-                </h3>
-                <p class="f-size-0-85rem alpha-700-text fw-500 l-height-1-25">
-                    {{ "SCORE.HISTORY" | translate }}
-                </p>
-            </div>
-        </div>
+<ng-container *ngIf="avaliationStatus === ''">
+  <section class="w-100">
+    <div class="row pb-4">
+      <div class="col">
+        <h3 class="alpha-800-text f-size-1-5rem l-height-1-5rem pb-1 fw-800">
+          {{ "SCORE.TITLE" | translate }}
+        </h3>
+        <p class="f-size-0-85rem alpha-700-text fw-500 l-height-1-25">
+          {{ "SCORE.HISTORY" | translate }}
+        </p>
+      </div>
+    </div>
 
-        <div class="row fade-in">
-            <div class="col">
-                <div class="darker-card-logged w-100 p-3 p-xl-4 d-flex flex-column flex-xl-row align-items-start align-items-xl-center justify-content-between gap-4">
-                    <div class="flex-grow-1 d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-start gap-3">
-                        <img src="/assets/img/not-found.svg" alt="Não encontrado" width="128px">
-        
-                        <div class="w-100 d-block">
-                            <h4 class="f-size-1-25rem l-height-1-5 fw-700 brand-text pb-2">
-                                {{ "SCORE.YOU_DONT_HAVE" | translate }}
-                            </h4>
-                            <p class="f-size-0-85rem l-height-1-25 alpha-800-text fw-500" style="max-width: 480px;">
-                                {{ "SCORE.MAKE_YOUR_FIRST" | translate }}
-                            </p>
-                        </div>
-                    </div>
-        
-                    <button class="d-flex brand-btn align-items-center justify-content-center gap-2" routerLink="/logged/assesment">
-                        {{ "SCORE.MAKE_BUTTON" | translate }}
-                        <img src="/assets/icon/go-to.svg" alt="">
-                    </button>
-                </div>
+    <div class="row fade-in">
+      <div class="col">
+        <div
+          class="darker-card-logged w-100 p-3 p-xl-4 d-flex flex-column flex-xl-row align-items-start align-items-xl-center justify-content-between gap-4"
+        >
+          <div
+            class="flex-grow-1 d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-start gap-3"
+          >
+            <img
+              src="/assets/img/not-found.svg"
+              alt="Não encontrado"
+              width="128px"
+            />
+
+            <div class="w-100 d-block">
+              <h4 class="f-size-1-25rem l-height-1-5 fw-700 brand-text pb-2">
+                {{ "SCORE.YOU_DONT_HAVE" | translate }}
+                {{ avaliationStatus }}
+              </h4>
+              <p
+                class="f-size-0-85rem l-height-1-25 alpha-800-text fw-500"
+                style="max-width: 480px"
+              >
+                {{ "SCORE.MAKE_YOUR_FIRST" | translate }}
+              </p>
             </div>
+          </div>
+
+          <button
+            class="d-flex brand-btn align-items-center justify-content-center gap-2"
+            routerLink="/logged/assesment"
+          >
+            {{ "SCORE.MAKE_BUTTON" | translate }}
+            <img src="/assets/icon/go-to.svg" alt="" />
+          </button>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 </ng-container>
 
-<ng-template #postAvaliation>
-    <section class="w-100" *ngIf="!loading">
-        <div class="row pb-4">
-            <div class="col">
-                <h3 class="alpha-800-text f-size-1-5rem l-height-1-5rem pb-1 fw-800">
-                    {{ "SCORE.TITLE" | translate }}
-                </h3>
-                <p class="f-size-0-85rem alpha-700-text fw-500 l-height-1-25">
-                    {{ "SCORE.NEXT_AVALIABLE" | translate }} 10/10/2024
-                </p>
+<ng-container *ngIf="avaliationStatus === 'UNDER_ANALYSIS'">
+  <section class="w-100">
+    <div class="row fade-in">
+      <div class="col">
+        <div
+          class="darker-card-logged w-100 p-3 p-xl-4 d-flex flex-column flex-xl-row align-items-start align-items-xl-center justify-content-between gap-4"
+        >
+          <div
+            class="flex-grow-1 d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-start gap-3"
+          >
+            <img
+              src="/assets/img/not-found.svg"
+              alt="Não encontrado"
+              width="128px"
+            />
+
+            <div class="w-100 d-block">
+              <h4 class="f-size-1-25rem l-height-1-5 fw-700 brand-text pb-2">
+                {{ "SCORE.IN_ANALYSIS" | translate }}
+              </h4>
+              <p
+                class="f-size-0-85rem l-height-1-25 alpha-800-text fw-500"
+                style="max-width: 480px"
+              >
+                {{ "SCORE.IN_ANALYSIS_SUBTITLE" | translate }}
+              </p>
             </div>
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
+</ng-container>
 
-        <div class="row fade-in">
-            <div class="col-12 col-xl-7 pt-4 pt-xl-0">
-                <div class="card-logged p-3 p-lg-4">
-                    <div class="d-flex flex-column flex-sm-row align-items-start justify-content-between w-100 pb-3">
-                        <div>
-                            <h4 class="primary-text d-flex align-item-start justify-content-start gap-2 f-size-1-5rem fw-700 pb-2 mb-1">
-                                {{ "SCORE.MOST_RECENT" | translate }}
-                                <img src="/assets/icon/green-info.svg" alt="Info" width="40px">
-                            </h4>
-            
-                            <p class="secondary-text f-size-1rem fw-500 pb-2">
-                                {{ "SCORE.SCORE_TITLE" | translate }} <span class="fw-700 gray-text">{{ recentResult.title }}</span>
-                            </p>
-            
-                            <p class="secondary-text f-size-1rem fw-500 pb-4">
-                                {{ "SCORE.SCORE_GENERATED_AT" | translate }} <span class="fw-700 gray-text">{{ recentResult.updatedAt | dateFormat }}</span>
-                            </p>
-                        </div>
+<ng-container *ngIf="list.length > 0">
+  <section class="w-100" *ngIf="!loading">
+    <div class="row pb-4">
+      <div class="col">
+        <h3 class="alpha-800-text f-size-1-5rem l-height-1-5rem pb-1 fw-800">
+          {{ "SCORE.TITLE" | translate }}
+        </h3>
+        <p class="f-size-0-85rem alpha-700-text fw-500 l-height-1-25">
+          {{ "SCORE.NEXT_AVALIABLE" | translate }} 10/10/2024
+        </p>
+      </div>
+    </div>
 
-                        <div class="pb-4 pb-sm-0">
-                            <p class="text-end text-nowrap f-size-12px fw-800 l-height-1-25 secondary-text">
-                                {{ "SCORE.THINKSUS_SCORE" | translate }}
-                            </p>
+    <div class="row fade-in">
+      <div class="col-12 col-xl-7 pt-4 pt-xl-0">
+        <div class="card-logged p-3 p-lg-4">
+          <div
+            class="d-flex flex-column flex-sm-row align-items-start justify-content-between w-100 pb-3"
+          >
+            <div>
+              <h4
+                class="primary-text d-flex align-item-start justify-content-start gap-2 f-size-1-5rem fw-700 pb-2 mb-1"
+              >
+                {{ "SCORE.MOST_RECENT" | translate }}
+                <img
+                  src="/assets/icon/green-info.svg"
+                  alt="Info"
+                  width="40px"
+                />
+              </h4>
 
-                            <h4 class="text-end fw-800 system-success-text f-size-3rem l-height-3">
-                                {{ recentResult.esgScore.toFixed() }}
-                            </h4>
-                        </div>
-                    </div>
-        
-                    <div class="d-flex align-item-start justify-content-between w-100">
-                        <a routerLink="improvements/{{ recentResult._id }}">
-                            <button class="brand-btn px-3 px-md-5">
-                                {{ "SCORE.IMPROVEMENTS" | translate }}
-                            </button>
-                        </a>
+              <p class="secondary-text f-size-1rem fw-500 pb-2">
+                {{ "SCORE.SCORE_TITLE" | translate }}
+                <span class="fw-700 gray-text">{{ recentResult.title }}</span>
+              </p>
 
-                        <button class="no-bg-btn bg-transparent" title="baixar" (click)="downloadReport()">
-                            <img src="/assets/icon/download-no-bg.svg" alt="Baixar" width="40px">
-                        </button>
-                    </div>
-                </div>
+              <p class="secondary-text f-size-1rem fw-500 pb-4">
+                {{ "SCORE.SCORE_GENERATED_AT" | translate }}
+                <span class="fw-700 gray-text">{{
+                  recentResult.updatedAt | dateFormat
+                }}</span>
+              </p>
             </div>
 
-            <div class="col-12 col-xl-5 pt-4 pt-xl-0">
-                <div class="position-relative card-logged p-3 p-lg-4 pt-0 pt-lg-0" style="overflow: hidden;">
-                    <h4 class="position-absolute primary-text f-size-1-5rem fw-700 pb-2 pt-3 pt-lg-4" style="z-index: 999999;">
-                        {{ "SCORE.SCORE_HISTORY" | translate }}
-                    </h4>
-            
-                    <!-- <img src="/assets/img/graph-dash.svg" alt="Gráfico exemplo" class="w-100"> -->
-                    <plotly-plot *ngIf="list.length > 1" [data]="graphData" [config]="graphConfig"></plotly-plot>
-                    <p *ngIf="list.length <= 1" class="primary-text fw-600 f-size-1rem pt-5 mt-5 pb-2">
-                        {{"RESULTS.RESULT_BODY" | translate}}
-                    </p>
-                </div>
+            <div class="pb-4 pb-sm-0">
+              <p
+                class="text-end text-nowrap f-size-12px fw-800 l-height-1-25 secondary-text"
+              >
+                {{ "SCORE.THINKSUS_SCORE" | translate }}
+              </p>
+
+              <h4
+                class="text-end fw-800 system-success-text f-size-3rem l-height-3"
+              >
+                {{ recentResult.esgScore.toFixed() }}
+              </h4>
             </div>
+          </div>
+
+          <div class="d-flex align-item-start justify-content-between w-100">
+            <a routerLink="improvements/{{ recentResult._id }}">
+              <button class="brand-btn px-3 px-md-5">
+                {{ "SCORE.IMPROVEMENTS" | translate }}
+              </button>
+            </a>
+
+            <button
+              class="no-bg-btn bg-transparent"
+              title="baixar"
+              (click)="downloadReport()"
+            >
+              <img
+                src="/assets/icon/download-no-bg.svg"
+                alt="Baixar"
+                width="40px"
+              />
+            </button>
+          </div>
         </div>
+      </div>
 
-        <div class="row pt-4">
-            <div class="col">
-                <div class="w-100 pb-2">
-                    <div class="table-container-real">
-                        <table class="white-bg border-radius-10 pt-2">
-                            <tr class="header-row-tr">
-                                <th>{{ "SCORE.SEAL" | translate }}</th>
-                                <th>{{ "SCORE.SCORE_NAME" | translate }}</th>
-                                <th>{{ "SCORE.SCORE_TABLE" | translate }}</th>
-                                <th>{{ "SCORE.GENERATED_AT_TABLE" | translate }}</th>
-                                <th>{{ "SCORE.ACTIONS" | translate }}</th>
-                            </tr>
-                            <tr *ngFor="let item of filteredList" class="body-row-tr">
-                                <td class="">
-                                    <img *ngIf="item.esgScore <= 35" src="/assets/icon/none-seal.svg" alt="Sem Selo" title="Sem Selo" width="20px">
-                                    <img *ngIf="item.esgScore > 35 && item.esgScore <= 60" src="/assets/icon/seal-bronze.svg" alt="Selo de Bronze" title="Selo de Bronze" width="20px">
-                                    <img *ngIf="item.esgScore > 60 && item.esgScore <= 80" src="/assets/icon/seal-silver.svg" alt="Selo de Prata" title="Selo de Prata" width="20px">
-                                    <img *ngIf="item.esgScore > 80" src="/assets/icon/seal-gold.svg" alt="Selo de Ouro" title="Selo de Ouro" width="20px">
-                                </td>
-                                <td class="">
-                                    {{ item.title ? item.title : ( "UNTITLED" | translate ) }}
-                                </td>
-                                <td class="">
-                                    {{ item.esgScore.toFixed() }}
-                                </td>
-                                <td class="">
-                                    {{ item.updatedAt | dateFormat }}
-                                </td>
-                                <td class="">
-                                    <button class="bg-transparent border-0 shadow-none p-2" title="Detalhes">
-                                        <img src="/assets/icon/info.svg" width="20px" alt="Detalhes">
-                                    </button>
-                                    <button class="bg-transparent border-0 shadow-none" title="Baixar" (click)="downloadReport()">
-                                        <img src="/assets/icon/download-no-bg-23.svg" width="20px" alt="Baixar">
-                                    </button>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-    
-                    <p *ngIf="!filteredList.length" class="w-100 text-center py-4 py-xl-5 color-app-300 font-s-09rem d-flex align-items-center justify-content-center gap-2">
-                        {{ "SCORE.NO_RESULTS" | translate }}
-                    </p>
-                </div>
-            </div>
+      <div class="col-12 col-xl-5 pt-4 pt-xl-0">
+        <div
+          class="position-relative card-logged p-3 p-lg-4 pt-0 pt-lg-0"
+          style="overflow: hidden"
+        >
+          <h4
+            class="position-absolute primary-text f-size-1-5rem fw-700 pb-2 pt-3 pt-lg-4"
+            style="z-index: 999999"
+          >
+            {{ "SCORE.SCORE_HISTORY" | translate }}
+          </h4>
+
+          <!-- <img src="/assets/img/graph-dash.svg" alt="Gráfico exemplo" class="w-100"> -->
+          <plotly-plot
+            *ngIf="list.length > 1"
+            [data]="graphData"
+            [config]="graphConfig"
+          ></plotly-plot>
+          <p
+            *ngIf="list.length <= 1"
+            class="primary-text fw-600 f-size-1rem pt-5 mt-5 pb-2"
+          >
+            {{ "RESULTS.RESULT_BODY" | translate }}
+          </p>
         </div>
-    </section>
-</ng-template>
+      </div>
+    </div>
+
+    <div class="row pt-4">
+      <div class="col">
+        <div class="w-100 pb-2">
+          <div class="table-container-real">
+            <table class="white-bg border-radius-10 pt-2">
+              <tr class="header-row-tr">
+                <th>{{ "SCORE.SEAL" | translate }}</th>
+                <th>{{ "SCORE.SCORE_NAME" | translate }}</th>
+                <th>{{ "SCORE.SCORE_TABLE" | translate }}</th>
+                <th>{{ "SCORE.GENERATED_AT_TABLE" | translate }}</th>
+                <th>{{ "SCORE.STATUS" | translate }}</th>
+                <th>{{ "SCORE.ACTIONS" | translate }}</th>
+              </tr>
+              <tr *ngFor="let item of filteredList" class="body-row-tr">
+                <td class="">
+                  <img
+                    *ngIf="item.esgScore <= 35"
+                    src="/assets/icon/none-seal.svg"
+                    alt="Sem Selo"
+                    title="Sem Selo"
+                    width="20px"
+                  />
+                  <img
+                    *ngIf="item.esgScore > 35 && item.esgScore <= 60"
+                    src="/assets/icon/seal-bronze.svg"
+                    alt="Selo de Bronze"
+                    title="Selo de Bronze"
+                    width="20px"
+                  />
+                  <img
+                    *ngIf="item.esgScore > 60 && item.esgScore <= 80"
+                    src="/assets/icon/seal-silver.svg"
+                    alt="Selo de Prata"
+                    title="Selo de Prata"
+                    width="20px"
+                  />
+                  <img
+                    *ngIf="item.esgScore > 80"
+                    src="/assets/icon/seal-gold.svg"
+                    alt="Selo de Ouro"
+                    title="Selo de Ouro"
+                    width="20px"
+                  />
+                </td>
+                <td class="">
+                  {{ item.title ? item.title : ("UNTITLED" | translate) }}
+                </td>
+                <td class="">
+                  {{ item.esgScore.toFixed() }}
+                </td>
+                <td class="">
+                  {{ item.updatedAt | dateFormat }}
+                </td>
+                <td class="">
+                  {{ item.status }}
+                </td>
+                <td class="">
+                  <button
+                    class="bg-transparent border-0 shadow-none p-2"
+                    title="Detalhes"
+                  >
+                    <img
+                      src="/assets/icon/info.svg"
+                      width="20px"
+                      alt="Detalhes"
+                    />
+                  </button>
+                  <button
+                    class="bg-transparent border-0 shadow-none"
+                    title="Baixar"
+                    (click)="downloadReport()"
+                  >
+                    <img
+                      src="/assets/icon/download-no-bg-23.svg"
+                      width="20px"
+                      alt="Baixar"
+                    />
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <p
+            *ngIf="!filteredList.length"
+            class="w-100 text-center py-4 py-xl-5 color-app-300 font-s-09rem d-flex align-items-center justify-content-center gap-2"
+          >
+            {{ "SCORE.NO_RESULTS" | translate }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</ng-container>

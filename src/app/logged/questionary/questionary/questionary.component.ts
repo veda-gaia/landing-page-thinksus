@@ -47,7 +47,7 @@ export class QuestionaryComponent {
     private spinnerService: NgxSpinnerService,
     private awsService: AwsService,
     private esgFormService: EsgFormService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
   ) {
     this.formArray = new FormArray<FormGroup<any>>([]);
     this.formArrayDocuments = this.fb.array<
@@ -70,12 +70,13 @@ export class QuestionaryComponent {
       .pipe(
         finalize(() => {
           this.spinnerService.hide();
-        })
+        }),
       )
       .subscribe({
         next: (data: FormInterface) => {
+          debugger;
           this.questionaryData = data.questions.filter(
-            (x) => x.dimension == this.esgSymbol.toUpperCase()
+            (x) => x.dimension == this.esgSymbol.toUpperCase(),
           );
 
           this.questionaryData.forEach((item) => {
@@ -83,7 +84,7 @@ export class QuestionaryComponent {
               new FormGroup({
                 questionId: new FormControl(item._id),
                 answer: new FormControl('', Validators.required),
-              })
+              }),
             );
           });
         },
@@ -93,7 +94,7 @@ export class QuestionaryComponent {
       .pipe(
         finalize(() => {
           this.spinnerService.hide();
-        })
+        }),
       )
       .subscribe({
         next: (data) => {
@@ -113,20 +114,20 @@ export class QuestionaryComponent {
       .pipe(
         finalize(() => {
           this.spinnerService.hide();
-        })
+        }),
       )
       .subscribe({
         next: (data) => {
           const questionaryAnswers = data[0].answers.filter(
             (y: any) =>
               y.questionId.dimension.toUpperCase() ==
-              this.esgSymbol.toUpperCase()
+              this.esgSymbol.toUpperCase(),
           );
 
           if (questionaryAnswers.length) {
             questionaryAnswers.forEach((answer: any) => {
               const index = this.formArray.value.findIndex(
-                (item: any) => item.questionId === answer.questionId._id
+                (item: any) => item.questionId === answer.questionId._id,
               );
 
               if (index !== -1) {
@@ -213,10 +214,10 @@ export class QuestionaryComponent {
             formData.append(
               this.questionaryData[i]._id,
               fileControl,
-              fileControl.name
+              fileControl.name,
             );
           }
-        }
+        },
       );
     });
 
@@ -247,7 +248,8 @@ export class QuestionaryComponent {
                   documentsPath: this.questionaryData[index].documentNeeded
                     ? data
                         .filter(
-                          (item) => item.name == this.questionaryData[index]._id
+                          (item) =>
+                            item.name == this.questionaryData[index]._id,
                         )
                         .map((item) => item.url)
                     : null,
@@ -304,7 +306,7 @@ export class QuestionaryComponent {
       .pipe(
         finalize(() => {
           this.spinnerService.hide();
-        })
+        }),
       )
       .subscribe({
         next: (data) => {
@@ -318,5 +320,12 @@ export class QuestionaryComponent {
 
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  get documentsValid(): boolean {
+    return this.formArrayDocuments.controls.every((fileArray, index) => {
+      if (!this.questionaryData[index].documentNeeded) return true;
+      return fileArray.length > 0;
+    });
   }
 }

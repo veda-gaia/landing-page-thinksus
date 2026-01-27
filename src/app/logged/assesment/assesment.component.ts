@@ -39,6 +39,10 @@ export class AssesmentComponent implements OnInit {
   socialAnswers = 0;
   governanceAnswers = 0;
 
+  hasPendingDocumentEnvironmental = false;
+  hasPendingDocumentSocial = false;
+  hasPendingDocumentGovernance = false;
+
   sectionId = '';
   segmentId = '';
   esgRatingStatus = '';
@@ -56,7 +60,7 @@ export class AssesmentComponent implements OnInit {
     private contractedPlanService: ContractedPlanService,
     private modalService: NgbModal,
     private translateService: TranslateService,
-    private spinnerService: NgxSpinnerService
+    private spinnerService: NgxSpinnerService,
   ) {
     this.form = this.fb.group({
       title: ['', Validators.required],
@@ -75,32 +79,47 @@ export class AssesmentComponent implements OnInit {
       .pipe(
         finalize(() => {
           this.spinnerService.hide();
-        })
+        }),
       )
       .subscribe({
         next: (data) => {
-          const myAnswers = data[0].answers;
+          const myAnswers = data?.[0]?.answers;
 
-          if (myAnswers) {
-            this.environmentalAnswers = myAnswers.filter((i: any) => {
-              return i.questionId.dimension == 'E';
-            }).length;
+          if (myAnswers?.length) {
+            const environmentalAnswers = myAnswers.filter(
+              (i: any) => i.questionId.dimension === 'E',
+            );
 
-            this.socialAnswers = myAnswers.filter((i: any) => {
-              return i.questionId.dimension == 'S';
-            }).length;
+            const socialAnswers = myAnswers.filter(
+              (i: any) => i.questionId.dimension === 'S',
+            );
 
-            this.governanceAnswers = myAnswers.filter((i: any) => {
-              return i.questionId.dimension == 'G';
-            }).length;
+            const governanceAnswers = myAnswers.filter(
+              (i: any) => i.questionId.dimension === 'G',
+            );
+
+            this.environmentalAnswers = environmentalAnswers.length;
+            this.socialAnswers = socialAnswers.length;
+            this.governanceAnswers = governanceAnswers.length;
+
+            this.hasPendingDocumentEnvironmental = environmentalAnswers.some(
+              (i: any) => i.status === 'REJECTED',
+            );
+
+            this.hasPendingDocumentSocial = socialAnswers.some(
+              (i: any) => i.status === 'REJECTED',
+            );
+
+            this.hasPendingDocumentGovernance = governanceAnswers.some(
+              (i: any) => i.status === 'REJECTED',
+            );
+            debugger;
 
             this.handleInfo(myAnswers[0].questionId?.esgFormId);
-
             this.assesmentId = data[0]._id;
           }
 
-          this.esgRatingStatus = data[0].status;
-
+          this.esgRatingStatus = data[0]?.status;
           this.loading = false;
         },
         error: (err) => {
@@ -113,7 +132,7 @@ export class AssesmentComponent implements OnInit {
       .pipe(
         finalize(() => {
           this.spinnerService.hide();
-        })
+        }),
       )
       .subscribe({
         next: (data: any) => {
@@ -135,7 +154,7 @@ export class AssesmentComponent implements OnInit {
       .pipe(
         finalize(() => {
           this.spinnerService.hide();
-        })
+        }),
       )
       .subscribe({
         next: (data) => {
@@ -197,14 +216,14 @@ export class AssesmentComponent implements OnInit {
       .pipe(
         finalize(() => {
           this.spinnerService.hide();
-        })
+        }),
       )
       .subscribe({
         next: (data) => {
           setTimeout(() => {
             this.EsgRatingService.updateTitleById(
               this.assesmentId,
-              titleDto
+              titleDto,
             ).subscribe({
               next: (data) => {
                 this.toastr.success('Pontuação gerada com sucesso', 'Sucesso', {
@@ -252,7 +271,7 @@ export class AssesmentComponent implements OnInit {
       .pipe(
         finalize(() => {
           this.spinnerService.hide();
-        })
+        }),
       )
       .subscribe({
         next: (data) => {
@@ -275,7 +294,7 @@ export class AssesmentComponent implements OnInit {
             this.toastr.warning(
               'Contrate um plano antes de iniciar avaliação!',
               'Atenção',
-              { progressBar: true }
+              { progressBar: true },
             );
             this.router.navigate(['/logged/plans']);
           }

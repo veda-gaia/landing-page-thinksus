@@ -3,8 +3,25 @@
   <form class="pb-5 w-100">
     <div class="row pb-4">
       <div class="col">
-        <h3 class="alpha-800-text f-size-1-5rem fw-700">
+        <h3
+          class="alpha-800-text f-size-1-5rem fw-700"
+          *ngIf="esgSymbol.toUpperCase() == 'E'"
+        >
           {{ "QUESTIONARY.ENVIRONMENTAL_TITLE" | translate }}
+        </h3>
+
+        <h3
+          class="alpha-800-text f-size-1-5rem fw-700"
+          *ngIf="esgSymbol.toUpperCase() == 'S'"
+        >
+          {{ "QUESTIONARY.SOCIAL_TITLE" | translate }}
+        </h3>
+
+        <h3
+          class="alpha-800-text f-size-1-5rem fw-700"
+          *ngIf="esgSymbol.toUpperCase() == 'G'"
+        >
+          {{ "QUESTIONARY.GOVERNAMENTAL_TITLE" | translate }}
         </h3>
 
         <div
@@ -343,7 +360,7 @@
 
       <button
         class="secondary-brand-btn px-lg-5 d-block"
-        [disabled]="this.formArrayDocuments.invalid"
+        [disabled]="!documentsValid"
         type="button"
         (click)="submitDocuments()"
       >

@@ -115,7 +115,25 @@
         <a
           class="w-100"
           (click)="verifyPossibility('e')"
-          *ngIf="100 === environmentalProgress"
+          *ngIf="
+            100 === environmentalProgress && hasPendingDocumentEnvironmental
+          "
+        >
+          <button
+            class="w-100 brand-outline-btn d-flex align-items-center justify-content-between gap-3"
+            *ngIf="hasPendingDocumentGovernance"
+          >
+            {{ "ASSESMENT.REVIEW_DOCUMENT" | translate }}
+            <img src="/assets/icon/init.svg" alt="Iniciar" />
+          </button>
+        </a>
+
+        <a
+          class="w-100"
+          (click)="verifyPossibility('e')"
+          *ngIf="
+            100 === environmentalProgress && !hasPendingDocumentEnvironmental
+          "
         >
           <button
             [disabled]="true"
@@ -176,8 +194,17 @@
           <button
             [disabled]="true"
             class="w-100 brand-outline-btn d-flex align-items-center justify-content-between gap-3"
+            *ngIf="!hasPendingDocumentSocial"
           >
             {{ "ASSESMENT.FINISHED_ASSESMENT" | translate }}
+            <img src="/assets/icon/init.svg" alt="Iniciar" />
+          </button>
+
+          <button
+            class="w-100 brand-outline-btn d-flex align-items-center justify-content-between gap-3"
+            *ngIf="hasPendingDocumentSocial"
+          >
+            {{ "ASSESMENT.REVIEW_DOCUMENT" | translate }}
             <img src="/assets/icon/init.svg" alt="Iniciar" />
           </button>
         </a>
@@ -232,8 +259,17 @@
           <button
             [disabled]="true"
             class="w-100 brand-outline-btn d-flex align-items-center justify-content-between gap-3"
+            *ngIf="!hasPendingDocumentGovernance"
           >
             {{ "ASSESMENT.FINISHED_ASSESMENT" | translate }}
+            <img src="/assets/icon/init.svg" alt="Iniciar" />
+          </button>
+
+          <button
+            class="w-100 brand-outline-btn d-flex align-items-center justify-content-between gap-3"
+            *ngIf="hasPendingDocumentGovernance"
+          >
+            {{ "ASSESMENT.REVIEW_DOCUMENT" | translate }}
             <img src="/assets/icon/init.svg" alt="Iniciar" />
           </button>
         </a>
@@ -292,14 +328,21 @@
 </form>
 
 <ng-template #avaliacaoModal let-modal>
-  <div class="modal-body-custom text-center">
+  <div class="modal-header modal-header-custom">
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss()"
+    ></button>
+  </div>
+
+  <div class="modal-body modal-body-custom text-center">
     <h3 class="modal-title-custom">Avaliação enviada com sucesso!</h3>
 
     <p class="modal-text-custom">
       Nossa equipe irá revisar sua documentação e entraremos em contato por
       e-mail com o resultado ou se houver alguma pendência.
     </p>
-
-    <button class="modal-button-ok" (click)="modal.close()">OK</button>
   </div>
 </ng-template>

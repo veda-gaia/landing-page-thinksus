@@ -7,119 +7,135 @@ import { EsgRatingService } from 'src/app/services/esg-rating.service';
 @Component({
   selector: 'app-results',
   templateUrl: './results.component.html',
-  styleUrls: ['./results.component.scss']
+  styleUrls: ['./results.component.scss'],
 })
 export class ResultsComponent {
-  avaliationStatus = ''
-  userName = ''
+  avaliationStatus = '';
+  userName = '';
 
-  list: any[] = []
-  filteredList: any[] = []
-  recentResult: any
+  list: any[] = [];
+  filteredList: any[] = [];
+  recentResult: any;
 
-  loading = true
-  graphData: any = []
-  graphConfig: any = { 
+  loading = true;
+  graphData: any = [];
+  graphConfig: any = {
     displayModeBar: false,
     responsive: true,
     scrollZoom: false,
-    staticPlot: true
-  }
+    staticPlot: true,
+  };
 
   constructor(
     private EsgRatingService: EsgRatingService,
     private CompanyService: CompanyService,
     private spinnerService: NgxSpinnerService
   ) {
-    this.spinnerService.show()
-    this.CompanyService.getByUser().pipe(
-      finalize(() => {
-        this.spinnerService.hide()
-      })
-    ).subscribe({
-      next: (data) => {
-        this.userName = data.user.name
-        
-        this.loadList()
-      },
-      error: (err) => {
-        console.log(err)
-      }
-    })
+    this.spinnerService.show();
+    this.CompanyService.getByUser()
+      .pipe(
+        finalize(() => {
+          this.spinnerService.hide();
+        })
+      )
+      .subscribe({
+        next: (data) => {
+          this.userName = data.user.name;
+
+          this.loadList();
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
   }
-  
+
   loadList() {
     this.spinnerService.show();
-    this.EsgRatingService.getByCompany().pipe(
-      finalize(() => {
-        this.spinnerService.hide()
-      })
-    ).subscribe({
-      next: (data) => {
-        // Pega o item que pertence a minha empresa
-        this.list = data.filter(item => {
-          return item.status === "COMPLETED"
+    this.EsgRatingService.getByCompany()
+      .pipe(
+        finalize(() => {
+          this.spinnerService.hide();
         })
+      )
+      .subscribe({
+        next: (data) => {
+          // Pega o item que pertence a minha empresa
+          this.list = data;
 
-        this.list.sort((a, b) => {
-          return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
-        });
+          /*
+          this.list.sort((a, b) => {
+            return (
+              new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
+            );
+          });
+          */
 
-        this.filteredList = [...this.list]
+          this.filteredList = [...data];
 
-        console.log(this.filteredList)
+          this.loading = false;
 
-        this.loading = false
+          /*
+          if (!this.list.length) {
+            this.avaliationStatus = 'pre-avaliation';
+            return;
+          }
+          */
 
-        if(!this.list.length) {
-          this.avaliationStatus = 'pre-avaliation'
-          return
-        }
-
-        this.avaliationStatus = 'post-avaliation'
-        this.recentResult = this.checkRecent()
-        this.loadGraph()
-      },
-      error: (err) => {
-        console.log(err)
-      }
-    })
+          this.avaliationStatus = data[0].status;
+          this.recentResult = this.checkRecent();
+          this.loadGraph();
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
   }
 
   downloadReport() {
-    this.spinnerService.show()
-    this.EsgRatingService.donwloadReport().pipe(
-      finalize(() => {
-        this.spinnerService.hide()
-      })
-    ).subscribe((response: any) => {
-      if (response) {
-        window.open(response, '_blank');
-      } else {
-        console.error('❌ Dados do relatório ausentes ou inválidos');
-      }
-    });
+    this.spinnerService.show();
+    this.EsgRatingService.donwloadReport()
+      .pipe(
+        finalize(() => {
+          this.spinnerService.hide();
+        })
+      )
+      .subscribe((response: any) => {
+        if (response) {
+          window.open(response, '_blank');
+        } else {
+          console.error('❌ Dados do relatório ausentes ou inválidos');
+        }
+      });
   }
 
   loadGraph() {
-    const dates: string[] = this.list.map(avaliation => {
-      const date = new Date(avaliation.updatedAt);
-      const day = String(date.getUTCDate()).padStart(2, '0');  // Formata o dia para 2 dígitos
-      const month = String(date.getUTCMonth() + 1).padStart(2, '0');  // Formata o mês para 2 dígitos (janeiro é 0)
-      return `${day}/${month}`;
-    }).reverse();
+    const dates: string[] = this.list
+      .map((avaliation) => {
+        const date = new Date(avaliation.updatedAt);
+        const day = String(date.getUTCDate()).padStart(2, '0'); // Formata o dia para 2 dígitos
+        const month = String(date.getUTCMonth() + 1).padStart(2, '0'); // Formata o mês para 2 dígitos (janeiro é 0)
+        return `${day}/${month}`;
+      })
+      .reverse();
 
-    const envrironmentalData = this.list.map(avaliation => {
-      return avaliation.environmentalScore.toFixed()
-    }).reverse()
+    const envrironmentalData = this.list
+      .map((avaliation) => {
+        return avaliation.environmentalScore.toFixed();
+      })
+      .reverse();
 
-    const governmentalData = this.list.map(avaliation => {
-      return avaliation.governanceScore.toFixed()
-    }).reverse()
+    const governmentalData = this.list
+      .map((avaliation) => {
+        return avaliation.governanceScore.toFixed();
+      })
+      .reverse();
 
-    const socialData = this.list.map(avaliation => {
-      return avaliation.socialScore.toFixed()
-    }).reverse()
+    const socialData = this.list
+      .map((avaliation) => {
+        return avaliation.socialScore.toFixed();
+      })
+      .reverse();
 
     const graphEnvironmental = {
       x: dates,
@@ -153,12 +169,12 @@ export class ResultsComponent {
   checkRecent(): any[] {
     let mostRecentObject = this.filteredList[0];
 
-    this.filteredList.forEach(obj => {
+    this.filteredList.forEach((obj) => {
       if (new Date(obj.updatedAt) > new Date(mostRecentObject.updatedAt)) {
         mostRecentObject = obj;
       }
     });
-  
+
     return mostRecentObject;
   }
 }

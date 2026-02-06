@@ -1,0 +1,42 @@
+.avaliacao-modal .modal-content {
+  border-radius: 24px !important;
+  padding: 32px !important;
+}
+
+.modal-body-custom {
+  padding: 8px 16px;
+}
+
+.modal-title-custom {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1f3433;
+  margin-bottom: 12px;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.modal-text-custom {
+  font-size: 1.15rem;
+  color: #4f5b5a;
+  line-height: 1.6;
+  margin-bottom: 28px;
+  font-weight: 500;
+}
+
+.modal-button-ok {
+  background-color: #1f3433;
+  color: white;
+  padding: 10px 32px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.modal-button-ok:hover {
+  opacity: 0.85;
+}

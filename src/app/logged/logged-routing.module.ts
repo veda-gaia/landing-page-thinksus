@@ -22,7 +22,7 @@ import { UseInstructionsComponent } from './use-instructions/use-instructions.co
 import { ProfileComponent } from './profile/profile.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { PlansComponent } from './plans/plans.component';
-
+import { QuestionaryComponent } from './questionary/questionary/questionary.component';
 
 const routes: Routes = [
   {
@@ -32,89 +32,93 @@ const routes: Routes = [
       {
         path: '',
         redirectTo: 'dashboard',
-        pathMatch: 'full'
+        pathMatch: 'full',
       },
       {
         path: 'dashboard',
-        component: DashboardComponent
+        component: DashboardComponent,
       },
       {
         path: 'assesment',
-        component: AssesmentComponent
+        component: AssesmentComponent,
       },
       {
         path: 'ods',
-        component: OdsComponent
+        component: OdsComponent,
       },
       {
         path: 'control-panel',
-        component: ControlPanelComponent
+        component: ControlPanelComponent,
       },
       {
         path: 'suppliers',
-        component: SuppliersComponent
+        component: SuppliersComponent,
       },
       {
         path: 'use-instructions',
-        component: UseInstructionsComponent
+        component: UseInstructionsComponent,
       },
       {
         path: 'results',
-        component: ResultsComponent
+        component: ResultsComponent,
       },
       {
         path: 'results/improvements/:id',
-        component: ImprovementsComponent
+        component: ImprovementsComponent,
       },
       {
         path: 'payment',
-        component: PaymentComponent
+        component: PaymentComponent,
       },
       {
         path: 'profile',
-        component: ProfileComponent
+        component: ProfileComponent,
       },
       {
         path: 'plans',
-        component: PlansComponent
+        component: PlansComponent,
       },
 
       // Questionary
       {
         path: 'assesment/e-agro',
-        component: EAgroComponent
+        component: EAgroComponent,
       },
       {
         path: 'assesment/s-agro',
-        component: SAgroComponent
+        component: SAgroComponent,
       },
       {
         path: 'assesment/g-agro',
-        component: GAgroComponent
+        component: GAgroComponent,
       },
       {
         path: 'assesment/e-industry',
-        component: EIndustryComponent
+        component: EIndustryComponent,
       },
       {
         path: 'assesment/s-industry',
-        component: SIndustryComponent
+        component: SIndustryComponent,
       },
       {
         path: 'assesment/g-industry',
-        component: GIndustryComponent
+        component: GIndustryComponent,
       },
       {
         path: 'assesment/e-service',
-        component: EServiceComponent
+        component: EServiceComponent,
       },
       {
         path: 'assesment/s-service',
-        component: SServiceComponent
+        component: SServiceComponent,
       },
       {
         path: 'assesment/g-service',
-        component: GServiceComponent
+        component: GServiceComponent,
+      },
+      {
+        path: 'assesment/questionary/:sectionId/:symbolId/:segmentId',
+        component: QuestionaryComponent,
       },
       {
         path: 'confirmation',
@@ -122,14 +126,14 @@ const routes: Routes = [
       },
       {
         path: '**',
-        redirectTo: 'dashboard'
-      }
-    ]
-  }
+        redirectTo: 'dashboard',
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class LoggedRoutingModule { }
+export class LoggedRoutingModule {}

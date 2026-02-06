@@ -10,6 +10,8 @@ import { initialScoreArray } from 'src/app/util/initial-score-array.util';
 import { ScoreWarningComponent } from '../score-warning/score-warning.component';
 import { finalize } from 'rxjs';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { EsgFormService } from 'src/app/services/esg-form.service';
+import { PendingDocumentsModalComponent } from '../questionary/pendingdocuments-modal/pendingdocuments-modal.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -52,11 +54,14 @@ export class DashboardComponent {
     environmental: 0,
     governance: 0,
     social: 0,
-  }
+  };
+
+  sectionId = '';
+  segmentId = '';
 
   odsScoreArray: any[] = [];
   postOdsScoreArray: any[] = [];
-  allCompleteAvaliations: any[] = []
+  allCompleteAvaliations: any[] = [];
   postAvaliationInfo: any;
 
   constructor(
@@ -66,175 +71,240 @@ export class DashboardComponent {
     private modalService: NgbModal,
     private router: Router,
     private toastr: ToastrService,
-    private spinnerService: NgxSpinnerService
+    private spinnerService: NgxSpinnerService,
+    private esgFormService: EsgFormService,
   ) {}
 
   ngOnInit() {
-    this.spinnerService.show()
-    this.CompanyService.getByUser().pipe(
-      finalize(() => {
-        this.spinnerService.hide()
-      })
-    ).subscribe({
-      next: (data) => {
-        this.userName = data.user.name;
-        if (data.section === 'Agribusiness') {
-          this.environmentalQuestions = 13;
-          this.socialQuestions = 15;
-          this.governanceQuestions = 14;
+    this.spinnerService.show();
+    this.CompanyService.getByUser()
+      .pipe(
+        finalize(() => {
+          this.spinnerService.hide();
+        }),
+      )
+      .subscribe({
+        next: (data: any) => {
+          this.userName = data.user.name;
+          if (data.section === 'Agribusiness') {
+            this.companySection = 'agro';
+          }
 
-          this.companySection = 'agro';
-        }
+          if (data.section === 'Industry') {
+            this.companySection = 'industry';
+          }
 
-        if (data.section === 'Industry') {
-          this.environmentalQuestions = 12;
-          this.socialQuestions = 15;
-          this.governanceQuestions = 14;
+          if (data.section === 'Services') {
+            this.companySection = 'service';
+          }
 
-          this.companySection = 'industry';
-        }
+          this.sectionId = data.section?._id;
+          this.segmentId = data.segment?._id;
 
-        if (data.section === 'Services') {
-          this.environmentalQuestions = 13;
-          this.socialQuestions = 15;
-          this.governanceQuestions = 14;
-
-          this.companySection = 'service';
-        }
-
-        this.handleInfo();
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
+          this.handleInfo();
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
   }
 
   handleInfo() {
-    this.spinnerService.show()
+    this.spinnerService.show();
 
-    this.EsgRatingService.getByCompany().pipe(
-      finalize(() => {
-        this.spinnerService.hide()
-      })
-    ).subscribe({
-      next: (data) => {
-        this.allCompleteAvaliations = data.filter((item) => {
-          return item.status === 'COMPLETED';
-        })
+    this.EsgRatingService.getByCompany()
+      .pipe(
+        finalize(() => {
+          this.spinnerService.hide();
+        }),
+      )
+      .subscribe({
+        next: (data) => {
+          this.allCompleteAvaliations = data.filter((item) => {
+            return item.status === 'COMPLETED';
+          });
 
-        this.allCompleteAvaliations.sort((a, b) => {
-          return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
-        });
+          this.allCompleteAvaliations.sort((a, b) => {
+            return (
+              new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
+            );
+          });
 
-        let inProgressAvaliation = data.filter((item) => {
-          return item.status === 'IN_PROGRESS';
-        })[0];
+          let inProgressAvaliation = data.filter((item) => {
+            return item.status === 'IN_PROGRESS';
+          })[0];
 
-        let postAvaliation = this.allCompleteAvaliations[0];
+          let postAvaliation = this.allCompleteAvaliations[0];
 
-        if (!inProgressAvaliation) {
-          this.avaliationStatus = 'pre-avaliation';
+          if (!inProgressAvaliation) {
+            this.avaliationStatus = 'pre-avaliation';
 
-          this.environmentalInfo = {
-            progress: 0,
-            score: 0,
-          };
+            this.environmentalInfo = {
+              progress: 0,
+              score: 0,
+            };
 
-          this.socialInfo = {
-            progress: 0,
-            score: 0,
-          };
+            this.socialInfo = {
+              progress: 0,
+              score: 0,
+            };
 
-          this.governanceInfo = {
-            progress: 0,
-            score: 0,
-          };
+            this.governanceInfo = {
+              progress: 0,
+              score: 0,
+            };
 
-          this.odsScoreArray = initialScoreArray;
-        }
-
-        if (inProgressAvaliation) {
-          this.avaliationStatus = 'pre-avaliation';
+            this.odsScoreArray = initialScoreArray;
+          }
 
           if (inProgressAvaliation) {
             this.avaliationStatus = 'pre-avaliation';
 
-            const environmentalAnswers = inProgressAvaliation.answers.filter(
-              (i: any) => {
-                return i.questionNumber.startsWith('E');
+            if (inProgressAvaliation) {
+              this.avaliationStatus = 'pre-avaliation';
+
+              const environmentalAnswers = inProgressAvaliation.answers.filter(
+                (i: any) => {
+                  return i.questionId.dimension == 'E';
+                },
+              );
+
+              const socialAnswers = inProgressAvaliation.answers.filter(
+                (i: any) => {
+                  return i.questionId.dimension == 'S';
+                },
+              );
+
+              const governanceAnswers = inProgressAvaliation.answers.filter(
+                (i: any) => {
+                  return i.questionId.dimension == 'G';
+                },
+              );
+
+              if (environmentalAnswers.length) {
+                this.environmentalInfo = {
+                  progress: environmentalAnswers.length,
+                  score: inProgressAvaliation.environmentalScore.toFixed(0),
+                };
               }
-            );
 
-            const socialAnswers = inProgressAvaliation.answers.filter(
-              (i: any) => {
-                return i.questionNumber.startsWith('S');
+              if (socialAnswers.length) {
+                this.socialInfo = {
+                  progress: socialAnswers.length,
+                  score: inProgressAvaliation.socialScore.toFixed(0),
+                };
               }
-            );
 
-            const governanceAnswers = inProgressAvaliation.answers.filter(
-              (i: any) => {
-                return i.questionNumber.startsWith('G');
+              if (governanceAnswers.length) {
+                this.governanceInfo = {
+                  progress: governanceAnswers.length,
+                  score: inProgressAvaliation.governanceScore.toFixed(0),
+                };
               }
-            );
 
-            if (environmentalAnswers.length) {
-              this.environmentalInfo = {
-                progress: environmentalAnswers.length,
-                score: inProgressAvaliation.environmentalScore.toFixed(0),
-              };
+              this.odsScoreArray = inProgressAvaliation.odsScore;
             }
-
-            if (socialAnswers.length) {
-              this.socialInfo = {
-                progress: socialAnswers.length,
-                score: inProgressAvaliation.socialScore.toFixed(0),
-              };
-            }
-
-            if (governanceAnswers.length) {
-              this.governanceInfo = {
-                progress: governanceAnswers.length,
-                score: inProgressAvaliation.governanceScore.toFixed(0),
-              };
-            }
-
-            this.odsScoreArray = inProgressAvaliation.odsScore;
           }
-        }
 
-        if (postAvaliation) {
-          this.postAvaliationInfo = postAvaliation;
-          this.avaliationStatus = 'post-avaliation';
-          this.postOdsScoreArray = postAvaliation.odsScore
+          if (postAvaliation) {
+            this.postAvaliationInfo = postAvaliation;
+            this.avaliationStatus = 'post-avaliation';
+            this.postOdsScoreArray = postAvaliation.odsScore;
 
-          this.distributionESG = {
-            environmental: (((postAvaliation.environmentalScore / postAvaliation.esgScore) / 3) * 100).toFixed(2),
-            governance: (((postAvaliation.governanceScore / postAvaliation.esgScore) / 3) * 100).toFixed(2),
-            social: (((postAvaliation.socialScore / postAvaliation.esgScore) / 3) * 100).toFixed(2),
+            this.distributionESG = {
+              environmental: (
+                (postAvaliation.environmentalScore /
+                  postAvaliation.esgScore /
+                  3) *
+                100
+              ).toFixed(2),
+              governance: (
+                (postAvaliation.governanceScore / postAvaliation.esgScore / 3) *
+                100
+              ).toFixed(2),
+              social: (
+                (postAvaliation.socialScore / postAvaliation.esgScore / 3) *
+                100
+              ).toFixed(2),
+            };
           }
-        }
-        
-        if(this.allCompleteAvaliations.length >= 2) {
-          this.handleGraphicStatistics()
-        }
-        
-        this.loading = false;
-      },
-      error: (err) => {
-        console.error(err), (this.loading = false);
-      },
+
+          if (this.allCompleteAvaliations.length >= 2) {
+            this.handleGraphicStatistics();
+          }
+
+          this.handleQuestionInfo(data[0]?.answers[0]?.questionId?.esgFormId);
+
+          let inDocumentsPending = data.filter((item) => {
+            return item.status === 'DOCUMENTS_PENDING';
+          })[0];
+
+          if (inDocumentsPending) {
+            this.openPendingDocumentsModal();
+          }
+
+          this.loading = false;
+        },
+        error: (err) => {
+          (console.error(err), (this.loading = false));
+        },
+      });
+  }
+
+  openPendingDocumentsModal() {
+    const modalRef = this.modalService.open(PendingDocumentsModalComponent, {
+      centered: true,
+    });
+
+    modalRef.componentInstance.accepted.subscribe((closed: boolean) => {
+      if (closed) {
+        this.router.navigate(['logged/assesment']);
+        return;
+      }
     });
   }
 
+  handleQuestionInfo(formId: string) {
+    this.spinnerService.show();
+    this.esgFormService
+      .getbyId(formId)
+      .pipe(
+        finalize(() => {
+          this.spinnerService.hide();
+        }),
+      )
+      .subscribe({
+        next: (data) => {
+          debugger;
+          this.environmentalQuestions = data.questions.filter((i: any) => {
+            return i.dimension == 'E';
+          })?.length;
+
+          this.socialQuestions = data.questions.filter((i: any) => {
+            return i.dimension == 'S';
+          })?.length;
+
+          this.governanceQuestions = data.questions.filter((i: any) => {
+            return i.dimension == 'G';
+          })?.length;
+
+          this.companySection = data.section.name;
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
+  }
+
   downloadReport() {
-    this.spinnerService.show()
-    this.EsgRatingService.donwloadReport().pipe(
-      finalize(() => {
-        this.spinnerService.hide()
-      })
-    ).subscribe(
-      blob => {
+    this.spinnerService.show();
+    this.EsgRatingService.donwloadReport()
+      .pipe(
+        finalize(() => {
+          this.spinnerService.hide();
+        }),
+      )
+      .subscribe((blob) => {
         const link = document.createElement('a');
         link.href = URL.createObjectURL(blob);
         link.download = 'relatorio.pdf';
@@ -245,24 +315,32 @@ export class DashboardComponent {
 
   // Define as informaçõoes do Gráfico
   handleGraphicStatistics() {
-    const dates: string[] = this.allCompleteAvaliations.map(avaliation => {
-      const date = new Date(avaliation.updatedAt);
-      const day = String(date.getUTCDate()).padStart(2, '0');  // Formata o dia para 2 dígitos
-      const month = String(date.getUTCMonth() + 1).padStart(2, '0');  // Formata o mês para 2 dígitos (janeiro é 0)
-      return `${day}/${month}`;
-    }).reverse();
+    const dates: string[] = this.allCompleteAvaliations
+      .map((avaliation) => {
+        const date = new Date(avaliation.updatedAt);
+        const day = String(date.getUTCDate()).padStart(2, '0'); // Formata o dia para 2 dígitos
+        const month = String(date.getUTCMonth() + 1).padStart(2, '0'); // Formata o mês para 2 dígitos (janeiro é 0)
+        return `${day}/${month}`;
+      })
+      .reverse();
 
-    const envrironmentalData = this.allCompleteAvaliations.map(avaliation => {
-      return avaliation.environmentalScore.toFixed()
-    }).reverse()
+    const envrironmentalData = this.allCompleteAvaliations
+      .map((avaliation) => {
+        return avaliation.environmentalScore.toFixed();
+      })
+      .reverse();
 
-    const governmentalData = this.allCompleteAvaliations.map(avaliation => {
-      return avaliation.governanceScore.toFixed()
-    }).reverse()
+    const governmentalData = this.allCompleteAvaliations
+      .map((avaliation) => {
+        return avaliation.governanceScore.toFixed();
+      })
+      .reverse();
 
-    const socialData = this.allCompleteAvaliations.map(avaliation => {
-      return avaliation.socialScore.toFixed()
-    }).reverse()
+    const socialData = this.allCompleteAvaliations
+      .map((avaliation) => {
+        return avaliation.socialScore.toFixed();
+      })
+      .reverse();
 
     const graphEnvironmental = {
       x: dates,
@@ -300,25 +378,40 @@ export class DashboardComponent {
   }
 
   verifyPossibility(symbol: string) {
-    this.spinnerService.show()
-    this.contractedPlanService.getByUser().pipe(
-      finalize(() => {
-        this.spinnerService.hide()
-      })
-    ).subscribe({
-      next: data => {
-        if(!data.verify) {
-          this.modalService.open(ScoreWarningComponent, {centered: true, size: 'sm'})
-        } else {
-          this.router.navigate(['/logged/assesment/' + symbol + '-' + this.companySection])
-        }
-      },
-      error: error => {
-        if(error.error.errors.includes('Contrate um plano')) {
-          this.toastr.warning('Contrate um plano antes de iniciar avaliação!', 'Atenção', {progressBar: true})
-          this.router.navigate(['/logged/plans'])
-        }
-      }
-    })
+    this.spinnerService.show();
+    this.contractedPlanService
+      .getByUser()
+      .pipe(
+        finalize(() => {
+          this.spinnerService.hide();
+        }),
+      )
+      .subscribe({
+        next: (data) => {
+          if (!data.verify) {
+            this.modalService.open(ScoreWarningComponent, {
+              centered: true,
+              size: 'sm',
+            });
+          } else {
+            this.router.navigate([
+              '/logged/assesment/questionary',
+              this.sectionId,
+              symbol,
+              this.segmentId,
+            ]);
+          }
+        },
+        error: (error) => {
+          if (error.error.errors.includes('Contrate um plano')) {
+            this.toastr.warning(
+              'Contrate um plano antes de iniciar avaliação!',
+              'Atenção',
+              { progressBar: true },
+            );
+            this.router.navigate(['/logged/plans']);
+          }
+        },
+      });
   }
 }

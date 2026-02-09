@@ -403,7 +403,7 @@
   "ASSESMENT": {
     "TITLE_REQUIRED": "Por favor, insira um título para a avaliação",
     "COMPLETE_ALL_SECTIONS": "Complete todas as seções para gerar o relatório",
-    "GENERATE_RELATORY": "Gerar Relatório",
+    "GENERATE_RELATORY": "Enviar para revisão",
     "YOU_CAN": "Você pode realizar uma avaliação gratuita!",
     "SIMULATE": "Faça uma simulação de como funciona nosso sistema de avaliação de forma gratuita.",
     "INIT_SIMULATION": "Iniciar simulação",
@@ -415,13 +415,14 @@
     "INIT_ASSESMENT": "Iniciar Avaliação",
     "CONTINUE_ASSESMENT": "Continuar Avaliação",
     "FINISHED_ASSESMENT": "Avaliação Realizada",
+    "REVIEW_DOCUMENT": "Revisar Documentação",
     "AMBIENTAL": "Ambiental",
     "AMBIENTAL_DESCRIPTION": "Como a empresa se comporta com as ações voltadas ao meio ambiente.",
     "SOCIAL": "Social",
     "SOCIAL_DESCRIPTION": "Como a empresa se comporta com ações voltadas ao bem-estar e a questões sociais envolvendo seus funcionários",
     "GOVERNAMENTAL": "Governança",
     "GOVERNAMENTAL_DESCRIPTION": "Como a empresa se comporta com a administração e gestão de seus negócios, funcionários, acionistas e clientes.",
-    "GENERATE_RELATORY": "Gerar pontuação"
+    "UNDER_REVIEW": "Em análise"
   },
   "SCORE": {
     "TITLE": "Resultados",
@@ -442,7 +443,10 @@
     "SCORE_TABLE": "ThinkSus Score",
     "GENERATED_AT_TABLE": "Gerada em",
     "ACTIONS": "Ações",
-    "NO_RESULTS": "Sem resultados"
+    "NO_RESULTS": "Sem resultados",
+    "IN_ANALYSIS": "Sua avaliação está em análise",
+    "IN_ANALYSIS_SUBTITLE": "Aguarde nossa equipe entrar em contato por e-mail para continuar",
+    "STATUS": "Status"
   },
   "SUPPLIERS": {
     "LIST_TITLE": "Lista de fornecedores",

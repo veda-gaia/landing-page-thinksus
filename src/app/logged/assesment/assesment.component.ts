@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -11,14 +11,16 @@ import { EsgRatingService } from 'src/app/services/esg-rating.service';
 import { ScoreWarningComponent } from '../score-warning/score-warning.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { finalize } from 'rxjs';
+import { EsgFormService } from 'src/app/services/esg-form.service';
 
 @Component({
   selector: 'app-assesment',
   templateUrl: './assesment.component.html',
   styleUrls: ['./assesment.component.scss'],
 })
-export class AssesmentComponent {
+export class AssesmentComponent implements OnInit {
   @ViewChild('contentModal') contentModal: any;
+  @ViewChild('avaliacaoModal') avaliacaoModal!: TemplateRef<any>;
 
   form: FormGroup;
 
@@ -33,63 +35,37 @@ export class AssesmentComponent {
   socialProgress = 0;
   governanceProgress = 0;
 
+  environmentalAnswers = 0;
+  socialAnswers = 0;
+  governanceAnswers = 0;
+
+  hasPendingDocumentEnvironmental = false;
+  hasPendingDocumentSocial = false;
+  hasPendingDocumentGovernance = false;
+
+  sectionId = '';
+  segmentId = '';
+  esgRatingStatus = '';
+
   assesmentId = '';
   userHasContractedPlan = false;
 
   constructor(
     private fb: FormBuilder,
     private EsgRatingService: EsgRatingService,
-    private CompanyService: CompanyService,
+    private esgFormService: EsgFormService,
+    private companyService: CompanyService,
     private toastr: ToastrService,
     private router: Router,
     private contractedPlanService: ContractedPlanService,
     private modalService: NgbModal,
     private translateService: TranslateService,
-    private spinnerService: NgxSpinnerService
+    private spinnerService: NgxSpinnerService,
   ) {
     this.form = this.fb.group({
       title: ['', Validators.required],
     });
     this.spinnerService.show();
-
-    this.CompanyService.getByUser()
-      .pipe(
-        finalize(() => {
-          this.spinnerService.hide();
-        })
-      )
-      .subscribe({
-        next: (data) => {
-          if (data.section === 'Agribusiness') {
-            this.environmentalQuestions = 13;
-            this.socialQuestions = 15;
-            this.governanceQuestions = 14;
-
-            this.companySection = 'agro';
-          }
-
-          if (data.section === 'Industry') {
-            this.environmentalQuestions = 12;
-            this.socialQuestions = 15;
-            this.governanceQuestions = 14;
-
-            this.companySection = 'industry';
-          }
-
-          if (data.section === 'Services') {
-            this.environmentalQuestions = 13;
-            this.socialQuestions = 15;
-            this.governanceQuestions = 14;
-
-            this.companySection = 'service';
-          }
-
-          this.handleInfo(data._id, data.section);
-        },
-        error: (err) => {
-          console.log(err);
-        },
-      });
 
     this.contractedPlanService.checkContractedPlanByUser().subscribe({
       next: (data: boolean) => {
@@ -98,63 +74,124 @@ export class AssesmentComponent {
     });
   }
 
-  handleInfo(companyId: string, section: string) {
-    this.spinnerService.show();
-    this.EsgRatingService.list()
+  ngOnInit() {
+    this.EsgRatingService.getByCompany()
       .pipe(
         finalize(() => {
           this.spinnerService.hide();
-        })
+        }),
       )
       .subscribe({
         next: (data) => {
-          // Pega o item que pertence a minha empresa
-          let myCompanyInfo = data.filter((item) => {
-            return (
-              item?.company?._id === companyId && item?.status === 'IN_PROGRESS'
-            );
-          })[0];
+          const myAnswers = data?.[0]?.answers;
 
-          if (myCompanyInfo) {
-            const environmentalAnswers = myCompanyInfo.answers.filter(
-              (i: any) => {
-                return i.questionNumber.startsWith('E');
-              }
+          if (myAnswers?.length) {
+            const environmentalAnswers = myAnswers.filter(
+              (i: any) => i.questionId.dimension === 'E',
             );
 
-            const socialAnswers = myCompanyInfo.answers.filter((i: any) => {
-              return i.questionNumber.startsWith('S');
-            });
+            const socialAnswers = myAnswers.filter(
+              (i: any) => i.questionId.dimension === 'S',
+            );
 
-            const governanceAnswers = myCompanyInfo.answers.filter((i: any) => {
-              return i.questionNumber.startsWith('G');
-            });
+            const governanceAnswers = myAnswers.filter(
+              (i: any) => i.questionId.dimension === 'G',
+            );
 
-            if (environmentalAnswers.length) {
-              this.environmentalProgress = +(
-                (environmentalAnswers.length / this.environmentalQuestions) *
-                100
-              ).toFixed(0);
-            }
+            this.environmentalAnswers = environmentalAnswers.length;
+            this.socialAnswers = socialAnswers.length;
+            this.governanceAnswers = governanceAnswers.length;
 
-            if (socialAnswers.length) {
-              this.socialProgress = +(
-                (socialAnswers.length / this.socialQuestions) *
-                100
-              ).toFixed(0);
-            }
+            this.hasPendingDocumentEnvironmental = environmentalAnswers.some(
+              (i: any) => i.status === 'REJECTED',
+            );
 
-            if (governanceAnswers.length) {
-              this.governanceProgress = +(
-                (governanceAnswers.length / this.governanceQuestions) *
-                100
-              ).toFixed(0);
-            }
+            this.hasPendingDocumentSocial = socialAnswers.some(
+              (i: any) => i.status === 'REJECTED',
+            );
 
-            this.assesmentId = myCompanyInfo._id;
+            this.hasPendingDocumentGovernance = governanceAnswers.some(
+              (i: any) => i.status === 'REJECTED',
+            );
+            debugger;
+
+            this.handleInfo(myAnswers[0].questionId?.esgFormId);
+            this.assesmentId = data[0]._id;
           }
 
+          this.esgRatingStatus = data[0]?.status;
           this.loading = false;
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
+
+    this.companyService
+      .getByUser()
+      .pipe(
+        finalize(() => {
+          this.spinnerService.hide();
+        }),
+      )
+      .subscribe({
+        next: (data: any) => {
+          this.sectionId = data.section?._id;
+          this.segmentId = data.segment?._id;
+
+          this.loading = false;
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
+  }
+
+  handleInfo(formId: string) {
+    this.spinnerService.show();
+    this.esgFormService
+      .getbyId(formId)
+      .pipe(
+        finalize(() => {
+          this.spinnerService.hide();
+        }),
+      )
+      .subscribe({
+        next: (data) => {
+          this.environmentalQuestions = data.questions.filter((i: any) => {
+            return i.dimension == 'E';
+          })?.length;
+
+          this.socialQuestions = data.questions.filter((i: any) => {
+            return i.dimension == 'S';
+          })?.length;
+
+          this.governanceQuestions = data.questions.filter((i: any) => {
+            return i.dimension == 'G';
+          })?.length;
+
+          if (this.environmentalAnswers) {
+            this.environmentalProgress = +(
+              (this.environmentalAnswers / this.environmentalQuestions) *
+              100
+            ).toFixed(0);
+          }
+
+          if (this.socialAnswers) {
+            this.socialProgress = +(
+              (this.socialAnswers / this.socialQuestions) *
+              100
+            ).toFixed(0);
+          }
+
+          if (this.governanceAnswers) {
+            this.governanceProgress = +(
+              (this.governanceAnswers / this.governanceQuestions) *
+              100
+            ).toFixed(0);
+          }
+
+          this.companySection = data.section.name;
         },
         error: (err) => {
           console.log(err);
@@ -179,14 +216,14 @@ export class AssesmentComponent {
       .pipe(
         finalize(() => {
           this.spinnerService.hide();
-        })
+        }),
       )
       .subscribe({
         next: (data) => {
           setTimeout(() => {
             this.EsgRatingService.updateTitleById(
               this.assesmentId,
-              titleDto
+              titleDto,
             ).subscribe({
               next: (data) => {
                 this.toastr.success('Pontuação gerada com sucesso', 'Sucesso', {
@@ -197,6 +234,12 @@ export class AssesmentComponent {
               },
             });
           }, 100);
+
+          this.modalService.open(this.avaliacaoModal, {
+            centered: true,
+            backdrop: 'static',
+            windowClass: 'avaliacao-modal',
+          });
         },
         error: (err) => {
           console.log(err);
@@ -228,7 +271,7 @@ export class AssesmentComponent {
       .pipe(
         finalize(() => {
           this.spinnerService.hide();
-        })
+        }),
       )
       .subscribe({
         next: (data) => {
@@ -239,7 +282,10 @@ export class AssesmentComponent {
             });
           } else {
             this.router.navigate([
-              '/logged/assesment/' + symbol + '-' + this.companySection,
+              '/logged/assesment/questionary',
+              this.sectionId,
+              symbol,
+              this.segmentId,
             ]);
           }
         },
@@ -248,12 +294,16 @@ export class AssesmentComponent {
             this.toastr.warning(
               'Contrate um plano antes de iniciar avaliação!',
               'Atenção',
-              { progressBar: true }
+              { progressBar: true },
             );
             this.router.navigate(['/logged/plans']);
           }
         },
       });
+  }
+
+  verifyPossibilityComponentTest(symbol: string) {
+    this.router.navigate(['/logged/assesment/test-formcomponent']);
   }
 
   close() {

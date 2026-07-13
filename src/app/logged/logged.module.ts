@@ -51,6 +51,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { CnpjPipe } from '../pipes/cnpj-format.pipe';
 import { CompanyRevenuePipe } from '../pipes/company-revenue.pipe';
 import { QuestionaryComponent } from './questionary/questionary/questionary.component';
+import { MarkdownModule } from 'ngx-markdown';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -108,6 +109,7 @@ PlotlyModule.plotlyjs = PlotlyJS;
     MatInputModule,
     MatIconModule,
     MatButtonModule,
+    MarkdownModule.forRoot(),
   ],
   providers: [EsgRatingService, DateFormatPipe],
 })

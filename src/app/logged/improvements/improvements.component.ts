@@ -4,6 +4,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { finalize } from 'rxjs';
 import { CompanyService } from 'src/app/services/company.service';
 import { EsgRatingService } from 'src/app/services/esg-rating.service';
+import { AiSuggestionService } from 'src/app/services/ai-suggestion.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-improvements',
@@ -22,16 +24,29 @@ export class ImprovementsComponent implements OnInit {
   socialScoresArray: any[] = []
   governanceScoresArray: any[] = []
 
+  currentLanguage = 'pt';
+  suggestionsGrouped: { [key: number]: any[] } = {};
+
   constructor(
     private CompanyService: CompanyService,
     private EsgRatingService: EsgRatingService,
+    private AiSuggestionService: AiSuggestionService,
+    private translateService: TranslateService,
     private route: ActivatedRoute,
     private spinnerService: NgxSpinnerService
   ){
-
+    // Initialize grouped suggestions structure
+    for (let i = 1; i <= 12; i++) {
+      this.suggestionsGrouped[i] = [];
+    }
   }
 
   ngOnInit() {
+    this.currentLanguage = this.translateService.currentLang || 'pt';
+    this.translateService.onLangChange.subscribe(event => {
+      this.currentLanguage = event.lang;
+    });
+
     this.route.params.subscribe(params => {
       this.id = params['id'];
     })
@@ -44,8 +59,8 @@ export class ImprovementsComponent implements OnInit {
       next: (data) => {
 
         this.CompanyService.getByUser().subscribe({
-          next: (data) => {
-            this.companyInfo = data
+          next: (compData) => {
+            this.companyInfo = compData
           },
           error: (err) => {
             console.log(err)
@@ -53,13 +68,64 @@ export class ImprovementsComponent implements OnInit {
         })
         this.assesmentInfo = data
         this.handleScoresInfo()
+        this.loadAiSuggestions();
         console.log(data)
       }, error: (err) => {
         console.log(err)
       }
     })
+  }
 
-    
+  loadAiSuggestions() {
+    const AREA_NAME_TO_INDEX: { [key: string]: number } = {
+      'Natureza': 1,
+      'Recursos naturais': 2,
+      'Clima e risco': 3,
+      'Gestão de resíduos e poluição': 4,
+      'Trabalho justo': 5,
+      'Comunidade': 6,
+      'Sociedade': 7,
+      'Cadeia de valor': 8,
+      'Risco': 9,
+      'Econômica': 10,
+      'Gestão': 11,
+      'Transparência': 12
+    };
+
+    this.AiSuggestionService.getByRating(this.id).subscribe({
+      next: (res: any) => {
+        const aiSuggestionDocs = res || [];
+        const allSuggestions: any[] = [];
+        aiSuggestionDocs.forEach((doc: any) => {
+          if (doc.suggestions && Array.isArray(doc.suggestions)) {
+            allSuggestions.push(...doc.suggestions);
+          }
+        });
+
+        // Filter only approved/edited ones
+        const approvedSuggestions = allSuggestions.filter(
+          (s: any) => s.status === 'APPROVED' || s.status === 'EDITED'
+        );
+
+        // Group them by area index
+        approvedSuggestions.forEach((sug: any) => {
+          const matchedAnswer = this.assesmentInfo?.answers?.find(
+            (ans: any) => String(ans.questionId?._id || ans.questionId) === String(sug.questionId)
+          );
+
+          if (matchedAnswer && matchedAnswer.questionId && matchedAnswer.questionId.area) {
+            const areaName = matchedAnswer.questionId.area.name;
+            const index = AREA_NAME_TO_INDEX[areaName];
+            if (index && this.suggestionsGrouped[index]) {
+              this.suggestionsGrouped[index].push(sug);
+            }
+          }
+        });
+      },
+      error: (err) => {
+        console.error('Error loading AI suggestions:', err);
+      }
+    });
   }
 
   changeSelectedESG(number: number) {

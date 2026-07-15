@@ -27,6 +27,14 @@ export class ImprovementsComponent implements OnInit {
   currentLanguage = 'pt';
   suggestionsGrouped: { [key: number]: any[] } = {};
 
+  // Ordem estável (AnswerAreaEnum) de cada bloco do acordeão, dentro do seu pilar.
+  // Reaproveitada tanto para os scores (handleScoresInfo) quanto para mapear
+  // cada sugestão de IA ao bloco correto (loadAiSuggestions), usando o campo
+  // estável `DimensionArea.code` em vez do nome traduzível.
+  private readonly orderEnvironmental: string[] = ['Nature', 'Natural_Resources', 'Climate_Risk', 'Waste_Management'];
+  private readonly orderSocial: string[] = ['Fair_Work', 'Community', 'Society', 'Value_Chain'];
+  private readonly orderGovernance: string[] = ['Risk', 'Economic', 'Management', 'Transparency'];
+
   constructor(
     private CompanyService: CompanyService,
     private EsgRatingService: EsgRatingService,
@@ -76,22 +84,25 @@ export class ImprovementsComponent implements OnInit {
     })
   }
 
-  loadAiSuggestions() {
-    const AREA_NAME_TO_INDEX: { [key: string]: number } = {
-      'Natureza': 1,
-      'Recursos naturais': 2,
-      'Clima e risco': 3,
-      'Gestão de resíduos e poluição': 4,
-      'Trabalho justo': 5,
-      'Comunidade': 6,
-      'Sociedade': 7,
-      'Cadeia de valor': 8,
-      'Risco': 9,
-      'Econômica': 10,
-      'Gestão': 11,
-      'Transparência': 12
-    };
+  /**
+   * Resolve o índice do bloco do acordeão (1-12) para um código estável de
+   * área (`DimensionArea.code`, valores de `AnswerAreaEnum`). Usa a mesma
+   * ordem de `handleScoresInfo()` como fonte única de verdade.
+   */
+  private accordionIndexForAreaCode(code: string): number | null {
+    const envIndex = this.orderEnvironmental.indexOf(code);
+    if (envIndex !== -1) return envIndex + 1;
 
+    const socialIndex = this.orderSocial.indexOf(code);
+    if (socialIndex !== -1) return socialIndex + 5;
+
+    const govIndex = this.orderGovernance.indexOf(code);
+    if (govIndex !== -1) return govIndex + 9;
+
+    return null;
+  }
+
+  loadAiSuggestions() {
     this.AiSuggestionService.getByRating(this.id).subscribe({
       next: (res: any) => {
         const aiSuggestionDocs = res || [];
@@ -107,18 +118,27 @@ export class ImprovementsComponent implements OnInit {
           (s: any) => s.status === 'APPROVED' || s.status === 'EDITED'
         );
 
-        // Group them by area index
+        // Group them by area index (código estável, não pelo nome traduzível)
         approvedSuggestions.forEach((sug: any) => {
           const matchedAnswer = this.assesmentInfo?.answers?.find(
             (ans: any) => String(ans.questionId?._id || ans.questionId) === String(sug.questionId)
           );
 
-          if (matchedAnswer && matchedAnswer.questionId && matchedAnswer.questionId.area) {
-            const areaName = matchedAnswer.questionId.area.name;
-            const index = AREA_NAME_TO_INDEX[areaName];
-            if (index && this.suggestionsGrouped[index]) {
-              this.suggestionsGrouped[index].push(sug);
-            }
+          const areaCode = matchedAnswer?.questionId?.area?.code;
+          if (!areaCode) {
+            console.error(
+              `[Improvements] Sugestão ${sug._id} não pôde ser agrupada: DimensionArea sem "code" para a questão ${sug.questionId}.`,
+            );
+            return;
+          }
+
+          const index = this.accordionIndexForAreaCode(areaCode);
+          if (index && this.suggestionsGrouped[index]) {
+            this.suggestionsGrouped[index].push(sug);
+          } else {
+            console.error(
+              `[Improvements] Código de área "${areaCode}" não corresponde a nenhum bloco do acordeão (sugestão ${sug._id}).`,
+            );
           }
         });
       },
@@ -152,33 +172,30 @@ export class ImprovementsComponent implements OnInit {
   }
 
   handleScoresInfo() {
-    const orderEnvironmental: string[] = ["Nature", "Natural_Resources", "Climate_Risk", "Waste_Management"]
     this.environmentalScoresArray = this.assesmentInfo.areaScore.filter((i: any) => {
-      return orderEnvironmental.includes(i.area)
+      return this.orderEnvironmental.includes(i.area)
     })
     this.environmentalScoresArray.sort((a, b) => {
-      const indexA = orderEnvironmental.indexOf(a.area);
-      const indexB = orderEnvironmental.indexOf(b.area);
+      const indexA = this.orderEnvironmental.indexOf(a.area);
+      const indexB = this.orderEnvironmental.indexOf(b.area);
       return indexA - indexB;
     });
 
-    const orderSocial: string[] = ["Fair_Work", "Community", "Society", "Value_Chain"]
     this.socialScoresArray = this.assesmentInfo.areaScore.filter((i: any) => {
-      return orderSocial.includes(i.area)
+      return this.orderSocial.includes(i.area)
     })
     this.socialScoresArray.sort((a, b) => {
-      const indexA = orderSocial.indexOf(a.area);
-      const indexB = orderSocial.indexOf(b.area);
+      const indexA = this.orderSocial.indexOf(a.area);
+      const indexB = this.orderSocial.indexOf(b.area);
       return indexA - indexB;
     });
 
-    const orderGovernance: string[] = ["Risk", "Economic", "Management", "Transparency"]
     this.governanceScoresArray = this.assesmentInfo.areaScore.filter((i: any) => {
-      return orderGovernance.includes(i.area)
+      return this.orderGovernance.includes(i.area)
     })
     this.governanceScoresArray.sort((a, b) => {
-      const indexA = orderGovernance.indexOf(a.area);
-      const indexB = orderGovernance.indexOf(b.area);
+      const indexA = this.orderGovernance.indexOf(a.area);
+      const indexB = this.orderGovernance.indexOf(b.area);
       return indexA - indexB;
     });
   }

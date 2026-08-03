@@ -20,62 +20,79 @@ export class GServiceComponent {
   undefinedAnswers = 0
   keepReading = false
 
+  // `type` = resposta que pontua pra cada questão (fonte de verdade:
+  // thinksus-api/src/shared/utils/answer-data.ts) — usado por submitRevision()
+  // pra decidir se documento é obrigatório, em vez de assumir 'Yes' sempre.
   questionaryData = [
     {
       documentNeeded: true,
-      id: 'G1'
+      id: 'G1',
+      type: 'No'
     },
     {
       documentNeeded: true,
-      id: 'G2'
+      id: 'G2',
+      type: 'No'
     },
     {
       documentNeeded: true,
-      id: 'G3'
+      id: 'G3',
+      type: 'No'
     },
     {
       documentNeeded: true,
-      id: 'G4'
+      id: 'G4',
+      type: 'Yes'
     },
     {
       documentNeeded: true,
-      id: 'G5'
+      id: 'G5',
+      type: 'Yes'
     },
     {
       documentNeeded: true,
-      id: 'G6'
+      id: 'G6',
+      type: 'Yes'
     },
     {
       documentNeeded: true,
-      id: 'G7'
+      id: 'G7',
+      type: 'No'
     },
     {
       documentNeeded: true,
-      id: 'G8'
+      id: 'G8',
+      type: 'No'
     },
     {
       documentNeeded: true,
-      id: 'G9'
+      id: 'G9',
+      type: 'Yes'
     },
     {
       documentNeeded: true,
-      id: 'G10'
+      id: 'G10',
+      type: 'Yes'
     },
     {
       documentNeeded: true,
-      id: 'G11'
+      id: 'G11',
+      type: 'No'
     },
     {
       documentNeeded: true,
-      id: 'G14'
+      id: 'G14',
+      type: 'Yes'
     },
     {
       documentNeeded: true,
-      id: 'G15'
+      id: 'G15',
+      type: 'Yes'
     },
     {
       documentNeeded: true,
-      id: 'G16'
+      id: 'G16',
+      type: 'Yes'
     },
   ]
 
@@ -171,7 +188,7 @@ export class GServiceComponent {
 
   submitRevision() {
     this.formArray.controls.forEach((control, index) => {
-      if (this.questionaryData[index].documentNeeded && control.value === 'Yes') {
+      if (this.questionaryData[index].documentNeeded && control.value === this.questionaryData[index].type) {
         this.formArrayDocuments.push(new FormControl('', Validators.required))
       } else {
         this.formArrayDocuments.push(new FormControl(''))

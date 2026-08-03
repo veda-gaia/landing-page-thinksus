@@ -27,54 +27,69 @@ export class EIndustryComponent {
   undefinedAnswers = 0;
   keepReading = false;
 
+  // `type` = resposta que pontua pra cada questão (fonte de verdade:
+  // thinksus-api/src/shared/utils/answer-data.ts) — usado por submitRevision()
+  // pra decidir se documento é obrigatório, em vez de assumir 'Yes' sempre.
   questionaryData = [
     {
       documentNeeded: true,
       id: 'E3',
+      type: 'Yes',
     },
     {
       documentNeeded: true,
       id: 'E4',
+      type: 'Yes',
     },
     {
       documentNeeded: true,
       id: 'E5',
+      type: 'Yes',
     },
     {
       documentNeeded: true,
       id: 'E6',
+      type: 'Yes',
     },
     {
       documentNeeded: true,
       id: 'E7',
+      type: 'No',
     },
     {
       documentNeeded: true,
       id: 'E8',
+      type: 'Yes',
     },
     {
       documentNeeded: true,
       id: 'E9',
+      type: 'Yes',
     },
     {
       documentNeeded: true,
       id: 'E10',
+      type: 'Yes',
     },
     {
       documentNeeded: true,
       id: 'E11',
+      type: 'Yes',
     },
     {
       documentNeeded: true,
       id: 'E13',
+      type: 'No',
     },
     {
       documentNeeded: true,
       id: 'E14',
+      type: 'Yes',
     },
     {
       documentNeeded: true,
       id: 'E15',
+      type: 'No',
     },
   ];
 
@@ -207,7 +222,7 @@ export class EIndustryComponent {
 
       if (
         this.questionaryData[index].documentNeeded &&
-        control.value === 'Yes'
+        control.value === this.questionaryData[index].type
       ) {
         fileArray.setValidators(Validators.required);
       }

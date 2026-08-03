@@ -184,7 +184,7 @@ export class QuestionaryComponent {
 
       if (
         this.questionaryData[index].documentNeeded &&
-        control.value === 'Yes'
+        control.value.answer === this.questionaryData[index].type
       ) {
         fileArray.setValidators(Validators.required);
       }

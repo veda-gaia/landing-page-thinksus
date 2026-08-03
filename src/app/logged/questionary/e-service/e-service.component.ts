@@ -20,58 +20,74 @@ export class EServiceComponent {
   undefinedAnswers = 0
   keepReading = false
   
+  // `type` = resposta que pontua pra cada questão (fonte de verdade:
+  // thinksus-api/src/shared/utils/answer-data.ts) — usado por submitRevision()
+  // pra decidir se documento é obrigatório, em vez de assumir 'Yes' sempre.
   questionaryData = [
     {
       documentNeeded: true,
-      id: 'E3'
+      id: 'E3',
+      type: 'Yes'
     },
     {
       documentNeeded: true,
-      id: 'E4'
+      id: 'E4',
+      type: 'Yes'
     },
     {
       documentNeeded: true,
-      id: 'E5'
+      id: 'E5',
+      type: 'Yes'
     },
     {
       documentNeeded: true,
-      id: 'E6'
+      id: 'E6',
+      type: 'Yes'
     },
     {
       documentNeeded: true,
-      id: 'E7'
+      id: 'E7',
+      type: 'No'
     },
     {
       documentNeeded: true,
-      id: 'E8'
+      id: 'E8',
+      type: 'Yes'
     },
     {
       documentNeeded: true,
-      id: 'E9'
+      id: 'E9',
+      type: 'Yes'
     },
     {
       documentNeeded: true,
-      id: 'E10'
+      id: 'E10',
+      type: 'Yes'
     },
     {
       documentNeeded: true,
-      id: 'E11'
+      id: 'E11',
+      type: 'Yes'
     },
     {
       documentNeeded: true,
-      id: 'E12'
+      id: 'E12',
+      type: 'No'
     },
     {
       documentNeeded: true,
-      id: 'E13'
+      id: 'E13',
+      type: 'No'
     },
     {
       documentNeeded: true,
-      id: 'E14'
+      id: 'E14',
+      type: 'Yes'
     },
     {
       documentNeeded: true,
-      id: 'E15'
+      id: 'E15',
+      type: 'No'
     },
   ]
 
@@ -167,7 +183,7 @@ export class EServiceComponent {
 
   submitRevision() {
     this.formArray.controls.forEach((control, index) => {
-      if(this.questionaryData[index].documentNeeded && control.value === 'Yes') {
+      if(this.questionaryData[index].documentNeeded && control.value === this.questionaryData[index].type) {
         this.formArrayDocuments.push(new FormControl('', Validators.required))
       } else {
         this.formArrayDocuments.push(new FormControl(''))

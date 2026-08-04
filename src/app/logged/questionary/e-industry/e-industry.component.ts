@@ -16,6 +16,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { finalize } from 'rxjs';
 import { AwsService } from 'src/app/services/aws.service';
 import { AwsS3FileInterface } from 'src/app/interfaces/aws/aws-s3-file.interface';
+import { isDocumentRequired } from 'src/app/util/document-requirement.util';
 
 @Component({
   selector: 'app-e-industry',
@@ -221,8 +222,11 @@ export class EIndustryComponent {
       const fileArray = new FormArray<FormControl<File | null>>([]);
 
       if (
-        this.questionaryData[index].documentNeeded &&
-        control.value === this.questionaryData[index].type
+        isDocumentRequired(
+          this.questionaryData[index].documentNeeded,
+          control.value,
+          this.questionaryData[index].type,
+        )
       ) {
         fileArray.setValidators(Validators.required);
       }

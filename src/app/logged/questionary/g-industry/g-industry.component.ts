@@ -9,6 +9,7 @@ import { CompanyService } from 'src/app/services/company.service';
 import { TranslateService } from '@ngx-translate/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { finalize } from 'rxjs';
+import { isDocumentRequired } from 'src/app/util/document-requirement.util';
 
 @Component({
   selector: 'app-g-industry',
@@ -182,7 +183,7 @@ export class GIndustryComponent {
 
   submitRevision() {
     this.formArray.controls.forEach((control, index) => {
-      if (this.questionaryData[index].documentNeeded && control.value === this.questionaryData[index].type) {
+      if (isDocumentRequired(this.questionaryData[index].documentNeeded, control.value, this.questionaryData[index].type)) {
         this.formArrayDocuments.push(new FormControl('', Validators.required))
       } else {
         this.formArrayDocuments.push(new FormControl(''))

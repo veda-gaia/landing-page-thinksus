@@ -20,6 +20,7 @@ import { AwsS3FileInterface } from 'src/app/interfaces/aws/aws-s3-file.interface
 import { EsgFormService } from 'src/app/services/esg-form.service';
 import { FormInterface } from 'src/app/forms/form.interface';
 import { QuestionInterface } from 'src/app/forms/question.interface';
+import { isDocumentRequired } from 'src/app/util/document-requirement.util';
 
 @Component({
   selector: 'app-questionary',
@@ -183,8 +184,11 @@ export class QuestionaryComponent {
       const fileArray = new FormArray<FormControl<File | null>>([]);
 
       if (
-        this.questionaryData[index].documentNeeded &&
-        control.value.answer === this.questionaryData[index].type
+        isDocumentRequired(
+          this.questionaryData[index].documentNeeded,
+          control.value.answer,
+          this.questionaryData[index].type,
+        )
       ) {
         fileArray.setValidators(Validators.required);
       }

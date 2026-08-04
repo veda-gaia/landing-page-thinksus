@@ -19,16 +19,7 @@ import { LoggedRoutingModule } from './logged-routing.module';
 import { LoggedComponent } from './logged.component';
 import { OdsComponent } from './ods/ods.component';
 import { PaymentComponent } from './payment/payment.component';
-import { ConfirmModalComponent } from './questionary/confirm-modal/confirm-modal.component';
-import { EAgroComponent } from './questionary/e-agro/e-agro.component';
-import { EIndustryComponent } from './questionary/e-industry/e-industry.component';
-import { EServiceComponent } from './questionary/e-service/e-service.component';
-import { GAgroComponent } from './questionary/g-agro/g-agro.component';
-import { GIndustryComponent } from './questionary/g-industry/g-industry.component';
-import { GServiceComponent } from './questionary/g-service/g-service.component';
-import { SAgroComponent } from './questionary/s-agro/s-agro.component';
-import { SIndustryComponent } from './questionary/s-industry/s-industry.component';
-import { SServiceComponent } from './questionary/s-service/s-service.component';
+import { ConfirmModalComponent } from './assessment-questionnaire/confirm-modal/confirm-modal.component';
 import { ResultsComponent } from './results/results.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SuppliersComponent } from './suppliers/suppliers.component';
@@ -50,7 +41,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { CnpjPipe } from '../pipes/cnpj-format.pipe';
 import { CompanyRevenuePipe } from '../pipes/company-revenue.pipe';
-import { QuestionaryComponent } from './questionary/questionary/questionary.component';
+import { AssessmentQuestionnaireComponent } from './assessment-questionnaire/assessment-questionnaire.component';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -65,15 +56,6 @@ PlotlyModule.plotlyjs = PlotlyJS;
     HeaderComponent,
     SidebarComponent,
     FooterComponent,
-    EAgroComponent,
-    SAgroComponent,
-    GAgroComponent,
-    EServiceComponent,
-    SServiceComponent,
-    GServiceComponent,
-    EIndustryComponent,
-    SIndustryComponent,
-    GIndustryComponent,
     ConfirmModalComponent,
     PaymentComponent,
     ControlPanelComponent,
@@ -88,7 +70,7 @@ PlotlyModule.plotlyjs = PlotlyJS;
     ScoreWarningComponent,
     CnpjPipe,
     CompanyRevenuePipe,
-    QuestionaryComponent,
+    AssessmentQuestionnaireComponent,
   ],
   imports: [
     CommonModule,

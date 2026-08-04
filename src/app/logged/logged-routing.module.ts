@@ -7,22 +7,13 @@ import { ImprovementsComponent } from './improvements/improvements.component';
 import { LoggedComponent } from './logged.component';
 import { OdsComponent } from './ods/ods.component';
 import { PaymentComponent } from './payment/payment.component';
-import { EAgroComponent } from './questionary/e-agro/e-agro.component';
-import { EIndustryComponent } from './questionary/e-industry/e-industry.component';
-import { EServiceComponent } from './questionary/e-service/e-service.component';
-import { GAgroComponent } from './questionary/g-agro/g-agro.component';
-import { GIndustryComponent } from './questionary/g-industry/g-industry.component';
-import { GServiceComponent } from './questionary/g-service/g-service.component';
-import { SAgroComponent } from './questionary/s-agro/s-agro.component';
-import { SIndustryComponent } from './questionary/s-industry/s-industry.component';
-import { SServiceComponent } from './questionary/s-service/s-service.component';
 import { ResultsComponent } from './results/results.component';
 import { SuppliersComponent } from './suppliers/suppliers.component';
 import { UseInstructionsComponent } from './use-instructions/use-instructions.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { PlansComponent } from './plans/plans.component';
-import { QuestionaryComponent } from './questionary/questionary/questionary.component';
+import { AssessmentQuestionnaireComponent } from './assessment-questionnaire/assessment-questionnaire.component';
 
 const routes: Routes = [
   {
@@ -79,46 +70,10 @@ const routes: Routes = [
         component: PlansComponent,
       },
 
-      // Questionary
-      {
-        path: 'assesment/e-agro',
-        component: EAgroComponent,
-      },
-      {
-        path: 'assesment/s-agro',
-        component: SAgroComponent,
-      },
-      {
-        path: 'assesment/g-agro',
-        component: GAgroComponent,
-      },
-      {
-        path: 'assesment/e-industry',
-        component: EIndustryComponent,
-      },
-      {
-        path: 'assesment/s-industry',
-        component: SIndustryComponent,
-      },
-      {
-        path: 'assesment/g-industry',
-        component: GIndustryComponent,
-      },
-      {
-        path: 'assesment/e-service',
-        component: EServiceComponent,
-      },
-      {
-        path: 'assesment/s-service',
-        component: SServiceComponent,
-      },
-      {
-        path: 'assesment/g-service',
-        component: GServiceComponent,
-      },
+      // Questionário de avaliação (ADR-0031 — tela única, dinâmica por setor/pilar/segmento)
       {
         path: 'assesment/questionary/:sectionId/:symbolId/:segmentId',
-        component: QuestionaryComponent,
+        component: AssessmentQuestionnaireComponent,
       },
       {
         path: 'confirmation',

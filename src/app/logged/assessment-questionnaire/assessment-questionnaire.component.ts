@@ -8,7 +8,7 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component';
+import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
 import { EsgRatingService } from 'src/app/services/esg-rating.service';
 import { CompanyService } from 'src/app/services/company.service';
 import { ToastrService } from 'ngx-toastr';
@@ -23,11 +23,11 @@ import { QuestionInterface } from 'src/app/forms/question.interface';
 import { isDocumentRequired } from 'src/app/util/document-requirement.util';
 
 @Component({
-  selector: 'app-questionary',
-  templateUrl: './questionary.component.html',
-  styleUrls: ['./questionary.component.scss'],
+  selector: 'app-assessment-questionnaire',
+  templateUrl: './assessment-questionnaire.component.html',
+  styleUrls: ['./assessment-questionnaire.component.scss'],
 })
-export class QuestionaryComponent {
+export class AssessmentQuestionnaireComponent {
   actualStep = 1;
   undefinedAnswers = 0;
   keepReading = false;

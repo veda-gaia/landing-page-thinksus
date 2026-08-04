@@ -11,7 +11,7 @@ import { ScoreWarningComponent } from '../score-warning/score-warning.component'
 import { finalize } from 'rxjs';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { EsgFormService } from 'src/app/services/esg-form.service';
-import { PendingDocumentsModalComponent } from '../questionary/pendingdocuments-modal/pendingdocuments-modal.component';
+import { PendingDocumentsModalComponent } from '../pendingdocuments-modal/pendingdocuments-modal.component';
 
 @Component({
   selector: 'app-dashboard',

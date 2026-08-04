@@ -51,6 +51,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { CnpjPipe } from '../pipes/cnpj-format.pipe';
 import { CompanyRevenuePipe } from '../pipes/company-revenue.pipe';
 import { QuestionaryComponent } from './questionary/questionary/questionary.component';
+import { PendingDocumentsModalComponent } from './questionary/pendingdocuments-modal/pendingdocuments-modal.component';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -89,6 +90,7 @@ PlotlyModule.plotlyjs = PlotlyJS;
     CnpjPipe,
     CompanyRevenuePipe,
     QuestionaryComponent,
+    PendingDocumentsModalComponent,
   ],
   imports: [
     CommonModule,

@@ -145,27 +145,16 @@
         </div>
 
         <div class="content-custom-accordion">
-          <p
-            *ngIf="item.score <= 17.5"
-            class="f-size-0-85rem fw-500 alpha-800-text l-height-1-25 w-100"
-          >
-            {{
-              "IMPROVEMENTS_" +
-                companyInfo.section +
-                ".ENVIRONMENTAL_DESCRIPTION_" +
-                (i + 1) +
-                (item.score < 10 ? "_LOW" : "") +
-                (item.score >= 10 && item.score <= 17.5 ? "_MEDIUM" : "")
-                | translate
-            }}
-          </p>
-
-          <p
-            *ngIf="item.score > 17.5"
-            class="f-size-0-85rem fw-500 alpha-800-text l-height-1-25 w-100"
-          >
-            {{ "IMPROVEMENTS_TITLES.HIGH_SCORE_DESCRIPTION" | translate }}
-          </p>
+          <ng-container *ngIf="suggestionsGrouped[i + 1] && suggestionsGrouped[i + 1].length > 0; else noEnvironmentalSug">
+            <div *ngFor="let sug of suggestionsGrouped[i + 1]" class="mb-3">
+              <markdown [data]="sug.text[currentLanguage] || sug.text.pt"></markdown>
+            </div>
+          </ng-container>
+          <ng-template #noEnvironmentalSug>
+            <p class="f-size-0-85rem fw-500 alpha-800-text l-height-1-25 w-100">
+              {{ "IMPROVEMENTS_TITLES.HIGH_SCORE_DESCRIPTION" | translate }}
+            </p>
+          </ng-template>
         </div>
       </div>
     </div>
@@ -197,27 +186,16 @@
         </div>
 
         <div class="content-custom-accordion">
-          <p
-            *ngIf="item.score <= 17.5"
-            class="f-size-0-85rem fw-500 alpha-800-text l-height-1-25 w-100"
-          >
-            {{
-              "IMPROVEMENTS_" +
-                companyInfo.section +
-                ".SOCIAL_DESCRIPTION_" +
-                (i + 5) +
-                (item.score < 10 ? "_LOW" : "") +
-                (item.score >= 10 && item.score <= 17.5 ? "_MEDIUM" : "")
-                | translate
-            }}
-          </p>
-
-          <p
-            *ngIf="item.score > 17.5"
-            class="f-size-0-85rem fw-500 alpha-800-text l-height-1-25 w-100"
-          >
-            {{ "IMPROVEMENTS_TITLES.HIGH_SCORE_DESCRIPTION" | translate }}
-          </p>
+          <ng-container *ngIf="suggestionsGrouped[i + 5] && suggestionsGrouped[i + 5].length > 0; else noSocialSug">
+            <div *ngFor="let sug of suggestionsGrouped[i + 5]" class="mb-3">
+              <markdown [data]="sug.text[currentLanguage] || sug.text.pt"></markdown>
+            </div>
+          </ng-container>
+          <ng-template #noSocialSug>
+            <p class="f-size-0-85rem fw-500 alpha-800-text l-height-1-25 w-100">
+              {{ "IMPROVEMENTS_TITLES.HIGH_SCORE_DESCRIPTION" | translate }}
+            </p>
+          </ng-template>
         </div>
       </div>
     </div>
@@ -249,27 +227,16 @@
         </div>
 
         <div class="content-custom-accordion">
-          <p
-            *ngIf="item.score <= 17.5"
-            class="f-size-0-85rem fw-500 alpha-800-text l-height-1-25 w-100"
-          >
-            {{
-              "IMPROVEMENTS_" +
-                companyInfo.section +
-                ".GOVERNMENTAL_DESCRIPTION_" +
-                (i + 9) +
-                (item.score < 10 ? "_LOW" : "") +
-                (item.score >= 10 && item.score <= 17.5 ? "_MEDIUM" : "")
-                | translate
-            }}
-          </p>
-
-          <p
-            *ngIf="item.score > 17.5"
-            class="f-size-0-85rem fw-500 alpha-800-text l-height-1-25 w-100"
-          >
-            {{ "IMPROVEMENTS_TITLES.HIGH_SCORE_DESCRIPTION" | translate }}
-          </p>
+          <ng-container *ngIf="suggestionsGrouped[i + 9] && suggestionsGrouped[i + 9].length > 0; else noGovernanceSug">
+            <div *ngFor="let sug of suggestionsGrouped[i + 9]" class="mb-3">
+              <markdown [data]="sug.text[currentLanguage] || sug.text.pt"></markdown>
+            </div>
+          </ng-container>
+          <ng-template #noGovernanceSug>
+            <p class="f-size-0-85rem fw-500 alpha-800-text l-height-1-25 w-100">
+              {{ "IMPROVEMENTS_TITLES.HIGH_SCORE_DESCRIPTION" | translate }}
+            </p>
+          </ng-template>
         </div>
       </div>
     </div>

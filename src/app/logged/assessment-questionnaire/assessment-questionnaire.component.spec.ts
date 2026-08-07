@@ -1,6 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormArray,
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { ActivatedRoute, Router, convertToParamMap } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -87,6 +93,72 @@ describe('AssessmentQuestionnaireComponent', () => {
       expect(
         component.formArrayDocuments.at(1).hasValidator(Validators.required),
       ).toBe(false);
+    },
+  );
+
+  it(
+    'documentsValid (que habilita o botao Proximo) segue a mesma regra: exige ' +
+      'arquivo so onde a resposta bate com o type, nao em toda questao com ' +
+      'documentNeeded',
+    () => {
+      // q1 pontua com 'No' e foi respondida 'No'  -> documento EXIGIDO
+      // q2 pontua com 'Yes' e foi respondida 'No' -> documento NAO exigido
+      component.questionaryData = [
+        { _id: 'q1', documentNeeded: true, type: 'No' } as any,
+        { _id: 'q2', documentNeeded: true, type: 'Yes' } as any,
+      ];
+      component.formArray.push(
+        new FormGroup({
+          questionId: new FormControl('q1'),
+          answer: new FormControl('No', Validators.required),
+        }),
+      );
+      component.formArray.push(
+        new FormGroup({
+          questionId: new FormControl('q2'),
+          answer: new FormControl('No', Validators.required),
+        }),
+      );
+
+      component.submitRevision();
+
+      // Sem anexar nada, q1 bloqueia o avanco.
+      expect(component.documentsValid).toBe(false);
+
+      // Anexando SO na q1 o avanco libera — antes o getter exigia arquivo
+      // tambem na q2, travando o usuario numa questao que nao precisa.
+      (component.formArrayDocuments.at(0) as FormArray).push(
+        new FormControl(new File([''], 'laudo.pdf')),
+      );
+
+      expect(component.documentsValid).toBe(true);
+    },
+  );
+
+  it(
+    'requiresDocument controla a exibicao do upload: aparece so onde a ' +
+      'resposta bate com o type (titulo do card c345217b)',
+    () => {
+      component.questionaryData = [
+        { _id: 'q1', documentNeeded: true, type: 'No' } as any,
+        { _id: 'q2', documentNeeded: true, type: 'Yes' } as any,
+        { _id: 'q3', documentNeeded: false, type: 'Yes' } as any,
+      ];
+      ['No', 'No', 'Yes'].forEach((resposta, i) => {
+        component.formArray.push(
+          new FormGroup({
+            questionId: new FormControl('q' + (i + 1)),
+            answer: new FormControl(resposta, Validators.required),
+          }),
+        );
+      });
+
+      // q1: aceita documento e a resposta pontua -> upload aparece
+      expect(component.requiresDocument(0)).toBe(true);
+      // q2: aceita documento mas a resposta nao pontua -> upload NAO aparece
+      expect(component.requiresDocument(1)).toBe(false);
+      // q3: nao aceita documento -> upload nunca aparece
+      expect(component.requiresDocument(2)).toBe(false);
     },
   );
 });

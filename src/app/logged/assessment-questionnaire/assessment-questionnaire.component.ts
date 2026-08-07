@@ -326,9 +326,44 @@ export class AssessmentQuestionnaireComponent {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  /**
+   * Se a questão do índice exige documento, considerando a resposta atual.
+   *
+   * É a mesma regra de submitRevision() e documentsValid. Usada também no
+   * template para só exibir o upload quando ele for de fato necessário — pedir
+   * documento numa questão cuja resposta não pontua é o comportamento que o
+   * card c345217b reporta.
+   */
+  requiresDocument(index: number): boolean {
+    const question = this.questionaryData[index];
+    if (!question) return false;
+
+    return isDocumentRequired(
+      question.documentNeeded,
+      this.formArray.at(index)?.value?.answer,
+      question.type,
+    );
+  }
+
+  /**
+   * Habilita o avanço da etapa de documentos.
+   *
+   * Precisa usar a MESMA regra de submitRevision() — `isDocumentRequired`, que
+   * leva em conta a resposta e o `type` da questão. Antes este getter olhava
+   * só `documentNeeded`, exigindo arquivo em toda questão que aceita upload,
+   * independente da resposta. Como é ele (e não os Validators montados em
+   * submitRevision) que controla o botão Próximo, a correção do card c345217b
+   * não tinha efeito nenhum na tela.
+   */
   get documentsValid(): boolean {
     return this.formArrayDocuments.controls.every((fileArray, index) => {
-      if (!this.questionaryData[index].documentNeeded) return true;
+      const question = this.questionaryData[index];
+      const answer = this.formArray.at(index)?.value?.answer;
+
+      if (!isDocumentRequired(question.documentNeeded, answer, question.type)) {
+        return true;
+      }
+
       return fileArray.length > 0;
     });
   }

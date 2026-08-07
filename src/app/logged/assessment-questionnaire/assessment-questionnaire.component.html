@@ -299,7 +299,11 @@
           >
         </p>
 
-        <div *ngIf="questionaryData[indexArrayDocuments].documentNeeded">
+        <!-- Upload só aparece quando de fato é exigido: documentNeeded E a
+             resposta bate com o `type` da questão. O aviso "esta questão
+             precisa de documento" acima segue apenas documentNeeded, porque
+             informa a natureza da questão, não a exigência do momento. -->
+        <div *ngIf="requiresDocument(indexArrayDocuments)">
           <input
             type="file"
             #fileInput

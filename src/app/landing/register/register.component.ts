@@ -41,9 +41,9 @@ export class RegisterComponent implements OnInit {
   form3;
 
   countryList: any[] = [];
-  // Entidades vindas do banco (ADR-0033), nao mais listas hardcoded.
-  sectorList: any[] = [];
-  segmentList: any[] = [];
+  // `sectorList`/`segmentList` foram removidos: o template sempre usou
+  // `sections$ | async` e `segments$ | async`, vindos da API. As listas eram
+  // codigo morto convivendo com o caminho bom.
   currentLang: string = '';
 
   CompanyRevenueEnum = CompanyRevenueEnum;
@@ -124,14 +124,6 @@ export class RegisterComponent implements OnInit {
     });
 
     this.currentLang = this.translateService.currentLang;
-    // Setores vem do banco (ADR-0033): as listas pt/en hardcoded so
-    // conheciam Agribusiness, Industry e Services, entao Cannabis nunca
-    // aparecia no cadastro. O nome ja vem da entidade, sem traducao local.
-    this._sectionService.list().subscribe({
-      next: (sections) => (this.sectorList = sections || []),
-      error: () => (this.sectorList = []),
-    });
-
     if (this.currentLang === 'en') {
       this.countryList = countryListEn;
     } else {
@@ -151,7 +143,6 @@ export class RegisterComponent implements OnInit {
         }
 
         this.ChangeDetectorRef.detectChanges();
-        this.handleSegment(this.form2.controls.sector.value);
       },
     });
 
@@ -185,33 +176,6 @@ export class RegisterComponent implements OnInit {
     }
 
     this.loadSection();
-  }
-
-  /**
-   * Carrega os segmentos do setor escolhido (ADR-0033).
-   *
-   * Antes isto era um switch sobre CompanySectionEnum que escolhia entre seis
-   * listas hardcoded (pt/en x Agribusiness/Industry/Services). Qualquer setor
-   * fora desses tres — Cannabis, por exemplo — caia em nenhum branch e o
-   * cliente ficava com o select de segmento vazio, sem erro.
-   */
-  handleSegment(sectionId: any) {
-    this.segmentList = [];
-    this.form2.controls['segment']?.setValue(null);
-
-    if (!sectionId) return;
-
-    this._segmentService.list().subscribe({
-      next: (segmentos) => {
-        this.segmentList = (segmentos || []).filter(
-          (seg: any) =>
-            String(seg?.section?._id ?? seg?.section) === String(sectionId),
-        ) as any;
-      },
-      error: () => {
-        this.segmentList = [];
-      },
-    });
   }
 
   onSubmitStep1() {

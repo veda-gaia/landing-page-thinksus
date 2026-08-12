@@ -387,7 +387,7 @@
               id="segment"
               formControlName="segment"
               class="d-block mb-4 w-100"
-              [class.opacity-05]="!segmentList.length"
+              [class.opacity-05]="!form2.controls['sector'].value"
             >
               <option value="" disabled>
                 {{ "REGISTER.SEGMENT_PLACEHOLDER" | translate }}

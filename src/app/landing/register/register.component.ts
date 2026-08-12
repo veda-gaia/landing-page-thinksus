@@ -6,27 +6,12 @@ import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { CompanyEmployeesEnum } from 'src/app/enums/company-employees.enum';
 import { CompanyRevenueEnum } from 'src/app/enums/company-revenue.enum';
-import { CompanySectionEnum } from 'src/app/enums/company-section.enum';
-import { CompanySegmentEnum } from 'src/app/enums/company-segment.enum';
 import { LoginInterface } from 'src/app/interfaces/authentication/authentication.interface';
 import { UserRegisterRequestDto } from 'src/app/interfaces/user/user-register-request.dto';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { CepService } from 'src/app/services/cep.service';
 import { UserService } from 'src/app/services/user.service';
 import { countryListEn, countryListPt } from 'src/app/util/country';
-import { enSectorList } from 'src/app/util/en-sector';
-import {
-  SegmentList,
-  enAgribusinessList,
-  enIndustryList,
-  enServicesList,
-} from 'src/app/util/en-segment';
-import { SectorList, ptSectorList } from 'src/app/util/pt-sector';
-import {
-  ptAgribusinessList,
-  ptIndustryList,
-  ptServicesList,
-} from 'src/app/util/pt-segment';
 import { TermsAndConditionsModalComponent } from './terms-and-conditions-modal/terms-and-conditions-modal.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { finalize, Observable, tap } from 'rxjs';
@@ -56,8 +41,9 @@ export class RegisterComponent implements OnInit {
   form3;
 
   countryList: any[] = [];
-  sectorList: SectorList[] = [];
-  segmentList: SegmentList[] = [];
+  // Entidades vindas do banco (ADR-0033), nao mais listas hardcoded.
+  sectorList: any[] = [];
+  segmentList: any[] = [];
   currentLang: string = '';
 
   CompanyRevenueEnum = CompanyRevenueEnum;
@@ -138,11 +124,17 @@ export class RegisterComponent implements OnInit {
     });
 
     this.currentLang = this.translateService.currentLang;
+    // Setores vem do banco (ADR-0033): as listas pt/en hardcoded so
+    // conheciam Agribusiness, Industry e Services, entao Cannabis nunca
+    // aparecia no cadastro. O nome ja vem da entidade, sem traducao local.
+    this._sectionService.list().subscribe({
+      next: (sections) => (this.sectorList = sections || []),
+      error: () => (this.sectorList = []),
+    });
+
     if (this.currentLang === 'en') {
-      this.sectorList = enSectorList;
       this.countryList = countryListEn;
     } else {
-      this.sectorList = ptSectorList;
       this.countryList = countryListPt;
     }
 
@@ -150,11 +142,11 @@ export class RegisterComponent implements OnInit {
     this.translateService.onLangChange.subscribe({
       next: (data: any) => {
         this.currentLang = this.translateService.currentLang;
+        // O setor nao troca com o idioma: o nome vem da entidade. Antes cada
+        // troca de lingua reescrevia a lista com as tres opcoes hardcoded.
         if (data.lang === 'en') {
-          this.sectorList = enSectorList;
           this.countryList = countryListEn;
         } else {
-          this.sectorList = ptSectorList;
           this.countryList = countryListPt;
         }
 
@@ -195,32 +187,31 @@ export class RegisterComponent implements OnInit {
     this.loadSection();
   }
 
-  handleSegment(data: any) {
-    const currentLang = this.translateService.currentLang;
+  /**
+   * Carrega os segmentos do setor escolhido (ADR-0033).
+   *
+   * Antes isto era um switch sobre CompanySectionEnum que escolhia entre seis
+   * listas hardcoded (pt/en x Agribusiness/Industry/Services). Qualquer setor
+   * fora desses tres — Cannabis, por exemplo — caia em nenhum branch e o
+   * cliente ficava com o select de segmento vazio, sem erro.
+   */
+  handleSegment(sectionId: any) {
+    this.segmentList = [];
+    this.form2.controls['segment']?.setValue(null);
 
-    if (data === CompanySectionEnum.Agribusiness) {
-      if (currentLang === 'en') {
-        this.segmentList = enAgribusinessList;
-      } else this.segmentList = ptAgribusinessList;
+    if (!sectionId) return;
 
-      return;
-    }
-
-    if (data === CompanySectionEnum.Industry) {
-      if (currentLang === 'en') {
-        this.segmentList = enIndustryList;
-      } else this.segmentList = ptIndustryList;
-
-      return;
-    }
-
-    if (data === CompanySectionEnum.Services) {
-      if (currentLang === 'en') {
-        this.segmentList = enServicesList;
-      } else this.segmentList = ptServicesList;
-
-      return;
-    }
+    this._segmentService.list().subscribe({
+      next: (segmentos) => {
+        this.segmentList = (segmentos || []).filter(
+          (seg: any) =>
+            String(seg?.section?._id ?? seg?.section) === String(sectionId),
+        ) as any;
+      },
+      error: () => {
+        this.segmentList = [];
+      },
+    });
   }
 
   onSubmitStep1() {
@@ -248,8 +239,9 @@ export class RegisterComponent implements OnInit {
           city: this.form2.controls['city'].value as string,
           zipCode: this.form2.controls['zipCode'].value as string,
         },
-        segment: this.form2.controls['segment'].value as CompanySegmentEnum,
-        section: this.form2.controls['sector'].value as CompanySectionEnum,
+        // Ids das entidades; a API valida existencia e o vinculo entre elas.
+        segment: this.form2.controls['segment'].value as any,
+        section: this.form2.controls['sector'].value as any,
         numberEmployees: this.form3.controls['collaboratorsAmmount']
           .value as CompanyEmployeesEnum,
         revenue: this.form3.controls['invoicing'].value as CompanyRevenueEnum,

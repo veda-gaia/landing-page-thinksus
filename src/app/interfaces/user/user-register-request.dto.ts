@@ -1,7 +1,5 @@
 import { CompanyEmployeesEnum } from 'src/app/enums/company-employees.enum';
 import { CompanyRevenueEnum } from 'src/app/enums/company-revenue.enum';
-import { CompanySectionEnum } from 'src/app/enums/company-section.enum';
-import { CompanySegmentEnum } from 'src/app/enums/company-segment.enum';
 
 export interface UserRegisterRequestDto {
   user: UserRegisterDto;
@@ -22,8 +20,8 @@ interface CompanyRegisterDto {
   company: string;
   cnpj: string;
   companyAdress: CompanyAdressRegisterRequestDto;
-  segment: CompanySegmentEnum;
-  section: CompanySectionEnum;
+  segment: string;
+  section: string;
   numberEmployees: CompanyEmployeesEnum;
   revenue?: CompanyRevenueEnum;
 }

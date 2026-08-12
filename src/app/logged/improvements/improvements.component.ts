@@ -118,16 +118,16 @@ export class ImprovementsComponent implements OnInit {
           (s: any) => s.status === 'APPROVED' || s.status === 'EDITED'
         );
 
-        // Group them by area index (código estável, não pelo nome traduzível)
+        // A área vem no próprio item. Antes era preciso casar a sugestão com a
+        // resposta pelo questionId e daí atravessar até questionId.area.code —
+        // dois saltos para achar algo que hoje está gravado direto. O
+        // questionId deixou de existir no contrato, então essa busca passaria
+        // a falhar em toda sugestão.
         approvedSuggestions.forEach((sug: any) => {
-          const matchedAnswer = this.assesmentInfo?.answers?.find(
-            (ans: any) => String(ans.questionId?._id || ans.questionId) === String(sug.questionId)
-          );
-
-          const areaCode = matchedAnswer?.questionId?.area?.code;
+          const areaCode = sug.area;
           if (!areaCode) {
             console.error(
-              `[Improvements] Sugestão ${sug._id} não pôde ser agrupada: DimensionArea sem "code" para a questão ${sug.questionId}.`,
+              `[Improvements] Sugestão ${sug._id} veio sem área e não pôde ser agrupada.`,
             );
             return;
           }

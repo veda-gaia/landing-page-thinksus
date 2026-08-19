@@ -19,7 +19,12 @@
 
                 <p class="alpha-700-text f-size-0-85rem fw-500">
                   {{ "DASHBOARD.HI" | translate }} {{ userName.split(" ")[0] }}.
-                  {{ "DASHBOARD.THATS" | translate }}
+                  {{
+                    (isUnderAnalysis
+                      ? "DASHBOARD.UNDER_REVIEW_SUMMARY"
+                      : "DASHBOARD.THATS"
+                    ) | translate
+                  }}
                 </p>
               </div>
 
@@ -211,7 +216,7 @@
                 <div>
                   <a
                     (click)="verifyPossibility('e')"
-                    *ngIf="!environmentalInfo.progress"
+                    *ngIf="!environmentalInfo.progress && !isUnderAnalysis"
                     class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-start gap-2"
                   >
                     {{ "DASHBOARD.START" | translate }}
@@ -222,6 +227,7 @@
                     (click)="verifyPossibility('e')"
                     *ngIf="
                       environmentalInfo.progress &&
+                      !isUnderAnalysis &&
                       environmentalInfo.progress !== environmentalQuestions
                     "
                     class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-start gap-2"
@@ -233,6 +239,7 @@
                   <button
                     *ngIf="
                       environmentalInfo.progress > 1 &&
+                      !isUnderAnalysis &&
                       environmentalInfo.progress === environmentalQuestions
                     "
                     [disabled]="true"
@@ -241,12 +248,19 @@
                     {{ "DASHBOARD.FINISHED" | translate }}
                     <img src="/assets/icon/play.svg" alt="Iniciar" />
                   </button>
+                  <button
+                    *ngIf="isUnderAnalysis"
+                    [disabled]="true"
+                    class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2"
+                  >
+                    {{ "DASHBOARD.UNDER_REVIEW" | translate }}
+                  </button>
                 </div>
 
                 <div>
                   <a
                     (click)="verifyPossibility('s')"
-                    *ngIf="!socialInfo.progress"
+                    *ngIf="!socialInfo.progress && !isUnderAnalysis"
                     class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-start gap-2"
                   >
                     {{ "DASHBOARD.START" | translate }}
@@ -257,6 +271,7 @@
                     (click)="verifyPossibility('s')"
                     *ngIf="
                       socialInfo.progress &&
+                      !isUnderAnalysis &&
                       socialInfo.progress !== socialQuestions
                     "
                     class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-start gap-2"
@@ -268,6 +283,7 @@
                   <button
                     *ngIf="
                       socialInfo.progress > 1 &&
+                      !isUnderAnalysis &&
                       socialInfo.progress === socialQuestions
                     "
                     [disabled]="true"
@@ -276,12 +292,19 @@
                     {{ "DASHBOARD.FINISHED" | translate }}
                     <img src="/assets/icon/play.svg" alt="Iniciar" />
                   </button>
+                  <button
+                    *ngIf="isUnderAnalysis"
+                    [disabled]="true"
+                    class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2"
+                  >
+                    {{ "DASHBOARD.UNDER_REVIEW" | translate }}
+                  </button>
                 </div>
 
                 <div>
                   <a
                     (click)="verifyPossibility('g')"
-                    *ngIf="!governanceInfo.progress"
+                    *ngIf="!governanceInfo.progress && !isUnderAnalysis"
                     class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-start gap-2"
                   >
                     {{ "DASHBOARD.START" | translate }}
@@ -292,6 +315,7 @@
                     (click)="verifyPossibility('g')"
                     *ngIf="
                       governanceInfo.progress &&
+                      !isUnderAnalysis &&
                       governanceInfo.progress !== governanceQuestions
                     "
                     class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2 d-flex align-item-center justify-content-center gap-2"
@@ -303,6 +327,7 @@
                   <button
                     *ngIf="
                       governanceInfo.progress > 1 &&
+                      !isUnderAnalysis &&
                       governanceInfo.progress === governanceQuestions
                     "
                     [disabled]="true"
@@ -310,6 +335,13 @@
                   >
                     {{ "DASHBOARD.FINISHED" | translate }}
                     <img src="/assets/icon/play.svg" alt="Iniciar" />
+                  </button>
+                  <button
+                    *ngIf="isUnderAnalysis"
+                    [disabled]="true"
+                    class="no-bg-btn f-size-1rem fw-700 brand-800-text bg-transparent ps-0 py-2"
+                  >
+                    {{ "DASHBOARD.UNDER_REVIEW" | translate }}
                   </button>
                 </div>
               </div>
@@ -324,20 +356,30 @@
               class="f-size-0-85rem l-height-1-25 fw-500 primary-text mb-2"
               style="max-width: 182px"
             >
-              {{ "DASHBOARD.YOU_DONT_HAVE" | translate }}
+              {{
+                (isUnderAnalysis
+                  ? "DASHBOARD.UNDER_REVIEW_DESCRIPTION"
+                  : "DASHBOARD.YOU_DONT_HAVE"
+                ) | translate
+              }}
             </p>
             <p
               class="f-size-0-671875rem l-height-1rem fw-500 primary-text mb-4 pb-2"
               style="max-width: 182px"
             >
-              {{ "DASHBOARD.TAKE_ASSESMENT" | translate }}
+              <ng-container *ngIf="!isUnderAnalysis">
+                {{ "DASHBOARD.TAKE_ASSESMENT" | translate }}
+              </ng-container>
             </p>
 
-            <a routerLink="/logged/assesment">
+            <a *ngIf="!isUnderAnalysis" routerLink="/logged/assesment">
               <button class="brand-btn w-100">
                 {{ "DASHBOARD.START_ASSESMENT" | translate }}
               </button>
             </a>
+            <button *ngIf="isUnderAnalysis" class="brand-btn w-100" disabled>
+              {{ "DASHBOARD.UNDER_REVIEW" | translate }}
+            </button>
           </div>
         </div>
       </div>

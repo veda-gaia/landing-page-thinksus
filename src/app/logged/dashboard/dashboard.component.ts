@@ -11,7 +11,7 @@ import { ScoreWarningComponent } from '../score-warning/score-warning.component'
 import { finalize } from 'rxjs';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { EsgFormService } from 'src/app/services/esg-form.service';
-import { PendingDocumentsModalComponent } from '../questionary/pendingdocuments-modal/pendingdocuments-modal.component';
+import { PendingDocumentsModalComponent } from '../pendingdocuments-modal/pendingdocuments-modal.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -86,17 +86,10 @@ export class DashboardComponent {
       .subscribe({
         next: (data: any) => {
           this.userName = data.user.name;
-          if (data.section === 'Agribusiness') {
-            this.companySection = 'agro';
-          }
-
-          if (data.section === 'Industry') {
-            this.companySection = 'industry';
-          }
-
-          if (data.section === 'Services') {
-            this.companySection = 'service';
-          }
+          // Removidos os branches por setor: comparavam `data.section`
+          // (referencia hidratada, um objeto) com string, entao nunca eram
+          // verdadeiros. Alem disso `companySection` e sobrescrito adiante
+          // com `data.section.name`, e so e escrito — nunca lido.
 
           this.sectionId = data.section?._id;
           this.segmentId = data.segment?._id;

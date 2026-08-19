@@ -3,8 +3,25 @@
   <form class="pb-5 w-100">
     <div class="row pb-4">
       <div class="col">
-        <h3 class="alpha-800-text f-size-1-5rem fw-700">
+        <h3
+          class="alpha-800-text f-size-1-5rem fw-700"
+          *ngIf="esgSymbol.toUpperCase() == 'E'"
+        >
           {{ "QUESTIONARY.ENVIRONMENTAL_TITLE" | translate }}
+        </h3>
+
+        <h3
+          class="alpha-800-text f-size-1-5rem fw-700"
+          *ngIf="esgSymbol.toUpperCase() == 'S'"
+        >
+          {{ "QUESTIONARY.SOCIAL_TITLE" | translate }}
+        </h3>
+
+        <h3
+          class="alpha-800-text f-size-1-5rem fw-700"
+          *ngIf="esgSymbol.toUpperCase() == 'G'"
+        >
+          {{ "QUESTIONARY.GOVERNAMENTAL_TITLE" | translate }}
         </h3>
 
         <div
@@ -34,7 +51,7 @@
     </div>
 
     <div
-      *ngFor="let control of formArray.controls; let i = index"
+      *ngFor="let question of questionaryData; let i = index"
       class="row justify-content-center"
     >
       <div
@@ -46,19 +63,18 @@
         >
           <div class="flex-grow-1 w-100">
             <p class="pb-5 fw-600 f-size-1rem l-spacing-1-68 l-height-1-5rem">
-              {{ actualStep }}.
-              {{ "QUESTIONS." + questionaryData[i].id + "_TITLE" | translate }}
+              {{ question.name }}
             </p>
 
             <div
               class="d-flex align-items-center justify-content-start gap-2 pb-3"
             >
               <input
-                [formControl]="control"
                 type="radio"
+                [formControl]="getAnswerControl(i)"
+                name="answer-{{ i }}"
                 style="width: fit-content"
                 id="Yes"
-                name="answer"
                 value="Yes"
               />
               <label for="Yes" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{
@@ -70,11 +86,11 @@
               class="d-flex align-items-center justify-content-start gap-2 pb-3"
             >
               <input
-                [formControl]="control"
+                [formControl]="getAnswerControl(i)"
+                name="answer-{{ i }}"
                 type="radio"
                 style="width: fit-content"
                 id="No"
-                name="answer"
                 value="No"
               />
               <label for="No" class="fw-400 f-size-1rem l-spacing-1-68 pt-1">{{
@@ -86,11 +102,11 @@
               class="d-flex align-items-center justify-content-start gap-2 pb-3"
             >
               <input
-                [formControl]="control"
+                [formControl]="getAnswerControl(i)"
+                name="answer-{{ i }}"
                 type="radio"
                 style="width: fit-content"
                 id="undefined"
-                name="answer"
                 value="Not apply"
               />
               <label
@@ -103,7 +119,7 @@
             <button
               *ngIf="actualStep === 1"
               class="secondary-brand-btn px-lg-5 d-block mt-5"
-              [disabled]="control.invalid"
+              [disabled]="formArray.controls[i].invalid"
               type="button"
               (click)="onSubmitStep(i)"
             >
@@ -136,7 +152,7 @@
                 <button
                   class="secondary-brand-btn px-lg-5 d-block"
                   [disabled]="
-                    control.invalid ||
+                    formArray.controls[i].invalid ||
                     this.undefinedAnswers >= (questionaryData.length / 100) * 30
                   "
                   type="button"
@@ -157,10 +173,7 @@
             </h4>
 
             <p class="d-none" #description>
-              {{
-                "QUESTIONS." + questionaryData[i].id + "_DESCRIPTION"
-                  | translate
-              }}
+              {{ question.description }}
             </p>
 
             <p
@@ -255,7 +268,7 @@
     <ul>
       <li
         *ngFor="
-          let control of formArrayDocuments.controls;
+          let question of questionaryData;
           let indexArrayDocuments = index
         "
         class="pb-5"
@@ -263,41 +276,34 @@
         <p
           class="d-block w-100 f-size-1rem l-height-1-5rem alpha-700-text fw-700 pb-2"
         >
-          {{ indexArrayDocuments + 1 }}.
-          {{
-            "QUESTIONS." + questionaryData[indexArrayDocuments].id + "_TITLE"
-              | translate
-          }}
+          {{ question.name }}
         </p>
         <p
           class="d-flex w-100 f-size-1rem l-height-1-25rem alpha-700-text fw-400 gap-1"
         >
           resposta: &shy;
           <span
-            *ngIf="formArray.controls[indexArrayDocuments].value === 'Yes'"
+            *ngIf="getAnswerControl(indexArrayDocuments).value === 'Yes'"
             class="fw-700"
             >{{ "QUESTIONARY.YES" | translate }}</span
           >
           <span
-            *ngIf="formArray.controls[indexArrayDocuments].value === 'No'"
+            *ngIf="getAnswerControl(indexArrayDocuments).value === 'No'"
             class="fw-700"
             >{{ "QUESTIONARY.NO" | translate }}</span
           >
           <span
-            *ngIf="
-              formArray.controls[indexArrayDocuments].value === 'Not apply'
-            "
+            *ngIf="getAnswerControl(indexArrayDocuments).value === 'Not apply'"
             class="fw-700"
             >{{ "QUESTIONARY.DOESNT_APPLY" | translate }}</span
           >
         </p>
 
-        <div
-          *ngIf="
-            formArray.controls[indexArrayDocuments].value === 'Yes' &&
-            questionaryData[indexArrayDocuments].documentNeeded
-          "
-        >
+        <!-- Upload só aparece quando de fato é exigido: documentNeeded E a
+             resposta bate com o `type` da questão. O aviso "esta questão
+             precisa de documento" acima segue apenas documentNeeded, porque
+             informa a natureza da questão, não a exigência do momento. -->
+        <div *ngIf="requiresDocument(indexArrayDocuments)">
           <input
             type="file"
             #fileInput
@@ -309,7 +315,7 @@
             type="button"
             class="secondary-brand-btn d-flex align-items-center gap-2 mb-2"
             (click)="fileInput.click()"
-            [disabled]="control.controls.length >= 5"
+            [disabled]="formArrayDocuments.at(indexArrayDocuments).length >= 5"
           >
             <i class="fa fa-plus-circle"></i>
             {{ "QUESTIONARY.ADD_FILE" | translate }}
@@ -317,10 +323,17 @@
 
           <div class="files-container">
             <div
-              *ngFor="let fileCtrl of control.controls; let j = index"
+              *ngFor="
+                let fileCtrl of formArrayDocuments.at(indexArrayDocuments)
+                  .controls;
+                let j = index
+              "
               class="card-logged w-100 p-1 p-xl-2 mt-2 d-flex flex-column flex-xl-row align-items-start align-items-xl-center justify-content-between gap-4"
             >
-              <span class="ds-file-name">{{ fileCtrl.value?.name }}</span>
+              <span class="ds-file-name">
+                {{ fileCtrl.value?.name }}
+              </span>
+
               <button
                 type="button"
                 class="btn-remove-file"
@@ -351,7 +364,7 @@
 
       <button
         class="secondary-brand-btn px-lg-5 d-block"
-        [disabled]="this.formArrayDocuments.invalid"
+        [disabled]="!documentsValid"
         type="button"
         (click)="submitDocuments()"
       >

@@ -6,27 +6,12 @@ import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { CompanyEmployeesEnum } from 'src/app/enums/company-employees.enum';
 import { CompanyRevenueEnum } from 'src/app/enums/company-revenue.enum';
-import { CompanySectionEnum } from 'src/app/enums/company-section.enum';
-import { CompanySegmentEnum } from 'src/app/enums/company-segment.enum';
 import { LoginInterface } from 'src/app/interfaces/authentication/authentication.interface';
 import { UserRegisterRequestDto } from 'src/app/interfaces/user/user-register-request.dto';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { CepService } from 'src/app/services/cep.service';
 import { UserService } from 'src/app/services/user.service';
 import { countryListEn, countryListPt } from 'src/app/util/country';
-import { enSectorList } from 'src/app/util/en-sector';
-import {
-  SegmentList,
-  enAgribusinessList,
-  enIndustryList,
-  enServicesList,
-} from 'src/app/util/en-segment';
-import { SectorList, ptSectorList } from 'src/app/util/pt-sector';
-import {
-  ptAgribusinessList,
-  ptIndustryList,
-  ptServicesList,
-} from 'src/app/util/pt-segment';
 import { TermsAndConditionsModalComponent } from './terms-and-conditions-modal/terms-and-conditions-modal.component';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { finalize, Observable, tap } from 'rxjs';
@@ -56,8 +41,9 @@ export class RegisterComponent implements OnInit {
   form3;
 
   countryList: any[] = [];
-  sectorList: SectorList[] = [];
-  segmentList: SegmentList[] = [];
+  // `sectorList`/`segmentList` foram removidos: o template sempre usou
+  // `sections$ | async` e `segments$ | async`, vindos da API. As listas eram
+  // codigo morto convivendo com o caminho bom.
   currentLang: string = '';
 
   CompanyRevenueEnum = CompanyRevenueEnum;
@@ -133,16 +119,18 @@ export class RegisterComponent implements OnInit {
 
     this.form2.controls.sector.valueChanges.subscribe({
       next: (data) => {
+        // O valor do FormControl nao e limpo quando as <option> do select
+        // mudam. Sem o reset, trocar o setor depois de escolher um segmento
+        // envia o id do segmento anterior e a API rejeita o vinculo.
+        this.form2.controls.segment.reset('');
         this.segments$ = this._segmentService.getbySection('0', data ?? '');
       },
     });
 
     this.currentLang = this.translateService.currentLang;
     if (this.currentLang === 'en') {
-      this.sectorList = enSectorList;
       this.countryList = countryListEn;
     } else {
-      this.sectorList = ptSectorList;
       this.countryList = countryListPt;
     }
 
@@ -150,16 +138,15 @@ export class RegisterComponent implements OnInit {
     this.translateService.onLangChange.subscribe({
       next: (data: any) => {
         this.currentLang = this.translateService.currentLang;
+        // O setor nao troca com o idioma: o nome vem da entidade. Antes cada
+        // troca de lingua reescrevia a lista com as tres opcoes hardcoded.
         if (data.lang === 'en') {
-          this.sectorList = enSectorList;
           this.countryList = countryListEn;
         } else {
-          this.sectorList = ptSectorList;
           this.countryList = countryListPt;
         }
 
         this.ChangeDetectorRef.detectChanges();
-        this.handleSegment(this.form2.controls.sector.value);
       },
     });
 
@@ -187,40 +174,12 @@ export class RegisterComponent implements OnInit {
           }
         },
         error: (err) => {
-          alert('Erro ao carregar os dados do usuário.');
+          alert('Erro ao carregar os dados do usuÃ¡rio.');
         },
       });
     }
 
     this.loadSection();
-  }
-
-  handleSegment(data: any) {
-    const currentLang = this.translateService.currentLang;
-
-    if (data === CompanySectionEnum.Agribusiness) {
-      if (currentLang === 'en') {
-        this.segmentList = enAgribusinessList;
-      } else this.segmentList = ptAgribusinessList;
-
-      return;
-    }
-
-    if (data === CompanySectionEnum.Industry) {
-      if (currentLang === 'en') {
-        this.segmentList = enIndustryList;
-      } else this.segmentList = ptIndustryList;
-
-      return;
-    }
-
-    if (data === CompanySectionEnum.Services) {
-      if (currentLang === 'en') {
-        this.segmentList = enServicesList;
-      } else this.segmentList = ptServicesList;
-
-      return;
-    }
   }
 
   onSubmitStep1() {
@@ -248,8 +207,9 @@ export class RegisterComponent implements OnInit {
           city: this.form2.controls['city'].value as string,
           zipCode: this.form2.controls['zipCode'].value as string,
         },
-        segment: this.form2.controls['segment'].value as CompanySegmentEnum,
-        section: this.form2.controls['sector'].value as CompanySectionEnum,
+        // Ids das entidades; a API valida existencia e o vinculo entre elas.
+        segment: this.form2.controls['segment'].value as any,
+        section: this.form2.controls['sector'].value as any,
         numberEmployees: this.form3.controls['collaboratorsAmmount']
           .value as CompanyEmployeesEnum,
         revenue: this.form3.controls['invoicing'].value as CompanyRevenueEnum,
@@ -279,7 +239,7 @@ export class RegisterComponent implements OnInit {
         },
         error: (err) => {
           console.error(err);
-          this.toastr.error('Erro ao cadastrar usuário/empresa', 'Erro', {
+          this.toastr.error('Erro ao cadastrar usuÃ¡rio/empresa', 'Erro', {
             progressBar: true,
           });
           if (
@@ -287,7 +247,7 @@ export class RegisterComponent implements OnInit {
             err.error.errors.includes('dup key')
           ) {
             this.toastr.error(
-              'Já existe uma empresa cadastrada com o CNPJ informado',
+              'JÃ¡ existe uma empresa cadastrada com o CNPJ informado',
               'Erro',
               { progressBar: true }
             );
@@ -400,3 +360,4 @@ export class RegisterComponent implements OnInit {
       );
   }
 }
+

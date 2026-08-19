@@ -1,4 +1,3 @@
-import { CompanySectionEnum } from "../enums/company-section.enum";
 
 export interface UserUpdateRequestDto {
   name?: string;
@@ -7,5 +6,6 @@ export interface UserUpdateRequestDto {
   password?: string;
   oldPassword?: string;
   phone?: string;
-  section?: CompanySectionEnum;
+  /** Id da entidade (ADR-0033), nao mais codigo de enum. */
+  section?: string;
 }

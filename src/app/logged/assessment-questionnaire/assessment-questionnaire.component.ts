@@ -8,7 +8,7 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component';
+import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
 import { EsgRatingService } from 'src/app/services/esg-rating.service';
 import { CompanyService } from 'src/app/services/company.service';
 import { ToastrService } from 'ngx-toastr';
@@ -20,13 +20,14 @@ import { AwsS3FileInterface } from 'src/app/interfaces/aws/aws-s3-file.interface
 import { EsgFormService } from 'src/app/services/esg-form.service';
 import { FormInterface } from 'src/app/forms/form.interface';
 import { QuestionInterface } from 'src/app/forms/question.interface';
+import { isDocumentRequired } from 'src/app/util/document-requirement.util';
 
 @Component({
-  selector: 'app-questionary',
-  templateUrl: './questionary.component.html',
-  styleUrls: ['./questionary.component.scss'],
+  selector: 'app-assessment-questionnaire',
+  templateUrl: './assessment-questionnaire.component.html',
+  styleUrls: ['./assessment-questionnaire.component.scss'],
 })
-export class QuestionaryComponent {
+export class AssessmentQuestionnaireComponent {
   actualStep = 1;
   undefinedAnswers = 0;
   keepReading = false;
@@ -183,8 +184,11 @@ export class QuestionaryComponent {
       const fileArray = new FormArray<FormControl<File | null>>([]);
 
       if (
-        this.questionaryData[index].documentNeeded &&
-        control.value === 'Yes'
+        isDocumentRequired(
+          this.questionaryData[index].documentNeeded,
+          control.value.answer,
+          this.questionaryData[index].type,
+        )
       ) {
         fileArray.setValidators(Validators.required);
       }
@@ -322,9 +326,44 @@ export class QuestionaryComponent {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  /**
+   * Se a questão do índice exige documento, considerando a resposta atual.
+   *
+   * É a mesma regra de submitRevision() e documentsValid. Usada também no
+   * template para só exibir o upload quando ele for de fato necessário — pedir
+   * documento numa questão cuja resposta não pontua é o comportamento que o
+   * card c345217b reporta.
+   */
+  requiresDocument(index: number): boolean {
+    const question = this.questionaryData[index];
+    if (!question) return false;
+
+    return isDocumentRequired(
+      question.documentNeeded,
+      this.formArray.at(index)?.value?.answer,
+      question.type,
+    );
+  }
+
+  /**
+   * Habilita o avanço da etapa de documentos.
+   *
+   * Precisa usar a MESMA regra de submitRevision() — `isDocumentRequired`, que
+   * leva em conta a resposta e o `type` da questão. Antes este getter olhava
+   * só `documentNeeded`, exigindo arquivo em toda questão que aceita upload,
+   * independente da resposta. Como é ele (e não os Validators montados em
+   * submitRevision) que controla o botão Próximo, a correção do card c345217b
+   * não tinha efeito nenhum na tela.
+   */
   get documentsValid(): boolean {
     return this.formArrayDocuments.controls.every((fileArray, index) => {
-      if (!this.questionaryData[index].documentNeeded) return true;
+      const question = this.questionaryData[index];
+      const answer = this.formArray.at(index)?.value?.answer;
+
+      if (!isDocumentRequired(question.documentNeeded, answer, question.type)) {
+        return true;
+      }
+
       return fileArray.length > 0;
     });
   }

@@ -119,6 +119,10 @@ export class RegisterComponent implements OnInit {
 
     this.form2.controls.sector.valueChanges.subscribe({
       next: (data) => {
+        // O valor do FormControl nao e limpo quando as <option> do select
+        // mudam. Sem o reset, trocar o setor depois de escolher um segmento
+        // envia o id do segmento anterior e a API rejeita o vinculo.
+        this.form2.controls.segment.reset('');
         this.segments$ = this._segmentService.getbySection('0', data ?? '');
       },
     });
@@ -170,7 +174,7 @@ export class RegisterComponent implements OnInit {
           }
         },
         error: (err) => {
-          alert('Erro ao carregar os dados do usuário.');
+          alert('Erro ao carregar os dados do usuÃ¡rio.');
         },
       });
     }
@@ -235,7 +239,7 @@ export class RegisterComponent implements OnInit {
         },
         error: (err) => {
           console.error(err);
-          this.toastr.error('Erro ao cadastrar usuário/empresa', 'Erro', {
+          this.toastr.error('Erro ao cadastrar usuÃ¡rio/empresa', 'Erro', {
             progressBar: true,
           });
           if (
@@ -243,7 +247,7 @@ export class RegisterComponent implements OnInit {
             err.error.errors.includes('dup key')
           ) {
             this.toastr.error(
-              'Já existe uma empresa cadastrada com o CNPJ informado',
+              'JÃ¡ existe uma empresa cadastrada com o CNPJ informado',
               'Erro',
               { progressBar: true }
             );
@@ -356,3 +360,4 @@ export class RegisterComponent implements OnInit {
       );
   }
 }
+

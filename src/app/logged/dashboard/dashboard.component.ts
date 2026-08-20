@@ -22,6 +22,7 @@ export class DashboardComponent {
   @ViewChild('contentModal') contentModal: any;
 
   avaliationStatus = '';
+  isUnderAnalysis = false;
   userName = '';
   companySection = 'agro';
   loading = true;
@@ -123,9 +124,15 @@ export class DashboardComponent {
             );
           });
 
-          let inProgressAvaliation = data.filter((item) => {
-            return item.status === 'IN_PROGRESS';
-          })[0];
+          // A avaliacao continua sendo a avaliacao atual depois do envio.
+          // UNDER_ANALYSIS nao pode cair no estado vazio do dashboard, pois
+          // as respostas e os scores seguem validos enquanto aguardam revisao.
+          const inProgressAvaliation =
+            data.find((item) => item.status === 'UNDER_ANALYSIS') ??
+            data.find((item) => item.status === 'IN_PROGRESS');
+
+          this.isUnderAnalysis =
+            inProgressAvaliation?.status === 'UNDER_ANALYSIS';
 
           let postAvaliation = this.allCompleteAvaliations[0];
 
